@@ -1,0 +1,19 @@
+# Bytecode
+**/__pycache__/
+
+# Development
+env/
+.vscode/
+.DS_Store
+
+# Distibution
+dist/
+*.egg-info/
+
+# Testing
+.cache/
+.pytest_cache/
+contract_data/
+
+*.pyc
+build/
