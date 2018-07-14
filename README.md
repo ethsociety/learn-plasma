@@ -29,7 +29,7 @@ $ npm install
 Run the app:
 
 ```
-$ gulp serve
+$ npm start
 ```
 
 Other tasks:
