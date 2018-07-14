@@ -1,16 +1,56 @@
 {
-  "name": "plasma-web",
-  "version": "0.1.0",
+  "name": "LearnPlasma",
+  "version": "0.0.1",
+  "description": "Educational hub for Plasma",
   "private": true,
-  "dependencies": {
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-scripts": "1.1.4"
+  "keywords": [
+    "plasma",
+    "ethereum",
+    "layer2",
+    "scaling",
+    "documentation",
+    "guide",
+    "docs",
+    "manual"
+  ],
+  "author": "IC3",
+  "homepage": "https://github.com/ethsociety/plasma-website",
+  "license": "MIT",
+  "devDependencies": {
+    "ajv": "^6.5.1",
+    "ajv-keywords": "^3.2.0",
+    "bootstrap": "^4.1.1",
+    "browser-sync": "^2.24.4",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "cross-env": "^5.2.0",
+    "del": "^3.0.0",
+    "font-awesome": "^4.7.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-cache": "^1.0.2",
+    "gulp-changed": "^3.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-file": "^0.4.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-rename": "^1.3.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0",
+    "gulp-zip": "^4.1.0",
+    "jquery": "^3.3.1",
+    "node-sass-tilde-importer": "^1.0.2",
+    "perfect-scrollbar": "^1.4.0",
+    "popper.js": "^1.14.3",
+    "prismjs": "1.14.0",
+    "run-sequence": "^2.2.1",
+    "smoothscroll-for-websites": "^1.4.6",
+    "themify-icons": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack-stream": "^4.0.3"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+  "engines": {
+    "node": ">=6.5",
+    "npm": ">=3.10"
   }
 }

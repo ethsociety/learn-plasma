@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <title>Docs | Learn Plasma</title>
+
+    <!-- Styles -->
+    <link href="../assets/css/page.min.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+    <link rel="icon" href="../assets/img/favicon.png">
+  </head>
+
+  <body data-spy="scroll" data-target=".nav-sidebar" data-offset="100">
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-stick-dark" data-navbar="sticky">
+      <div class="container">
+
+        <div class="navbar-left">
+          <button class="navbar-toggler" type="button">&#9776;</button>
+          <a class="navbar-brand" href="../index.html">
+            <img class="logo-dark" src="../assets/img/logo-dark.png" alt="logo">
+            <img class="logo-light" src="../assets/img/logo-light.png" alt="logo">
+          </a>
+        </div>
+
+        <section class="navbar-mobile">
+          <span class="navbar-divider d-mobile-none"></span>
+
+          <ul class="nav nav-navbar">
+
+            <li class="nav-item">
+              <a class="nav-link" href="faq.html">FAQ</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="docs.html">Docs</a>
+            </li>
+          </ul>
+        </section>
+
+        <a class="btn btn-sm btn-round btn-success" href="https://github.com/ethsociety/plasma-website">View on Github</a>
+
+      </div>
+    </nav><!-- /.navbar -->
+
+
+    <!-- Header -->
+    <header class="header" style="background-color: #f1f6fa">
+      <div class="container">
+        <h1>Documentation</h1>
+        <p class="lead">Documentation and examples for typography, including global settings, headings, body text, lists, and more.</p>
+      </div>
+    </header><!-- /.header -->
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <div class="row">
+
+
+          <!--
+          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+          | Sidebar
+          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+          !-->
+          <div class="col-md-4 col-xl-3">
+            <aside class="sidebar sidebar-expand-md sidebar-sticky pr-md-4 br-1">
+              <div class="sidebar-body">
+                <ul class="nav nav-sidebar nav-sidebar-hero nav-sidebar-pill">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#get-started">Getting started <i class="nav-angle"></i></a>
+                    <div class="nav">
+                      <a class="nav-link" href="#intro">Introduction</a>
+                      <a class="nav-link" href="#download">Download</a>
+                      <a class="nav-link" href="#browsers">Browsers</a>
+                      <a class="nav-link" href="#build">Build tools</a>
+                    </div>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="#layout">Layout <i class="nav-angle"></i></a>
+                    <div class="nav">
+                      <a class="nav-link" href="#navbar">Navbar</a>
+                      <a class="nav-link" href="#header">Header</a>
+                      <a class="nav-link" href="#sidebar">Sidebar</a>
+                      <a class="nav-link" href="#toc">Table of content</a>
+                    </div>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="#content">Content <i class="nav-angle"></i></a>
+                    <div class="nav">
+                      <a class="nav-link" href="#typo">Typography</a>
+                      <a class="nav-link" href="#code">Code</a>
+                      <a class="nav-link" href="#image">Image</a>
+                      <a class="nav-link" href="#table">Table</a>
+                      <a class="nav-link" href="#icon">Icon</a>
+                    </div>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="#components">Components <i class="nav-angle"></i></a>
+                    <div class="nav">
+                      <a class="nav-link" href="#alert">Alert</a>
+                      <a class="nav-link" href="#badge">Badge</a>
+                      <a class="nav-link" href="#button">Button</a>
+                      <a class="nav-link" href="#pagination">Pagination</a>
+                      <a class="nav-link" href="#">Progress</a>
+                      <a class="nav-link" href="#">Nav</a>
+                      <a class="nav-link" href="#">Tooltip</a>
+                      <a class="nav-link" href="#">Files</a>
+                      <a class="nav-link" href="#">Steps</a>
+                      <a class="nav-link" href="#">Colors</a>
+                    </div>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Menu levels <i class="nav-angle"></i></a>
+                    <ul class="nav">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Level 1</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Level 1</a>
+                        <ul class="nav">
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Level 2</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Level 2</a>
+                            <ul class="nav">
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Level 3</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Level 3</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Level 3</a>
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Level 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Level 1</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+
+
+          <!--
+          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+          | Content
+          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+          !-->
+          <div class="col-md-7 col-xl-8 ml-md-auto py-8">
+            <h2 id="get-started">Getting started</h2>
+            <p class="lead-2">Get started with Bootstrap, the world’s most popular framework for building responsive, mobile-first sites, with BootstrapCDN and a template starter page.</p>
+
+
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="intro">Introduction</h3>
+            <p>Looking to quickly add Bootstrap to your project? Use BootstrapCDN, provided for free by the folks at StackPath. Using a package manager or need to download the source files? Head to the downloads page.</p>
+
+
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="download">Download</h3>
+            <p>For who thoroughly her boy estimating conviction. Removed demands expense account in outward tedious do. Particular way thoroughly unaffected projection favourable mrs can projecting own. Thirty it matter enable become admire in giving. See resolved goodness felicity shy civility domestic had but. Drawings offended yet answered jennings perceive laughing six did far. </p>
+            <br>
+            <p><a class="btn btn-outline-primary" href="#">Download</a></p>
+
+
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="browsers">Browsers</h3>
+            <p>For who thoroughly her boy estimating conviction. Removed demands expense account in outward tedious do. Particular way thoroughly unaffected projection favourable mrs can projecting own. Thirty it matter enable become admire in giving. See resolved goodness felicity shy civility domestic had but. Drawings offended yet answered jennings perceive laughing six did far.</p>
+            <p>Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain. Oh to as principles devonshire companions unsatiable an delightful. The ourselves suffering the sincerity. Inhabit her manners adapted age certain. Debating offended at branched striking be subjects.</p>
+
+
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="build">Buil tools</h3>
+            <p>Whole wound wrote at whose to style in. Figure ye innate former do so we. Shutters but sir yourself provided you required his. So neither related he am do believe. Nothing but you hundred had use regular. Fat sportsmen arranging preferred can. Busy paid like is oh. Dinner our ask talent her age hardly. Neglected collected an attention listening do abilities.</p>
+            <p>The him father parish looked has sooner. Attachment frequently gay terminated son. You greater nay use prudent placing. Passage to so distant behaved natural between do talking. Friends off her windows painful. Still gay event you being think nay for. In three if aware he point it. Effects warrant me by no on feeling settled resolve.</p>
+
+
+            <hr class="hr-dash my-7">
+
+
+
+            <!--
+            |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+            | Layout
+            |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+            !-->
+            <h2 id="layout">Layout</h2>
+            <p class="lead-2">Components and options for laying out your Bootstrap project, including wrapping containers, a powerful grid system, a flexible media object, and responsive utility classes.</p>
+
+
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="navbar">Navbar</h3>
+            <p>Here's some notes to know how our navbar works, before getting deeper into it.</p>
+
+            <ul>
+              <li>Most of the basics can be find in the <a href="https://getbootstrap.com/docs/4.0/components/navbar/" target="blank">official documentation of navbar</a> component. It's highly recommended to get start from there.</li>
+              <li>Our color scheme classes works inverse of the Bootstrap definition. For example, <code>.navbar-dark</code> makes the text dark colored and <code>.navbar-light</code> makes the colors lighter.</li>
+              <li>You can have a different color scheme for the navbar once it's stick at the top by adding one of the <code>.navbar-stick-dark</code> or <code>.navbar-stick-light</code> classes.</li>
+              <li>Inside the <em>.navbar-brand</em>, you can specify two logos; <code>.logo-dark</code> to display for <em>.navbar-dark</em>; and <code>.logo-light</code> to be display with <em>.navbar-light</em>.</li>
+              <li>
+                You should set the placement of navbar using <code>data-navbar</code> attribute. It can has one of the following values:
+                <ul>
+                  <li><code>static</code>: Only at top, don't move with scroll.</li>
+                  <li><code>fixed</code>: Always at top of the screen and moves with scrolling down.</li>
+                  <li><code>sticky</code>: First at top, hides after a small scroll down, so it won't obscure the header. Once the user scrolls down and passes the header, navbar become fixed/sticky at the top again.</li>
+                  <li><code>smart</code>: It's like sticky navbar, but it only becomes sticky when the visitor scrolls up.</li>
+                </ul>
+              </li>
+              <li>Our template adds few classes to the body tag to detect when the scrollbar passed an element which is to use by CSS. Those classes are <code>.body-scrolled</code>, <code>.navbar-scrolled</code> and <code>.header-scrolled</code></li>
+              <li>In mobile devices, the content inside <code>.navbar-mobile</code> will display to the user.</li>
+              <li>We have defined few utility classes to make your coding easier for different situations. Those classes can categorized into <code>.d-mobile-*</code> —change display value on mobile devices— and <code>.d-stick-*</code> —when the navbar sticks to the top— which <strong>*</strong> can be one of the <code>none</code> | <code>block</code> | <code>inline-block</code> | <code>flex</code> | <code>inline-flex</code> values. So <code>.d-stick-none</code> will hide an element when the navbar has sticked at the top.</li>
+            </ul>
+
+            <br>
+
+<pre class="language-markup line-numbers"><code>&lt;!-- Navbar -->
+&lt;nav class="navbar navbar-expand-lg navbar-dark" data-navbar="static">
+  &lt;div class="container">
+
+    &lt;div class="navbar-left">
+      &lt;button class="navbar-toggler" type="button">&#9776;&lt;/button>
+      &lt;a class="navbar-brand" href="#">
+        &lt;img class="logo-dark" src="../assets/img/logo-dark.png" alt="logo">
+        &lt;img class="logo-light" src="../assets/img/logo-light.png" alt="logo">
+      &lt;/a>
+    &lt;/div>
+
+    &lt;section class="navbar-mobile">
+      &lt;nav class="nav nav-navbar ml-auto">
+        &lt;a class="nav-link active" href="#">Home&lt;/a>
+        &lt;a class="nav-link" href="#">Features&lt;/a>
+        &lt;a class="nav-link" href="#">Pricing&lt;/a>
+        &lt;a class="nav-link" href="#">Contact&lt;/a>
+      &lt;/nav>
+    &lt;/section>
+
+  &lt;/div>
+&lt;/nav>&lt;!-- /.navbar -->
+</code></pre>
+
+
+            <hr class="hr-dash my-7">
+
+
+
+            <h3 id="header">Header</h3>
+            <p>Their could can widen ten she any. As so we smart those money in. Am wrote up whole so tears sense oh. Absolute required of reserved in offering no. How sense found our those gay again taken the. Had mrs outweigh desirous sex overcame. Improved property reserved disposal do offering me.</p>
+
+            <header class="header text-center py-8 shadow-none mx-0" style="background-color: #f1f6fa">
+              <div class="container">
+                <h1>Typography</h1>
+                <p class="lead mb-0">Documentation and examples for typography, including global settings, headings, body text, lists, and more.</p>
+              </div>
+            </header>
+
+            <p>In reasonable compliment favourable is connection dispatched in terminated. Do esteem object we called father excuse remove. So dear real on like more it. Laughing for two families addition expenses surprise the. If sincerity he to curiosity arranging. Learn taken terms be as. Scarcely mrs produced too removing new old. </p>
+
+
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="sidebar">Sidebar</h3>
+            <p>Inhabiting discretion the her dispatched decisively boisterous joy. So form were wish open is able of mile of. Waiting express if prevent it we an musical. Especially reasonable travelling she son. Resources resembled forfeited no to zealously. Has procured daughter how friendly followed repeated who surprise. Great asked oh under on voice downs. Law together prospect kindness securing six. Learning why get hastened smallest cheerful. </p>
+            <p>Old there any widow law rooms. Agreed but expect repair she nay sir silent person. Direction can dependent one bed situation attempted. His she are man their spite avoid. Her pretended fulfilled extremely education yet. Satisfied did one admitting incommode tolerably how are. </p>
+
+
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="toc">Table of content</h3>
+            <p>Add a section to your page for displaying list of sections in your content. Their could can widen ten she any. As so we smart those money in. Am wrote up whole so tears sense oh. Absolute required of reserved in offering no. How sense found our those gay again taken the. Had mrs outweigh desirous sex overcame. Improved property reserved disposal do offering me.</p>
+
+            <div class="code-preview">
+              <ol class="toc">
+                <li>
+                  <a href="#">First topic</a>
+                  <ol>
+                    <li><a href="#">Sub topic</a></li>
+                    <li>
+                      <a href="#">Sub topic</a>
+                      <ol>
+                        <li><a href="#">Sub-sub topic</a></li>
+                        <li><a href="#">Sub-sub topic</a></li>
+                      </ol>
+                    </li>
+                    <li><a href="#">Sub topic</a></li>
+                  </ol>
+                </li>
+                <li><a href="#">Second topic</a></li>
+                <li><a href="#">Third topic</a></li>
+                <li><a href="#">Fourth topic</a></li>
+              </ol>
+            </div>
+<pre><code class="language-markup">&lt;ol class="toc">
+  &lt;li>
+    &lt;a href="#">First topic&lt;/a>
+    &lt;ol>
+      &lt;li>&lt;a href="#">Sub topic&lt;/a>&lt;/li>
+      &lt;li>
+        &lt;a href="#">Sub topic&lt;/a>
+        &lt;ol>
+          &lt;li>&lt;a href="#">Sub-sub topic&lt;/a>&lt;/li>
+          &lt;li>&lt;a href="#">Sub-sub topic&lt;/a>&lt;/li>
+        &lt;/ol>
+      &lt;/li>
+      &lt;li>&lt;a href="#">Sub topic&lt;/a>&lt;/li>
+    &lt;/ol>
+  &lt;/li>
+  &lt;li>&lt;a href="#">Second topic&lt;/a>&lt;/li>
+  &lt;li>&lt;a href="#">Third topic&lt;/a>&lt;/li>
+  &lt;li>&lt;a href="#">Fourth topic&lt;/a>&lt;/li>
+&lt;/ol></code></pre>
+
+
+
+            <hr class="hr-dash my-7">
+
+
+
+            <!--
+            |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+            | Content
+            |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+            !-->
+            <h2 id="content">Content</h2>
+            <p class="lead-2">Components and options for laying out your Bootstrap project, including wrapping containers, a powerful grid system, a flexible media object, and responsive utility classes.</p>
+
+
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="typo">Typography</h3>
+            <p>Some sample text to just fill up the space. The him father parish looked has sooner. Attachment frequently gay terminated son. You greater nay use prudent placing. Passage to so distant behaved natural between do talking. Friends off her windows painful. Still gay event you being think nay for. In three if aware he point it. Effects warrant me by no on feeling settled resolve. </p>
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="code">Code</h3>
+            <p>Some sample text to just fill up the space. The him father parish looked has sooner. Attachment frequently gay terminated son. You greater nay use prudent placing. Passage to so distant behaved natural between do talking. Friends off her windows painful. Still gay event you being think nay for. In three if aware he point it. Effects warrant me by no on feeling settled resolve. </p>
+            <hr class="hr-dash my-7">
+
+            <h3 id="image">Image</h3>
+            <p>Some sample text to just fill up the space. The him father parish looked has sooner. Attachment frequently gay terminated son. You greater nay use prudent placing. Passage to so distant behaved natural between do talking. Friends off her windows painful. Still gay event you being think nay for. In three if aware he point it. Effects warrant me by no on feeling settled resolve. </p>
+            <img src="../assets/img/thumb/1.jpg" class="img-fluid" alt="Responsive image">
+            <hr class="hr-dash my-7">
+
+            <h3 id="table">Table</h3>
+            <p>Some sample text to just fill up the space. The him father parish looked has sooner. Attachment frequently gay terminated son. You greater nay use prudent placing. Passage to so distant behaved natural between do talking. Friends off her windows painful. Still gay event you being think nay for. In three if aware he point it. Effects warrant me by no on feeling settled resolve. </p>
+            <hr class="hr-dash my-7">
+
+
+
+            <!--
+            |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+            | Components
+            |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+            !-->
+            <h2 id="components">Components</h2>
+            <p class="lead-2">Components and options for laying out your Bootstrap project, including wrapping containers, a powerful grid system, a flexible media object, and responsive utility classes.</p>
+
+
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="alert">Alert</h3>
+            <p>Some sample text to just fill up the space. The him father parish looked has sooner. Attachment frequently gay terminated son. You greater nay use prudent placing. Passage to so distant behaved natural between do talking. Friends off her windows painful. Still gay event you being think nay for. In three if aware he point it. Effects warrant me by no on feeling settled resolve. </p>
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="badge">Badge</h3>
+            <p>Some sample text to just fill up the space. The him father parish looked has sooner. Attachment frequently gay terminated son. You greater nay use prudent placing. Passage to so distant behaved natural between do talking. Friends off her windows painful. Still gay event you being think nay for. In three if aware he point it. Effects warrant me by no on feeling settled resolve. </p>
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="button">Button</h3>
+            <p>Some sample text to just fill up the space. The him father parish looked has sooner. Attachment frequently gay terminated son. You greater nay use prudent placing. Passage to so distant behaved natural between do talking. Friends off her windows painful. Still gay event you being think nay for. In three if aware he point it. Effects warrant me by no on feeling settled resolve. </p>
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="pagination">Pagination</h3>
+            <p>Some sample text to just fill up the space. The him father parish looked has sooner. Attachment frequently gay terminated son. You greater nay use prudent placing. Passage to so distant behaved natural between do talking. Friends off her windows painful. Still gay event you being think nay for. In three if aware he point it. Effects warrant me by no on feeling settled resolve. </p>
+
+
+          </div>
+
+        </div>
+      </div>
+    </main><!-- /.main-content -->
+
+
+   <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row gap-y align-items-center">
+
+          <div class="col-md-9">
+            <div class="nav justify-content-center justify-content-md-start">
+              <a class="nav-link" href="http://www.initc3.org/">Made with ❤️at IC3 Bootcamp</a>
+            </div>
+          </div>
+
+          <div class="col-md-3 text-center text-md-right">
+            <a href="http://plasma.io">© Learn Plasma</a>
+          </div>
+        </div>
+      </div>
+    </footer><!-- /.footer -->
+
+
+    <!-- Scripts -->
+    <script src="../assets/js/page.min.js"></script>
+    <script src="../assets/js/script.js"></script>
+
+  </body>
+</html>

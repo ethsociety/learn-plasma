@@ -1,0 +1,64 @@
+
+//----------------------------------------------------/
+// The block number above each block
+//----------------------------------------------------/
+.block-number {
+  $color: #191919;
+
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.8125em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $color;
+  //opacity: 0.8;
+  transition: 0.3s ease-out;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 6px;
+    margin-bottom: 2px;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 3px solid $color;
+  }
+
+  a:hover,
+  a:focus {
+    color: $color;
+  }
+}
+
+
+//----------------------------------------------------/
+// Make some change to components in demo
+//----------------------------------------------------/
+.demo-section .main-content .section,
+.main-content .topbar,
+.main-content .navbar,
+.main-content .header,
+.main-content .footer {
+  margin: 30px 20px 100px;
+  border: 1px solid #f5f6f7;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+}
+
+.main-content .navbar,
+.main-content .header,
+.main-content .footer {
+  //margin: 30px 0 100px;
+  //border: 1px solid #f5f6f7;
+  //box-shadow: 0 0 15px rgba(0,0,0,0.05);
+}
+
+.main-content .navbar {
+  position: static;
+  margin: 0;
+}
