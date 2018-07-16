@@ -14,7 +14,8 @@
     "manual"
   ],
   "scripts": {
-    "start": "gulp serve"
+    "start": "gulp serve",
+    "build": "gulp build"
   },
   "author": "IC3",
   "homepage": "https://github.com/ethsociety/plasma-website",
