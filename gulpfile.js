@@ -204,7 +204,7 @@ gulp.task('dev', function(cb) {
   sequence('copyFonts', 'sass', 'js', cb);
 });
 
-gulp.task('dist', function(cb) {
+gulp.task('build', function(cb) {
   production = true;
   sequence('distClean', 'dev', 'distCopy', cb);
 });

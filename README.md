@@ -17,7 +17,7 @@ $ git clone https://github.com/ethsociety/plasma-website.git
 Install the Gulp command line tools, *gulp-cli*:
 
 ```
-npm install gulp-cli -g
+$ npm install gulp-cli -g
 ```
 
 Navigate to the root of the repo and install the dependencies:
@@ -26,16 +26,14 @@ Navigate to the root of the repo and install the dependencies:
 $ npm install
 ```
 
-Run the app:
+Serve the app locally for development:
 
 ```
 $ npm start
 ```
 
-Other tasks:
+Build the app for production:
 
-- `gulp serve` - Runs a server and starts watching for changes to html, scss and js files; compiles and reloads the browser
-
-- `gulp dist` - Creates a /dist folder, compiles scss and js files, and copies all the project's files inside the /dist directory except the unnecessary ones
-
-- `gulp img` - Uses the imagemin plugin to minify the images inside /assets/img directory
+```
+$ npm run build
+```
