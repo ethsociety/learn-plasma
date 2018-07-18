@@ -100,85 +100,262 @@
           |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
           !-->
           <div class="col-md-7 col-xl-8 ml-md-auto py-8">
-            <h2 id="plasma-cash">Introduction</h2>
-            <p class="lead-2">Plasma Cash is a Plasma implementation that allows for non-fungible tokens using Sparse Merkle Trees.</p>
+            <h2 id="plasma101">Getting started</h2>
+            <p class="lead-2">Get familiar with Plasma, a framework for building scalable blockchain applications.</p>
+
 
             <hr class="hr-dash my-7">
 
-            <h3 id="background">Motivation - Operator's Incentive</h3>
 
-			<p><span>In Plasma MVP, all tokens deposited can be considered as fungible tokens. An exit relies on a user&rsquo;s ability to claim and verify a certain amount of the funds in the shared pool. This results in a scenario where an operator might be able to create &ldquo;out of nowhere&rdquo; transactions that do not stem from a valid deposit in the root chain contract. </span></p>
-
-			<p><span>The operator would then intentionally withhold these blocks where invalid transactions exist. </span></p>
-
-			<p><span>In Plasma MVP, all tokens deposited are fungible and stored in a shared pool on the root chain contract. An exit relies on a user&rsquo;s ability to claim and verify a certain amount of funds and for this claim to be resilient against challenges.</span></p>
-
-			<p><span>This creates a scenario where an operator can create &ldquo;out of nowhere&rdquo; transactions which are basically transactions that do not stem from a valid deposit in the root chain contract. What the operator can do is to re-send these transactions back to themselves as many times as possible and store all these transactions into a block. This particular block is then committed to the root chain but not broadcast on the Plasma chain. </span></p>
-
-			<p><span>In doing so, it becomes impossible for other participants to challenge the validity of the exit transaction for two reasons:</span></p>
-
-			<ol>
-				<li><span>The participants cannot find the invalid &ldquo;out of nowhere&rdquo; transaction since it was withheld by the operator. To challenge, they have to ask the operator to show proof of the entire transaction history. </span></li>
-				<li><span>However, the total transaction history proof is too large for the operator to be able to show on the root chain. Ethereum has a 1MB limit on block size. So they can get away with not revealing the invalid transaction.</span></li>
-			</ol>
-
-			<p><span>This allows the operator to create &ldquo;out-of-nowhere&rdquo; transactions with which they can successfully exit and drain the funds out of the smart contract on the root chain.</span></p>
+            <h3 id="intro">Introduction</h3>
+            <p>Plasma is a proposed famework for incentivized and enforced execution of smart contracts which is scalable to a significant amount of state updates per second (potentially billions) enabling the blockchain to be able to represent a significant amount of decentralized financial applications worldwide.</p>
 
             <hr class="hr-dash my-7">
 
-            <h3 id="non-fungibility">Non-fungibility</h3>
-			<p><span>Plasma Cash was designed to give the operator as little incentive as possible to cheat or game the system. Every token in the Plasma Chain is indexed and linked to a corresponding deposit on the Root Chain.</span></p>
+            <h3 id="goals">Design goals</h3>
+            <p>In order to implement plasma effectively, there are certain design goals that need to be met. Let’s go through those goals and the significance of each.</p>
 
-			<p><br /><span>If the operator tries to create invalid transactions and exit from those transactions, the operator can easily be challenged because all tokens are non-fungible and their transaction history can easily be traced. It is also not possible for the operator to withdraw all the funds in one go as they have to make separate exits for every token. The operator then loses all bonds staked on these exits, which is of substantial cost to the malicious operator.</span></p>
+            <h5>#1 One Blockchain to rule them all</h5>
+            <p>As stated earlier, the main blockchain will be the root blockchain and every other child chain will be derived directly or indirectly from it. The root chain will not interfere with any of the child chains except on the event of disputes.</p>
 
-			<img src="../assets/img/sketches/operator-invalid-transactions.jpg">
-            <hr class="hr-dash my-7">
+            <h5>#2 Minimization of Trust</h5>
+            <p>The system needs to be as trustless as possible. None of the child chains can be completely dependent on the ethics of certain actors. There should be mechanisms for someone to exit from the child chains..</p>
 
-            <h3 id="data-structure">Data Structure</h3>
+            <h5>#3 Ledger Scalability</h5>
+            <p>The blockchains should be able to hold a lot of data. The child chains should be able to take up the data that would normally go on the root chain.</p>
 
-			<p><span>Each block holds the state of every single token in a data structure known as a Sparse Merkle Tree (SMT). Each token is permanently assigned to a leaf node in the tree and the tree just has to keep track of the owner of each token. This is advantageous for a few reasons: </span></p>
+            <h5>#4 Should be Scalable</h5>
+            <p>The child chain should be compatible with various scaling solutions. Basically, they should be capable of implementing solutions like sharding and lightning network as well.</p>
 
-			<ol>
-				<li><span>Default values for each layer of the tree can be pre-calculated. Layer 0 would be H(0), Layer 1 would be H((H0), H(0)), Layer 2 would be H(H(H(0), H(0)), H(H(0), H(0))) and so forth. This saves on processing time and power needed for the computations. Each client only needs to save data for the tokens it currently owns.</span></li>
+            <h5>#5 Localized Computations</h5>
+            <p>Each child chain must be capable of doing their own calculations. On regular intervals, each chain should give their state updates to the parent chain.</p>
 
-				<li><span>Verification of a transaction only requires looking at the index of the token in the tree. Only the history of the token transaction being verified has to be considered.</span></li>
-				<li><span>When a token is spent, it is guaranteed that there is only one transaction in the SMT.</span></li>
-			</ol>
+            <h5>#6 Fraud Proofs</h5>
+            <p>On the event of a dispute, the bereaved party can send a proof of fraud to the root chain The root chain can then roll back the state of the child chain and penalize the signers of the block of the child chain.</p>
 
-			<img src="../assets/img/sketches/overview.jpg" style="max-height:500px">
-
-            <hr class="hr-dash my-7">
-
-            <h3 id="validation">Validation</h3>
-
-			<p><span>When a transaction is made, the clients verify that transaction by checking that the token has been properly transferred since its initial deposit. Proofs from every block since the initial deposit of the token must be shown. In a block, the token is either spent in a transaction or unspent. </span></p>
-
-			<p><span>If the token was not spent in a block, proofs of non-inclusion must be given and this can be done simply by giving a Merkle proof that no transaction took place at that index in the SMT for that particular block. If it was indeed spent, a Merkle proof of the transaction must be given to show that the proper transfer of ownership did take place.</span></p>
-
-			<img src="../assets/img/sketches/validation.jpg"
+            <h5>#7 Every Plasma Chain is Unique</h5>
+            <p>Every child chain can have its own governance rules. They can be their own unique entity as long as they are constantly reporting back to the main chain.</p>
 
             <hr class="hr-dash my-7">
 
-            <h3 id="strengths-weaknesses">Strengths and Weaknesses</h3>
-			<p><span>Since proofs of the token&rsquo;s activity must be shown for every single block from its deposit to the current block, this results in massive overhead when the Plasma Chain has progressed to a significant amount of blocks. Let&rsquo;s do a quick calculation: </span></p>
 
-			<p><span>Let&rsquo;s use a conservative estimate for the number of coins. Assume we have 2^10 tokens for the Plasma Chain. This results in a SMT of height 10 for which we will require 10 branch hashes.</span></p>
+            <h3 id="settlement">Root chain settlement</h3>
+            <p>The root chain is like the universal absolute ground truth, while the child chains work around it doing their own computations and periodically feeding state information to the root chain.</p>
+            <p>The root chain comes into play only when there is a dispute that needs to be settled in the child chain, otherwise, it doesn’t involve itself with anything going on in the child chain and this point is the core underlying philosophy behind it. If the root chain is going to be the ground truth, then it must remain as devoid of activity and calculations as possible.</p>
 
-			<p><span>1 hash = 32 bytes</span></p>
 
-			<p><span>Size of Merkle Tree = 32bytes * 10 = 320 bytes</span></p>
+            <hr class="hr-dash my-7">
 
-			<p><span>This results in 320 bytes per block.</span></p>
 
-			<p><span>If one block is produced every 15 seconds, that results in 3.154 million blocks per year.</span></p>
+            <h3 id="challenges">Challenge Period</h3>
+            <p>For who thoroughly her boy estimating conviction. Removed demands expense account in outward tedious do. Particular way thoroughly unaffected projection favourable mrs can projecting own. Thirty it matter enable become admire in giving. See resolved goodness felicity shy civility domestic had but. Drawings offended yet answered jennings perceive laughing six did far.</p>
+            <p>Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain. Oh to as principles devonshire companions unsatiable an delightful. The ourselves suffering the sincerity. Inhabit her manners adapted age certain. Debating offended at branched striking be subjects.</p>
 
-			<p><span>320bytes*3.154million blocks/year = 1.01GB/year</span></p>
 
-			<p><span>This results in 1.01GB/year transfer of proof and this increases as number of tokens increase.</span></p>
+            <hr class="hr-dash my-7">
 
-			<p><span>There is a trade-off between flexibility and fungibility. In Plasma Cash, tokens have to be spent in the exact denomination that they were created in. There is no way to spend less than or a fraction of a specific token in a transaction. This is extremely unsuitable for use cases such as exchanges. There may be certain ways to manage splitting and merging the tokens but these are all highly theoretical and still in discussion.</span></p>
 
-			<p><span>Having non-fungible tokens make Plasma Cash a perfect use case for supply-chain logistics. Each individual part or piece can be tracked as a token. The bulk of the work happens off-chain so the supply chain benefits from the high throughput of the Plasma Chain while the root hashes posted to the Root Chain ensure that the supply chain receives the full security guarantee of Ethereum.</span></p>
+            <h3 id="exits">Exit strategies</h3>
+            <p>Whole wound wrote at whose to style in. Figure ye innate former do so we. Shutters but sir yourself provided you required his. So neither related he am do believe. Nothing but you hundred had use regular. Fat sportsmen arranging preferred can. Busy paid like is oh. Dinner our ask talent her age hardly. Neglected collected an attention listening do abilities.</p>
+            <p>The him father parish looked has sooner. Attachment frequently   terminated son. You greater nay use prudent placing. Passage to so distant behaved natural between do talking. Friends off her windows painful. Still   event you being think nay for. In three if aware he point it. Effects warrant me by no on feeling settled resolve.</p>
+
+
+            <hr class="hr-dash my-7">
+
+
+
+            <!--
+            |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+            | Plasma by example
+            |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+            !-->
+            <h2 id="example">Plasma by example</h2>
+            <p class="lead-2">Components and options for laying out your Bootstrap project, including wrapping containers, a powerful grid system, a flexible media object, and responsive utility classes.</p>
+
+
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="mvp">Plasma MVP</h3>
+            <p>Here's some notes to know how our navbar works, before getting deeper into it.</p>
+
+            <ul>
+              <li>Most of the basics can be find in the <a href="https://getbootstrap.com/docs/4.0/components/navbar/" target="blank">official documentation of navbar</a> component. It's highly recommended to get start from there.</li>
+              <li>Our color scheme classes works inverse of the Bootstrap definition. For example, <code>.navbar-dark</code> makes the text dark colored and <code>.navbar-light</code> makes the colors lighter.</li>
+              <li>You can have a different color scheme for the navbar once it's stick at the top by adding one of the <code>.navbar-stick-dark</code> or <code>.navbar-stick-light</code> classes.</li>
+              <li>Inside the <em>.navbar-brand</em>, you can specify two logos; <code>.logo-dark</code> to display for <em>.navbar-dark</em>; and <code>.logo-light</code> to be display with <em>.navbar-light</em>.</li>
+              <li>
+                You should set the placement of navbar using <code>data-navbar</code> attribute. It can has one of the following values:
+                <ul>
+                  <li><code>static</code>: Only at top, don't move with scroll.</li>
+                  <li><code>fixed</code>: Always at top of the screen and moves with scrolling down.</li>
+                  <li><code>sticky</code>: First at top, hides after a small scroll down, so it won't obscure the header. Once the user scrolls down and passes the header, navbar become fixed/sticky at the top again.</li>
+                  <li><code>smart</code>: It's like sticky navbar, but it only becomes sticky when the visitor scrolls up.</li>
+                </ul>
+              </li>
+              <li>Our template adds few classes to the body tag to detect when the scrollbar passed an element which is to use by CSS. Those classes are <code>.body-scrolled</code>, <code>.navbar-scrolled</code> and <code>.header-scrolled</code></li>
+              <li>In mobile devices, the content inside <code>.navbar-mobile</code> will display to the user.</li>
+              <li>We have defined few utility classes to make your coding easier for different situations. Those classes can categorized into <code>.d-mobile-*</code> —change display value on mobile devices— and <code>.d-stick-*</code> —when the navbar sticks to the top— which <strong>*</strong> can be one of the <code>none</code> | <code>block</code> | <code>inline-block</code> | <code>flex</code> | <code>inline-flex</code> values. So <code>.d-stick-none</code> will hide an element when the navbar has sticked at the top.</li>
+            </ul>
+
+            <br>
+
+<pre class="language-markup line-numbers"><code>&lt;!-- Navbar -->
+&lt;nav class="navbar navbar-expand-lg navbar-dark" data-navbar="static">
+  &lt;div class="container">
+
+    &lt;div class="navbar-left">
+      &lt;button class="navbar-toggler" type="button">&#9776;&lt;/button>
+      &lt;a class="navbar-brand" href="#">
+        &lt;img class="logo-dark" src="../assets/img/logo-dark.png" alt="logo">
+        &lt;img class="logo-light" src="../assets/img/logo-light.png" alt="logo">
+      &lt;/a>
+    &lt;/div>
+
+    &lt;section class="navbar-mobile">
+      &lt;nav class="nav nav-navbar ml-auto">
+        &lt;a class="nav-link active" href="#">Home&lt;/a>
+        &lt;a class="nav-link" href="#">Features&lt;/a>
+        &lt;a class="nav-link" href="#">Pricing&lt;/a>
+        &lt;a class="nav-link" href="#">Contact&lt;/a>
+      &lt;/nav>
+    &lt;/section>
+
+  &lt;/div>
+&lt;/nav>&lt;!-- /.navbar -->
+</code></pre>
+
+
+            <hr class="hr-dash my-7">
+
+
+
+            <h3 id="mvp-overview">Overview</h3>
+            <p>Their could can widen ten she any. As so we smart those money in. Am wrote up whole so tears sense oh. Absolute required of reserved in offering no. How sense found our those   again taken the. Had mrs outweigh desirous sex overcame. Improved property reserved disposal do offering me.</p>
+
+            <header class="header text-center py-8 shadow-none mx-0" style="background-color: #f1f6fa">
+              <div class="container">
+                <h1>Typography</h1>
+                <p class="lead mb-0">Documentation and examples for typography, including global settings, headings, body text, lists, and more.</p>
+              </div>
+            </header>
+
+            <p>In reasonable compliment favourable is connection dispatched in terminated. Do esteem object we called father excuse remove. So dear real on like more it. Laughing for two families addition expenses surprise the. If sincerity he to curiosity arranging. Learn taken terms be as. Scarcely mrs produced too removing new old. </p>
+
+
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="mvp-architecture">Architecture</h3>
+            <p>Inhabiting discretion the her dispatched decisively boisterous joy. So form were wish open is able of mile of. Waiting express if prevent it we an musical. Especially reasonable travelling she son. Resources resembled forfeited no to zealously. Has procured daughter how friendly followed repeated who surprise. Great asked oh under on voice downs. Law together prospect kindness securing six. Learning why get hastened smallest cheerful. </p>
+            <p>Old there any widow law rooms. Agreed but expect repair she nay sir silent person. Direction can dependent one bed situation attempted. His she are man their spite avoid. Her pretended fulfilled extremely education yet. Satisfied did one admitting incommode tolerably how are. </p>
+            <img src="assets/img/vector/architecture.jpeg" class="img-fluid" alt="Responsive image">
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="mvp-cli">CLI Documentation</h3>
+            <p>Add a section to your page for displaying list of sections in your content. Their could can widen ten she any. As so we smart those money in. Am wrote up whole so tears sense oh. Absolute required of reserved in offering no. How sense found our those   again taken the. Had mrs outweigh desirous sex overcame. Improved property reserved disposal do offering me.</p>
+
+<pre><code class="language-markup">&lt;ol class="toc">
+  &lt;li>
+    &lt;a href="#">First topic&lt;/a>
+    &lt;ol>
+      &lt;li>&lt;a href="#">Sub topic&lt;/a>&lt;/li>
+      &lt;li>
+        &lt;a href="#">Sub topic&lt;/a>
+        &lt;ol>
+          &lt;li>&lt;a href="#">Sub-sub topic&lt;/a>&lt;/li>
+          &lt;li>&lt;a href="#">Sub-sub topic&lt;/a>&lt;/li>
+        &lt;/ol>
+      &lt;/li>
+      &lt;li>&lt;a href="#">Sub topic&lt;/a>&lt;/li>
+    &lt;/ol>
+  &lt;/li>
+  &lt;li>&lt;a href="#">Second topic&lt;/a>&lt;/li>
+  &lt;li>&lt;a href="#">Third topic&lt;/a>&lt;/li>
+  &lt;li>&lt;a href="#">Fourth topic&lt;/a>&lt;/li>
+&lt;/ol></code></pre>
+
+
+
+            <hr class="hr-dash my-7">
+
+            <h3 id="implementations">Known Implementations</h3>
+            <p>This is an ongoing list of acitvely maintained Plasma dapps.</p>
+
+            <ul>
+              <li><a href="https://github.com/omisego/plasma-mvp">Plasma MVP</a> - <code>git clone https://github.com/omisego/plasma-mvp</code></li>
+              <li><a href="https://github.com/omisego/plasma-cash">Plasma Cash</a> - <code>git clone https://github.com/omisego/plasma-cash</code></li>
+              <li><a href="https://github.com/loomnetwork/plasma-erc721">Plasma ERC721</a> - <code>git clone https://github.com/loomnetwork/plasma-erc721</code></li>
+              <li><a href="https://github.com/wolkdb/deepblockchains/tree/master/Plasmacash">Wolkdb</a> - <code>git clone https://github.com/wolkdb/deepblockchains/tree/master/Plasmacash</code></li>
+              <li><a href="https://github.com/FourthState">Fourth State</a> - <code>git clone https://github.com/FourthState</code></li>
+              <li><a href="https://github.com/ethereum-plasma/plasma">Ethereum Plasma</a> - <code>git clone https://github.com/ethereum-plasma/plasma</code></li>
+              <li><a href="https://github.com/BANKEX/PlasmaParentContract">Plasma Parent</a> - <code>git clone https://github.com/BANKEX/PlasmaParentContract</code></li>
+              <li><a href="https://github.com/FastXProtocol/plasma-mvp">FastXProtocol</a> - <code>git clone https://github.com/FastXProtocol/plasma-mvp</code></li>
+            </ul>
+
+
+            <hr class="hr-dash my-7">
+
+            <!--
+            |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+            | Security Analysis
+            |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+            !-->
+            <h2 id="security">Security Analysis</h2>
+            <p class="lead-2">Components and options for laying out your Bootstrap project, including wrapping containers, a powerful grid system, a flexible media object, and responsive utility classes.</p>
+
+
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="pitfalls">Pitfalls</h3>
+            <p>Some sample text to just fill up the space. The him father parish looked has sooner. Attachment frequently   terminated son. You greater nay use prudent placing. Passage to so distant behaved natural between do talking. Friends off her windows painful. Still   event you being think nay for. In three if aware he point it. Effects warrant me by no on feeling settled resolve. </p>
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="recommendations">Recommendations</h3>
+            <p>Some sample text to just fill up the space. The him father parish looked has sooner. Attachment frequently   terminated son. You greater nay use prudent placing. Passage to so distant behaved natural between do talking. Friends off her windows painful. Still   event you being think nay for. In three if aware he point it. Effects warrant me by no on feeling settled resolve. </p>
+            <hr class="hr-dash my-7">
+
+            <h3 id="trade-offs">Trade-offs</h3>
+            <p>Some sample text to just fill up the space. The him father parish looked has sooner. Attachment frequently   terminated son. You greater nay use prudent placing. Passage to so distant behaved natural between do talking. Friends off her windows painful. Still   event you being think nay for. In three if aware he point it. Effects warrant me by no on feeling settled resolve. </p>
+            <hr class="hr-dash my-7">
+
+
+
+            <!--
+            |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+            | Plasma for developers
+            |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+            !-->
+            <h2 id="developers">Plasma for Developers</h2>
+            <p class="lead-2">Components and options for laying out your Bootstrap project, including wrapping containers, a powerful grid system, a flexible media object, and responsive utility classes.</p>
+
+
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="motivation">Motivation</h3>
+            <p>Some sample text to just fill up the space. The him father parish looked has sooner. Attachment frequently   terminated son. You greater nay use prudent placing. Passage to so distant behaved natural between do talking. Friends off her windows painful. Still   event you being think nay for. In three if aware he point it. Effects warrant me by no on feeling settled resolve. </p>
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="samplecode">Sample Code</h3>
+            <p>Some sample text to just fill up the space. The him father parish looked has sooner. Attachment frequently   terminated son. You greater nay use prudent placing. Passage to so distant behaved natural between do talking. Friends off her windows painful. Still   event you being think nay for. In three if aware he point it. Effects warrant me by no on feeling settled resolve. </p>
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="bugreports">Bug Reporting</h3>
+            <p>Some sample text to just fill up the space. The him father parish looked has sooner. Attachment frequently   terminated son. You greater nay use prudent placing. Passage to so distant behaved natural between do talking. Friends off her windows painful. Still   event you being think nay for. In three if aware he point it. Effects warrant me by no on feeling settled resolve. </p>
+
+
+          </div>
+
+        </div>
+      </div>
+    </main><!-- /.main-content -->
+
 
    <!-- Footer -->
     <footer class="footer">
