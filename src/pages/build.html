@@ -17,7 +17,7 @@
     <link rel="icon" href="../assets/img/favicon.png">
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target=".nav-sidebar" data-offset="100">
 
 
     <!-- Navbar -->
@@ -63,12 +63,17 @@
 
     <!-- Header -->
     <header class="header" style="background-color: #f1f6fa">
-      <div class="container-sm">
-        <h1>Build Stuff</h1>
+      <div class="container">
+        <h1>Build Stuff!</h1>
         <p class="lead">
           The Plasma ecosystem needs you.
           Lots of projects are actively building things using the Plasma framework.
-          This page maintains a list of actively developed projects you can contribute to!
+          This page maintains a list of actively developed projects you can contribute to.
+        </p>
+        <p>
+          If you actively maintain a Plasma implementation and don't see it listed here, feel free to create an issue on <a href="https://github.com/ethsociety/learn-plasma" target="_blank">GitHub!</a>
+          We'll get your project on this page.
+          Similarly, please open an issue if something on this page is inaccurate or you'd like to change a description.
         </p>
       </div>
     </header><!-- /.header -->
@@ -83,40 +88,40 @@
               <div class="sidebar-body">
                 <ul class="nav nav-sidebar nav-sidebar-hero nav-sidebar-pill">
                   <li class="nav-item">
-                    <a class="nav-link" href="#plasma-mvp">Plasma MVP <i class="nav-angle"></i></a>
+                    <a class="nav-link" href="#fourthstatelabs">Fourth State Labs <i class="nav-angle"></i></a>
                     <div class="nav">
-                      <a class="nav-link" href="#fourthstatelabs">FourthState Labs</a>
-                      <a class="nav-link" href="#omisego">OmiseGO</a>
+                      <a class="nav-link" href="#fsl-rootchain">plasma-mvp-rootchain</a>
+                      <a class="nav-link" href="#fsl-sidechain">plasma-mvp-sidechain</a>
                     </div>
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="#">More Viable Plasma <i class="nav-angle"></i></a>
+                    <a class="nav-link" href="#omisego">OmiseGO <i class="nav-angle"></i></a>
                     <div class="nav">
-                      <a class="nav-link" href="#welcome">Welcome</a>
-                      <a class="nav-link" href="#contributing">Contributing</a>
-                      <a class="nav-link" href="#community">Community</a>
-                      <a class="nav-link" href="#letsgo">Let's get started!</a>
+                      <a class="nav-link" href="#omg-mvp">plasma-mvp</a>
+                      <a class="nav-link" href="#omg-contracts">plasma-contracts</a>
+                      <a class="nav-link" href="#omg-cash">plasma-cash</a>
                     </div>
                   </li>
   
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Plasma Cash <i class="nav-angle"></i></a>
+                    <a class="nav-link" href="#loom">Loom Network <i class="nav-angle"></i></a>
                     <div class="nav">
-                      <a class="nav-link" href="#welcome">Welcome</a>
-                      <a class="nav-link" href="#contributing">Contributing</a>
-                      <a class="nav-link" href="#community">Community</a>
-                      <a class="nav-link" href="#letsgo">Let's get started!</a>
+                      <a class="nav-link" href="#loom-cash">plasma-erc721</a>
                     </div>
                   </li>
-
+  
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Plasma Debit <i class="nav-angle"></i></a>
+                    <a class="nav-link" href="#bankex">BANKEX <i class="nav-angle"></i></a>
                     <div class="nav">
-                      <a class="nav-link" href="#welcome">Welcome</a>
-                      <a class="nav-link" href="#contributing">Contributing</a>
-                      <a class="nav-link" href="#community">Community</a>
-                      <a class="nav-link" href="#letsgo">Let's get started!</a>
+                      <a class="nav-link" href="#bx-mvp">PlasmaParentContract</a>
+                    </div>
+                  </li>
+  
+                  <li class="nav-item">
+                    <a class="nav-link" href="#wolk">Wolk <i class="nav-angle"></i></a>
+                    <div class="nav">
+                      <a class="nav-link" href="#wolk-cash">Plasmacash</a>
                     </div>
                   </li>
                 </ul>
@@ -125,21 +130,14 @@
           </div>
     
           <div class="col-md-7 col-xl-8 ml-md-auto py-8">
-            <h2 id="plasma-mvp">Plasma MVP</h2>
-            <p>
-              Plasma MVP is the most mature Plasma design so far, but there's always lots of work to be done. 
-            </p>
-
-            <hr class="hr-dash my-7">
-
-            <h4 id="fourthstatelabs"><a href="https://github.com/fourthstate" target="_blank">FourthState Labs</a></h4>
+            <!-- Fourth State Labs -->
+            <h2 id="fourthstatelabs"><a href="https://github.com/fourthstate" target="_blank">FourthState Labs</a></h2>
             <p>
               FourthState Labs is Blockchain @ Berkeley's Plasma team.
             </p>
-
             <br>
     
-            <h5><a href="https://github.com/FourthState/plasma-mvp-rootchain" target="_blank">plasma-mvp-rootchain</a></h5>
+            <h5 id="fsl-rootchain"><a href="https://github.com/FourthState/plasma-mvp-rootchain" target="_blank">plasma-mvp-rootchain</a></h5>
             <p>
               FourthState Labs is maintaining a Plasma MVP smart contract for Ethereum.
             </p>
@@ -148,10 +146,9 @@
               <li>Solidity</li>
               <li>JavaScript (Truffle)</li>
             </ul>
-
             <br>
 
-            <h5><a href="https://github.com/FourthState/plasma-mvp-sidechain" target="_blank">plasma-mvp-sidechain</a></h5>
+            <h5 id="fsl-sidechain"><a href="https://github.com/FourthState/plasma-mvp-sidechain" target="_blank">plasma-mvp-sidechain</a></h5>
             <p>
               FourthState labs is separately developing a Plasma MVP client that uses tendermint consensus.
             </p>
@@ -162,14 +159,14 @@
 
             <hr class="hr-dash my-7">
 
-            <h4 id="omisego"><a href="https://omisego.network/" target="_blank">OmiseGO</a></h4>
+            <!-- OmiseGO -->
+            <h2 id="omisego"><a href="https://omisego.network/" target="_blank">OmiseGO</a></h2>
             <p>
               OmiseGO is using Plasma to build a scalable decentralized exchange and payment network.
             </p>
-
             <br>
 
-            <h5><a href="https://github.com/omisego/plasma-contracts" target="_blank">plasma-contracts</a></h5>
+            <h5 id="omg-mvp"><a href="https://github.com/omisego/plasma-contracts" target="_blank">plasma-contracts</a></h5>
             <p>
               OmiseGO's production Plasma contracts are maintained in this repository.
               The master branch currently tracks optimized Plasma MVP contracts.
@@ -179,10 +176,9 @@
               <li>Solidity</li>
               <li>Python</li>
             </ul>
-
             <br>
 
-            <h5><a href="https://github.com/omisego/plasma-mvp" target="_blank">plasma-mvp</a></h5>
+            <h5 id="omg-contracts"><a href="https://github.com/omisego/plasma-mvp" target="_blank">plasma-mvp</a></h5>
             <p>
               OmiseGO is building out a reference implementation of Plasma MVP as part of their decentralized exchange.
               The contracts in this repo are generally less optimized but more readable.
@@ -192,16 +188,75 @@
               <li>Solidity</li>
               <li>Python</li>
             </ul>
-          
+            <br>
 
+            <h5 id="omg-cash"><a href="https://github.com/omisego/plasma-cash" target="_blank">plasma-cash</a></h5>
+            <p>
+              OmiseGO hosts a Plasma Cash contract and client implementation, although the project is largely maintained by outside contributors.
+            </p>
+            <h6>Stack:</h6>
+            <ul>
+              <li>Solidity</li>
+              <li>Python</li>
+            </ul>
 
-            <h5></h5>
+            <hr class="hr-dash my-7">
+
+            <!-- Loom Network -->
+            <h2 id="loom"><a href="https://loomx.io/" target="_blank">Loom Network</a></h2>
+            <p>
+              Loom uses Plasma to augment their application-specific sidechains (DAppChains).
+            </p>
+            <br>
       
-            <h2 id="plasma-mvp">More Viable Plasma</h2>
+            <h5 id="loom-cash"><a href="https://github.com/loomnetwork/plasma-erc721" target="_blank">plasma-erc721</a></h5>
+            <p>
+              Loom is planning to use Plasma Cash to secure non-fungible assets on their DAppChains.
+            </p>
+            <h6>Stack:</h6>
+            <ul>
+              <li>Solidity</li>
+              <li>JavaScript (Truffle)</li>
+              <li>Python</li>
+              <li>Go</li>
+            </ul>
 
-            <h2 id="plasma-mvp">Plasma Cash</h2>
+            <hr class="hr-dash my-7">
 
-            <h2 id="plasma-mvp">Plasma Debit</h2>
+            <!-- BANKEX -->
+            <h2 id="bankex"><a href="https://bankex.com/en/" target="_blank">BANKEX</a></h2>
+            <p>
+              BANKEX is working on Plasma as part of their tokenization ecosystem.
+            </p>
+            <br>
+      
+            <h5 id="bx-mvp"><a href="https://github.com/BANKEX/PlasmaParentContract" target="_blank">PlasmaParentContract</a></h5>
+            <p>
+              BANKEX currently maintains an experimental implementation of More Viable Plasma. 
+            </p>
+            <h6>Stack:</h6>
+            <ul>
+              <li>Solidity</li>
+              <li>JavaScript (Truffle)</li>
+            </ul>
+
+            <hr class="hr-dash my-7">
+
+            <!-- Wolk -->
+            <h2 id="wolk"><a href="https://www.wolk.com/" target="_blank">Wolk</a></h2>
+            <p>
+              Wolk is incorporating Plasma Cash as part of their decentralized database service architecture.
+            </p>
+            <br>
+      
+            <h5 id="wolk-cash"><a href="https://github.com/wolkdb/deepblockchains/tree/master/Plasmacash" target="_blank">Plasmacash</a></h5>
+            <p>
+              Wolk maintains an implementation of Plasma Cash root chain contracts.
+            </p>
+            <h6>Stack:</h6>
+            <ul>
+              <li>Solidity</li>
+            </ul>
           </div>
         </div>
     </main><!-- /.main-content -->
