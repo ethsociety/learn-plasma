@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <title>Plasma Debit | Learn Plasma</title>
+
+    <!-- Styles -->
+    <link href="../assets/css/page.min.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+    <link rel="icon" href="../assets/img/favicon.png">
+  </head>
+
+  <body data-spy="scroll" data-target=".nav-sidebar" data-offset="100">
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-stick-dark" data-navbar="sticky">
+      <div class="container">
+
+        <div class="navbar-left">
+          <button class="navbar-toggler" type="button">&#9776;</button>
+          <a class="navbar-brand" href="../index.html">
+            <img class="logo-dark" src="../assets/img/logo-dark.png" alt="logo">
+            <img class="logo-light" src="../assets/img/logo-light.png" alt="logo">
+          </a>
+        </div>
+
+        <section class="navbar-mobile">
+          <span class="navbar-divider d-mobile-none"></span>
+
+          <ul class="nav nav-navbar">
+
+            <li class="nav-item">
+              <a class="nav-link" href="../pages/faq.html">FAQ</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="../docs/intro.html">Learn</a>
+            </li>
+          </ul>
+        </section>
+
+        <a id="contribute-btn" class="btn btn-sm btn-round btn-success" href="https://github.com/ethsociety/plasma-website">Contribute <i class="fa fa-github"></i></a>
+
+      </div>
+    </nav><!-- /.navbar -->
+
+
+    <!-- Header -->
+    <header class="header" style="background-color: #f1f6fa">
+      <div class="container">
+        <h1>Plasma Debit</h1>
+        <p class="lead">Documentation and examples for Plasma, including its design principles, security considerations, use cases, and more.</p>
+      </div>
+    </header><!-- /.header -->
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <div class="row">
+
+
+          <!--
+          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+          | Sidebar
+          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+          !-->
+          <div class="col-md-4 col-xl-3">
+            <aside class="sidebar sidebar-expand-md sidebar-sticky pr-md-4 br-1">
+              <div class="sidebar-body">
+                <ul class="nav nav-sidebar nav-sidebar-hero nav-sidebar-pill">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../docs/intro.html">Introduction <i class="nav-angle"></i></a>
+                    <div class="nav">
+                      <a class="nav-link" href="../docs/intro.html#motivation">Motivation</a>
+                      <a class="nav-link" href="../docs/intro.html#goals">Design goals</a>
+                      <a class="nav-link" href="../docs/intro.html#challenges">Challenge period</a>
+                      <a class="nav-link" href="../docs/intro.html#exits">Exit strategies</a>
+                      <a class="nav-link" href="../docs/intro.html#implementations">Implementations</a>
+                    </div>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Plasma MVP <i class="nav-angle"></i></a>
+                    <div class="nav">
+                      <a class="nav-link" href="#mvp-overview">Overview</a>
+                      <a class="nav-link" href="#mvp-architecture">Architecture</a>
+                      <a class="nav-link" href="#mvp-cli">CLI Documentation</a>
+                    </div>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="../docs/plasma-cash.html">Plasma Cash <i class="nav-angle"></i></a>
+                    <div class="nav">
+                      <a class="nav-link" href="../docs/plasma-cash.html#background">Motivation</a>
+                      <a class="nav-link" href="../docs/plasma-cash.html#non-fungibility">Non-fungibility</a>
+                      <a class="nav-link" href="../docs/plasma-cash.html#data-structure">Data structure</a>
+                      <a class="nav-link" href="../docs/plasma-cash.html#validation">Validation</a>
+                      <a class="nav-link" href="../docs/plasma-cash.html#pros-and-cons">Pros and Cons</a>
+                    </div>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Plasma Debit <i class="nav-angle"></i></a>
+                    <div class="nav">
+                      <a class="nav-link" href="#plasma-debit-overview">Overview</a>
+                      <a class="nav-link" href="#plasma-debit-details">Details</a>
+                      <a class="nav-link" href="#plasma-debit-pros-and-cons">pros and cons</a>
+                    </div>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="../docs/security.html">Security Analysis <i class="nav-angle"></i></a>
+                    <div class="nav">
+                      <a class="nav-link" href="../docs/security.html#pitfalls">Pitfalls</a>
+                      <a class="nav-link" href="../docs/security.html#recommendations">Recommendations</a>
+                      <a class="nav-link" href="../docs/security.html#trade-offs">Trade-offs</a>
+                    </div>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="../docs/developers.html">Plasma for Developers <i class="nav-angle"></i></a>
+                    <div class="nav">
+                      <a class="nav-link" href="../docs/developers.html#motivation">Motivation</a>
+                      <a class="nav-link" href="../docs/developers.html#samplecode">Sample code</a>
+                      <a class="nav-link" href="../docs/developers.html#bugreports">Bug reporting</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+
+          <!--
+          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+          | Plasma MVP
+          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+          !-->
+          <div class="col-md-7 col-xl-8 ml-md-auto py-8">
+
+            <h2 id="example">Plasma Debit</h2>
+            <p class="lead-2"></p>
+
+
+            <h3 id="Plasma-debit">Overview</h3>
+            <p>Plasma debit is like plasma cash except that instead of transferring tokens on the plasma chain, one transfers payment channels between a user and the plasma operator. </p>
+
+
+
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="plasma-debit-details">Details</h3>
+            <p>Plasma debit is effectively a giant payment hub between the operator and the plasma chain’s users where each of the user is connected with the operator through a payment channel.
+
+            An operator owns a bunch of channels linked to himself (against a collateral).
+                
+            </p>
+            
+            <img src="../assets/img/plasma-debit/operator.PNG" class="img-fluid" alt="Responsive image">
+
+            <p>When a user wants to be a part of the chain, they request for a channel from the operator by paying a fee. This is how a payment channel gets established between the user and the operator.
+                Unlike plasma cash, where you can transfer tokens, in plasma debit, each payment channel is tokenized. A user, A, can transfer a channel to user B.
+            </p>
+            <img src="../assets/img/plasma-debit/new_channel.PNG" class="img-fluid" alt="Responsive image">
+
+<p>
+    Data structure: Each block in a sparse merkle tree logs the transfer of payment channel (between user A and user B) along with the state of the payment channel.
+    *No transactions between users go on a sparse merkle tree.
+    Exit system: The exit system is similar to plasma cash, except that while exiting, one has to claim the payment channel and the state of the channel.
+</p>
+<img src="../assets/img/plasma-debit/ds.PNG" class="img-fluid" alt="Responsive image">
+            <hr class="hr-dash my-7">
+
+
+            <h3 id="plasma-debit-pros-and-cons">Pros and cons</h3>
+            <p>
+                Plasma debit gives the benefits of plasma cash along with fungibility. One can send tiny payments instead of transferring tokens (unlike plasma cash). //explain more on fungibility-Kelvin
+
+                However, for a new user to receive money, the user has to first establish a payment channel with the operator and then receive money.
+                
+
+            </p>
+
+            <img src="../assets/img/plasma-debit/strength.PNG" class="img-fluid" alt="Responsive image">
+
+
+          </div>
+
+        </div>
+      </div>
+    </main><!-- /.main-content -->
+
+
+   <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row gap-y align-items-center">
+
+          <div class="col-md-9">
+            <div class="nav justify-content-center justify-content-md-start">
+              <a class="nav-link" href="http://www.initc3.org/">Made with ❤️at IC3 Bootcamp</a>
+            </div>
+          </div>
+
+          <div class="col-md-3 text-center text-md-right">
+            © Learn Plasma
+          </div>
+        </div>
+      </div>
+    </footer><!-- /.footer -->
+
+
+    <!-- Scripts -->
+    <script src="../assets/js/page.min.js"></script>
+    <script src="../assets/js/script.js"></script>
+
+  </body>
+</html>
