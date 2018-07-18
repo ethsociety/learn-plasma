@@ -112,56 +112,43 @@
           |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
           !-->
           <div class="col-md-7 col-xl-8 ml-md-auto py-8">
-
             <h2 id="example">Plasma Debit</h2>
-            <p class="lead-2"></p>
-
 
             <h3 id="Plasma-debit">Overview</h3>
-            <p>Plasma debit is like plasma cash except that instead of transferring tokens on the plasma chain, one transfers payment channels between a user and the plasma operator. </p>
-
-
+            <p>
+              Plasma debit is like plasma cash except that instead of transferring tokens on the plasma chain, one transfers payment channels between a user and the plasma operator.
+            </p>
 
             <hr class="hr-dash my-7">
-
 
             <h3 id="plasma-debit-details">Details</h3>
-            <p>Plasma debit is effectively a giant payment hub between the operator and the plasma chain’s users where each of the user is connected with the operator through a payment channel.
-
-            An operator owns a bunch of channels linked to himself (against a collateral).
-                
+            <p>
+              Plasma debit is effectively a giant payment hub between the operator and the plasma chain’s users where each of the user is connected with the operator through a payment channel.
+              An operator owns a bunch of channels linked to himself (against a collateral).
             </p>
-            
             <img src="../assets/img/plasma-debit/operator.PNG" class="img-fluid" alt="Responsive image">
-
-            <p>When a user wants to be a part of the chain, they request for a channel from the operator by paying a fee. This is how a payment channel gets established between the user and the operator.
-                Unlike plasma cash, where you can transfer tokens, in plasma debit, each payment channel is tokenized. A user, A, can transfer a channel to user B.
+            <p>
+              When a user wants to be a part of the chain, they request for a channel from the operator by paying a fee. This is how a payment channel gets established between the user and the operator.
+              Unlike plasma cash, where you can transfer tokens, in plasma debit, each payment channel is tokenized. A user, A, can transfer a channel to user B.
             </p>
             <img src="../assets/img/plasma-debit/new_channel.PNG" class="img-fluid" alt="Responsive image">
+            <p>
+              Data structure: Each block in a sparse merkle tree logs the transfer of payment channel (between user A and user B) along with the state of the payment channel.
+              *No transactions between users go on a sparse merkle tree.
+              Exit system: The exit system is similar to plasma cash, except that while exiting, one has to claim the payment channel and the state of the channel.
+            </p>
+            <img src="../assets/img/plasma-debit/ds.PNG" class="img-fluid" alt="Responsive image">
 
-<p>
-    Data structure: Each block in a sparse merkle tree logs the transfer of payment channel (between user A and user B) along with the state of the payment channel.
-    *No transactions between users go on a sparse merkle tree.
-    Exit system: The exit system is similar to plasma cash, except that while exiting, one has to claim the payment channel and the state of the channel.
-</p>
-<img src="../assets/img/plasma-debit/ds.PNG" class="img-fluid" alt="Responsive image">
             <hr class="hr-dash my-7">
-
 
             <h3 id="plasma-debit-pros-and-cons">Pros and cons</h3>
             <p>
-                Plasma debit gives the benefits of plasma cash along with fungibility. One can send tiny payments instead of transferring tokens (unlike plasma cash). //explain more on fungibility-Kelvin
-
-                However, for a new user to receive money, the user has to first establish a payment channel with the operator and then receive money.
-                
-
+              Plasma debit gives the benefits of plasma cash along with fungibility.
+              One can send tiny payments instead of transferring tokens (unlike plasma cash).
+              However, for a new user to receive money, the user has to first establish a payment channel with the operator and then receive money.
             </p>
-
             <img src="../assets/img/plasma-debit/strength.PNG" class="img-fluid" alt="Responsive image">
-
-
           </div>
-
         </div>
       </div>
     </main><!-- /.main-content -->
