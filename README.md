@@ -1,5 +1,7 @@
 # Learn Plasma
 
+## WIP: ⚠️ This website is currently under construction ⚠️ Contributors welcome!
+
 This website aims to educate visitors about the fundamentals of Plasma and its design principles. We plan to add interactive tutorials and showcase other use cases for layer 2 dapps.
 
 Learn Plasma was conceived at the 2018 IC3 Bootcamp at Cornell.
