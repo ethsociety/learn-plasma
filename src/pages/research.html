@@ -128,7 +128,7 @@
             </p>
             <br>
     
-            <h5 id="cheaper-commitments">Cheaper Commitments</h5>
+            <h4 id="cheaper-commitments">Cheaper Commitments</h4>
             <p>
               Plasma contracts make commitments to blocks instead of publishing the full blocks themselves.
               Although this is already much cheaper than using Ethereum directly, it can still get pretty expensive!
@@ -166,21 +166,86 @@
             </ul>
             <br>
     
-            <h5 id="fast-finality">Fast Finality</h5>
+            <h4 id="fast-finality">Fast Finality</h4>
             <p> 
+              Although most current Plasma implementations significantly increase transaction throughput, they don't improve on finality time.
+              In fact, without some additional constructions, we're typically still limited to the finality time of the root chain.
+              Ethereum's "safe finality" time is about 6 minutes (25 confirmations or so). 
             </p>
-            <h6>Research Questions:</h6>
-            <ul>
-              <li></li>
-            </ul>
-            <h6>Resources:</h6>
-            <ul>
-              <li><a href="" target="_blank"></a></li>
-            </ul>
-            <br>
-    
-            <h5 id="run-the-numbers">Running the Numbers</h5>
             <p>
+              Slow finality isn't acceptable user experience for many applications.
+              We shouldn't expect people to sit around for a few minutes just to find out if their transaction went through or not.
+              Therefore, we want to find some sort of mechanism that allows for "fast" finality (preferably almost instant).
+            </p>
+            <p>
+              State channels are a well known way to reach fast finality in the context of certain applications.
+              However, state channels have their own UX challenges and won't be the right solution for every application.
+            </p>
+            <p>
+              Another way to reach some sense of finality is known as "cryptoeconomic" finality.
+              Basically, cryptoeconomic finality guarantees that a transaction *will* be included in the chain within some period of time, or someone will cover the full amount.
+              In the context of Plasma, this "counterparty" will probably be the operator.
+            </p>
+            <p>
+              A simple example of cryptoeconomic finality might involve a customer making a purchase. 
+              We want this transaction to be guaranteed as quickly as possible.
+              The merchant might make a deal with the operator that states the operator will include this transaction within some period.
+              If the operator doesn't include the transaction, the merchant can take the transaction amount straight from the operator.
+              Therefore, the operator is incentivized to include the transaction in a timely manner and the merchant knows they'll get the money either way.
+            </p>
+            <p>
+              This is cool but there are some things that need to be worked out.
+              For example, what happens when there isn't a single operator but multiple validators?
+              If the validators can't be sure they'll be able to include the transaction, they might not sign these contracts.
+              Also, we don't want the counterparty to "overpromise," so we need to make sure each contract is properly backed.
+            </p>
+            <h6>Research Questions:</h6>
+            <ul>
+              <li>Are there other methods for reaching finality?</li>
+              <li>Can we make "finality contracts" when we have multiple validators?</li>
+              <li>How do we prevent finality counterparties from overpromising?</li>
+            </ul>
+            <h6>Resources:</h6>
+            <ul>
+              <li><a href="" target="_blank"></a></li>
+            </ul>
+            <br>
+    
+            <h4 id="run-the-numbers">Running the Numbers</h4>
+            <p>
+              This is a great research topic for people who are relatively new to Plasma.
+              We have lots of different Plasma designs, but not many people have done the important math!
+            </p>
+            <p>
+              So what sort of math still needs to be done?
+              Well, it'd be useful, for example, to get a general overview of how much data the average person might have to store in Plasma Cash.
+              It would also be useful to model the size of blocks in Plasma MVP.
+            </p>
+            <p>
+              We also really need to know how fast certain signature schemes are to validate!
+              It could be that ECDSA isn't the correct choice and that we should use a different scheme.
+              These things really just need to be researched and tested.
+            </p>
+            <p>
+              Below is a non-exhaustive list of things that would be useful to model.
+              Feel free to add more suggestions if you have them!
+            </p>
+            <h6>Research Questions:</h6>
+            <ul>
+              <li>How much data will the average user have to store in Plasma Cash?</li>
+              <li>How long does it take to verify a signature under different schemes?</li>
+              <li>How large should a Plasma MVP exit bond be?</li>
+              <li>How many simultaneous Plasma chains can Ethereum handle?</li>
+            </ul>
+            <h6>Resources:</h6>
+            <ul>
+              <li><a href="" target="_blank"></a></li>
+            </ul>
+            <br>
+    
+            <h4 id="state-channels">State Channels</h4>
+            <p>
+
             </p>
             <h6>Research Questions:</h6>
             <ul>
@@ -192,25 +257,32 @@
             </ul>
             <br>
     
-            <h5 id="state-channels">State Channels</h5>
-            <p> 
+            <h4 id="zk-snarks">zk-SNARKs</h4>
+            <p>
+              Zero knowledge succinct arguments of knowledge (or zk-SNARKs) are a relatively recent technological development.
+              Basically, they allow us to create certain general purpose programs that can keep information secret.
+              Vitalik's <a href="" target="_blank">blog post</a> on zk-SNARKs is a great place to start if you're unfamiliar with how they work.
+            </p>
+            <p>
+              Some work has been done exploring the utility of zk-SNARKs in Plasma.
+              For example, it might be possible to create a SNARK circuit that allows the operator to prove they've only included valid transactions in a block.
+              This would largely mitigate the need for mass exits in Plasma MVP.
+            </p>
+            <p>
+              Currently, the biggest barrier tends to be proof calculation time.
+              Hashes circuits tend to take on the order of a few seconds to compute.
+              As a result, it'll probably take on the order of hours to generate a proof that an entire Plasma block is valid.
+            </p>
+            <p>
+              zk-SNARKs have plenty of applications, we just need to find them and figure out which are feasible.
+              Lots of research questions still need to be explored!
             </p>
             <h6>Research Questions:</h6>
             <ul>
-              <li></li>
-            </ul>
-            <h6>Resources:</h6>
-            <ul>
-              <li><a href="" target="_blank"></a></li>
-            </ul>
-            <br>
-    
-            <h5 id="zk-snarks">zk-SNARKs</h5>
-            <p> 
-            </p>
-            <h6>Research Questions:</h6>
-            <ul>
-              <li></li>
+              <li>How can we potentially make use of zk-SNARKs in Plasma?</li>
+              <li>How long would a block validity proof take to generate?</li>
+              <li>Can we make use of STARKs?</li>
+              <li>Can we feasibly add private transactions with SNARKs?</li>
             </ul>
             <h6>Resources:</h6>
             <ul>
@@ -228,12 +300,34 @@
             </p>
             <br>
     
-            <h5 id="mass-exits">Mass Exits</h5>
+            <h4 id="mass-exits">Mass Exits</h4>
             <p>
+              Unlike Plasma Cash, the design of Plasma MVP requires that users be able to quickly exit in the case of a safety failure.
+              Basically, we need everyone to be able to "exit" the Plasma chain within some short period of time (e.g. one week).
+            </p>
+            <p>
+              However, we currently require that every user submit an exit for every single UTXO they own.
+              This is not particularly efficient.
+              Even a maximally efficient exit will cost at least ~30000 gas (likely much more).
+              Assuming (for the sake of argument) that we can take up the entire Ethereum block space for a week, we can process about 10m exits.
+            </p>
+            <p>
+              To put this number in perspective, the current Bitcoin UTXO set is on the order of tens of millions.
+              Fortunately, we can make things much more efficient using something called mass exits.
+              The basic idea behind mass exits is that we can exit lots and lots of UTXOs at the same time. 
+            </p>
+            <p>
+              One simple way to enable mass exits is to allow users to specify some function that can "aggregate" UTXOs.
+              The user can then submit a bitmap (a big string of 0s and 1s) that tells the root chain contract which UTXOs the user is trying to exit (0 = no, 1 = yes).
+            </p>
+            <p>
+              There's still a lot of research to be done determining the most efficient aggregation function.
+              One proposed way to do this is to add metadata to each transaction and allow users to aggregate by that metadata.
+              This way, large sets of users can exit together.
             </p>
             <h6>Research Questions:</h6>
             <ul>
-              <li></li>
+              <li>What are the most efficient ways to aggregate UTXOs in mass exits?</li>
             </ul>
             <h6>Resources:</h6>
             <ul>
@@ -241,7 +335,7 @@
             </ul>
             <br>
     
-            <h5 id="fast-withdrawals">Fast Withdrawals</h5>
+            <h4 id="fast-withdrawals">Fast Withdrawals</h4>
             <p> 
             </p>
             <h6>Research Questions:</h6>
@@ -254,7 +348,7 @@
             </ul>
             <br>
     
-            <h5 id="mvp-atomic-swaps">Atomic Swaps</h5>
+            <h4 id="mvp-atomic-swaps">Atomic Swaps</h4>
             <p>
             </p>
             <h6>Research Questions:</h6>
@@ -267,7 +361,7 @@
             </ul>
             <br>
     
-            <h5 id="conf-sigs">Confirmation Signatures</h5>
+            <h4 id="conf-sigs">Confirmation Signatures</h4>
             <p>
             </p>
             <h6>Research Questions:</h6>
@@ -290,7 +384,7 @@
             </p>
             <br>
     
-            <h5 id="merge-split">Merging/Splitting</h5>
+            <h4 id="merge-split">Merging/Splitting</h4>
             <p>
             </p>
             <h6>Research Questions:</h6>
@@ -303,7 +397,7 @@
             </ul>
             <br>
     
-            <h5 id="cash-atomic-swaps">Atomic Swaps</h5>
+            <h4 id="cash-atomic-swaps">Atomic Swaps</h4>
             <p>
             </p>
             <h6>Research Questions:</h6>
@@ -316,7 +410,7 @@
             </ul>
             <br>
       
-            <h5 id="shorter-proofs">Shorter Proofs</h5>
+            <h4 id="shorter-proofs">Shorter Proofs</h4>
             <p>
             </p>
             <h6>Research Questions:</h6>
@@ -329,7 +423,7 @@
             </ul>
             <br>
     
-            <h5 id="checkpoints">Checkpoints</h5>
+            <h4 id="checkpoints">Checkpoints</h4>
             <p>
             </p>
             <h6>Research Questions:</h6>
