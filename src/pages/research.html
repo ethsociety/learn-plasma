@@ -92,7 +92,6 @@
                       <a class="nav-link" href="#cheaper-commitments">Cheaper Commitments</a>
                       <a class="nav-link" href="#fast-finality">Fast Finality</a>
                       <a class="nav-link" href="#run-the-numbers">Running the Numbers</a>
-                      <a class="nav-link" href="#state-channels">State Channels</a>
                       <a class="nav-link" href="#zk-snarks">zk-SNARKs</a>
                     </div>
                   </li>
@@ -109,7 +108,6 @@
                     <a class="nav-link" href="#plasma-cash">Plasma Cash <i class="nav-angle"></i></a>
                     <div class="nav">
                       <a class="nav-link" href="#merge-split">Merging/Splitting</a>
-                      <a class="nav-link" href="#cash-atomic-swaps">Atomic Swaps</a>
                       <a class="nav-link" href="#shorter-proofs">Shorter Proofs</a>
                       <a class="nav-link" href="#checkpoints">Checkpoints</a>
                     </div>
@@ -207,7 +205,8 @@
             </ul>
             <h6>Resources:</h6>
             <ul>
-              <li><a href="" target="_blank"></a></li>
+              <li><a href="https://blog.ethereum.org/2016/05/09/on-settlement-finality/" target="_blank">On Settlement Finality</a></li>
+              <li><a href="https://github.com/omisego/research/issues/29" target="_blank">Cryptoeconomic finality</a></li>
             </ul>
             <br>
     
@@ -239,21 +238,7 @@
             </ul>
             <h6>Resources:</h6>
             <ul>
-              <li><a href="" target="_blank"></a></li>
-            </ul>
-            <br>
-    
-            <h4 id="state-channels">State Channels</h4>
-            <p>
-
-            </p>
-            <h6>Research Questions:</h6>
-            <ul>
-              <li></li>
-            </ul>
-            <h6>Resources:</h6>
-            <ul>
-              <li><a href="" target="_blank"></a></li>
+              <li><a href="https://blog.ethereum.org/2016/05/09/on-settlement-finality/" target="_blank">Math: Plasma MVP vs. Plasma Cash</a></li>
             </ul>
             <br>
     
@@ -286,14 +271,15 @@
             </ul>
             <h6>Resources:</h6>
             <ul>
-              <li><a href="" target="_blank"></a></li>
+              <li><a href="https://medium.com/@VitalikButerin/zk-snarks-under-the-hood-b33151a013f6" target="_blank">Zk-SNARKs: Under the Hood</a></li>
+              <li><a href="https://ethresear.ch/t/plasma-is-plasma/2195" target="_blank">Zk-SNARKs for Plasma</a></li>
             </ul>
             <br>
 
             <hr class="hr-dash my-7">
       
             <!-- Plasma MVP -->
-            <h2 id="plasma-mvp">Plasma MVP</h2>
+            <h2 id="plasma-mvp"><a href="https://ethresear.ch/t/minimal-viable-plasma/426" target="_blank">Plasma MVP</a></h2>
             <p>
               This is a list of research topics that apply mainly to Plasma MVP.
               Some of this research will be useful to other designs, though! 
@@ -331,7 +317,7 @@
             </ul>
             <h6>Resources:</h6>
             <ul>
-              <li><a href="" target="_blank"></a></li>
+              <li><a href="https://ethresear.ch/t/proving-utxo-sum-validity-for-mass-exits/2023" target="_blank">Proving UTXO sum validity for mass exits</a></li>
             </ul>
             <br>
     
@@ -364,7 +350,7 @@
             </ul>
             <h6>Resources:</h6>
             <ul>
-              <li><a href="" target="_blank"></a></li>
+              <li><a href="https://ethresear.ch/t/simple-fast-withdrawals/2128" target="_blank">Simple Fast Withdrawals</a></li>
             </ul>
             <br>
     
@@ -399,7 +385,7 @@
             </ul>
             <h6>Resources:</h6>
             <ul>
-              <li><a href="" target="_blank"></a></li>
+              <li><a href="https://github.com/omisego/research/issues/20" target="_blank">Using Relayers for Order Matching</a></li>
             </ul>
             <br>
     
@@ -431,14 +417,16 @@
             </ul>
             <h6>Resources:</h6>
             <ul>
-              <li><a href="" target="_blank"></a></li>
+              <li><a href="https://ethresear.ch/t/why-do-dont-we-need-two-phase-sends-plus-confirmation/1866/14?u=kfichter" target="_blank">Why Do We Need Confirmation Signatures?</a></li>
+              <li><a href="https://ethresear.ch/t/plasma-vulnerabiltity-sybil-txs-drained-contract/1654" target="_blank">Confirmation Signatures Must Be Included on the Plasma Chain</a></li>
+              <li><a href="https://ethresear.ch/t/griefing-vectors-in-confirmation-signatures/2301" target="_blank">Griefing Vectors in Confirmation Signatures</a></li>
             </ul>
             <br>
 
             <hr class="hr-dash my-7">
       
             <!-- Plasma Cash -->
-            <h2 id="plasma-cash">Plasma Cash</h2>
+            <h2 id="plasma-cash"><a href="https://ethresear.ch/t/plasma-cash-plasma-with-much-less-per-user-data-checking/1298" target="_blank">Plasma Cash</a></h2>
             <p>
               Plasma Cash works well for non-fungible tokens.
               Can we extend that so it works well for fungible ones too?
@@ -475,26 +463,15 @@
               <li>How can we efficiently represent the components of a merged assets?</li>
               <li>How can we reduce the proof data added by each split?</li>
               <li>How else can we represent merges and splits?</li>
+              <li>How does merging and splitting impact Plasma XT?</li>
             </ul>
             <h6>Resources:</h6>
             <ul>
-              <li><a href="" target="_blank"></a></li>
+              <li><a href="https://ethresear.ch/t/one-proposal-for-plasma-cash-with-coin-splitting-and-merging/1447" target="_blank">Proposal for Plasma Cash Splitting and Merging</a></li>
+              <li><a href="https://ethresear.ch/t/plasma-cash-plasma-with-much-less-per-user-data-checking/1298/53" target="_blank">Arbitrary Coin Merging in Plasma Cash</a></li>
             </ul>
             <br>
-    
-            <h4 id="cash-atomic-swaps">Atomic Swaps</h4>
-            <p>
-            </p>
-            <h6>Research Questions:</h6>
-            <ul>
-              <li></li>
-            </ul>
-            <h6>Resources:</h6>
-            <ul>
-              <li><a href="" target="_blank"></a></li>
-            </ul>
-            <br>
-      
+
             <h4 id="shorter-proofs">Shorter Proofs</h4>
             <p>
               Plasma Cash requires that users generate a "proof of validity" when sending a token to another user.
@@ -503,15 +480,37 @@
             </p>
             <p>
               To illustrate this, let's take a look at the numbers.
-
+              Remember that Plasma Cash transaction proofs consist of Merkle proofs for every block since the coin's deposit.
+              The size of a Merkle proof depends on the height of the Merkle tree.
+              For simplicity, we'll take a conservative height 10 tree (2^10 = 1024 coins).
+            </p>
+            <p>
+              If the tree is generated with Ethereum's keccak256, then each sibling hash will be 32 bytes.
+              We need to provide 10 siblings for a height 10 tree, so that's 320 bytes per proof.
+              We also have to add some additional information like the index and the leaf being proven, but we'll just ignore that for now.
+            </p>
+            <p>
+              Let's say a user deposited a coin at the beginning of the year.
+              If a Plasma block is created every 15 seconds, then the chain will produce 4*60*24*365 = 2102400 Plasma blocks per year.
+              If the user wants to send the coin, they need to provide a Merkle proof for each block.
+              We said our proof was about 320 bytes, so that's a total of 320*2102400 = 672768000 bytes = 0.67 gigabytes of proof data, just to transfer a single coin!
+            </p>
+            <p>
+              These numbers get much bigger if we want to support thousands or millions of coins.
+              We want to decrease this proof size as much as possible!
+              For example, it might be possible to compress the proofs for blocks where the coin wasn't spent with a Bloom filter.
+              We might also be able to use zk-SNARKs to decrease the proof size at the cost of extra computation for the prover.
+              We can also make use of checkpointing mechanisms, like Plasma XT, which allow users to create checkpoints and put a cap on the proof size.
             </p>
             <h6>Research Questions:</h6>
             <ul>
-              <li></li>
+              <li>How can we use zk-SNARKs to reduce the Plasma XT proof size?</li>
+              <li>Can we compress the proofs for periods where the coin was unspent?</li>
             </ul>
             <h6>Resources:</h6>
             <ul>
-              <li><a href="" target="_blank"></a></li>
+              <li><a href="https://ethresear.ch/t/plasma-xt-plasma-cash-with-much-less-per-user-data-checking/1926" target="_blank">Plasma XT</a></li>
+              <li><a href="https://ethresear.ch/t/plasma-cash-without-any-blockchain-at-all/1974/3" target="_blank">Plasma Cash Without Any Blockchain at All</a></li>
             </ul>
             <br>
     
@@ -533,7 +532,7 @@
             </p>
             <p>
               Instead, we introduce a new mechanism by which users can explicitly choose to participate in a checkpoint.
-              The details of this mechanism (nicknamed "Plasma XT") are described in <a href="" target="_blank">this post</a> in <a href="" target="_blank">ethresear.ch</a>.
+              The details of this mechanism (nicknamed "Plasma XT") are described in <a href="https://ethresear.ch/t/plasma-xt-plasma-cash-with-much-less-per-user-data-checking/1926" target="_blank">this post</a> in <a href="https://ethresear.ch/" target="_blank">ethresear.ch</a>.
             </p>
             <p>
               Plasma XT is a step in the right direction, but it's not totally ideal.
@@ -555,7 +554,8 @@
             </ul>
             <h6>Resources:</h6>
             <ul>
-              <li><a href="" target="_blank"></a></li>
+              <li><a href="https://ethresear.ch/t/plasma-xt-plasma-cash-with-much-less-per-user-data-checking/1926" target="_blank">Plasma XT</a></li>
+              <li><a href="https://ethresear.ch/t/plasma-checkpoint-cost-and-block-time/2016" target="_blank">Plasma checkpoint cost</a></li>
             </ul>
             <br>
           </div>
