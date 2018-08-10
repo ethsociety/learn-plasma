@@ -6,19 +6,13 @@ We are really glad you're here, because we need volunteers, content creators, an
 
 The following is a set of guidelines for contributing to the LearnPlasma website and its educational content. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
 
+Make sure to also check out [this page](http://www.learnplasma.org/pages/misc.html#contributing) to find useful information  on how to contribute to this project.
+
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [support@learnplasma.org](mailto:support@learnplasma.org).
 
 ## How Can I Contribute?
-
-### Creating Content
-
-// TODO
-
-- docs 
-- videos 
-- code examples
 
 ### Reporting Bugs
 
