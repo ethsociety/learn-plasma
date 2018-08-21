@@ -1,63 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
 
-    <title>Plasma Cash | Learn Plasma</title>
+  <title>Plasma Cash | Learn Plasma</title>
 
-    <!-- Styles -->
-    <link href="../assets/css/page.min.css" rel="stylesheet">
-    <link href="../assets/css/style.css" rel="stylesheet">
+  <!-- Styles -->
+  <link href="../assets/css/page.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
 
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
-    <link rel="icon" href="../assets/img/favicon.png">
-  </head>
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="icon" href="../assets/img/favicon.png">
+</head>
 
-  <body data-spy="scroll" data-target=".nav-sidebar" data-offset="100">
+<body data-spy="scroll" data-target=".nav-sidebar" data-offset="100">
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-stick-dark" data-navbar="sticky">
-      <div class="container">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-stick-dark" data-navbar="sticky">
+  <div class="container">
 
-        <div class="navbar-left">
-          <button class="navbar-toggler" type="button">&#9776;</button>
-          <a class="navbar-brand" href="../index.html">
-            <img class="logo-dark" src="../assets/img/logo-dark.png" alt="logo">
-            <img class="logo-light" src="../assets/img/logo-light.png" alt="logo">
-          </a>
-        </div>
+    <div class="navbar-left">
+      <button class="navbar-toggler" type="button">&#9776;</button>
+      <a class="navbar-brand" href="../index.html">
+        <img class="logo-dark" src="../assets/img/logo-dark.png" alt="logo">
+        <img class="logo-light" src="../assets/img/logo-light.png" alt="logo">
+      </a>
+    </div>
 
-        <section class="navbar-mobile">
-          <span class="navbar-divider d-mobile-none"></span>
+    <section class="navbar-mobile">
+      <span class="navbar-divider d-mobile-none"></span>
 
-          <ul class="nav nav-navbar">
+      <ul class="nav nav-navbar">
+        <li class="nav-item">
+          <a class="nav-link" href="../pages/faq.html">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../docs/intro.html">Learn</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../pages/build.html">Build</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../pages/research.html">Research</a>
+        </li>
+
+        <span id="sidebar-mobile">
             <li class="nav-item">
-              <a class="nav-link" href="../pages/faq.html">FAQ</a>
+              <a class="nav-link" href="../docs/intro.html">Introduction</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="../docs/intro.html">Learn</a>
+              <a class="nav-link" href="../docs/plasma-framework.html">The Plasma Framework</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="../pages/build.html">Build</a>
+              <a class="nav-link" href="../docs/annotations.html">Annotations</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="../pages/research.html">Research</a>
+              <a class="nav-link" href="../docs/plasma-mvp.html">Plasma MVP</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="../pages/misc.html">Misc</a>
+              <a class="nav-link" href="#">Plasma Cash <i class="nav-angle rotate"></i></a>
+              <div class="nav" style="display:block;">
+                <a class="nav-link" href="#background">Motivation</a>
+                <a class="nav-link" href="#non-fungibility">Non-fungibility</a>
+                <a class="nav-link" href="#data-structure">Data structure</a>
+                <a class="nav-link" href="#validation">Validation</a>
+                <a class="nav-link" href="#pros-and-cons">Pros and Cons</a>
+              </div>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="../pages/contact.html">Contact</a>
+              <a class="nav-link" href="../docs/plasma-debit.html">Plasma Debit</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../pages/contributors.html">Contributors</a>
-            </li>
-  
-            <span id="sidebar-mobile">
+            </span>
+      </ul>
+    </section>
+
+    <a id="contribute-btn" class="btn btn-sm btn-round btn-success" href="https://github.com/ethsociety/plasma-website">Contribute <i class="fa fa-github"></i></a>
+
+  </div>
+</nav><!-- /.navbar -->
+
+
+<!-- Header -->
+<header class="header" style="background-color: #f1f6fa">
+  <div class="container">
+    <h1>Plasma Cash</h1>
+    <p class="lead">Understand how Plasma Cash works and when to use it.</p>
+  </div>
+</header><!-- /.header -->
+
+
+<!-- Main Content -->
+<main class="main-content">
+  <div class="container">
+    <div class="row">
+
+
+      <!--
+      |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+      | Sidebar
+      |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+      !-->
+      <div class="col-md-4 col-xl-3">
+        <aside class="sidebar sidebar-expand-md sidebar-sticky pr-md-4 br-1">
+          <div class="sidebar-body">
+            <ul class="nav nav-sidebar nav-sidebar-hero nav-sidebar-pill">
               <li class="nav-item">
                 <a class="nav-link" href="../docs/intro.html">Introduction</a>
               </li>
@@ -67,16 +122,21 @@
               </li>
 
               <li class="nav-item">
+                <a class="nav-link" href="../docs/annotations.html">Annotations</a>
+              </li>
+
+              <li class="nav-item">
                 <a class="nav-link" href="../docs/plasma-mvp.html">Plasma MVP</a>
               </li>
 
               <li class="nav-item">
                 <a class="nav-link" href="#">Plasma Cash <i class="nav-angle rotate"></i></a>
                 <div class="nav" style="display:block;">
-                  <a class="nav-link" href="#background">Motivation</a>
-                  <a class="nav-link" href="#non-fungibility">Non-fungibility</a>
-                  <a class="nav-link" href="#data-structure">Data structure</a>
-                  <a class="nav-link" href="#validation">Validation</a>
+                      <a class="nav-link" href="#consensus">Consensus</a>
+                      <a class="nav-link" href="#deposits">Deposits</a>
+                      <a class="nav-link" href="#blocks">Blocks</a>
+                      <a class="nav-link" href="#transactions">Transactions</a>
+                      <a class="nav-link" href="#withdrawals">Withdrawals</a>
                   <a class="nav-link" href="#pros-and-cons">Pros and Cons</a>
                 </div>
               </li>
@@ -84,86 +144,25 @@
               <li class="nav-item">
                 <a class="nav-link" href="../docs/plasma-debit.html">Plasma Debit</a>
               </li>
-            </span>
-          </ul>
-        </section>
-
-        <a id="contribute-btn" class="btn btn-sm btn-round btn-success" href="https://github.com/ethsociety/plasma-website">Contribute <i class="fa fa-github"></i></a>
-
-      </div>
-    </nav><!-- /.navbar -->
-
-
-    <!-- Header -->
-    <header class="header" style="background-color: #f1f6fa">
-      <div class="container">
-        <h1>Plasma Cash</h1>
-        <p class="lead">Understand how Plasma Cash works and when to use it.</p>
-      </div>
-    </header><!-- /.header -->
-
-
-    <!-- Main Content -->
-    <main class="main-content">
-      <div class="container">
-        <div class="row">
-
-
-          <!--
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          | Sidebar
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          !-->
-          <div class="col-md-4 col-xl-3">
-            <aside class="sidebar sidebar-expand-md sidebar-sticky pr-md-4 br-1">
-              <div class="sidebar-body">
-                <ul class="nav nav-sidebar nav-sidebar-hero nav-sidebar-pill">
-                  <li class="nav-item">
-                    <a class="nav-link" href="../docs/intro.html">Introduction</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link" href="../docs/plasma-framework.html">The Plasma Framework</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link" href="../docs/plasma-mvp.html">Plasma MVP</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Plasma Cash <i class="nav-angle rotate"></i></a>
-                    <div class="nav" style="display:block;">
-                      <a class="nav-link" href="#consensus">Consensus</a>
-                      <a class="nav-link" href="#deposits">Deposits</a>
-                      <a class="nav-link" href="#blocks">Blocks</a>
-                      <a class="nav-link" href="#transactions">Transactions</a>
-                      <a class="nav-link" href="#withdrawals">Withdrawals</a>
-                      <a class="nav-link" href="#pros-and-cons">Pros and Cons</a>
-                    </div>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link" href="../docs/plasma-debit.html">Plasma Debit</a>
-                  </li>
-                </ul>
-              </div>
-            </aside>
+            </ul>
           </div>
+        </aside>
+      </div>
 
 
-          <!--
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          | Plasma Cash
-          |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-          !-->
-          <div class="col-md-7 col-xl-8 ml-md-auto py-8">
-            <h2 id="plasma-cash">Plasma Cash</h2>
+      <!--
+      |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+      | Plasma Cash
+      |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+      !-->
+      <div class="col-md-7 col-xl-8 ml-md-auto py-8">
+        <h2 id="plasma-cash">Plasma Cash</h2>
             <p>
               <a href="https://ethresear.ch/t/plasma-cash-plasma-with-much-less-per-user-data-checking/1298">Plasma Cash</a> is a Plasma implementation primarily built for storing and transferring non-fungible tokens.
               Plasma Cash was originally designed to address the mass exit problem in Plasma MVP.
-            </p>
+        </p>
 
-            <hr class="hr-dash my-7">
+        <hr class="hr-dash my-7">
 
             <h3 id="consensus">Consensus</h3>
             <p>
@@ -254,8 +253,8 @@
               Instead, the withdrawing user is forced to respond with the transaction that comes after the provided transaction.
             </p>
 
-            <h3 id="pros-and-cons">Pros and Cons</h3>
-            <p>
+        <h3 id="pros-and-cons">Pros and Cons</h3>
+        <p>
               Plasma Cash is highly scalable because users only ever need to keep track of their own tokens.
               However, there's is a trade-off being made between scalability and flexibility.
               Tokens always have a fixed denomination - there's (currently) no good way to spend a fraction of a token without going into something like Plasma Debit (which we'll discuss in the next section).
@@ -267,9 +266,9 @@
               Once the Plasma Chain has been running for a while, these proofs might get prohibitively large.
             </p>
             <p>
-              Let's do a quick calculation:
-            </p>
-            <p>
+          Let's do a quick calculation:
+        </p>
+        <p>
               Imagine we have a Plasma Cash chain with a (very) conservative 1000 tokens.
               This results in a sparse Merkle tree with ten levels, which means each Merkle proof needs to provide ten sibling hashes.
               Every sibling hash is 32 bytes, so each Merkle proof is $32 * 10 = 320$ bytes!
@@ -289,34 +288,34 @@
             </p>
 
             <a class="btn btn-lg btn-round btn-info float-right" href="./plasma-debit.html">Next: Plasma Debit</a>
-          </div>
+      </div>
+    </div>
+  </div>
+</main><!-- /.main-content -->
+
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row gap-y align-items-center">
+
+      <div class="col-md-9">
+        <div class="nav justify-content-center justify-content-md-start">
+          <a class="nav-link" href="http://www.initc3.org/">Made with ❤️at IC3 Bootcamp</a>
         </div>
       </div>
-    </main><!-- /.main-content -->
 
-
-   <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div class="row gap-y align-items-center">
-
-          <div class="col-md-9">
-            <div class="nav justify-content-center justify-content-md-start">
-              <a class="nav-link" href="http://www.initc3.org/">Made with ❤️at IC3 Bootcamp</a>
-            </div>
-          </div>
-
-          <div class="col-md-3 text-center text-md-right">
-            © Learn Plasma
-          </div>
-        </div>
+      <div class="col-md-3 text-center text-md-right">
+        © Learn Plasma
       </div>
-    </footer><!-- /.footer -->
+    </div>
+  </div>
+</footer><!-- /.footer -->
 
 
-    <!-- Scripts -->
-    <script src="../assets/js/page.min.js"></script>
-    <script src="../assets/js/script.js"></script>
+<!-- Scripts -->
+<script src="../assets/js/page.min.js"></script>
+<script src="../assets/js/script.js"></script>
 
     <!-- MathJax -->
     <script type="text/x-mathjax-config">
@@ -327,5 +326,5 @@
       });
     </script>
     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-  </body>
+</body>
 </html>
