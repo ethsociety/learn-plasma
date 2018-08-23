@@ -188,9 +188,9 @@
             <p>
               Blockchains typically need consensus mechanisms.
               Plasma chains are special types of blockchains that can guarantee the safety of user funds even if the Plasma consensus mechanism fails.
-              As a result, the simplest version of MVP relies on something called an *operator*.
+              As a result, the simplest version of MVP relies on something called an <b>operator</b>.
               An operator is a single entity that effectively runs the entire Plasma chain by creating blocks.
-              If you’re more familiar with blockchain terminology, this is what we generally mean when we say that MVP relies on *Proof-of-Authority*.
+              If you’re more familiar with blockchain terminology, this is what we generally mean when we say that MVP relies on <b>Proof-of-Authority</b>.
             </p>
             <p>
               This might seem a little strange - we generally don’t want to trust third parties when we’re designing blockchain protocols.
@@ -200,7 +200,7 @@
 
             <h4 id="depositing">Depositing</h4>
             <p>
-              Users start using the Plasma chain by *depositing* funds into a smart contract on Ethereum.
+              Users start using the Plasma chain by <b>depositing</b> funds into a smart contract on Ethereum.
               The basic MVP specification only allows users to deposit ETH, but the spec can be easily extended to support ERC20s.
               When users deposit these funds, a block is created on the Plasma chain that only includes a single transaction.
               This transaction creates a new output for the depositor with a value equal to the value of the funds deposited.
@@ -211,10 +211,10 @@
             <p>
               Users can transact on the Plasma chain by spending an output they own and creating new outputs.
               In practice, this means signing a signature that confirms the user is willing to make the transaction.
-              This transaction (and the corresponding signature) is then sent off to the *operator*.
+              This transaction (and the corresponding signature) is then sent off to the <b>operator</b>.
             </p>
             <p>
-              The operator will receive a bunch of transactions and then include them into an ordered list of transactions called a *block*.
+              The operator will receive a bunch of transactions and then include them into an ordered list of transactions called a <b>block</b>.
               Once the operator receives enough transactions to fill a block (although they can always include less), the operator will submit a commitment to this block to Ethereum.
               To explain exactly how this commitment thing works, let’s first talk about Merkle trees.
             </p>
@@ -222,7 +222,7 @@
             <h4 id="merkle-trees">Merkle Trees</h4>
             <p>
               Merkle trees are an extremely important data structure in the blockchain world (and computer science in general).
-              Basically, Merkle trees give us the ability to *commit* to some set of data in a way that hides the data, but allows users to prove that some piece of information was in the set.
+              Basically, Merkle trees give us the ability to <b>commit</b> to some set of data in a way that hides the data, but allows users to prove that some piece of information was in the set.
               For example, if I have ten numbers, I can create a commitment to those numbers and then later prove that one specific number was in that set of numbers.
               These commitments are a small, constant size, which makes them cheap to publish to Ethereum!
             </p>
@@ -230,7 +230,7 @@
               We can extend this idea so that we can commit to a set of transactions.
               Then, we can later prove that a specific transaction is in that set of transactions.
               This is exactly what the operator does! Every block is composed of a set of transactions, which is turned into a Merkle tree.
-              The root of this tree is the *commitment* that gets published to Ethereum along with each Plasma block.
+              The root of this tree is the <b>commitment</b> that gets published to Ethereum along with each Plasma block.
             </p>
 
             <h4 id="withdrawing">Withdrawing</h4>
@@ -243,14 +243,14 @@
             <p>
               Because funds in MVP are represented as UTXOs, each exit must point to a specific output.
               We also want to make sure that only the person who actually owns that output can withdraw it.
-              Therefore, in order to start a withdrawal, a user needs to submit a *merkle proof* along with the exit.
+              Therefore, in order to start a withdrawal, a user needs to submit a <b>merkle proof</b> along with the exit.
               The smart contract checks this proof to make sure that the transaction that created the output was actually included in some block.
               The contract then also checks that the output is owned by the user who started the exit.
             </p>
 
             <h5 id="challenging-exit">Challenging an Exit</h5>
             <p>
-              However, if that’s all that was needed in order to withdraw, then users would be able to withdraw outputs they’d already spent! We want to make sure that the output being referenced is actually unspent, so we introduce a *challenge period*.
+              However, if that’s all that was needed in order to withdraw, then users would be able to withdraw outputs they’d already spent! We want to make sure that the output being referenced is actually unspent, so we introduce a <b>challenge period</b>.
               Basically, a challenge period is a period of time in which people can challenge the validity of the exit by proving that the UTXO is actually spent.
               Users can prove a UTXO is spent by revealing another transaction that spends the UTXO signed by the user who started the exit.
             </p>
@@ -277,13 +277,13 @@
 
             <h5 id="confirmations">Confirmation Signatures</h5>
             <p>
-              Now what happens if a transaction gets included *after* the bad transaction? This can totally happen if a user makes a transaction, the transaction is sent to the operator, and the operator puts an invalid transaction before the user’s valid transaction.
+              Now what happens if a transaction gets included <b>after</b> the bad transaction? This can totally happen if a user makes a transaction, the transaction is sent to the operator, and the operator puts an invalid transaction before the user’s valid transaction.
               Users could try to exit from the inputs to the transaction, but that exit could be challenged by revealing the signed spend.
             </p>
             <p>
               We deal with this scenario by requiring that transactions are invalid until they’re signed twice.
               Whenever a user makes a transaction, they’ll sign a first signature to have that transaction included in a block.
-              Then, once the transaction is included in a valid block, the user will sign a second signature, called a *confirmation signature*.
+              Then, once the transaction is included in a valid block, the user will sign a second signature, called a <b>confirmation signature</b>.
               Users correctly following this rule will never sign a confirmation signature unless they know that their transaction was included in a valid block.
             </p>
             <p>
