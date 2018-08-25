@@ -68,10 +68,11 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="#">Annotations <i class="nav-angle rotate"></i></a>
-                <div class="nav" style="display:block;">
+                  <div class="nav" style="display:block;">
                     <a class="nav-link" href="#preface">Preface</a>
-                    <!--<a class="nav-link" href="#why-annotations">Why annotations?</a>-->
-                </div>
+                    <a class="nav-link" href="#puzzling-concepts">Puzzling Concepts</a>
+                    <a class="nav-link" href="#active-development">Active Development</a>
+                  </div>
             </li>
 
             <li class="nav-item">
@@ -131,7 +132,8 @@
                                 <a class="nav-link" href="#">Annotations <i class="nav-angle rotate"></i></a>
                                 <div class="nav" style="display:block;">
                                     <a class="nav-link" href="#preface">Preface</a>
-                                    <!--<a class="nav-link" href="#why-annotations">Why annotations?</a>-->
+                                    <a class="nav-link" href="#puzzling-concepts">Puzzling Concepts</a>
+                                    <a class="nav-link" href="#active-development">Active Development</a>
                                 </div>
                             </li>
 
@@ -158,17 +160,17 @@
             |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
             !-->
             <div class="col-md-7 col-xl-8 ml-md-auto py-8">
-                <h2 id="Annotations">Annotations</h2>
+                <h2 id="preface">Annotations</h2>
                 <p>
-                    The
+                    The Plasma
                     <a href="https://plasma.io/plasma.pdf" target="_blank">white paper</a>
                     written by Joseph Poon and Vitalik Buterin spurred a large wave of innovation, but it equally created confusion
-                    on many topics. One year later, Plasma slightly departed from its original proposed vision, having now a rather
+                    on many topics. One year later, Plasma slightly departed from its original vision, having now a rather
                     expansive definition, with several different proposed implementations.
                 </p>
                 <p>
-                    It would be revealing to briefly describe the recent history of Plasma, as it rolled out
-                    over the last year.
+                    Let's briefly describe the recent history of Plasma, as it rolled out
+                    over the last year!
                     <a href="https://ethresear.ch/t/minimal-viable-plasma/426" target="_blank">Minimum Viable Plasma</a>
                     was introduced as a model adhering to most of the procedures outlined in the white paper, but it turned out that
                     some parts, such as the multi-step process of state transitions, could be dramatically improved. Shortly after,
@@ -181,7 +183,7 @@
                     <a href="https://ethresear.ch/t/more-viable-plasma/2160" target="_blank">More Viable Plasma</a>.
                 </p>
                 <p>
-                    Due to this amalgam of implementations, it may not be crystal clear what Plasma in and of
+                    Due to this amalgam of implementations, it might not be crystal clear what Plasma in and of
                     itself represents. That is why we wanted to dedicate an entire page to annotate the confusing parts in the white paper
                     and draw a separation line between what is being built and what not.
                 </p>
@@ -192,10 +194,10 @@
                 |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
                 -->
                 <hr class="hr-dash my-7">
-                <h3 id="misleading">Puzzling Concepts</h3>
+                <h3 id="puzzling-concepts">Puzzling Concepts</h3>
                 <p>
                     Let's firstly review the parts which aren't materialised in any Plasma project, albeit thoroughly discussed
-                    or mentioned throughout the draft white paper from August 11, 2017.
+                    or mentioned throughout the draft white paper published on August 11, 2017.
                 </p>
                 <hr class="hr-dash my-4">
 
@@ -207,14 +209,14 @@
                 <h4 id="mapreduce">MapReduce</h4>
                 <p>
                     MapReduce is a general-purpose framework for parallelizing computations over a cluster of machines. Within the context of Plasma,
-                    it was proposed as the de facto computing paradigm, being mentioned 14 times in the white paper. Chapter 2.4 opens with the idea
-                    that Plasma is to MapReduce what blockchain is to git.
+                    it was proposed as the de facto computing paradigm, being mentioned fourteen times in the white paper.
+                    Chapter 2.4 opens with the idea that Plasma is to MapReduce what blockchain is to git.
                 </p>
                 <!--<p class="blockquote-se">-->
                     <!--blockchain : git :: Plasma : Hadoop (MapReduce)-->
                 <!--</p>-->
                 <p>
-                    Plasma was initially conceptualised as a design pattern to encompass complex computations into blockchains. It was aiming to
+                    Plasma was initially conceptualised as a design pattern for encompassing complex computations into blockchains. It was aiming to
                     achieve that by spawning a theoretically infinite number of chains under a hierarchical model, where input data is mapped,
                     computed by children chains and then combined and sent to parents. Proper incentives were mandated to ensure correctness.
                     From page 10:
@@ -257,7 +259,7 @@
                     While the philosophy of considering the root chain a supreme court remains, it turns out that merely developing a functional
                     Layer 2 blockchain is a non-trivial task in itself. In particular, it is hard to get exit transactions perfectly entangled,
                     as the incentives to not follow the rules and redeem more funds are exceptionally high. Models for designing
-                    nested chains will most likely start popping out in the near future.
+                    nested chains will most likely start popping up in the near future.
                 </p>
                 <!--<p>-->
                     <!--Nevertheless, a notable exception is-->
@@ -274,9 +276,9 @@
                 <hr class="hr-dash my-4">
                 <h4 id="zkSNARKs">zkSNARKs</h4>
                 <p>
-                    <a href="https://crypto.stackexchange.com/questions/19884/what-are-snarks" target="_blank">zkSNARKs</a>
-                    or Zero-Knowledge Succinct Non-Interactive Arguments of Knowledge,
-                    are frequently referenced in the white paper. Chapter 4.6 is entirely dedicated to the topic:
+                    Similar to MapReduce, Zero-Knowledge Succinct Non-Interactive Arguments of Knowledge,
+                    or just <a href="https://crypto.stackexchange.com/questions/19884/what-are-snarks" target="_blank">zkSNARKs</a>,
+                    are frequently referenced in the white paper. Chapter 4.6 is entirely dedicated to this topic:
                 </p>
                 <p class="blockquote-se">
                     Non-interactive proofs of computation allow for one to have significant benefits in scalable
@@ -305,13 +307,14 @@
                 <hr class="hr-dash my-4">
                 <h4 id="misc">Miscellaneous</h4>
                 <p>
-                    The following is a list of elements and concepts which would benefit from being appended brief additional clarifications.
+                    The following is a list of other elements and concepts which would benefit from a
+                    brief additional clarification.
                 </p>
 
                 <hr class="hr-dash my-2">
                 <h6 id="rootchain">Root Chain</h6>
                 <p>
-                    As Plasma is a design pattern, not a product, the root chain could theoretically be any blockchain
+                    As Plasma is a <i>design pattern</i>, not a product, the root chain can theoretically be any blockchain
                     which allows the creation of smart contracts. Indeed, most projects working on Plasma chose Ethereum to be
                     their root chain, but that's merely a matter of preference.
                 </p>
@@ -319,15 +322,15 @@
                 <hr class="hr-dash my-2">
                 <h6>UTXOs vs Accounts</h6>
                 <p>
-                    Most examples given in the white paper presume a UTXO model, but that's only because of inferred simplicity. Latest
-                    thought debates, in particular within Plasma Debit, yielded heuristics closer to an account-based model
+                    Most examples given in the white paper presume a UTXO model, but that's only due to inferred simplicity. Latest
+                    thought debates, in particular within Plasma Debit, resulted in heuristics closer to an account-based model
                     than an UTXO-based one.
                 </p>
 
                 <hr class="hr-dash my-2">
                 <h6>Bitmaps</h6>
                 <p>
-                    It wasn't never truly clear what these bitmaps are. Key-value pairs, where the keys map to the balances on the
+                    It was never truly clear what these bitmaps are. Key-value pairs, where the keys map to the balances on the
                     root chain contract and the values are binary?
                 </p>
 
@@ -337,9 +340,9 @@
                 |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
                 !-->
                 <hr class="hr-dash my-7">
-                <h3 id="active">Active Development</h3>
+                <h3 id="active-development">Active Development</h3>
                 <p>
-                    Efficient coin transfers, challenge/ response games, fraud proofs, bonds, mass exits,
+                    Fast coin transfers, challenge/ response games, fraud proofs, bonds, mass exits,
                     decentralized exchanges, dapp chains etc...
                 </p>
 
