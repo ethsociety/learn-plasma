@@ -1,0 +1,138 @@
+
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+@import '../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
+
+body
+  background-color #FFFFFF
+  margin 0
+
+.btn-round
+  border-radius 3rem
+  padding 0.3rem 1rem
+
+#top-nav
+  border-bottom 1px solid #EFEFEF
+  background-color rgba(255, 255, 255, 0.9)
+  .navbar-nav
+    a
+      border 1px solid transparent
+      border-radius 0.3rem
+      font-size 1.1rem
+      padding 0.2rem 1rem
+      transition all 0.3s
+      margin-right 0.3rem
+      &:hover
+        background-color rgba(100, 200, 250, 0.05)
+        border 1px solid rgba(100, 200, 250, 0.1)
+        box-shadow inset 0 0 3px rgba(100, 200, 250, 0.3)
+      &.active
+        background-color rgba(100, 250, 200, 0.1)
+        border 1px solid rgba(100, 250, 200, 0.2)
+        box-shadow inset 0 0 3px rgba(100, 250, 200, 0.6)
+
+#index-jumbotron
+  background-image linear-gradient(135deg, #f9f7ff 0%, #fff 50%, #f6f3ff 100%)
+
+#index-jumbotron-left
+  position relative
+  height 400px
+
+#index-jumbotron-bg
+  display block
+  position absolute
+  bottom 0
+  right 0
+  width 100%
+  opacity 0.1
+  z-index 100
+
+#index-jumbotron-left-inner
+  position absolute
+  top 0
+  left 0
+  margin 4rem
+  z-index 200
+  p
+    background-color rgba(255, 255, 255, 0.5)
+    padding 0.3rem 0.6rem
+    border-radius 3rem
+
+#index-posts
+  margin 3rem
+
+.index-post
+  background-color rgba(255, 255, 255, 0.5)
+  border-bottom 1px solid #EFEFEF
+  padding 0.3rem 0.6rem
+  font-size 0.8rem
+  margin-left 0
+  margin-bottom 0.6rem
+  opacity 0
+  transition all 0.3s
+  &.loaded
+    opacity 1
+    margin-left 1rem
+
+#index-partners
+  img
+    max-width 100%
+
+#index-social
+  margin-top 2rem
+  .card
+    box-shadow 0 1px 40px transparent
+    transition all 0.3s
+    align-items center
+    color silver
+    text-decoration none
+    padding 2rem
+    &:hover.lime
+      color lime
+    &:hover.pink
+      color pink
+    &:hover.orange
+      color orange
+    &:hover
+      box-shadow 0 1px 40px rgba(0, 0, 0, 0.05)
+
+#main-content
+  position fixed
+  top 3.8rem
+  left 0
+  right 0
+  bottom 0
+  overflow auto
+  h1, h2, h3, h4, h5, h6
+    .header-anchor
+      color rgba(0, 0, 0, 0.05)
+      margin 0.3rem
+      font-size 1rem
+      text-decoration none
+    &:hover
+      .header-anchor
+        color #007bff
+
+#page
+#post
+  margin-top 2rem
+  article
+    h1
+      font-size 28px
+      margin-top 2.6rem
+    h2
+      font-size 22px
+      margin-top 2rem
+    h3
+      font-size 17px
+      margin-top 1.6rem
+  p
+    text-align justify
+  ul
+    margin-bottom 0.6rem
+  li
+    margin-bottom 0.3rem
+
+
+#bottom-nav
+  border-top 1px solid #EFEFEF
+  margin-top 3rem

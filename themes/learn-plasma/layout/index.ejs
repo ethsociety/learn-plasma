@@ -1,0 +1,138 @@
+<%
+let moment = require('moment')
+let shuffle = require('lodash/shuffle')
+let compact = require('lodash/compact')
+let {i18n, posts, data} = page
+let {medium, github, discourse} = data
+let now = moment()
+
+// top 3 recent posts
+let recentPosts = posts.sort('date', -1)
+  .limit(3)
+  .toArray()
+  .map(item => {
+    item.icon = 'fas fa-newspaper'
+    item.url = url_for(item.path)
+    item.external = false
+    return item
+  })
+
+// top 3 recent medium articles
+let recentMedium = [].concat(medium)
+recentMedium.length = 3
+
+let recentGithub = [].concat(github)
+recentGithub.length = 3
+
+// top 3 discourse posts
+let recentDiscourse = [].concat(discourse)
+recentDiscourse.length = 3
+
+let recent = []
+  .concat(recentPosts)
+  .concat(recentMedium)
+  .concat(recentGithub)
+  .concat(recentDiscourse)
+
+recent = compact(shuffle(recent))
+
+%>
+
+<div id="index-jumbotron" class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div class="row">
+      <div id="index-jumbotron-left" class="col-md-6">
+        <div id="index-jumbotron-left-inner">
+          <h1><%=i18n('jumbotron.title')%></h1>
+          <p><%=i18n('jumbotron.message')%></p>
+          <a class="btn btn-lg btn-round btn-info"
+            href="<%=i18n('jumbotron.get-started-url')%>">
+            <%=i18n('jumbotron.get-started')%>
+          </a>
+        </div>
+        <img id="index-jumbotron-bg" src="/img/index/hero.png" alt="">
+      </div>
+      <div class="col-md-6">
+        <div id="index-posts">
+          <% if (recent.length > 0) { %>
+            <h4><%=i18n('jumbotron.community-activity')%></h4>
+          <% } %>
+          <% recent.forEach(item => { %>
+            <div class="index-post">
+              <a href="<%=item.url || ''%>">
+                <% if (item.icon !== undefined) { %>
+                  <i class="<%=item.icon%>"></i>
+                <% } %>
+                <%=item.title || ''%>
+              </a>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="index-partners" class="container">
+  <div class="row">
+
+    <div class="col-md-3">
+      <a href="https://karl.tech">
+        <img src="/img/index/karl-dot-tech.png" alt="karl dot tech">
+      </a>
+    </div>
+
+    <div class="col-md-3">
+      <a href="https://cryptoeconomics.study">
+        <img src="/img/index/cryptoeconomics.png" alt="cryptoeconomics">
+      </a>
+    </div>
+
+    <div class="col-md-3">
+      <a href="https://omisego.network">
+        <img src="/img/index/omisego.png" alt="">
+      </a>
+    </div>
+
+    <div class="col-md-3">
+      <a href="https://ethresear.ch/search?q=plasma">
+        <img src="/img/index/ethresearch.png" alt="">
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="index-social" class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-3">
+      <a href="https://reddit.com/r/learnplasma" class="card lime">
+        <div class="icon">
+          <i class="fab fa-3x fa-reddit"></i>
+        </div>
+        <div class="title">
+          r/learnplasma
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a href="https://twitter.com/learnplasma" class="card pink">
+        <div class="icon">
+          <i class="fab fa-3x fa-twitter"></i>
+        </div>
+        <div class="title">
+          @learnplasma
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a href="https://github.com/ethsociety/learn-plasma" class="card orange">
+        <div class="icon">
+          <i class="fab fa-3x fa-github"></i>
+        </div>
+        <div class="title">
+          <%=i18n('contribute')%>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
