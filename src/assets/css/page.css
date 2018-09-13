@@ -17354,7 +17354,8 @@ ul.flexbox {
   margin-bottom: 1rem; }
 
 .sidebar-body {
-  position: relative;
+  position: sticky;
+  top: 0px;
   padding-right: 20px; }
 
 .sidebar-footer {
