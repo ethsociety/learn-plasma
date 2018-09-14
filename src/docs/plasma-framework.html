@@ -122,6 +122,7 @@
                     <div class="nav" style="display:block;">
                       <a class="nav-link" href="#preface">Preface</a>
                       <a class="nav-link" href="#why-plasma">Why Plasma?</a>
+                      <a class="nav-link" href="#building-blocks">Building Blocks</a>
                     </div>
                   </li>
   
@@ -150,24 +151,21 @@
           <div class="col-md-7 col-xl-8 ml-md-auto py-8">
             <h2 id="preface">Plasma as a Framework</h2>
             <p>
-              It’s important to preface this page by noting that Plasma is a <i>framework</i> for building scalable applications.
-              There isn’t any single project we call "Plasma."
-              Instead, there are lots of different projects that use the tools provided by the framework.
+              Before we start, remember that Plasma is a <i>framework</i> for building scalable applications.
+              There isn’t any single project called "Plasma."
+              Instead, there are lots of different projects that use the tools provided by the Plasma framework.
               This tends to be pretty confusing when you’re first learning about Plasma (and that’s fine!). 
             </p>
             <p>
-              This framework nature of Plasma can make it hard to explain.
+              This framework nature can make Plasma hard to explain.
               The original <a href="http://plasma.io/plasma.pdf">paper</a> describing Plasma runs into this problem too.
               It’s difficult to describe exactly what Plasma <i>is</i> without giving examples of how it can be used.
               At the same time, it’s important to remember that those examples are only a very small slice of what’s possible. 
             </p>
             <p>
-              As a result, it seems necessary to introduce Plasma as a framework before describing examples of applications inside the framework.
+              As a result, it's necessary to introduce Plasma as a framework before describing examples of applications inside the framework.
               This section might sound pretty vague if you’re used to thinking of Plasma as one specific project!
               Don't worry, we’ll go into as much detail as possible about some of those applications later on.
-            </p>
-            <p>
-              But first, let’s talk about something important.
             </p>
 
             <hr class="hr-dash my-7">
@@ -238,14 +236,68 @@
               We don’t get <i>all</i> of the utility of sidechains, but we preserve some of the most important things (like being able to make transactions cheaply) while also maintaining security.
               The fundamental principle of Plasma is that all user assets can always “fall back” to the root chain in the event of a security failure on the sidechain.
             </p>
+
+            <hr class="hr-dash my-7">
+
+            <h3 id="building-blocks">Plasma Building Blocks</h3>
             <p>
-              This is why we need Plasma.
               Blockchains are slow and expensive.
               We want to make blockchains fast and cheap, but we don’t want to sacrifice safety.
-              If you’re ready to learn about how we get the best of both worlds, keep reading!
+              That's why we need Plasma.
             </p>
-          </div>
+            <p>
+              So exactly <i>is</i> Plasma?
+              Plasma is a way of building scalable decentralized applications that don't sacrifice security for speed.
+              Let's explore the components that make this possible.
+            </p>
 
+            <h5 id="offchain-execution">Off-chain Execution</h5>
+            <p>
+              Plasma applications do a majority of their work outside of the "root chain" (e.g. Ethereum).
+              Root chains tend to be slow and costly because they need to be very secure.
+              If an application can do any work outside of the root blockchain, it should.
+            </p>
+            <p>
+              For example, in <a href="./plasma-mvp.html">Plasma MVP</a>, almost every transaction occurs outside of Ethereum.
+              Only deposits and withdrawals, the points of entry and exit, are ever handled on the smart contract.
+              This is a standard workflow for Plasma applications.
+              Anything that doesn't require assets/data moving in and out of your smart contract can probably be handled off-chain.
+            </p>
+
+            <h5 id="commitments">State Commitments</h5>
+            <p>
+              When we're doing so much off-chain, we need some way to make sure that our changes are final.
+              This is why we make use of something called a "state commitment."
+              A <a href="https://en.wikipedia.org/wiki/Commitment_scheme">state commitment</a> is a cryptographic way to store a compressed version of the state of your application.
+            </p>
+            <p>
+              However, storing <i>everything</i> about your application would defeat the point of Plasma entirely.
+              We typically make use of <a href="./plasma-mvp.html#merkle-trees">Merkle trees</a> instead.
+              These commitments become kind of like save points for your application.
+            </p>
+
+            <h5 id="exits">Exits</h5>
+            <p>
+              Plasma applications make use of these commitments whenever a user wants to leave the Plasma chain.
+              We usually refer to this as "exiting" the application.
+            </p>
+            <p>
+              Let's illustrate this by imagining a payment network application!
+              The state commitments for this application will probably contain some information about how much money each user currently has.
+              If a user wants to withdraw ("exit") their money from this application, they need to prove to the smart contract that they have money to withdraw.
+              To do this, the user can use something called a <a href="https://blog.ethereum.org/2015/11/15/merkling-in-ethereum/">Merkle proof</a>.
+            </p>
+
+            <hr class="hr-dash my-7">
+
+            <p>
+              These are the basic building blocks of most Plasma applications.
+              Next you'll be introduced to Plasma MVP, the first formal Plasma application to be specified.
+              There we'll explore how these blocks can be applied to create a real Plasma payment network.
+            </p>
+
+            <a class="btn btn-lg btn-round btn-info float-right" href="./plasma-mvp.html">Next: Plasma MVP</a>
+          </div>
         </div>
       </div>
     </main><!-- /.main-content -->
