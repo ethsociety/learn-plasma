@@ -133,9 +133,11 @@
                   <li class="nav-item">
                     <a class="nav-link" href="#">Plasma Debit <i class="nav-angle rotate"></i></a>
                     <div class="nav" style="display:block;">
-                      <a class="nav-link" href="#plasma-debit-overview">Overview</a>
-                      <a class="nav-link" href="#plasma-debit-details">Details</a>
-                      <a class="nav-link" href="#plasma-debit-pros-and-cons">Pros and Cons</a>
+                      <a class="nav-link" href="#consensus">Consensus</a>
+                      <a class="nav-link" href="#deposits">Deposits</a>
+                      <a class="nav-link" href="#transactions">Transactions</a>
+                      <a class="nav-link" href="#withdrawals">Withdrawals</a>
+                      <a class="nav-link" href="#pros-and-cons">Pros and Cons</a>
                     </div>
                   </li>
                 </ul>
@@ -150,41 +152,103 @@
           !-->
           <div class="col-md-7 col-xl-8 ml-md-auto py-8">
             <h2 id="example">Plasma Debit</h2>
-
-            <h3 id="plasma-debit-overview">Overview</h3>
             <p>
-              Plasma debit is like plasma cash except that instead of transferring tokens on the plasma chain, one transfers payment channels between a user and the plasma operator.
+              <a href="https://ethresear.ch/t/plasma-debit-arbitrary-denomination-payments-in-plasma-cash/2198">Plasma Debit</a> is like Plasma Cash, except every token is a payment channel between the user and the chain operator.
+              It's sort of like a big Lightning hub, but the channels can be transferred just like a Plasma Cash token!
             </p>
 
             <hr class="hr-dash my-7">
 
-            <h3 id="plasma-debit-details">Details</h3>
+            <h3 id="consensus">Consensus</h3>
             <p>
-              Plasma debit is effectively a giant payment hub between the operator and the plasma chain’s users where each of the user is connected with the operator through a payment channel.
-              An operator owns a bunch of channels linked to himself (against a collateral).
+              Like Plasma Cash or Plasma MVP, Plasma Debit can make use of pretty much any consensus mechanism.
+              However, because of the way it makes use of payment channels, Plasma Debit is more suited for single operators than for lots of validators.
             </p>
-            <img src="../assets/img/plasma-debit/operator.PNG" class="img-fluid" alt="Responsive image">
-            <p>
-              When a user wants to be a part of the chain, they request for a channel from the operator by paying a fee. This is how a payment channel gets established between the user and the operator.
-              Unlike plasma cash, where you can transfer tokens, in plasma debit, each payment channel is tokenized. A user, A, can transfer a channel to user B.
-            </p>
-            <img src="../assets/img/plasma-debit/new_channel.PNG" class="img-fluid" alt="Responsive image">
-            <p>
-              Data structure: Each block in a sparse merkle tree logs the transfer of payment channel (between user A and user B) along with the state of the payment channel.
-              *No transactions between users go on a sparse merkle tree.
-              Exit system: The exit system is similar to plasma cash, except that while exiting, one has to claim the payment channel and the state of the channel.
-            </p>
-            <img src="../assets/img/plasma-debit/ds.PNG" class="img-fluid" alt="Responsive image">
 
-            <hr class="hr-dash my-7">
-
-            <h3 id="plasma-debit-pros-and-cons">Pros and cons</h3>
+            <h3 id="deposits">Deposits</h3>
             <p>
-              Plasma debit gives the benefits of plasma cash along with fungibility.
-              One can send tiny payments instead of transferring tokens (unlike plasma cash).
-              However, for a new user to receive money, the user has to first establish a payment channel with the operator and then receive money.
+              Deposits in Plasma Debit are basically the same as <a href="../docs/plasma-cash.html#deposits">deposits in Plasma Cash</a>.
+              Users send some asset to the Plasma chain's smart contract, and a unique token is created for those assets.
+              Unlike Plasma Cash, this token is also a payment channel with the consensus mechanism!
+              It's hard to have a payment channel with lots of people simulatneously, so this really lends itself to single operators.
             </p>
-            <img src="../assets/img/plasma-debit/strength.PNG" class="img-fluid" alt="Responsive image">
+            <div class="text-center">
+              <img src="../assets/img/plasma-debit/pd-channels.png">
+            </div>
+
+            <h3 id="transactions">Transactions</h3>
+            <p>
+              Transactions are really where Plasma Debit differs from Plasma Cash.
+              Instead of needing to transfer the entire token to someone whenever you'd like to make a payment, you can simply make use of the payment channel!
+              When a user wants to pay another user, they simply pay the operator and have the operator pay the other user simultaneously.
+            </p>
+            <p>
+              The problem here is that the recipient needs to have a payment channel with the operator too!
+              More specifically, the recipient needs to have a channel <i>where the operator has funds</i>.
+              This is a huge user experience issue if the recipient doesn't already have a payment channel with the operator.
+              We can't expect everyone to be part of the network in advance, so what do we do?
+            </p>
+            <p>
+              Here's where we take advantage of the Plasma Cash-like features of Plasma Debit.
+              The payment channels in Plasma Debit are tokens, just like in Plasma Cash - they can be transferred to other users!
+              Let's say <b>A</b> has a payment channel and wants to send money (1 ETH) to <b>B</b>, who isn't part of the network yet.
+            </p>
+            <p>
+              <b>B</b> can't just create this payment channel by themselves because they need a channel where the operator has at least 1 ETH.
+              Instead, the operator needs to create the channel for <b>B</b>.
+              It'd be inconvenient for the operator to have to create a new channel whenever a user joins the network, but they don't need to!
+              The operator can just create a bunch of channels in advance (with themselves), and transfer them to users who are recieving a payment for the first time.
+            </p>
+            <div class="text-center">
+              <img src="../assets/img/plasma-debit/pd-xfer.png">
+            </div>
+            <p>
+              Now that <b>A</b> and <b>B</b> both have the necessary channels, we can start making channel payments!
+              These payments are super fast (almost instant!) and super simple.
+            </p>
+            <div class="text-center">
+              <img src="../assets/img/plasma-debit/pd-payment.png">
+            </div>
+
+            <h3 id="withdrawals">Withdrawals</h3>
+            <p>
+              Withdrawals in Plasma Debit are also basically the same as <a href="../docs/plasma-cash.html#withdrawals">withdrawals in Plasma Cash</a>.
+              However, remember that Plasma Debit payment channel transactions allow you to spend fractional parts of your tokens.
+              So instead of having to withdraw entire tokens, users are allowed to withdraw fractions of tokens.
+              If a user spent half of a 1 ETH token, then they're allowed to withdraw 0.5 ETH.
+            </p>
+            <p>
+              Generally the exit challenges stay the same as in Plasma Cash.
+              These challenges ensure that the person withdrawing a token is actually that token's owner.
+              But what if a user tries to withdraw an entire token when they already spent half of it?
+              Plasma Debit solves this by adding one more challenge that blocks the exit if someone reveals a later balance signed by the withdrawing user.
+            </p>
+
+            <h3 id="pros-and-cons">Pros and Cons</h3>
+            <p>
+              Plasma Debit is a big improvement over Plasma Cash.
+              Because it acts like a big Lightning hub, transactions are cheap and super fast.
+              Best of all, you still only need to keep track of your own channels. 
+            </p>
+            <p>
+              However, the design does have its downsides.
+              Users still need to transmit a proof whenever they want to transfer a channel to someone else, just like in Plasma Cash.
+              This proof can be <a href="../docs/plasma-cash.html#pros-and-cons">pretty big</a>.
+            </p>
+            <p>
+              As we mentioned before, users needs a payment channel with the operator in order to receive money.
+              Operators will probably create lots of channels in advance that can be transferred to new users.
+              Each of these channels requires the operator lock up some funds.
+              Depending on how big the network gets, that might be a lot locked up funds!
+            </p>
+            <p>
+              Although we won't get too much into them, payment channels also have problems of their own.
+              These mainly create UX headaches for end-users.
+            </p>
+            <p>
+              Plasma Debit isn't much better than Plasma Cash for cross-currency payments.
+              There currently aren't any great Plasma Debit DEX proposals.
+            </p>
           </div>
         </div>
       </div>
