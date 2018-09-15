@@ -67,7 +67,7 @@
     <header class="header" style="background-color: #f1f6fa">
       <div class="container-sm">
         <h1>Frequently asked questions</h1>
-        <p class="lead">If you have a question and couldn't find it here, just <a href="https://reddit.com/r/learnplasma">post your question on reddit</a>.</p>
+        <p class="lead">If you can't find the answers you need here, <a href="https://reddit.com/r/learnplasma">post your question on reddit</a>.</p>
       </div>
     </header><!-- /.header -->
 
@@ -76,33 +76,29 @@
     <main class="main-content">
       <section class="section">
         <div class="container-sm">
-
           <h3 id="general">General questions</h3>
-
           <br>
-
           <div class="accordion accordion-arrow-right" id="accordion-1">
             <div class="card">
               <h6 class="card-title">
                 <a data-toggle="collapse" href="#collapse-1-1" class="collapsed">What is Plasma?</a>
               </h6>
-
               <div id="collapse-1-1" class="collapse" data-parent="#accordion-1">
                 <div class="card-body">
-                  Plasma is, in essence, blockchains built on top of blockchains. It is a series of smart contracts that run on top of the root chain (eg. the main Ethereum blockchain).
+                  Plasma is a framework for creating scalable blockchain applications. 
                 </div>
               </div>
             </div>
-
 
             <div class="card">
               <h6 class="card-title">
                 <a data-toggle="collapse" href="#collapse-1-2" class="collapsed">How does Plasma work?</a>
               </h6>
-
               <div id="collapse-1-2" class="collapse" data-parent="#accordion-1">
                 <div class="card-body">
-                  These Plasma smart contracts are incentivized to continue operation autonomously via network transaction fees, which is ultimately reliant upon the underlying blockchain (e.g. Ethereum) to enforce transactional state transitions.
+                  Plasma applications tend to make use of <a href="../docs/plasma-framework.html#building-blocks">common building blocks</a>.
+                  Most Plasma apps require a smart contract deployed to another "root" blockchain (like Ethereum).
+                  Special rules about how the application can run make sure that user funds are always safe.
                 </div>
               </div>
             </div>
@@ -111,94 +107,15 @@
               <h6 class="card-title">
                 <a data-toggle="collapse" href="#collapse-1-3" class="collapsed">How can I contribute to Plasma?</a>
               </h6>
-
               <div id="collapse-1-3" class="collapse" data-parent="#accordion-1">
                 <div class="card-body">
-                  <p>Calling all developers and content creators!</p>
-                  <p>Get paid to contribute by <a href="https://gitcoin.co/profile/ethsociety">claiming bounties on Gitcoin</a>.</p> 
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-
-
-          <hr class="my-8">
-
-
-
-          <h3 id="technical">Technical questions</h3>
-
-          <br>
-
-          <div class="accordion accordion-arrow-right" id="accordion-2">
-            <div class="card">
-              <h6 class="card-title">
-                <a data-toggle="collapse" href="#collapse-2-1">What is finality?</a>
-              </h6>
-
-              <div id="collapse-2-1" class="collapse" data-parent="#accordion-2">
-                <div class="card-body">
-                  <p>Finality, in very loose terms, means that once a particular operation has been done, it will forever be etched in history and nothing can revert that operation.</p>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="card">
-              <h6 class="card-title">
-                <a data-toggle="collapse" href="#collapse-2-2" class="collapsed">How does Plasma get its finality?</a>
-              </h6>
-
-              <div id="collapse-2-2" class="collapse" data-parent="#accordion-2">
-                <div class="card-body">
-                  The finality and security of Plasma depend completely on Ethereum’s i.e. the root chain’s security. Plasma works only if Ethereum is safe and secure.
+                  There are lots of ways to contribute!
+                  You can check out our <a href="../pages/build.html">build</a> or <a href="../pages/research.html">research</a> pages to find projects that need help.
+                  You can also get paid to contribute to LearnPlasma by <a href="https://gitcoin.co/profile/ethsociety">claiming bounties on Gitcoin</a>!
                 </div>
               </div>
             </div>
           </div>
-
-
-
-          <hr class="my-8">
-
-
-
-          <h3 id="developer">Developer questions</h3>
-
-          <br>
-
-          <div class="accordion accordion-arrow-right" id="accordion-3">
-            <div class="card">
-              <h6 class="card-title">
-                <a data-toggle="collapse" href="#collapse-3-1">How can I create Plasma-powered dapps?</a>
-              </h6>
-
-              <div id="collapse-3-1" class="collapse" data-parent="#accordion-3">
-                <div class="card-body">
-                  <p>Here is where we would include instructions on how to get started building layer 2 dapps. </p>
-                  <p>We can give a link to the documentation on learn Plasma by example as well as providing a link to the Github repository and readme tutorial.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <h6 class="card-title">
-                <a data-toggle="collapse" href="#collapse-3-2" class="collapsed">How can I report bugs?</a>
-              </h6>
-
-              <div id="collapse-3-2" class="collapse" data-parent="#accordion-3">
-                <div class="card-body">
-                  <p>Found a bug? <a href="http://www.learnplasma.org/pages/misc.html#contributing">Post it to Github!</a></p> 
-                  <p>When posting an issue on Github, please provide a thorough explanation and step-by-step instructions on how to recreate the bug.</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-
         </div>
       </section>
     </main><!-- /.main-content -->
