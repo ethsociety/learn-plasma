@@ -19,7 +19,6 @@
 
   <body data-spy="scroll" data-target=".nav-sidebar" data-offset="100">
 
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-stick-dark" data-navbar="sticky">
       <div class="container">
@@ -128,10 +127,11 @@
                   <li class="nav-item">
                     <a class="nav-link" href="#">Plasma Cash <i class="nav-angle rotate"></i></a>
                     <div class="nav" style="display:block;">
-                      <a class="nav-link" href="#background">Motivation</a>
-                      <a class="nav-link" href="#non-fungibility">Non-fungibility</a>
-                      <a class="nav-link" href="#data-structure">Data structure</a>
-                      <a class="nav-link" href="#validation">Validation</a>
+                      <a class="nav-link" href="#consensus">Consensus</a>
+                      <a class="nav-link" href="#deposits">Deposits</a>
+                      <a class="nav-link" href="#blocks">Blocks</a>
+                      <a class="nav-link" href="#transactions">Transactions</a>
+                      <a class="nav-link" href="#withdrawals">Withdrawals</a>
                       <a class="nav-link" href="#pros-and-cons">Pros and Cons</a>
                     </div>
                   </li>
@@ -152,134 +152,134 @@
           !-->
           <div class="col-md-7 col-xl-8 ml-md-auto py-8">
             <h2 id="plasma-cash">Plasma Cash</h2>
-            <p class="lead-2">
-              Plasma Cash is a Plasma implementation that allows for non-fungible tokens using Sparse Merkle Trees.
+            <p>
+              Plasma Cash is a Plasma implementation primarily built for storing and transferring non-fungible tokens.
+              Plasma Cash was originally designed to address the mass exit problem in Plasma MVP.
             </p>
 
             <hr class="hr-dash my-7">
 
-            <h3 id="background">Motivation - Operator's Incentive</h3>
+            <h3 id="consensus">Consensus</h3>
             <p>
-              In Plasma MVP, all tokens deposited are fungible and stored in a shared pool on the root chain contract.
-              An exit relies on a user's ability to claim and verify a certain amount of funds and for this claim to be resilient against challenges.
-            </p>
-            <p>
-              This creates a scenario where an operator can create "out of nowhere" transactions which are basically transactions that do not stem from a valid deposit in the root chain contract.
-              What the operator can do is to re-send these transactions back to themselves as many times as possible and store all these transactions into a block.
-              This particular block is then committed to the root chain but not broadcast on the Plasma chain.
-            </p>
-            <p>
-              In doing so, it becomes impossible for other participants to challenge the validity of the exit transaction for two reasons:
-            </p>
-            <ol>
-              <li>
-                The participants cannot find the invalid "out of nowhere" transaction since it was withheld by the operator.
-                To challenge, they have to ask the operator to show proof of the entire transaction history.
-              </li>
-              <li>
-                However, the total transaction history proof is too large for the operator to be able to show on the root chain.
-                Ethereum has a 1MB limit on block size.
-                So they can get away with not revealing the invalid transaction.
-              </li>
-            </ol>
-            <p>
-              This allows the operator to create "out-of-nowhere" transactions with which they can successfully exit and drain the funds out of the smart contract on the root chain.
+              Plasma Cash chains, like Plasma MVP chains, need a consensus mechanism.
+              This mechanism can be anything from a single operator (Proof-of-Authority) to a large set of validators (Proof-of-Stake).
+              The design of Plasma Cash ensures that user funds are always safe, even if the consensus mechanism misbehaves.
             </p>
 
-            <hr class="hr-dash my-7">
-
-            <h3 id="non-fungibility">Non-fungibility</h3>
+            <h3 id="deposits">Deposits</h3>
             <p>
-              Plasma Cash was designed to give the operator as little incentive as possible to cheat or game the system.
-              Every token in the Plasma Chain is indexed and linked to a corresponding deposit on the Root Chain.
+              Users can start using a Plasma Cash chain by depositing assets into the chain's smart contract.
+              However, unlike Plasma MVP, each Plasma Cash asset is represented by a non-fungible token.
+              For example, if a user deposits 10 ETH into the contract, that user will receive a token worth 10 ETH.
+              Each token is given a unique identifier.
+            </p>
+
+            <h3 id="blocks">Blocks</h3>
+            <p>
+              Plasma Cash blocks are very different from Plasma MVP blocks.
+              Each Plasma Cash block has a slot for every token in existence.
+              Whenever a token is spent, a record of that transaction is placed at the corresponding slot.
+              Here's what that would look like for a Plasma Cash chain with four tokens.
+            </p>
+            <div class="text-center">
+              <img src="../assets/img/plasma-cash/pc-block.png">
+            </div>
+            <p>
+              In this example, token <b>#4</b> was sent from user <b>A</b> to user <b>B</b>.
+              Notice that <b>#1</b>, <b>#2</b>, and <b>#3</b> weren't spent, so we didn't put anything in those slots!
+              This special structure gives us something really cool.
+              In addition to being able to show that a token was spent in a specific block, we can also show that the token <i>didn't</i> change hands in that block.
             </p>
             <p>
-              If the operator tries to create invalid transactions and exit from those transactions, the operator can easily be challenged because all tokens are non-fungible and their transaction history can easily be traced.
-              It is also not possible for the operator to withdraw all the funds in one go as they have to make separate exits for every token.
-              The operator then loses all bonds staked on these exits, which is of substantial cost to the malicious operator.
-            </p>
-            <img src="../assets/img/plasma-cash/operator-invalid-transactions.jpg">
-
-            <hr class="hr-dash my-7">
-
-            <h3 id="data-structure">Data Structure</h3>
-            <p>
-              Each block holds the state of every single token in a data structure known as a Sparse Merkle Tree (SMT).
-              Each token is permanently assigned to a leaf node in the tree and the tree just has to keep track of the owner of each token.
-              This is advantageous for a few reasons:
-            </p>
-            <ol>
-              <li>
-                Default values for each layer of the tree can be pre-calculated.
-                Layer 0 would be H(0), Layer 1 would be H((H0), H(0)), Layer 2 would be H(H(H(0), H(0)), H(H(0), H(0))) and so forth.
-                This saves on processing time and power needed for the computations.
-                Each client only needs to save data for the tokens it currently owns.
-              </li>
-              <li>
-                Verification of a transaction only requires looking at the index of the token in the tree.
-                Only the history of the token transaction being verified has to be considered.
-              </li>
-              <li>
-                When a token is spent, it is guaranteed that there is only one transaction in the SMT.
-              </li>
-            </ol>
-            <img src="../assets/img/plasma-cash/overview.jpg" style="max-height:500px">
-
-            <hr class="hr-dash my-7">
-
-            <h3 id="validation">Validation</h3>
-            <p>
-              When a transaction is made, the clients verify that transaction by checking that the token has been properly transferred since its initial deposit.
-              Proofs from every block since the initial deposit of the token must be shown.
-              In a block, the token is either spent in a transaction or unspent.
+              So whereas Plasma MVP blocks form standard <a href="https://en.wikipedia.org/wiki/Merkle_tree">Merkle trees</a>, Plasma Cash blocks form <i>sparse</i> Merkle trees.
+              Standard Merkle trees don't give us a good way to prove that something <i>isn't</i> part of a specific block, but sparse Merkle trees do!
+              You can read more about sparse Merkle trees <a href="https://medium.com/@kelvinfichter/whats-a-sparse-merkle-tree-acda70aeb837">here</a>.
             </p>
             <p>
-              If the token was not spent in a block, proofs of non-inclusion must be given and this can be done simply by giving a Merkle proof that no transaction took place at that index in the SMT for that particular block.
-              If it was indeed spent, a Merkle proof of the transaction must be given to show that the proper transfer of ownership did take place.
+              What's cool about this is that users don't actually need to keep track of every single token!
+              Transactions of one token can never be placed into the slot of another token.
+              Users only need to keep track of their own tokens - it doesn't even matter what's in the other slots.
             </p>
-            <img src="../assets/img/plasma-cash/validation.jpg">
 
-            <hr class="hr-dash my-7">
+            <h3 id="transactions">Transactions</h3>
+            <p>
+              Since users are only keeping track of their own tokens, they don't know who owns any of the other tokens.
+              When a user wants to send their token to another user, they need to prove that they actually own that token!
+              This proof consists of the full transaction history of the token - every transaction since the token was first created.
+              If the history is correct, then it should show the list of owners ending with the sender.
+            </p>
+            <p>
+              To prove that history is actualyl correct, the user needs to provide additional proof that each transaction in the history was correctly included in a block.
+              Additionally, to show that there aren't any missing transactions, the user also needs to provide a proof that the token <i>wasn't</i> spent in any other block.
+              Let's demonstrate this by looking at a few Plasma Cash blocks.
+            </p>
+            <div class="text-center">
+              <img src="../assets/img/plasma-cash/pc-tx.png">
+            </div>
+            <p>
+              By the end of these four blocks, <b>G</b> owns token <b>#2</b>, and <b>C</b> owns token <b>#4</b>.
+              So how does <b>G</b> prove that they actually own <b>#2</b>? Simple!
+              <b>G</b> just needs to prove that <b>#2</b> wasn't spent in blocks #1 and #3, and that it was transferred from <b>E</b> to <b>F</b> in block #2 and from <b>F</b> to <b>G</b> in block #4.
+              <b>G</b> can do this with a simple Merkle proof for each block (taking advantage of the special sparse Merkle tree construction).
+            </p>
+            <p>
+              Similarly, <b>C</b> can prove that they own <b>#4</b> by showing that the token wasn't spent in blocks #2 and #4, and showing that it was sent from <b>A</b> to <b>B</b> and then <b>B</b> to <b>C</b>.
+            </p>
+
+            <h3 id="withdrawals">Withdrawals</h3>
+            <p>
+              Because the block structure of Plasma Cash differs so much from Plasma MVP, the process of withdrawing funds differs too.
+            </p>
+            <h4 id="starting-exit">Starting an Exit</h4>
+            <p>
+              When a user wants to withdraw a token, they need to submit the two latest transactions in the token's history.
+              For example, if <b>C</b> wants to withdraw token <b>#4</b>, they need to provide the "child" (most recent) transaction from <b>B</b> to <b>C</b>, and the "parent" transaction from <b>A</b> to <b>B</b>.
+              The user also needs to submit Merkle proofs that show both transactions were included in the blockchain.
+            </p>
+            <h4 id="challenging-exit">Challenging an Exit</h4>
+            <p>
+              We need to support three types of challenges to ensure that only the true owner of a token can withdraw that token.
+              Withdrawals can be immediately blocked if someone proves that the withdrawing user actually spent the token later on.
+              Withdrawals can also be immediately blocked if someone shows that there's transaction <i>between</i> the parent and the child transactions, meaning the withdrawing user provided an invalid parent.
+            </p>
+            <p>
+              Someone can also challenge the withdrawal by providing some other transaction in the token's history.
+              This type of challenge doesn't immediately block a withdrawal.
+              Instead, the withdrawing user is forced to respond with the transaction that comes after the provided transaction.
+            </p>
 
             <h3 id="pros-and-cons">Pros and Cons</h3>
             <p>
-              Since proofs of the token's activity must be shown for every single block from its deposit to the current block, this results in massive overhead when the Plasma Chain has progressed to a significant amount of blocks.
+              Plasma Cash is highly scalable because users only ever need to keep track of their own tokens.
+              However, there's is a trade-off being made between scalability and flexibility.
+              Tokens always have a fixed denomination - there's (currently) no good way to spend a fraction of a token without going into something like Plasma Debit (which we'll discuss in the next section).
+              This makes Plasma Cash unsuitable for use cases where fractions of tokens are necessary, like exchanges.
+            </p>
+            <p>
+              Additionally, the proofs that need to be sent along with each transaction can grow pretty quickly.
+              These proofs need to go all the way back to the block in which the token was deposited.
+              Once the Plasma Chain has been running for a while, these proofs might get prohibitively large.
+            </p>
+            <p>
               Let's do a quick calculation:
             </p>
             <p>
-              Let's use a conservative estimate for the number of coins.
-              Assume we have 2^10 tokens for the Plasma Chain.
-              This results in a SMT of height 10 for which we will require 10 branch hashes.
+              Imagine we have a Plasma Cash chain with a (very) conservative 1000 tokens.
+              This results in a sparse Merkle tree with ten levels, which means each Merkle proof needs to provide ten sibling hashes.
+              Every sibling hash is 32 bytes, so each Merkle proof is $32 * 10 = 320$ bytes!
+            <p>
+            <p>
+              Now let's imagine this chain is producing one block every 15 seconds (the current Ethereum block time).
+              That's $4 * 60 * 24 * 365 = 2102400$ blocks a year.
             </p>
             <p>
-              1 hash = 32 bytes
+              We know that the proof to send a single token grows by 320 bytes per block.
+              After a year, that proof would grow to $320 * 2102400 = 672768000$ bytes, or <b>0.67</b> gigabytes!
+              That's already way too much to be transmitted in a reasonable amount of time over even home networks. 
             </p>
             <p>
-              Size of Merkle Tree = 32bytes * 10 = 320 bytes
-            </p>
-            <p>
-              This results in 320 bytes per block.
-            </p>
-            <p>
-              If one block is produced every 15 seconds, that results in 3.154 million blocks per year.
-            </p>
-            <p>
-              320bytes*3.154million blocks/year = 1.01GB/year
-            </p>
-            <p>
-              This results in 1.01GB/year transfer of proof and this increases as number of tokens increase.
-            </p>
-            <p>
-              There is a trade-off between flexibility and fungibility.
-              In Plasma Cash, tokens have to be spent in the exact denomination that they were created in.
-              There is no way to spend less than or a fraction of a specific token in a transaction.
-              This is extremely unsuitable for use cases such as exchanges.
-              There may be certain ways to manage splitting and merging the tokens but these are all highly theoretical and still in discussion.
-            </p>
-            <p>
-              Having non-fungible tokens make Plasma Cash a perfect use case for supply-chain logistics.
-              Each individual part or piece can be tracked as a token.
-              The bulk of the work happens off-chain so the supply chain benefits from the high throughput of the Plasma Chain while the root hashes posted to the Root Chain ensure that the supply chain receives the full security guarantee of Ethereum.
+              Plasma Cash is still great for certain things.
+              Support for non-fungible tokens makes Plasma Cash perfect for things like supply-chain logistics or even <a href="https://www.kickstarter.com/projects/328862817/zombie-battleground-the-new-generation-of-ccg-tcg">card games</a>!
             </p>
 
             <a class="btn btn-lg btn-round btn-info float-right" href="./plasma-debit.html">Next: Plasma Debit</a>
@@ -312,5 +312,14 @@
     <script src="../assets/js/page.min.js"></script>
     <script src="../assets/js/script.js"></script>
 
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']]
+        }
+      });
+    </script>
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   </body>
 </html>

@@ -127,9 +127,11 @@
                   <li class="nav-item">
                     <a class="nav-link" href="#">Plasma MVP <i class="nav-angle rotate"></i></a>
                     <div class="nav" style="display:block;">
-                      <a class="nav-link" href="#motivation">Motivation</a>
-                      <a class="nav-link" href="#scaling">Scaling Off-Chain</a>
-                      <a class="nav-link" href="#design">MVP Design</a>
+                      <a class="nav-link" href="#background">Background</a>
+                      <a class="nav-link" href="#consensus">Consensus</a>
+                      <a class="nav-link" href="#deposits">Deposits</a>
+                      <a class="nav-link" href="#transactions">Transactions</a>
+                      <a class="nav-link" href="#withdrawals">Withdrawals</a>
                     </div>
                   </li>
 
@@ -161,7 +163,7 @@
 
             <hr class="hr-dash my-7">
 
-            <h3 id="motivation">Motivation</h3>
+            <h3 id="background">Background</h3>
             <p>
               Blockchains are currently really, really slow.
               We need blockchains to be much faster if we want to use them for even simple use-cases like payments.
@@ -169,8 +171,7 @@
               We need something like a few thousand TPS to even begin to handle daily retail transactions.
               Furthermore, Ethereum transaction fees tend to be high because tiny transactions are treated with the same level of security as massive ones, even when this isn’t necessary. 
             </p>
-
-            <h3 id="scaling">Scaling Off-Chain</h3>
+            <h4 id="scaling">Scaling Off-Chain</h4>
             <p>
               We’ve known for a while that one way to scale blockchains is to <a href="https://gendal.me/2014/10/26/a-simple-explanation-of-bitcoin-sidechains/">create</a> <a href="https://bitcoinmagazine.com/guides/what-altcoin/">new</a> <a href="https://github.com/ethereum/wiki/wiki/Sharding-FAQs">blockchains</a>.
               If we increase the number of blockchains that can process transactions, then we can increase the total number of transactions that can be processed.
@@ -186,8 +187,7 @@
 
             <hr class="hr-dash my-7">
 
-            <h3 id="design">MVP Design</h3>
-            <h4 id="consensus">Consensus</h4>
+            <h3 id="consensus">Consensus</h3>
             <p>
               Blockchains typically need consensus mechanisms.
               Plasma chains are special types of blockchains that can guarantee the safety of user funds even if the Plasma consensus mechanism fails.
@@ -201,7 +201,7 @@
               This key feature also makes it possible to use Plasma MVP for private blockchains while making sure users always retain control over their assets! Now we’ll explain more about why user funds are always secure.
             </p>
 
-            <h4 id="depositing">Depositing</h4>
+            <h3 id="deposits">Deposits</h3>
             <p>
               Users start using the Plasma chain by <b>depositing</b> funds into a smart contract on Ethereum.
               The basic MVP specification only allows users to deposit ETH, but the spec can be easily extended to support ERC20s.
@@ -210,7 +210,7 @@
               Once a user has deposited, they’re ready to start making transactions on the Plasma chain!
             </p>
 
-            <h4 id="transacting">Transacting</h4>
+            <h3 id="transactions">Transactions</h3>
             <p>
               Users can transact on the Plasma chain by spending an output they own and creating new outputs.
               In practice, this means signing a signature that confirms the user is willing to make the transaction.
@@ -236,13 +236,13 @@
               The root of this tree is the <b>commitment</b> that gets published to Ethereum along with each Plasma block.
             </p>
 
-            <h4 id="withdrawing">Withdrawing</h4>
+            <h3 id="withdrawals">Withdrawals</h3>
             <p>
               Users need to be able to withdraw their funds from the Plasma chain (we sometimes also refer to this as “exiting” the chain).
               When users want to withdraw from the Plasma chain, they submit an “exit” transaction on Ethereum.
             </p>
 
-            <h5 id="starting-exit">Starting an Exit</h5>
+            <h4 id="starting-exit">Starting an Exit</h4>
             <p>
               Because funds in MVP are represented as UTXOs, each exit must point to a specific output.
               We also want to make sure that only the person who actually owns that output can withdraw it.
@@ -251,14 +251,14 @@
               The contract then also checks that the output is owned by the user who started the exit.
             </p>
 
-            <h5 id="challenging-exit">Challenging an Exit</h5>
+            <h4 id="challenging-exit">Challenging an Exit</h4>
             <p>
               However, if that’s all that was needed in order to withdraw, then users would be able to withdraw outputs they’d already spent! We want to make sure that the output being referenced is actually unspent, so we introduce a <b>challenge period</b>.
               Basically, a challenge period is a period of time in which people can challenge the validity of the exit by proving that the UTXO is actually spent.
               Users can prove a UTXO is spent by revealing another transaction that spends the UTXO signed by the user who started the exit.
             </p>
 
-            <h5 id="priority">Exit Priority</h5>
+            <h4 id="priority">Exit Priority</h4>
             <p>
               The exit protocol we just described allows people to withdraw their funds from the Plasma chain.
               Unfortunately, the Plasma operator is allowed to do evil things, like include double-spending transactions, and we can’t really do anything to stop them.
@@ -278,7 +278,7 @@
               We’ve solved half of our problem! 
             </p>
 
-            <h5 id="confirmations">Confirmation Signatures</h5>
+            <h4 id="confirmations">Confirmation Signatures</h4>
             <p>
               Now what happens if a transaction gets included <b>after</b> the bad transaction? This can totally happen if a user makes a transaction, the transaction is sent to the operator, and the operator puts an invalid transaction before the user’s valid transaction.
               Users could try to exit from the inputs to the transaction, but that exit could be challenged by revealing the signed spend.
