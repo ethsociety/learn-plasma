@@ -10,6 +10,12 @@ Learn Plasma was conceived at the 2018 IC3 Bootcamp at Cornell.
 
 + [Contributing](./CONTRIBUTING.md)
 + [Code of Conduct](./CODE_OF_CONDUCT.md)
++ [Pages](#pages)
++ [Posts](#posts)
++ [Language files](#language-files) (i18n)
++ [Data files](#data-files)
++ [Edit CSS & JS](#edit-css--js)
++ [Edit the theme templates](#edit-the-theme-templates)
 
 ```sh
 git clone https://github.com/ethsociety/learn-plasma.git
@@ -83,12 +89,12 @@ How do we get that date?
 
 It's pretty much the same thing as Pages.
 
-+ English `touch source/en/_posts/the-race.md`
-+ German `touch source/de/_posts/the-race.md`
++ English `touch source/en/_posts/the-man.md`
++ German `touch source/de/_posts/the-man.md`
 
 ```md
 ---
-title: The Race to Hold All Plasma Cash on the Planet
+title: The Man Who Collected All the Plasma Cash in One Wallet
 date: 2018-09-18T01:07:27.467Z
 ---
 
