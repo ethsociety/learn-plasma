@@ -147,5 +147,6 @@ Stylus gets transpiled to CSS, JavaScript is bundled with Webpack. In production
 
 ### Developing this site
 
-+ https://hexo.io/
-+ https://gulpjs.com/
++ Hexo https://hexo.io/docs
++ Gulp https://github.com/gulpjs/gulp/blob/v3.9.1/docs/API.md
++ Webpack https://webpack.js.org/concepts/configuration/
