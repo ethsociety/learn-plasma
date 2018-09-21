@@ -143,6 +143,7 @@
                       <a class="nav-link" href="#deposits">Deposits</a>
                       <a class="nav-link" href="#transactions">Transactions</a>
                       <a class="nav-link" href="#withdrawals">Withdrawals</a>
+                      <a class="nav-link" href="#morevp">More Viable Plasma</a>
                     </div>
                   </li>
 
@@ -305,6 +306,25 @@
               Now, if the operator includes a user’s transaction after their invalid transaction, the user simply won’t sign a confirmation signature.
               A transaction included after an invalid transaction won’t have a confirmation signature, and therefore won’t be valid.
               Every correctly behaving user can therefore get their funds back.
+            </p>
+
+            <hr class="hr-dash my-7">
+
+            <h3 id="morevp">More Viable Plasma</h3>
+            <p>
+              Confirmation signatures make for pretty bad user experience.
+              Users need to sign a signature before making a transaction, wait to see the transaction included in a valid block, and then sign another signature signature.
+              These second signatures must also be included within a Plasma block, reducing block space available for more transactions!
+              <a href="https://ethresear.ch/t/more-viable-plasma/2160">More Viable Plasma</a>, also known as MoreVP, is an extension to Minimal Viable Plasma that removes the need for confirmation signatures.
+            </p>
+            <p>
+              Plasma MVP relies on confirmation signatures because withdrawals are processed in order based on the position of the output being withdrawn.
+              In a nutshell, MoreVP modifies the process through which users can withdraw their funds.
+              The ordering of each withdrawal becomes based on the position of the <i>youngest input</i> to the transaction that created an output.
+            </p>
+            <p>
+              This new ordering requires lots of updates to the challenges that make sure only honest users can withdraw their funds.
+              An <a href="https://github.com/omisego/elixir-omg/blob/develop/docs/morevp.md">updated version</a> of the MoreVP specification is currently being maintained and expanded by OmiseGO.
             </p>
 
             <a class="btn btn-lg btn-round btn-info float-right" href="./plasma-cash.html">Next: Plasma Cash</a>
