@@ -1,14 +1,56 @@
 # Learn Plasma
 
-## WIP: ⚠️ This website is currently under construction ⚠️ Contributors welcome!
+[LearnPlasma](https://www.learnplasma.org/) is a resource for information about [the Plasma framework](http://plasma.io/). 
 
-This website aims to educate visitors about the fundamentals of Plasma and its design principles. We plan to add interactive tutorials and showcase other use cases for layer 2 dapps.
+## Goals
+- Allow users to understand the motivation and benefits of Plasma scalability frameworks.
+- Allow users to easily find and explore content.
+- Provide an in-depth exploration of every aspect of Plasma.
+- Clarify confusing concepts or terminology to better explain Plasma.
+- Create short, canonical documentation for key Plasma concepts.
+- Encourage community Plasma research and implementation.
 
-Learn Plasma was conceived at the 2018 IC3 Bootcamp at Cornell.
+## Audience
+The primary goal of LearnPlasma is to facilitate an open ecosystem of research on blockchain scalability through Plasma frameworks. Plasma research combines technical development and cryptoeconomic incentive and mechanism design. 
 
-# Getting Started
+LearnPlasma should be a starting point, a way for developers, researchers and economists to catch up on the latest state of Plasma research and gain deeper understanding of the challenges and objectives. As well as a means for developers of decentralized applications to better understand when a Plasma chain is optimal for their scalability needs and use cases. The primary audience of LearnPlasma is therefore *developers and economists interested in understanding Plasma*. Although we can assume some general technical background, documentation should *assume that the reader has no prior Plasma knowledge*. 
+ 
+## Website Structure
 
-First, [Download and install Node.js](https://nodejs.org/en/download/) if it's not installed on your machine
+- FAQ
+- Learn
+- Build
+- Research
+- Misc
+- Contact
+- Contributors 
+
+## Content Structure
+Primary Learn content is currently organized into the following sections:
+
+- Introduction
+- The Plasma Framework
+- Plasma MVP
+- Plasma Cash
+- Plasma Debit 
+
+Forthcoming Topics:
+
+- [ ] Plasma Comparison
+- [ ] Inter-Plasma Chain Transactions
+- [ ] Plasma Integration with other L1/L2 Scalability Solutions
+- [ ] Plasma Use Cases: Opportunities & Limitations
+- [ ] User Experience & Plasma
+
+## Contributing
+
+We welcome any and all contributors! This is a quick-start guide for anyone looking to add content.
+
+### Requirements
+
+- [Node.js](https://nodejs.org/en/download/)
+
+### Setup
 
 Clone the repo:
 
