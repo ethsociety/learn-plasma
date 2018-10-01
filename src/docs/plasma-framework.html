@@ -57,7 +57,7 @@
             <li class="nav-item">
               <a class="nav-link" href="../pages/contributors.html">Contributors</a>
             </li>
-            
+
             <span id="sidebar-mobile">
               <li class="nav-item">
                 <a class="nav-link" href="../docs/intro.html">Introduction</a>
@@ -68,6 +68,10 @@
                   <a class="nav-link" href="#preface">Preface</a>
                   <a class="nav-link" href="#why-plasma">Why Plasma?</a>
                 </div>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="../docs/annotations.html">Annotations</a>
               </li>
 
               <li class="nav-item">
@@ -126,7 +130,11 @@
                       <a class="nav-link" href="#building-blocks">Building Blocks</a>
                     </div>
                   </li>
-  
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="../docs/annotations.html">Annotations</a>
+                  </li>
+
                   <li class="nav-item">
                     <a class="nav-link" href="../docs/plasma-mvp.html">Plasma MVP</a>
                   </li>
@@ -155,13 +163,13 @@
               Before we start, remember that Plasma is a <i>framework</i> for building scalable applications.
               There isn’t any single project called "Plasma."
               Instead, there are lots of different projects that use the tools provided by the Plasma framework.
-              This tends to be pretty confusing when you’re first learning about Plasma (and that’s fine!). 
+              This tends to be pretty confusing when you’re first learning about Plasma (and that’s fine!).
             </p>
             <p>
               This framework nature can make Plasma hard to explain.
               The original <a href="http://plasma.io/plasma.pdf">paper</a> describing Plasma runs into this problem too.
               It’s difficult to describe exactly what Plasma <i>is</i> without giving examples of how it can be used.
-              At the same time, it’s important to remember that those examples are only a very small slice of what’s possible. 
+              At the same time, it’s important to remember that those examples are only a very small slice of what’s possible.
             </p>
             <p>
               As a result, it's necessary to introduce Plasma as a framework before describing examples of applications inside the framework.
@@ -177,24 +185,24 @@
               This is going to be a relatively high-level overview and will try to avoid going into a lot of detail, but it should set the stage for the rest of this website.
               Basically, it boils down to the fact that current blockchain systems are pretty slow by modern standards.
               To handle even simple payments in any widespread capacity, blockchains would need to process something on the order of a few thousand transactions per second.
-              Ethereum can currently only support 20-30 transactions per second at a max depending on network conditions. 
+              Ethereum can currently only support 20-30 transactions per second at a max depending on network conditions.
             </p>
             <p>
               This discrepancy between what already exists and what needs to exist is generally called the “<b>blockchain scalability</b>” problem, and it’s not an easy problem to solve!
               We want to scale blockchain systems, but we also want to make sure we scale in a way that preserves security and decentralization.
-              After all, that’s why we started building blockchains in the first place. 
+              After all, that’s why we started building blockchains in the first place.
             </p>
             <p>
               Projects are tackling the scalability problem in lots of different ways.
               Some of these projects are attempting to make blockchains more scalable by upgrading the blockchains themselves.
               We often call this “layer 1” scaling because we’re modifying the base layer.
               Other projects are trying to build things on <i>top</i> of existing systems.
-              We usually refer to this as “layer 2” scaling because we’re adding a new layer and not changing the underlying system. 
+              We usually refer to this as “layer 2” scaling because we’re adding a new layer and not changing the underlying system.
             </p>
             <p>
               Plasma fits into this second category of “layer 2” scaling projects.
               It’s important to understand how layer 2 projects tend to work and what they’re trying to accomplish.
-              Many layer 2 designs come from the observation that it’s not necessary for everyone to know about every transaction that occurs on the network. 
+              Many layer 2 designs come from the observation that it’s not necessary for everyone to know about every transaction that occurs on the network.
             </p>
             <p>
               Let’s think about this for a second.
@@ -202,12 +210,12 @@
               Besides the fact that that’s a lot of coffee and you should definitely cut down, you might eventually notice that it’s easier to pay if you use the shop’s prepaid mobile wallet.
               You load money into the wallet once and you don’t have to pull out your wallet every time.
               It’s also faster and cheaper for the merchant because they don’t have to go through a payment processor every time.
-              It’s a win-win for everyone. 
+              It’s a win-win for everyone.
             </p>
             <p>
               If we break this down, we can see that we’re basically putting money into a local “ledger” that you maintain with the coffee shop, almost like a prepaid tab.
               We’ve made everything easier because there’s no reason to let the rest of the world know that you’ve made a payment to the coffee shop.
-              As long as you and the shop agree about your current balance, everything is easier. 
+              As long as you and the shop agree about your current balance, everything is easier.
             </p>
             <p>
               So this is really at the core of most layer 2 projects.
@@ -215,7 +223,7 @@
               However, people wanted to see if we could extend that idea to entire blockchains.
               Would it be possible to transfer money from one blockchain to smaller (and cheaper) blockchain temporarily, move the money around on the second chain, and eventually transfer money back?
               Turns out, it is!
-              Here’s where we start to see the evolution of “sidechains.” 
+              Here’s where we start to see the evolution of “sidechains.”
             </p>
             <p>
               The basic idea here is that we can take assets from one chain and transfer them to another (called the “sidechain") by locking the assets up on the primary chain (or “root chain”) and “creating” them again on the sidechain.
@@ -227,7 +235,7 @@
               Well, the consensus mechanism, basically.
               The idea here is that if the sidechain consensus mechanism is functioning properly, then your assets are safe.
               Unfortunately, the sidechain is usually much less safe than the root chain.
-              If someone manages to create money “out of nowhere” that doesn’t correspond to assets being locked up on the root chain, they can “destroy” these assets (that they fraudulently created) and steal lots of money. 
+              If someone manages to create money “out of nowhere” that doesn’t correspond to assets being locked up on the root chain, they can “destroy” these assets (that they fraudulently created) and steal lots of money.
             </p>
             <p>
               Obviously this isn’t ideal.

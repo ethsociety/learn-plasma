@@ -57,7 +57,7 @@
             <li class="nav-item">
               <a class="nav-link" href="../pages/contributors.html">Contributors</a>
             </li>
-            
+
             <span id="sidebar-mobile">
               <li class="nav-item">
                 <a class="nav-link" href="../docs/intro.html">Introduction</a>
@@ -65,6 +65,10 @@
 
               <li class="nav-item">
                 <a class="nav-link" href="../docs/plasma-framework.html">The Plasma Framework</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="../docs/annotations.html">Annotations</a>
               </li>
 
               <li class="nav-item">
@@ -126,6 +130,10 @@
                   </li>
 
                   <li class="nav-item">
+                    <a class="nav-link" href="../docs/annotations.html">Annotations</a>
+                  </li>
+
+                  <li class="nav-item">
                     <a class="nav-link" href="#">Plasma MVP <i class="nav-angle rotate"></i></a>
                     <div class="nav" style="display:block;">
                       <a class="nav-link" href="#background">Background</a>
@@ -159,7 +167,7 @@
               <a href="https://ethresear.ch/t/minimal-viable-plasma/426">Plasma MVP</a> is a design for an extremely simple <a href="https://www.investopedia.com/terms/u/utxo.asp">UTXO</a>-based Plasma chain.
               The basic Plasma MVP specification enables high-throughput payment transactions, but does not support more complicated constructions like scripts or smart contracts.
               On this page, we’ll go through the design process behind Plasma MVP.
-              You’ll become familiar with exactly how Plasma MVP works, and why it’s built the way it is. 
+              You’ll become familiar with exactly how Plasma MVP works, and why it’s built the way it is.
             </p>
 
             <hr class="hr-dash my-7">
@@ -170,7 +178,7 @@
               We need blockchains to be much faster if we want to use them for even simple use-cases like payments.
               If we process payments on Ethereum, we only get a total of ~10-25 transactions per second (TPS).
               We need something like a few thousand TPS to even begin to handle daily retail transactions.
-              Furthermore, Ethereum transaction fees tend to be high because tiny transactions are treated with the same level of security as massive ones, even when this isn’t necessary. 
+              Furthermore, Ethereum transaction fees tend to be high because tiny transactions are treated with the same level of security as massive ones, even when this isn’t necessary.
             </p>
             <h4 id="scaling">Scaling Off-Chain</h4>
             <p>
@@ -276,7 +284,7 @@
             <p>
               Note then that “older” UTXOs withdraw before newer ones.
               That means that if an invalid transaction is ever included in the blockchain, then all transactions that occurred before the invalid transaction will be processed before that invalid one.
-              We’ve solved half of our problem! 
+              We’ve solved half of our problem!
             </p>
 
             <h4 id="confirmations">Confirmation Signatures</h4>
