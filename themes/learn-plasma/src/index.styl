@@ -3,15 +3,16 @@
 @import '../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
 
 // Fonts
+// Open Sans
 @font-face
   font-family 'Open Sans'
   font-style sans-serif
-  font-weight 300
+  font-weight 400
   src url(webfonts/OpenSans-Regular.ttf)
 @font-face
   font-family 'Open Sans'
   font-style sans-serif
-  font-weight 100
+  font-weight 300
   src url(webfonts/OpenSans-Light.ttf)
 @font-face
   font-family 'Open Sans'
@@ -23,31 +24,60 @@
   font-style sans-serif
   font-weight 700
   src url(webfonts/OpenSans-Bold.ttf)
+// Barlow
+@font-face
+  font-family 'Barlow'
+  font-style sans-serif
+  font-weight 100
+  src url(webfonts/Barlow-Thin.ttf)
+@font-face
+  font-family 'Barlow'
+  font-style sans-serif
+  font-weight 400
+  src url(webfonts/Barlow-Regular.ttf)
+@font-face
+  font-family 'Barlow'
+  font-style sans-serif
+  font-weight 500
+  src url(webfonts/Barlow-Medium.ttf)
 
+// General
 body
   font-family 'Open Sans', sans-serif
+  font-weight 300
   background-color #FFFFFF
+  color: #757575
   margin 0
   line-height 1.9
-
-.btn-round
-  border-radius 3rem
-  padding 0.3rem 1rem
-
 *, *::before, *::after
   -webkit-box-sizing border-box
   box-sizing border-box
-
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section
   display block
-
-
-// Image
 img
   vertical-align middle
   border-style none
   max-width 100%
   height auto
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
+  margin-bottom .5rem
+  font-family 'Barlow', sans-serif
+  font-weight 400
+  line-height 1.5
+  color #323d47
+  letter-spacing .5px
+h1
+  font-weight 100
+h1, .h1
+  font-size 2.57813rem
+default:focus
+  color #5c5c5c !important
+
+// Links
+a:hover, a:focus
+  color #50a1ff
+  text-decoration none
+  outline 0
 
 // Button
 .btn
@@ -81,19 +111,38 @@ img
 .input-group-sm > .input-group-append > .btn
   line-height 1.5
   border-radius .125rem
-  padding: 8px 20px 6px;
-  font-size: 11px;
+  padding-top 8px
+  padding-right 20px
+  padding-bottom 6px
+  padding-left 20px
+  font-size 11px
+.btn-lg,
+.btn-group-lg > .btn,
+.input-group-lg > .input-group-prepend > .btn,
+.input-group-lg > .input-group-append > .btn
+  line-height 2.2
+  padding 7px 32px 6px
+  font-size 12px
 .btn-round
   border-radius 10rem
 .btn-success
   color #fff
   background-color #3cd458
   border-color #3cd458
-.btn-success:focus, .btn-success.focus
+.btn-success:focus,
+.btn-success.focus
   color #fff
   -webkit-box-shadow 0 0 0 0 rgba(60,212,88,0.5)
   box-shadow 0 0 0 0 rgba(60,212,88,0.5)
-
+.btn-info
+  color #fff
+  background-color #926dde
+  border-color #926dde
+.btn-info:focus,
+.btn-info.focus
+  color #fff
+  -webkit-box-shadow 0 0 0 0 rgba(146,109,222,0.5)
+  box-shadow 0 0 0 0 rgba(146,109,222,0.5)
 
 // Navbar
 .navbar
@@ -207,109 +256,128 @@ img
   -webkit-box-align center
   align-items center
 
-#index-jumbotron
+// Header
+#main-header
   background-image linear-gradient(135deg, #f9f7ff 0%, #fff 50%, #f6f3ff 100%)
-
-#index-jumbotron-left
+.header
   position relative
-  height 400px
+  background-position center
+  -webkit-background-size cover
+  background-size cover
+  background-repeat no-repeat
+  padding-top 146px
+  padding-bottom 90px
+.section-header
+  text-align center
+  max-width 70%
+  margin 0 auto 70px
+  small
+    display inline-block
+    font-size .6875rem
+    font-weight 600
+    text-transform uppercase
+    letter-spacing .75px
+    margin-bottom 1.5rem
+    word-spacing 2px
+    color rgba(153,153,153,0.6)
+  hr
+    width 50px
+    margin-top 2.5rem
+    margin-bottom 1.5rem
 
-#index-jumbotron-bg
-  display block
-  position absolute
-  bottom 0
-  right 0
+// Section
+.section
   width 100%
-  opacity 0.1
-  z-index 100
+  padding-top 5rem
+  padding-bottom 5rem
+  position relative
+  border-bottom 0
+  background-position center center
+  -webkit-background-size cover
+  background-size cover
+  background-repeat no-repeat
+.bg-gray
+  background-color #fafbfb
 
-#index-jumbotron-left-inner
-  position absolute
-  top 0
-  left 0
-  margin 4rem
-  z-index 200
-  p
-    background-color rgba(255, 255, 255, 0.5)
-    padding 0.3rem 0.6rem
-    border-radius 3rem
+// Footer
+.footer
+  background-color #fcfdfe
+  font-size .9375rem
+  border-top 1px solid rgba(241,242,243,0.5)
+  padding 1.25rem 0
+  position relative
+  z-index 910
+.footer a
+  color rgba(0,0,0,0.6)
+.nav-link
+  display block
+  padding .5rem 1rem
+  color #757575
+  font-weight 400
 
-#index-posts
-  margin 3rem
+// Row
+.row.gap-y
+  margin-top -15px
+  margin-bottom -15px
+.row.gap-y > .col,
+.row.gap-y > [class*="col-"]
+  padding-top 15px
+  padding-bottom 15px
 
-.index-post
-  background-color rgba(255, 255, 255, 0.5)
-  border-bottom 1px solid #EFEFEF
-  padding 0.3rem 0.6rem
-  font-size 0.8rem
-  margin-left 0
-  margin-bottom 0.6rem
-  opacity 0
-  transition all 0.3s
-  &.loaded
-    opacity 1
-    margin-left 1rem
+// Text
+.lead
+  font-weight 300
+  font-size 1.125rem
+.lead-7
+  font-size 3.04688rem !important
+.text-default
+  color #757575 !important
+.text-lighter
+  color #bfc5ca !important
 
-#index-partners
-  img
-    max-width 100%
+// Margin
+.mt-5, .my-5
+  margin-top 1.5rem !important
+.mb-8, .my-8
+  margin-bottom 5rem !important
 
-#index-social
-  margin-top 2rem
-  .card
-    box-shadow 0 1px 40px transparent
-    transition all 0.3s
-    align-items center
-    color silver
-    text-decoration none
-    padding 2rem
-    &:hover.lime
-      color lime
-    &:hover.pink
-      color pink
-    &:hover.orange
-      color orange
-    &:hover
-      box-shadow 0 1px 40px rgba(0, 0, 0, 0.05)
+// Padding
+.pb-8, .py-8
+  padding-bottom 5rem !important
+.pt-8, .py-8
+  padding-top 5rem !important
+.pl-6, .px-6
+  padding-left 2rem !important
+.pr-6, .px-6
+  padding-right 2rem !important
 
-#main-content
-  position fixed
-  top 3.8rem
-  left 0
-  right 0
-  bottom 0
-  overflow auto
-  h1, h2, h3, h4, h5, h6
-    .header-anchor
-      color rgba(0, 0, 0, 0.05)
-      margin 0.3rem
-      font-size 1rem
-      text-decoration none
-    &:hover
-      .header-anchor
-        color #007bff
+// Border
+.border
+  border 1px solid #f1f2f3 !important
 
-#page
-#post
-  margin-top 2rem
-  article
-    h1
-      font-size 28px
-      margin-top 2.6rem
-    h2
-      font-size 22px
-      margin-top 2rem
-    h3
-      font-size 17px
-      margin-top 1.6rem
-  p
-    text-align justify
-  ul
-    margin-bottom 0.6rem
-  li
-    margin-bottom 0.3rem
+// Font Weight
+.fw-500,
+.font-weight-500
+  font-weight 500 !important
 
+// Shadow
+.shadow-6,
+.hover-shadow-6:hover
+  -webkit-box-shadow 0 0 36px rgba(0, 0, 0, 0.06)
+  box-shadow 0 0 36px rgba(0, 0, 0, 0.06)
+.shadow-9,
+.hover-shadow-9:hover
+  -webkit-box-shadow 0 0 74px rgba(0, 0, 0, 0.06)
+  box-shadow 0 0 74px rgba(0, 0, 0, 0.06)
 
-#bottom-nav
-  border-top 1px solid #EFEFEF
-  margin-top 3rem
+// Card
+.card
+  border 0
+  -webkit-transition .5s
+  transition .5s
+
+// RSS
+#rss-container
+  display flex
+  flex-flow row nowrap
+  justify-content center

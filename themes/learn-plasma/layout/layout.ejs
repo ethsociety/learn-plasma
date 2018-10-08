@@ -72,16 +72,22 @@ pageTitle += ' [ ' + config.title + ' ]'
 
 <div id="main-content">
   <%-body%>
-
-  <div class="container">
-    <nav id="bottom-nav" class="nav">
-      <% Object.keys(data.bottomMenu).forEach(key => { %>
-        <a class="nav-link" href="<%=data.bottomMenu[key]%>"><%=key%></a>
-      <% }) %>
-    </nav>
-  </div>
 </div>
 
+<footer class="footer">
+  <div class="container">
+    <div class="row gap-y align-items-center">
+      <div class="col-md-9">
+        <div class="nav justify-content-center justify-content-md-start">
+          <a class="nav-link" href="http://www.initc3.org/">Made with ❤️at IC3 Bootcamp</a>
+        </div>
+      </div>
+      <div class="col-md-3 text-center text-md-right">
+        © Learn Plasma
+      </div>
+    </div>
+  </div>
+</footer>
 
 <% theme.scripts.forEach(url => { %>
   <script src="<%=url%>"></script>
