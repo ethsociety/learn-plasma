@@ -34,7 +34,7 @@ pageTitle += ' [ ' + config.title + ' ]'
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title><%=pageTitle%></title>
   <% theme.stylesheets.forEach(url => { %>
-    <link rel="stylesheet" href="<%=url%>">
+    <link type="text/css" rel="stylesheet" href="<%=url%>">
   <% }) %>
   <link rel="shortcut icon" href="/img/favicon.png">
   <link rel="icon" href="/img/favicon.png">

@@ -92,7 +92,7 @@ marked:
   pedantic: false
   sanitize: false
   tables: true
-  breaks: true
+  breaks: false
   smartLists: true
   smartypants: true
   # modifyAnchors: ''
@@ -123,6 +123,6 @@ toc:
   slugify: transliteration
   decodeEntities: false
   anchor:
-    position: after
-    symbol: '<i class="fas fa-paperclip"></i>'
-    style: header-anchor
+    position: before
+    symbol: '#'
+    style: anchor

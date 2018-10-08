@@ -5,8 +5,6 @@ categories:
 tags:
 ---
 
-<!-- toc -->
-
 # What is Plasma?
 
 Plasma is, in essence, blockchains built on top of blockchains. It is a series of smart contracts that run on top of the root chain (eg. the main Ethereum blockchain).

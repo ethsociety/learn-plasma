@@ -3,10 +3,22 @@ let has = require('lodash/has')
 let {i18n} = page
 %>
 
-<div id="page" class="container">
-  <article>
+<header class="header" style="background-color: #f1f6fa">
+  <div class="container">
     <h1><%=page.title%></h1>
-    <%-page.content%>
+    <p class="lead"><%=page.lead%></p>
+    <p><%=page.sublead%></p>
+  </div>
+</header>
+
+<div id="post" class="container">
+  <article>
+    <div class="row">
+      <div class="col-md-4 col-xl-3"></div>
+      <div class="col-md-7 col-xl-8 ml-md-auto py-8">
+        <%-page.content%>
+      </div>
+    </div>
   </article>
 
   <% if (has(page, 'categories.count') === true && page.categories.count() > 0) { %>

@@ -60,6 +60,7 @@ img
   max-width 100%
   height auto
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
+  position relative
   margin-bottom .5rem
   font-family 'Barlow', sans-serif
   font-weight 400
@@ -74,6 +75,10 @@ default:focus
   color #5c5c5c !important
 
 // Links
+a
+  color #50a1ff
+  -webkit-transition .2s linear
+  transition .2s linear
 a:hover, a:focus
   color #50a1ff
   text-decoration none
@@ -381,3 +386,23 @@ a:hover, a:focus
   display flex
   flex-flow row nowrap
   justify-content center
+
+// Post
+#post
+  hr
+    border-top-color rgba(117,117,117,0.09)
+    margin 2rem auto
+    border-top-style dashed
+    margin-bottom 3rem !important
+    margin-top 3rem !important
+.anchor
+  position absolute
+  top 0
+  right 100%
+  opacity 0
+  padding-right .5rem
+  color #50a1ff
+h2 .anchor
+  opacity .5
+.anchor:hover
+  opacity .8

@@ -5,8 +5,6 @@ categories:
 tags:
 ---
 
-<!-- toc -->
-
 # General Research
 
 Lots of research goes into making Plasma better in general! This section contains broader research topics that impact most Plasma designs.
