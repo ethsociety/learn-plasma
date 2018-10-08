@@ -5,20 +5,22 @@ i18n: true
 #
 
 menu:
-  Home: /en
   FAQ: /en/faq
   Learn: /en/start
   Build: /en/build
   Research: /en/research
+  Misc: /en/misc
   Contact: /en/contact
+  Contributors: /en/contributors
 
 bottomMenu:
-  Home: /en
   FAQ: /en/faq
   Learn: /en/start
   Build: /en/build
   Research: /en/research
+  Misc: /en/misc
   Contact: /en/contact
+  Contributors: /en/contributors
 
 contribute: Contribute
 

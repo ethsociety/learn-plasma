@@ -17,12 +17,13 @@ let bundler
 
 let patterns = {
   styl: '{src,themes/learn-plasma/src}/**/*.styl',
-  js: '{src,themes/learn-plasma/src}/**/*.js'
+  js: '{src,themes/learn-plasma/src}/**/*.js',
+  fonts: ['themes/learn-plasma/src/fonts/*','node_modules/@fortawesome/fontawesome-free/webfonts/*']
 }
 
 gulp.task('fonts', () =>
   gulp
-    .src('node_modules/@fortawesome/fontawesome-free/webfonts/*')
+    .src(patterns.fonts)
     .pipe(gulp.dest('themes/learn-plasma/source/webfonts'))
 )
 

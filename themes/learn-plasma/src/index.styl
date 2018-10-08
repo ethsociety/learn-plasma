@@ -2,33 +2,210 @@
 @import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 @import '../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
 
+// Fonts
+@font-face
+  font-family 'Open Sans'
+  font-style sans-serif
+  font-weight 300
+  src url(webfonts/OpenSans-Regular.ttf)
+@font-face
+  font-family 'Open Sans'
+  font-style sans-serif
+  font-weight 100
+  src url(webfonts/OpenSans-Light.ttf)
+@font-face
+  font-family 'Open Sans'
+  font-style sans-serif
+  font-weight 600
+  src url(webfonts/OpenSans-SemiBold.ttf)
+@font-face
+  font-family 'Open Sans'
+  font-style sans-serif
+  font-weight 700
+  src url(webfonts/OpenSans-Bold.ttf)
+
 body
+  font-family 'Open Sans', sans-serif
   background-color #FFFFFF
   margin 0
+  line-height 1.9
 
 .btn-round
   border-radius 3rem
   padding 0.3rem 1rem
 
-#top-nav
-  border-bottom 1px solid #EFEFEF
-  background-color rgba(255, 255, 255, 0.9)
-  .navbar-nav
-    a
-      border 1px solid transparent
-      border-radius 0.3rem
-      font-size 1.1rem
-      padding 0.2rem 1rem
-      transition all 0.3s
-      margin-right 0.3rem
-      &:hover
-        background-color rgba(100, 200, 250, 0.05)
-        border 1px solid rgba(100, 200, 250, 0.1)
-        box-shadow inset 0 0 3px rgba(100, 200, 250, 0.3)
-      &.active
-        background-color rgba(100, 250, 200, 0.1)
-        border 1px solid rgba(100, 250, 200, 0.2)
-        box-shadow inset 0 0 3px rgba(100, 250, 200, 0.6)
+*, *::before, *::after
+  -webkit-box-sizing border-box
+  box-sizing border-box
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section
+  display block
+
+
+// Image
+img
+  vertical-align middle
+  border-style none
+  max-width 100%
+  height auto
+
+// Button
+.btn
+  display inline-block
+  font-weight 600
+  text-align center
+  white-space nowrap
+  vertical-align middle
+  -webkit-user-select none
+  -moz-user-select none
+  -ms-user-select none
+  user-select none
+  border 1px solid transparent
+  padding .375rem .75rem
+  font-size .9375rem
+  line-height 1.9
+  border-radius .25rem
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+  -webkit-transition color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out
+  transition color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out
+  transition color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+  transition color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out
+.btn:not(:disabled):not(.disabled)
+  cursor pointer
+.btn:hover, .btn:focus
+  text-decoration none
+.btn-sm,
+.btn-group-sm > .btn,
+.input-group-sm > .input-group-prepend > .btn,
+.input-group-sm > .input-group-append > .btn
+  line-height 1.5
+  border-radius .125rem
+  padding: 8px 20px 6px;
+  font-size: 11px;
+.btn-round
+  border-radius 10rem
+.btn-success
+  color #fff
+  background-color #3cd458
+  border-color #3cd458
+.btn-success:focus, .btn-success.focus
+  color #fff
+  -webkit-box-shadow 0 0 0 0 rgba(60,212,88,0.5)
+  box-shadow 0 0 0 0 rgba(60,212,88,0.5)
+
+
+// Navbar
+.navbar
+  position relative
+  display -webkit-box
+  display flex
+  flex-wrap wrap
+  -webkit-box-align center
+  align-items center
+  -webkit-box-pack justify
+  justify-content space-between
+  padding .5rem 1rem
+.navbar
+  position absolute
+  top 10px
+  left 0
+  right 0
+  z-index 1000
+  -webkit-transition background-color .3s ease-out, -webkit-transform .3s ease-out
+  transition background-color .3s ease-out, -webkit-transform .3s ease-out
+  transition transform .3s ease-out, background-color .3s ease-out
+  transition transform .3s ease-out, background-color .3s ease-out, -webkit-transform .3s ease-out
+  padding-top 0
+  padding-bottom 0
+  min-height 56px
+.navbar-mobile
+  display -webkit-box
+  display flex
+  -webkit-box-align center
+  align-items center
+  width 100%
+.nav-navbar > .nav-item > .nav-link,
+.nav-navbar > .nav-link
+  line-height 56px
+  padding-top 0
+  padding-bottom 0
+.navbar-dark .navbar-divider,
+.navbar-stick-dark.stick .navbar-divider 
+  background-color rgba(117,117,117,0.8)
+.navbar-divider
+  display inline-block
+  height 16px
+  width 1px
+  background-color #fff
+  margin 0 1rem
+  opacity .15
+.nav
+  display flex
+  flex-wrap wrap
+  padding-left 0
+  margin-bottom 0
+  list-style: none
+.nav-navbar
+  position relative
+.nav-navbar .nav-link
+  font-weight 600
+  text-transform uppercase
+  letter-spacing 1px
+  font-size .87em
+  word-spacing 2px
+  padding-left 1.125rem
+  padding-right 1.125rem
+.navbar-dark .nav-navbar > .nav-item > .nav-link,
+.navbar-dark .nav-navbar > .nav-link,
+.navbar-stick-dark.stick .nav-navbar > .nav-item > .nav-link,
+.navbar-stick-dark.stick .nav-navbar > .nav-link
+  color rgba(117,117,117,0.8)
+.navbar > .container,
+.navbar > .container-fluid
+  display -webkit-box
+  display flex
+  flex-wrap wrap
+  -webkit-box-align center
+  align-items center
+  -webkit-box-pack justify
+  justify-content space-between
+@media (min-width: 992px)
+  .navbar-expand-lg > .container,
+  .navbar-expand-lg > .container-fluid
+    flex-wrap: nowrap
+  .navbar-expand-lg
+    -webkit-box-orient horizontal
+    -webkit-box-direction normal
+    flex-flow row nowrap
+    -webkit-box-pack start
+    justify-content flex-start
+.navbar-dark .logo-light,
+.navbar-stick-dark.stick .logo-light
+  display none
+.navbar-dark .logo-dark,
+.navbar-stick-dark.stick .logo-dark
+  display: inline-block
+.navbar-dark .navbar-brand
+  color #fff
+.navbar-brand
+  display -webkit-inline-box
+  display inline-flex
+  padding-top 0
+  padding-bottom 0
+  margin-right 1rem
+  font-size 1.0625rem
+  line-height inherit
+  white-space nowrap
+  -webkit-box-align center
+  align-items center
+.navbar-brand img
+  vertical-align baseline
+.navbar-left
+  display -webkit-box
+  display flex
+  -webkit-box-align center
+  align-items center
 
 #index-jumbotron
   background-image linear-gradient(135deg, #f9f7ff 0%, #fff 50%, #f6f3ff 100%)

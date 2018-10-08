@@ -41,33 +41,31 @@ pageTitle += ' [ ' + config.title + ' ]'
 </head>
 <body>
 
-<nav id="top-nav"
-  class="navbar navbar-expand-lg navbar-light sticky-top">
-
-  <a class="navbar-brand" href="/<%=lang%>">
-    <img src="/img/logo-dark.png" alt="">
-  </a>
-
-  <div class="navbar-nav mr-auto">
-    <% Object.keys(data.menu).forEach(key => { %>
-      <a class="nav-link" href="<%=data.menu[key]%>"><%=key%></a>
-    <% }) %>
-  </div>
-
-  <a class="btn btn-round btn-success"
-    href="https://github.com/ethsociety/learn-plasma">
-    <%=data.contribute%> <i class="fab fa-github"></i>
-  </a>
-
-  <div class="dropdown dropleft">
-    <div class="btn dropdown-toggle" data-toggle="dropdown">
-      <%=lang%>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-stick-dark" data-navbar="sticky">
+  <div class="container">
+    <div class="navbar-left">
+      <button class="navbar-toggler" type="button">☰</button>
+      <a class="navbar-brand" href="/<%=lang%>">
+        <img class="logo-dark" src="/img/logo-dark.png" alt="logo">
+        <img class="logo-light" src="/img/logo-light.png" alt="logo">
+      </a>
     </div>
-    <div class="dropdown-menu">
-      <% theme.languages.forEach(function(item) { %>
-        <a href="/<%=item.lang%>" class="dropdown-item"><%=item.title%></a>
-      <% }) %>
-    </div>
+
+    <section class="navbar-mobile">
+      <span class="navbar-divider d-mobile-none"></span>
+      <ul class="nav nav-navbar">
+        <% Object.keys(data.menu).forEach(key => { %>
+          <li class="nav-item">
+            <a class="nav-link" href="<%=data.menu[key]%>"><%=key%></a>
+          </li>
+        <% }) %>
+      </ul>
+    </section>
+
+    <a class="btn btn-sm btn-round btn-success"
+      href="https://github.com/ethsociety/learn-plasma">
+      <%=data.contribute%> <i class="fab fa-github"></i>
+    </a>
   </div>
 </nav>
 
