@@ -1,0 +1,49 @@
+---
+layout: page
+lang: zh-hk
+title: 聯繫
+date: 2018-08-21 16:26:02
+categories:
+tags:
+---
+
+<div class="row justify-content-md-center">
+  <div class="col-md-6">
+    <form name="contact" method="POST" action="" netlify>
+      <input name="lang" type="hidden" value="zh-hk">
+
+      <div class="form-group">
+        <label for="name">名稱</label>
+        <input id="contact-name"
+          name="name"
+          type="text"
+          class="form-control"
+          required
+          autofocus>
+      </div>
+
+      <div class="form-group">
+        <label for="email">電子郵件</label>
+        <input id="contact-email"
+          name="email"
+          type="email"
+          class="form-control"
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">信息</label>
+        <textarea id="contact-message"
+          name="message"
+          type="text"
+          class="form-control"
+          required></textarea>
+      </div>
+
+      <input type="submit" value="發送" class="btn btn-primary">
+    </form>
+  </div>
+  <div class="col-md-6">
+    [zh-hk-specific resources &amp; contacts]
+  </div>
+</div>

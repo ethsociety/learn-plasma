@@ -1,10 +1,20 @@
+backup
+
 # Development
-.vscode/
+.vscode
 .DS_Store
+*.sublime-*
 
 # Distibution
-dist/
+dist
+public
+themes/learn-plasma/source
 
 # Node
-node_modules/ 
+node_modules
 npm-debug.log
+
+# hexo
+db.json
+debug.log
+.test-server-id

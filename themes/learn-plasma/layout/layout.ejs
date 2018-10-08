@@ -1,0 +1,93 @@
+<%
+
+let {lang, tag, category, year, month, i18n} = page
+let data = site.data[lang]
+let pageTitle = page.title || config.subtitle || ''
+
+if (is_archive() === true) {
+  pageTitle = 'Archives'
+}
+
+if (is_tag() === true) {
+  pageTitle = 'Tag: ' + tag
+}
+
+if (is_category() === true) {
+  pageTitle = 'Category: ' + category
+}
+
+if (is_month() === true) {
+  pageTitle += ': ' + month + '/' + year
+}
+
+if (is_year() === true) {
+  pageTitle += ': ' + year
+}
+
+pageTitle += ' [ ' + config.title + ' ]'
+%>
+
+<!doctype html>
+<html lang="<%=lang%>">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title><%=pageTitle%></title>
+  <% theme.stylesheets.forEach(url => { %>
+    <link rel="stylesheet" href="<%=url%>">
+  <% }) %>
+  <link rel="shortcut icon" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+</head>
+<body>
+
+<nav id="top-nav"
+  class="navbar navbar-expand-lg navbar-light sticky-top">
+
+  <a class="navbar-brand" href="/<%=lang%>">
+    <img src="/img/logo-dark.png" alt="">
+  </a>
+
+  <div class="navbar-nav mr-auto">
+    <% Object.keys(data.menu).forEach(key => { %>
+      <a class="nav-link" href="<%=data.menu[key]%>"><%=key%></a>
+    <% }) %>
+  </div>
+
+  <a class="btn btn-round btn-success"
+    href="https://github.com/ethsociety/learn-plasma">
+    <%=data.contribute%> <i class="fab fa-github"></i>
+  </a>
+
+  <div class="dropdown dropleft">
+    <div class="btn dropdown-toggle" data-toggle="dropdown">
+      <%=lang%>
+    </div>
+    <div class="dropdown-menu">
+      <% theme.languages.forEach(function(item) { %>
+        <a href="/<%=item.lang%>" class="dropdown-item"><%=item.title%></a>
+      <% }) %>
+    </div>
+  </div>
+</nav>
+
+
+<div id="main-content">
+  <%-body%>
+
+  <div class="container">
+    <nav id="bottom-nav" class="nav">
+      <% Object.keys(data.bottomMenu).forEach(key => { %>
+        <a class="nav-link" href="<%=data.bottomMenu[key]%>"><%=key%></a>
+      <% }) %>
+    </nav>
+  </div>
+</div>
+
+
+<% theme.scripts.forEach(url => { %>
+  <script src="<%=url%>"></script>
+<% }) %>
+
+</body>
+</html>

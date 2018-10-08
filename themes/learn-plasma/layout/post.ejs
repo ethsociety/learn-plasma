@@ -1,0 +1,26 @@
+
+<% let {i18n, lang} = page %>
+<div id="post" class="container">
+  <article>
+    <h1><%=page.title%></h1>
+    <%-page.content%>
+  </article>
+
+  <% if (page.categories.count() > 0) { %>
+    <div id="post-categories">
+      <div id="page-categories-title"><%=page.i18n('categories')%></div>
+      <% page.categories.each(item => { %>
+        <a href="<%=item.uri%>" class="page-category"><%=item.name%></a>
+      <% }) %>
+    </div>
+  <% } %>
+
+  <% if (page.tags.count() > 0) { %>
+    <div id="post-tags">
+      <div id="page-categories-title"><%=page.i18n('tags')%></div>
+      <% page.tags.each(item => { %>
+        <a href="<%=item.uri%>" class="page-tag"><%=item.name%></a>
+      <% }) %>
+    </div>
+  <% } %>
+</div>

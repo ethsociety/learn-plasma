@@ -1,0 +1,48 @@
+i18n: true
+
+#
+# navigation
+#
+
+menu:
+  Home: /en
+  FAQ: /en/faq
+  Learn: /en/start
+  Build: /en/build
+  Research: /en/research
+  Contact: /en/contact
+
+bottomMenu:
+  Home: /en
+  FAQ: /en/faq
+  Learn: /en/start
+  Build: /en/build
+  Research: /en/research
+  Contact: /en/contact
+
+contribute: Contribute
+
+#
+# index jumbotron
+#
+
+jumbotron:
+  title: Learn Plasma
+  message: Plasma is a framework for building scalable blockchain applications. Start here to begin learning.
+  get-started: Get started
+  get-started-url: /en/start
+  community-activity: Community activity
+
+#
+# posts, categories, tags
+#
+
+category: Category
+categories: Categories
+categoryUri: /en/category
+tag: Tag
+tags: Tags
+tagUri: /en/tag
+pages: Pages
+posts: Posts
+postUri: /en/post

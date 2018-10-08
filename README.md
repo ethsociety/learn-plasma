@@ -6,36 +6,147 @@ This website aims to educate visitors about the fundamentals of Plasma and its d
 
 Learn Plasma was conceived at the 2018 IC3 Bootcamp at Cornell.
 
-# Getting Started
+## Development
 
-First, [Download and install Node.js](https://nodejs.org/en/download/) if it's not installed on your machine
++ [Contributing](./CONTRIBUTING.md)
++ [Code of Conduct](./CODE_OF_CONDUCT.md)
++ [Pages](#pages)
++ [Posts](#posts)
++ [Language files](#language-files) (i18n)
++ [Data files](#data-files)
++ [Edit CSS & JS](#edit-css--js)
++ [Edit the theme templates](#edit-the-theme-templates)
 
-Clone the repo:
+```sh
+git clone https://github.com/ethsociety/learn-plasma.git
+cd learn-plasma
+npm install
 
+# request blog and github data
+# (if you run this a lot github will bark at you for api rate limit)
+npm run data
+
+# watch during development, auto-refresh courtesy of browser-sync
+npm run dev
+open http://127.0.0.1:7781
+
+# build for production
+npm run prd
+
+# experimental static site test
+npm test
 ```
-$ git clone https://github.com/ethsociety/plasma-website.git
+
+Check out `./package.json` for each of the individual scripts if you get interested in what is available.
+
+### Pages
+
+The easiest way to make a page is to make a directory then put a markdown file in it.
+
+```sh
+mkdir source/en/plasma-scientific-thoughts
+touch source/en/plasma-scientific-thoughts/index.md
 ```
 
-Install the Gulp command line tools, *gulp-cli*:
+Pages and Posts use something called "Front Matter" to give the page some context like `title`, `date`, and `categories`. You don't have to use them all. Bare minimum it should have a `title` and `date` in it though.
 
-```
-$ npm install gulp-cli -g
-```
+A bare minimum page:
 
-Navigate to the root of the repo and install the dependencies:
+```md
+---
+title: Plasma Scientific Thoughts
+date: 2018-08-21 16:26:02
+---
 
-```
-$ npm install
-```
-
-Serve the app locally for development:
-
-```
-$ npm start
+Plasma blinded me with science! 🙈
 ```
 
-Build the app for production:
+Or with categories and tags:
 
+```md
+---
+title: Plasma Scientific Thoughts
+date: 2018-08-21 16:26:02
+categories:
+- Plasma
+- Science
+tags:
+- plasma
+- monkies
+- cash
+---
+
+Plasma blinded me with science! 🙈
 ```
-$ npm run build
+
+How do we get that date?
+
++ Shell `date -u +"%Y-%m-%dT%H:%M:%SZ"`
++ JavaScript `(new Date()).toGMTString()`
++ Python `import datetime; datetime.datetime.now().isoformat()`
+
+## Posts
+
+It's pretty much the same thing as Pages.
+
++ English `touch source/en/_posts/the-man.md`
++ German `touch source/de/_posts/the-man.md`
+
+```md
+---
+title: The Man Who Collected All the Plasma Cash in One Wallet
+date: 2018-09-18T01:07:27.467Z
+---
+
+It's all mine! 🤑💸
 ```
+
+The recent posts can get aggregated on the front page or we can make a blog page if we need it.
+
+### Language files
+
+For example English:
+
++ `./source/_data/en.yml`
++ `./source/en`
+
+Or German:
+
++ `./source/_data/de.yml`
++ `./source/de`
+
+If you want to translate some pages to your language you can copy an existing one you know then submit for PR.
+
+### Data files
+
+Everything in `./source/data` gets read and put into an object callde `data` in each page. That's how it gets the local languages, github data, and medium posts.
+
+Download fresh data:
+
+`npm run data`
+
+### Edit CSS & JS
+
+Stylus gets transpiled to CSS, JavaScript is bundled with Webpack. In production it will get optimized and minified.
+
++ `./themes/learn-plasma/src/index.styl`
++ `./themes/learn-plasma/src/index.js`
+
+### Edit the theme templates
+
+`./theme/learn-plasma/layout/*.ejs`
+
+## References
+
+### Plasma
+
++ https://plasma.io/
++ https://ethresear.ch/c/plasma
++ https://www.reddit.com/r/learnplasma
++ https://twitter.com/learnplasma
+
+### Developing this site
+
++ Hexo https://hexo.io/docs
++ Gulp https://github.com/gulpjs/gulp/blob/v3.9.1/docs/API.md
++ Webpack https://webpack.js.org/concepts/configuration/

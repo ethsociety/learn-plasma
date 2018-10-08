@@ -6,8 +6,6 @@ We are really glad you're here, because we need volunteers, content creators, an
 
 The following is a set of guidelines for contributing to the LearnPlasma website and its educational content. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
 
-Make sure to also check out [this page](http://www.learnplasma.org/pages/misc.html#contributing) to find useful information  on how to contribute to this project.
-
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [support@learnplasma.org](mailto:support@learnplasma.org).
@@ -33,7 +31,7 @@ Explain the problem and include additional details to help maintainers reproduce
 * **Provide specific examples to demonstrate the steps**. Include links to files or GitHub projects, or copy/pasteable snippets, which you use in those examples. If you're providing snippets in the issue, use [Markdown code blocks](https://help.github.com/articles/markdown-basics/#multiple-lines).
 * **Describe the behavior you observed after following the steps** and point out what exactly is the problem with that behavior.
 * **Explain which behavior you expected to see instead and why.**
-* **Include screenshots and animated GIFs** which show you following the described steps and clearly demonstrate the problem. 
+* **Include screenshots and animated GIFs** which show you following the described steps and clearly demonstrate the problem.
 * **If the problem wasn't triggered by a specific action**, describe what you were doing before the problem happened and share more information using the guidelines below.
 
 Provide more context by answering these questions:
