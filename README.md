@@ -17,22 +17,22 @@ LearnPlasma should be a starting point, a way for developers, researchers and ec
  
 ## Website Structure
 
-- FAQ
-- Learn
-- Build
-- Research
-- Misc
-- Contact
-- Contributors 
+- [FAQ](https://www.learnplasma.org/pages/faq.html)
+- [Learn](https://www.learnplasma.org/docs/intro.html)
+- [Build](https://www.learnplasma.org/pages/build.html)
+- [Research](https://www.learnplasma.org/pages/research.html)
+- [Misc](https://www.learnplasma.org/pages/misc.html)
+- [Contact](https://www.learnplasma.org/pages/contact.html)
+- [Contributors](https://www.learnplasma.org/pages/contributors.html) 
 
 ## Content Structure
 Primary Learn content is currently organized into the following sections:
 
-- Introduction
-- The Plasma Framework
-- Plasma MVP
-- Plasma Cash
-- Plasma Debit 
+- [Introduction](https://www.learnplasma.org/docs/intro.html)
+- [The Plasma Framework](https://www.learnplasma.org/docs/plasma-framework.html)
+- [Plasma MVP](https://www.learnplasma.org/docs/plasma-mvp.html)
+- [Plasma Cash](https://www.learnplasma.org/docs/plasma-cash.html)
+- [Plasma Debit](https://www.learnplasma.org/docs/plasma-debit.html) 
 
 Forthcoming Topics:
 
