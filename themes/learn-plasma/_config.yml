@@ -5,10 +5,6 @@
 languages:
 - lang: en
   title: English
-- lang: de
-  title: Deutsch
-- lang: zh-hk
-  title: 香港繁體
 
 # stylesheets loaded in the <head>
 stylesheets:
