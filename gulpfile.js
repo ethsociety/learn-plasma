@@ -72,10 +72,10 @@ gulp.task('webpack', done => {
 })
 
 gulp.task('watch', () => {
-  gulp.watch(patterns.styl, ['stylus'])
-  gulp.watch(patterns.js, ['webpack'])
+  gulp.watch(patterns.styl, gulp.series('stylus'))
+  gulp.watch(patterns.js, gulp.series('webpack'))
 })
 
-gulp.task('build', ['fonts', 'stylus', 'webpack-init', 'webpack'])
-gulp.task('dev', ['build', 'watch'])
-gulp.task('prd', ['build'])
+gulp.task('build', gulp.parallel('fonts', 'stylus', 'webpack-init', 'webpack'))
+gulp.task('dev', gulp.parallel('build', 'watch'))
+gulp.task('prd', gulp.series('build'))
