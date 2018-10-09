@@ -25,6 +25,12 @@ if (is_year() === true) {
 }
 
 pageTitle += ' [ ' + config.title + ' ]'
+
+let layouts = {
+  'generic': 'generic.ejs'
+}
+let layout = layouts[page.layout]
+
 %>
 
 <!doctype html>
@@ -71,7 +77,12 @@ pageTitle += ' [ ' + config.title + ' ]'
 
 
 <div id="main-content">
-  <%-body%>
+  <% if (layout) { %>
+    <%- partial(layout) %>
+  <% } %>
+  <% if (!layout) { %>
+    <%-body%>
+  <% } %>
 </div>
 
 <footer class="footer">

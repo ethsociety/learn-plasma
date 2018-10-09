@@ -96,12 +96,12 @@ a:hover, a:focus
   -ms-user-select none
   user-select none
   border 1px solid transparent
-  padding .375rem .75rem
-  font-size .9375rem
+  padding 8px 26px 6px
+  font-size 11px
   line-height 1.9
-  border-radius .25rem
-  letter-spacing: 1.7px;
-  text-transform: uppercase;
+  border-radius 2px
+  letter-spacing 1.7px
+  text-transform uppercase
   -webkit-transition color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out
   transition color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out
   transition color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
@@ -148,6 +148,15 @@ a:hover, a:focus
   color #fff
   -webkit-box-shadow 0 0 0 0 rgba(146,109,222,0.5)
   box-shadow 0 0 0 0 rgba(146,109,222,0.5)
+.btn-primary
+  color #fff
+  background-color #50a1ff
+  border-color #50a1ff
+.btn-primary:focus,
+.btn-primary.focus
+  color #fff
+  -webkit-box-shadow 0 0 0 0 rgba(80,161,255,0.5)
+  box-shadow 0 0 0 0 rgba(80,161,255,0.5)
 
 // Navbar
 .navbar
@@ -234,6 +243,47 @@ a:hover, a:focus
     flex-flow row nowrap
     -webkit-box-pack start
     justify-content flex-start
+@media (max-width: 991.98px)
+  .navbar-expand-lg .navbar-mobile
+    -webkit-box-orient vertical
+    -webkit-box-direction normal
+    flex-direction column
+    -webkit-box-align start
+    align-items flex-start
+    width 300px
+    height 100vh
+    position fixed
+    top 0
+    left -300px
+    bottom 0
+    padding 20px
+    background-color #fff
+    overflow-y auto
+    overflow-x hidden
+    -webkit-transition left .3s ease
+    transition left .3s ease
+    z-index 1002
+  .navbar-expand-lg .d-mobile-none 
+    display none !important
+  .navbar-expand-lg .nav-navbar:not(.nav-inline) > .nav-item > .nav-link,
+  .navbar-expand-lg .nav-navbar:not(.nav-inline) > .nav-link
+    min-height inherit
+    line-height inherit
+    padding-top .75rem
+    padding-bottom .75rem
+    font-size .95rem
+    text-transform none
+  .navbar-expand-lg .navbar-mobile > *
+    padding-top 10px
+    padding-bottom 10px
+  .navbar-expand-lg .navbar-mobile .nav-link:hover
+    color rgba(80,80,80,1)
+  .navbar-expand-lg .nav-navbar:not(.nav-inline)
+    -webkit-box-orient vertical
+    -webkit-box-direction normal
+    flex-direction column
+    flex-wrap nowrap
+    width 100%
 .navbar-dark .logo-light,
 .navbar-stick-dark.stick .logo-light
   display none
@@ -260,6 +310,41 @@ a:hover, a:focus
   display flex
   -webkit-box-align center
   align-items center
+.navbar-dark .navbar-toggler,
+.navbar-dark .btn-menu,
+.navbar-stick-dark.stick .navbar-toggler,
+.navbar-stick-dark.stick .btn-menu
+  color rgba(117,117,117,0.8)
+.navbar-toggler,
+.btn-menu 
+  padding .25rem .75rem
+  line-height 1
+  background-color transparent
+  border 1px solid transparent
+  border-radius .25rem
+  margin-right 1rem
+  border 0
+  cursor pointer
+  font-size 1.5rem
+.navbar-toggler:hover
+  color rgba(117,117,117,1)
+.navbar-toggler:focus
+  outline none
+.navbar-open .navbar-mobile
+  left 0 !important
+  -webkit-box-shadow 2px 0 9px rgba(0,0,0,0.05)
+  box-shadow 2px 0 9px rgba(0,0,0,0.05)
+.backdrop
+  position fixed
+  top 0
+  left 0
+  right 0
+  bottom 0
+  height 100vh
+  cursor pointer
+.backdrop-navbar
+  background-color rgba(255,255,255,0.95)
+  z-index 1001
 
 // Header
 #main-header

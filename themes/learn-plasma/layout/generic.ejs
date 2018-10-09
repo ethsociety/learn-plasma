@@ -1,0 +1,14 @@
+<%
+let has = require('lodash/has')
+let {i18n} = page
+%>
+
+<header class="header" style="background-color: #f1f6fa">
+  <div class="container">
+    <h1><%=page.title%></h1>
+    <p class="lead"><%=page.lead%></p>
+    <p><%=page.sublead%></p>
+  </div>
+</header>
+
+<%-page.content%>

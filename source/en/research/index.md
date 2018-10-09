@@ -1,19 +1,19 @@
 ---
 title: Research
+lead: Plasma is pretty new. There's still lots of research to be done! This page maintains a list of active research areas, open questions, and background resources.
+sublead: Researching something cool and Plasma related? Open an issue on GitHub and we'll publish the relevant information to this page.
 date: 2018-08-21 16:26:02
 categories:
 tags:
 ---
 
 ## General Research
-
 Lots of research goes into making Plasma better in general!
 This section contains broader research topics that impact most Plasma designs.
 
 <br>
 
 #### Cheaper Commitments
-
 Plasma contracts make commitments to blocks instead of publishing the full blocks themselves.
 Although this is already much cheaper than using Ethereum directly, it can still get pretty expensive!
 
@@ -33,13 +33,11 @@ Check out this post on [Merkle Mountain Ranges](https://ethresear.ch/t/double-ba
 This cuts down the commitment cost by about 50%, but that's still not perfect.
 
 ##### Research Questions
-
 + How can further reduce the gas cost to submit a commitment?
 + Can multiple chains coordinate to commit at the same time?
 + Can a chain make fewer commitments but retain the same level of security?
 
 ##### Resources
-
 + [Merkle Mountain Ranges](https://github.com/opentimestamps/opentimestamps-server/blob/master/doc/merkle-mountain-range.md)
 + [Double-batched Merkle log accumulator](https://ethresear.ch/t/double-batched-merkle-log-accumulator/571)
 + [Double Batched Merkle Log Accumulators for Efficient Plasma Commitments](https://ethresear.ch/t/double-batched-merkle-log-accumulators-for-efficient-plasma-commitments/2313)
@@ -47,7 +45,6 @@ This cuts down the commitment cost by about 50%, but that's still not perfect.
 <br>
 
 #### Fast Finality
-
 Although most current Plasma implementations significantly increase transaction throughput, they don't improve on finality time.
 In fact, without some additional constructions, we're typically still limited to the finality time of the root chain.
 Ethereum's "safe finality" time is about 6 minutes (25 confirmations or so). 
@@ -75,20 +72,17 @@ If the validators can't be sure they'll be able to include the transaction, they
 Also, we don't want the counterparty to "overpromise," so we need to make sure each contract is properly backed.
 
 ##### Research Questions
-
 + Are there other methods for reaching finality?
 + Can we make "finality contracts" when we have multiple validators?
 + How do we prevent finality counterparties from overpromising?
 
 ##### Resources
-
 + [On Settlement Finality](https://blog.ethereum.org/2016/05/09/on-settlement-finality/)
 + [Cryptoeconomic finality](https://github.com/omisego/research/issues/29)
 
 <br>
 
 #### Running the Numbers
-
 This is a great research topic for people who are relatively new to Plasma.
 We have lots of different Plasma designs, but not many people have done the important math!
 
@@ -104,20 +98,17 @@ Below is a non-exhaustive list of things that would be useful to model.
 Feel free to add more suggestions if you have them!
 
 ##### Research Questions
-
 + How much data will the average user have to store in Plasma Cash?
 + How long does it take to verify a signature under different schemes?
 + How large should a Plasma MVP exit bond be?
 + How many simultaneous Plasma chains can Ethereum handle?
 
 ##### Resources
-
 + [Math: Plasma MVP vs. Plasma Cash](https://github.com/omisego/research/issues/33)
 
 <br>
 
 #### zk-SNARKs
-
 Zero knowledge succinct arguments of knowledge (or zk-SNARKs) are a relatively recent technological development.
 Basically, they allow us to create certain general purpose programs that can keep information secret.
 Vitalik's [blog post](https://medium.com/@VitalikButerin/zk-snarks-under-the-hood-b33151a013f6) on zk-SNARKs is a great place to start if you're unfamiliar with how they work.
@@ -134,14 +125,12 @@ zk-SNARKs have plenty of applications, we just need to find them and figure out 
 Lots of research questions still need to be explored!
 
 ##### Research Questions
-
 + How can we potentially make use of zk-SNARKs in Plasma?
 + How long would a block validity proof take to generate?
 + Can we make use of STARKs?
 + Can we feasibly add private transactions with SNARKs?
 
 ##### Resources
-
 + [Zk-SNARKs: Under the Hood](https://medium.com/@VitalikButerin/zk-snarks-under-the-hood-b33151a013f6)
 + [Zk-SNARKs for Plasma](https://ethresear.ch/t/plasma-is-plasma/2195)
 + [Plasma snapp](https://ethresear.ch/t/plasma-snapp-fully-verified-plasma-chain/3391)
@@ -149,14 +138,12 @@ Lots of research questions still need to be explored!
 ---
 
 ## Plasma MVP
-
 This is a list of research topics that apply mainly to Plasma MVP.
 Some of this research will be useful to other designs, though!
 
 <br>
 
 #### Mass Exits
-
 Unlike Plasma Cash, the design of Plasma MVP requires that users be able to quickly exit in the case of a safety failure.
 Basically, we need everyone to be able to "exit" the Plasma chain within some short period of time (e.g. one week).
 
@@ -178,18 +165,15 @@ This way, large sets of users can exit together.
 
 
 ##### Research Questions
-
 + What are the most efficient ways to aggregate UTXOs in mass exits?
 
 ##### Resources
-
 + [Proving UTXO sum validity for mass exits](https://ethresear.ch/t/proving-utxo-sum-validity-for-mass-exits/2023)
 + [Basic Mass Exits for Plasma MVP](https://ethresear.ch/t/basic-mass-exits-for-plasma-mvp/3316)
 
 <br>
 
 #### Fast Withdrawals
-
 Plasma chains typically require that users wait for a challenge period to pass before they can withdraw funds.
 Although this is a security mechanism, it's also quite annoying.
 Users typically want to be able to access their funds within a short period of time.
@@ -207,20 +191,17 @@ For example, efficient mass exits will reduce the amount of time necessary to ex
 It would also be useful to look into user experience of "selling exits" to see if we can make the process as smooth as possible.
 
 ##### Research Questions
-
 + How do we determine optimal challenge period length?
 + How do we improve the user experience of "selling exits"?
 + How else can we reduce challenge period length without reducing security?
 
 ##### Resources
-
 + [Simple Fast Withdrawals](https://ethresear.ch/t/simple-fast-withdrawals/2128)
 + [Enabling Fast Withdrawals for Faulty Plasma Chains](https://ethresear.ch/t/enabling-fast-withdrawals-for-faulty-plasma-chains/2909)
 
 <br>
 
 #### Atomic Swaps
-
 A lot of projects are planning to use Plasma as part of a decentralized exchange.
 One fundamental component of most decentralized exchanges is the atomic swap.
 An atomic swap is basically a trade that either executes or fails.
@@ -241,11 +222,10 @@ A user would have to sign a new transaction for each partial fill, instead of si
 This is a huge open area of research and there's a lot to be explored!
 
 ##### Research Questions
-How can we allow for partial order fills with atomic swaps?
-What are the pros and cons of different atomic swap protocols?
++ How can we allow for partial order fills with atomic swaps?
++ What are the pros and cons of different atomic swap protocols?
 
 ##### Resources
-
 + [Using Relayers for Order Matching](https://github.com/omisego/research/issues/20)
 
 <br>
@@ -269,12 +249,10 @@ The best way to get started working on this topic is to understand why confirmat
 Hopefully the resources provided prove helpful!
 
 ##### Research Questions
-
 + How can we safely remove confirmation signatures?
 + How do we make a gas-efficient implementation of More Viable Plasma?
 
 ##### Resources
-
 + [Why Do We Need Confirmation Signatures?](https://ethresear.ch/t/why-do-dont-we-need-two-phase-sends-plus-confirmation/1866/14?u=kfichter)
 + [Confirmation Signatures Must Be Included on the Plasma Chain](https://ethresear.ch/t/plasma-vulnerabiltity-sybil-txs-drained-contract/1654)
 + [Griefing Vectors in Confirmation Signatures](https://ethresear.ch/t/griefing-vectors-in-confirmation-signatures/2301)
@@ -282,14 +260,12 @@ Hopefully the resources provided prove helpful!
 ---
 
 ## Plasma Cash
-
 Plasma Cash works well for non-fungible tokens. 
 Can we extend that so it works well for fungible ones too?
 
 <br>
 
 #### Merging/Splitting
-
 Plasma Cash was built primarily for non-fungible assets.
 People have started to look into "merging" or "splitting" these assets as a way to enable a sort of fungibility.
 If we can find a simple way to represent these merges or splits, then we can basically simulate fungibility.
@@ -310,21 +286,18 @@ This vastly increases the already large amount of proof data a user is required 
 Improvements to Plasma Cash proof size would probably make this point less important.
 
 ##### Research Questions
-
 + How can we efficiently represent the components of a merged assets?
 + How can we reduce the proof data added by each split?
 + How else can we represent merges and splits?
 + How does merging and splitting impact Plasma XT?
 
 ##### Resources
-
 + [Proposal for Plasma Cash Splitting and Merging](https://ethresear.ch/t/one-proposal-for-plasma-cash-with-coin-splitting-and-merging/1447)
 + [Arbitrary Coin Merging in Plasma Cash](https://ethresear.ch/t/plasma-cash-plasma-with-much-less-per-user-data-checking/1298/53)
 
 <br>
 
 #### Shorter Proofs
-
 Plasma Cash requires that users generate a "proof of validity" when sending a token to another user.
 This proof is composed of Merkle proofs for each block since the token's inception.
 The size of this proof therefore grows linearly with the size of the Plasma Cash chain.  
@@ -350,19 +323,16 @@ We might also be able to use zk-SNARKs to decrease the proof size at the cost of
 We can also make use of checkpointing mechanisms, like Plasma XT, which allow users to create checkpoints and put a cap on the proof size.
 
 ##### Research Questions
-
 + How can we use zk-SNARKs to reduce the Plasma XT proof size?
 + Can we compress the proofs for periods where the coin was unspent?
 
 ##### Resources
-
 + [Plasma XT](https://ethresear.ch/t/plasma-xt-plasma-cash-with-much-less-per-user-data-checking/1926)
 + [Plasma Cash Without Any Blockchain at All](https://ethresear.ch/t/plasma-cash-without-any-blockchain-at-all/1974/3)
 
 <br>
 
 #### Checkpoints
-
 This topic is generally related to decreasing the size of Plasma Cash transaction proofs.
 However, the topic is interesting enough that it deserves its own section.
 
@@ -389,12 +359,10 @@ We also place a lot of responsibility on the operator.
 There might be a way to create these checkpoints in a more decentralized manner or in a way that improves UX.
 
 ##### Research Questions
-
 + Are there better ways to checkpoint things in Plasma Cash?
 + How can we make Plasma XT cheaper?
 + How can we improve the user experience of Plasma XT?
 
 ##### Resources
-
 + [Plasma XT](https://ethresear.ch/t/plasma-xt-plasma-cash-with-much-less-per-user-data-checking/1926)
 + [Plasma checkpoint cost](https://ethresear.ch/t/plasma-checkpoint-cost-and-block-time/2016)
