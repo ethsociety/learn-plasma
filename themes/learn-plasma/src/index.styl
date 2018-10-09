@@ -358,6 +358,9 @@ a:hover, a:focus
   background-color rgba(255,255,255,0.99)
   -webkit-box-shadow 0 1px 9px rgba(0,0,0,0.05)
   box-shadow 0 1px 9px rgba(0,0,0,0.05)
+@media (max-width: 480px)
+  #contribute-btn
+    display none
 
 // Sidebar
 .sidebar
@@ -373,6 +376,14 @@ a:hover, a:focus
   z-index 900 
   -webkit-transition .3s ease-out 
   transition .3s ease-out 
+@media (max-width: 767.98px)
+  .sidebar-expand-md
+    position fixed
+    top 0
+    bottom 0
+    left -100%
+    padding 1.5rem
+    z-index 1001
 .nav-sidebar
   -webkit-box-orient vertical
   -webkit-box-direction normal
