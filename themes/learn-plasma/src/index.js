@@ -261,6 +261,26 @@ $(() => {
     windowScrollActions()
   });
 
+  // Sticky sidebar width
+  //
+  $('.sidebar').each(function() {
+    var tag = $(this),
+        width = tag.closest('div').width();
+    tag.css('width', width);
+
+    if (body.width() / width < 1.8) {
+      tag.addClass('is-mobile-wide');
+    }
+  });
+
+  $('body').scrollspy({
+    target: '.nav-sidebar',
+    offset: 100
+  });
+  $(window).on('activate.bs.scrollspy', function (event) {
+    console.log('activate.bs.scrollspy', event);
+})
+
   $('a.nav-link').each((_, item) => {
     let link = $(item)
 
