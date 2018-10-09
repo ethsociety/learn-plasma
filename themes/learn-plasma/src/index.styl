@@ -40,13 +40,17 @@
   font-style sans-serif
   font-weight 500
   src url(webfonts/Barlow-Medium.ttf)
+// Themify
+@font-face
+  font-family 'themify'
+  src url(webfonts/themify.ttf)
 
 // General
 body
   font-family 'Open Sans', sans-serif
   font-weight 300
   background-color #FFFFFF
-  color: #757575
+  color #757575
   margin 0
   line-height 1.9
 *, *::before, *::after
@@ -208,7 +212,7 @@ a:hover, a:focus
   flex-wrap wrap
   padding-left 0
   margin-bottom 0
-  list-style: none
+  list-style none
 .nav-navbar
   position relative
 .nav-navbar .nav-link
@@ -236,7 +240,7 @@ a:hover, a:focus
 @media (min-width: 992px)
   .navbar-expand-lg > .container,
   .navbar-expand-lg > .container-fluid
-    flex-wrap: nowrap
+    flex-wrap nowrap
   .navbar-expand-lg
     -webkit-box-orient horizontal
     -webkit-box-direction normal
@@ -289,7 +293,7 @@ a:hover, a:focus
   display none
 .navbar-dark .logo-dark,
 .navbar-stick-dark.stick .logo-dark
-  display: inline-block
+  display inline-block
 .navbar-dark .navbar-brand
   color #fff
 .navbar-brand
@@ -345,6 +349,70 @@ a:hover, a:focus
 .backdrop-navbar
   background-color rgba(255,255,255,0.95)
   z-index 1001
+
+// Sidebar
+.sidebar
+  position relative 
+  display -webkit-box 
+  display flex 
+  -webkit-box-orient vertical 
+  -webkit-box-direction normal 
+  flex-direction column 
+  height 100% 
+  padding-top 5rem 
+  padding-bottom 5rem 
+  z-index 900 
+  -webkit-transition .3s ease-out 
+  transition .3s ease-out 
+.nav-sidebar
+  -webkit-box-orient vertical
+  -webkit-box-direction normal
+  flex-direction column
+  font-weight 400
+.sidebar .nav-sidebar
+  height 100%
+.nav-sidebar .nav-item
+  margin 4px 0
+  padding-right 5px
+  overflow hidden
+  flex-shrink 0
+.nav-sidebar-hero > .nav-item 
+  border-bottom 1px dashed #eaeff4
+  padding-top 2px
+  padding-bottom 6px
+.ps
+  overflow hidden !important
+  overflow-anchor none
+  -ms-overflow-style none
+  touch-action auto
+  -ms-touch-action auto
+.sidebar-body
+  position relative
+  padding-right 20px
+.nav-sidebar .nav-angle
+  font-family 'themify'
+  font-style normal
+  font-size 8px
+  display inline-block
+  line-height 24px
+  -webkit-transition -webkit-transform .5s
+  transition -webkit-transform .5s
+  transition transform .5s
+  transition transform .5s, -webkit-transform .5s
+  color #757575
+.nav-sidebar .nav-angle::before
+  content "\e649"
+.nav-sidebar .nav-link
+  display -webkit-box 
+  display flex 
+  -webkit-box-pack justify 
+  justify-content space-between 
+  padding 3px 0 
+  line-height 1.5 
+.nav-sidebar-hero > .nav-item > .nav-link
+  font-size 1.125rem 
+  font-weight 400 
+  padding 8px 0 
 
 // Header
 #main-header
