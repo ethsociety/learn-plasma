@@ -75,14 +75,14 @@ let layout = layouts[page.layout]
   </div>
 </nav>
 
-<div id="main-content">
+<main id="main-content">
   <% if (layout) { %>
     <%- partial(layout) %>
   <% } %>
   <% if (!layout) { %>
     <%-body%>
   <% } %>
-</div>
+</main>
 
 <footer class="footer">
   <div class="container">

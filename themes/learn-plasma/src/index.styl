@@ -413,6 +413,28 @@ a:hover, a:focus
   font-size 1.125rem 
   font-weight 400 
   padding 8px 0 
+.nav-sidebar .nav
+  -webkit-box-orient vertical
+  -webkit-box-direction normal
+  flex-direction column
+  font-size .875rem
+  margin-left 1rem
+  margin-top .5rem
+  flex-wrap nowrap
+  display none
+.nav-sidebar-hero .nav
+  font-size 1rem
+.nav-sidebar-pill .nav
+  margin-left .5rem
+.nav-sidebar .nav .nav-link
+  flex-shrink 0
+.nav-sidebar-pill .nav .nav-link
+  display table
+  border-radius 10rem
+  padding 6px 16px
+.sidebar-sticky.stick:not(.is-mobile-wide)
+  position fixed
+  top 0
 
 // Header
 #main-header
