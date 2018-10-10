@@ -35,8 +35,9 @@ $(document).on('click', '.navbar-open .nav-navbar > .nav-item > .nav-link', func
 
 // SIDEBAR
 let seen = {};
+let sidebarItems = '';
+let divToReplace = $('#to-replace');
 $('#post article h2').each((_, item) => {
-  let sidebar = $('.nav-sidebar-pill');
 
   let links = '';
   $(item).nextUntil('h2', 'h3').each((_, subitem) => {
@@ -51,33 +52,20 @@ $('#post article h2').each((_, item) => {
     links += `<a class="nav-link" href="${$(subitem).find('a').attr('href')}">${$(subitem).find('span').text()}</a>`
   });
 
-  sidebar.append(`
+  sidebarItems += `
     <li class="nav-item">
       <a class="nav-link" href="${$(item).find('a').attr('href')}">${$(item).find('span').text()} <i class="nav-angle"></i></a>
       <div class="nav">
         ${links}
       </div>
     </li>
-  `);
+  `;
 });
-
-let navItemShow = $('.nav-sidebar .nav-item.show');
-navItemShow.find('> .nav-link .nav-angle').addClass('rotate');
-navItemShow.find('> .nav').css('display', 'block');
-navItemShow.removeClass('show');
-
-let navSidebarIsAccordion = false;
-if ( 'true' == $('.nav-sidebar').attr('accordion', 'false') ) {
-  navSidebarIsAccordion = true;
-}
+divToReplace.replaceWith(sidebarItems);
 
 $(document).on( 'click', '.nav-sidebar > .nav-item > .nav-link', function() {
   let link = $(this);
-  link.next('.nav').slideToggle();
-  if ( navSidebarIsAccordion ) {
-    link.closest('.nav-item').siblings('.nav-item').children('.nav:visible').slideUp().prev('.nav-link').children('.nav-angle').removeClass('rotate');
-  }
-  link.children('.nav-angle').toggleClass('rotate');
+  link.toggleClass('active');
 });
 
 $('.sidebar').each(function() {
@@ -89,6 +77,7 @@ $('.sidebar').each(function() {
     tag.addClass('is-mobile-wide');
   }
 });
+$('.sidebar').css('visibility', 'visible');
 
 // HELPERS
 let smoothlyScrollTo = (pos) => {

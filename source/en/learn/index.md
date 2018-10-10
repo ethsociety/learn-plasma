@@ -4,9 +4,15 @@ lead: Get familiar with Plasma, a framework for building scalable blockchain app
 date: 2018-08-21 16:26:02
 categories:
 tags:
+links:
+  after:
+    The Plasma Framework: /en/learn/framework.html
+    Plasma MVP: /en/learn/mvp.html
+    Plasma Cash: /en/learn/cash.html
+    Plasma Debit: /en/learn/debit.html
 ---
 
-## Welcome to LearnPlasma!
+## Introduction
 If you ended up here, you're probably interested in learning about Plasma, a framework for building scalable decentralized applications.
 
 We started LearnPlasma because the existing information about Plasma is spread all over the place.

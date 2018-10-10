@@ -1,5 +1,19 @@
-## Plasma MVP
+---
+title: Plasma MVP
+lead: 
+date: 2018-08-21 16:26:02
+categories:
+tags:
+links:
+  before:
+    Introduction: /en/learn
+    The Plasma Framework: /en/learn/framework.html
+  after:
+    Plasma Cash: /en/learn/cash.html
+    Plasma Debit: /en/learn/debit.html
+---
 
+## Plasma MVP
 [Plasma MVP](https://ethresear.ch/t/minimal-viable-plasma/426) is a design for an extremely simple [UTXO](https://www.investopedia.com/terms/u/utxo.asp)-based Plasma chain.
 The basic Plasma MVP specification enables high-throughput payment transactions, but does not support more complicated constructions like scripts or smart contracts.
 On this page, we'll go through the design process behind Plasma MVP.

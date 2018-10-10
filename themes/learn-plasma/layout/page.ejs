@@ -18,6 +18,23 @@ let {i18n} = page
         <aside class="sidebar sidebar-expand-md sidebar-sticky pr-md-4 br-1 stick">
           <div class="sidebar-body ps">
             <ul class="nav nav-sidebar nav-sidebar-hero nav-sidebar-pill">
+              <% if (has(page, 'links') === true) { %>
+                <% if (has(page.links, 'before') === true) { %>
+                  <% Object.keys(page.links.before).forEach(key => { %>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%=page.links.before[key]%>"><%=key%></a>
+                    </li>
+                  <% }) %>
+                <% } %>
+                <div id="to-replace"></div>
+                <% if (has(page.links, 'after') === true) { %>
+                  <% Object.keys(page.links.after).forEach(key => { %>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%=page.links.after[key]%>"><%=key%></a>
+                    </li>
+                  <% }) %>
+                <% } %>
+              <% } %>
             </ul>
             <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
               <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>

@@ -1,3 +1,17 @@
+---
+title: Plasma Debit
+lead: 
+date: 2018-08-21 16:26:02
+categories:
+tags:
+links:
+  before:
+    Introduction: /en/learn
+    The Plasma Framework: /en/learn/framework.html
+    Plasma MVP: /en/learn/mvp.html
+    Plasma Cash: /en/learn/cash.html
+---
+
 ## Plasma Debit
 [Plasma Debit](https://ethresear.ch/t/plasma-debit-arbitrary-denomination-payments-in-plasma-cash/2198) is like Plasma Cash, except every token is a payment channel between the user and the chain operator.
 It's sort of like a big Lightning hub, but the channels can be transferred just like a Plasma Cash token!

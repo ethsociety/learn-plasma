@@ -1,4 +1,19 @@
-## Plasma as a Framework
+---
+title: The Plasma Framework
+lead: 
+date: 2018-08-21 16:26:02
+categories:
+tags:
+links:
+  before:
+    Introduction: /en/learn
+  after:
+    Plasma MVP: /en/learn/mvp.html
+    Plasma Cash: /en/learn/cash.html
+    Plasma Debit: /en/learn/debit.html
+---
+
+## The Plasma Framework
 Before we start, remember that Plasma is a *framework* for building scalable applications.
 There isn't any single project called "Plasma."
 Instead, there are lots of different projects that use the tools provided by the Plasma framework.
@@ -15,7 +30,7 @@ Don't worry, we'll go into as much detail as possible about some of those applic
 
 ---
 
-## Why do we need Plasma?
+### Why do we need Plasma?
 Before we try to explain what Plasma *is*, we should first understand *why* Plasma exists.
 This is going to be a relatively high-level overview and will try to avoid going into a lot of detail, but it should set the stage for the rest of this website.
 Basically, it boils down to the fact that current blockchain systems are pretty slow by modern standards.

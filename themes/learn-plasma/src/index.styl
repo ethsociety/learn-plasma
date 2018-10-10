@@ -364,9 +364,10 @@ a:hover, a:focus
 
 // Sidebar
 .sidebar
-  position relative 
+  position relative
+  visibility hidden
   display -webkit-box 
-  display flex 
+  display flex
   -webkit-box-orient vertical 
   -webkit-box-direction normal 
   flex-direction column 
@@ -425,7 +426,7 @@ a:hover, a:focus
   top 2px
 .nav-sidebar .nav-angle::before
   content "\e649"
-.nav-sidebar .nav-angle.rotate
+.nav-sidebar .nav-link.active .nav-angle
   -webkit-transform rotate(90deg)
   transform rotate(90deg)
 .nav-sidebar .nav-link

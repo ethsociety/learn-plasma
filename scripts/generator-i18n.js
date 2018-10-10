@@ -39,7 +39,6 @@ hexo.extend.generator.register('i18n', locals => {
     //
     // support blank
     //
-
     if (page.categories === null || page.categories.length === 0) {
       categories = Category.find({blank})
     }
