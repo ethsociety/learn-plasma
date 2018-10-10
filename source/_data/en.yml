@@ -6,19 +6,19 @@ i18n: true
 
 menu:
   FAQ: /en/faq
-  Learn: /en/start
+  Learn: /en/learn
   Build: /en/build
   Research: /en/research
-  Misc: /en/misc
+  Resources: /en/resources
   Contact: /en/contact
   Contributors: /en/contributors
 
 bottomMenu:
   FAQ: /en/faq
-  Learn: /en/start
+  Learn: /en/learn
   Build: /en/build
   Research: /en/research
-  Misc: /en/misc
+  Resources: /en/resources
   Contact: /en/contact
   Contributors: /en/contributors
 
