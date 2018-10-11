@@ -36,10 +36,14 @@ Primary Learn content is currently organized into the following sections:
 
 Forthcoming Topics:
 
-- [ ] Plasma Comparison
+- [x] [Plasma Comparison](https://www.learnplasma.org/docs/plasma-comparison.html)
+
 - [ ] Inter-Plasma Chain Transactions
+
 - [ ] Plasma Integration with other L1/L2 Scalability Solutions
+
 - [ ] Plasma Use Cases: Opportunities & Limitations
+
 - [ ] User Experience & Plasma
 
 ## Contributing
