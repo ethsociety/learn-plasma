@@ -77,3 +77,33 @@
     display:none;
   }
 }
+
+.table-font-md {
+    font-size: 0.8em;
+}
+
+.table th {
+    border-top: 1px solid #f1f2f3;
+}
+
+.table thead th {
+    background-color: #f1f6fa;
+    font-weight: bold;
+}
+
+.table tbody+tbody {
+    border-top: 1px solid #f1f2f3;
+}
+
+.table tbody th {
+    font-weight: bold;
+}
+
+.table tbody tr:first-child th {
+    background-color: #f1f6fa;
+}
+
+.table tbody td ul {
+    padding: 0 .75em;
+    margin: 0;
+}
