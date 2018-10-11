@@ -62,3 +62,18 @@
   position: static;
   margin: 0;
 }
+
+@media (max-width: 480px) {
+  #contribute-btn{
+    display:none;
+  }
+  #sidebar-mobile{
+    display:inline;
+  }
+}
+
+@media (min-width: 480px) {
+  #sidebar-mobile{
+    display:none;
+  }
+}
