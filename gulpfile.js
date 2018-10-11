@@ -21,7 +21,7 @@ var production = false;
 
 var file = {
   html:   'src/**/*.html',
-  scss:   'src/assets/scss/**/*.scss',
+  scss:   'src/assets/scss/**.scss',
   js:     'src/assets/js/src/**/*.js',
 }
 
@@ -80,7 +80,7 @@ gulp.task('serve', ['sass'], function() {
 */
 gulp.task('sass', function() {
 
-  var stream = gulp.src(page.scss)
+  var stream = gulp.src(file.scss)
     .pipe( sourcemaps.init() )
     .pipe( rename( { suffix: '.min' } ) )
     .pipe( sass({ importer: tildeImporter, outputStyle: 'compressed' }).on('error', sass.logError) )
@@ -93,7 +93,7 @@ gulp.task('sass', function() {
 
   // Create unminified version if it's in production mode
   if ( production ) {
-    stream = gulp.src(page.scss)
+    stream = gulp.src(file.scss)
       .pipe( sourcemaps.init() )
       .pipe( sass({importer: tildeImporter}).on('error', sass.logError) )
       .pipe( autoprefixer({
