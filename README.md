@@ -1,10 +1,8 @@
 # Learn Plasma
 
-## WIP: ⚠️ This website is currently under construction ⚠️ Contributors welcome!
+This website aims to educate visitors about the fundamentals and design principles of [plasma](https://plasma.io/), a framework for building scalable blockchain applications.
 
-This website aims to educate visitors about the fundamentals of Plasma and its design principles. We plan to add interactive tutorials and showcase other use cases for layer 2 dapps.
-
-Learn Plasma was conceived at the 2018 IC3 Bootcamp at Cornell.
+Learn Plasma was conceived at the [2018 IC3 Boot Camp at Cornell](https://www.initc3.org/events/2018-07-12-IC3-Ethereum-Crypto-Boot-Camp.html) and is maintained by [community contributors](https://github.com/ethsociety/learn-plasma/issues)!
 
 ## Development
 
