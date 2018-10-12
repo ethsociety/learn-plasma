@@ -376,15 +376,7 @@ a:hover, a:focus
   padding-bottom 5rem 
   z-index 900 
   -webkit-transition .3s ease-out 
-  transition .3s ease-out 
-@media (max-width: 767.98px)
-  .sidebar-expand-md
-    position fixed
-    top 0
-    bottom 0
-    left -100%
-    padding 1.5rem
-    z-index 1001
+  transition .3s ease-out
 .nav-sidebar
   -webkit-box-orient vertical
   -webkit-box-direction normal
@@ -469,7 +461,15 @@ a:hover, a:focus
 .nav-sidebar-pill .nav .nav-link.active
   background-color rgba(80,161,255,0.1)
 .nav-sidebar .nav-link.active + .nav
-    display block
+  display block
+@media (max-width: 767.98px)
+  .sidebar-expand-md
+    position fixed
+    top 0
+    bottom 0
+    left -100%
+    padding 1.5rem
+    z-index 1001
 
 // Header
 #main-header
@@ -618,3 +618,22 @@ h2 .anchor
   opacity .5
 .anchor:hover
   opacity .8
+
+// Table
+.table-font-md
+  font-size 0.8em
+table th
+  border-top 1px solid #f1f2f3
+table thead th
+  background-color #f1f6fa
+  font-weight bold
+table tbody + tbody
+  border-top 1px solid #f1f2f3
+table tbody th
+  font-weight bold
+table tbody tr:first-child th 
+  background-color #f1f6fa
+table tbody td ul
+  padding 0 .75em
+  margin 0
+  margin-left: 0.5em

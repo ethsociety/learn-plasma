@@ -11,6 +11,7 @@ links:
     Plasma MVP: /en/learn/mvp.html
   after:
     Plasma Debit: /en/learn/debit.html
+    Comparison: /en/learn/compare.html
 ---
 
 ## Plasma Cash

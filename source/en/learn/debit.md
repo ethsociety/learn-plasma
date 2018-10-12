@@ -10,6 +10,8 @@ links:
     The Plasma Framework: /en/learn/framework.html
     Plasma MVP: /en/learn/mvp.html
     Plasma Cash: /en/learn/cash.html
+  after:
+    Comparison: /en/learn/compare.html
 ---
 
 ## Plasma Debit

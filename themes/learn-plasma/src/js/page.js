@@ -51,10 +51,10 @@ $('#post article h2').each((_, item) => {
     }
     links += `<a class="nav-link" href="${$(subitem).find('a').attr('href')}">${$(subitem).find('span').text()}</a>`
   });
-
+  let angle = links === '' ? '' : '<i class="nav-angle"></i>';
   sidebarItems += `
     <li class="nav-item">
-      <a class="nav-link" href="${$(item).find('a').attr('href')}">${$(item).find('span').text()} <i class="nav-angle"></i></a>
+      <a class="nav-link" href="${$(item).find('a').attr('href')}">${$(item).find('span').text()} ${angle}</a>
       <div class="nav">
         ${links}
       </div>
@@ -68,15 +68,23 @@ $(document).on( 'click', '.nav-sidebar > .nav-item > .nav-link', function() {
   link.toggleClass('active');
 });
 
-$('.sidebar').each(function() {
-  let tag = $(this),
-      width = tag.closest('div').width();
-  tag.css('width', width);
+let updateSidebarWidth = () => {
+  $('.sidebar').each(function() {
+    let tag = $(this),
+        width = tag.closest('div').width();
+    tag.css('width', width);
 
-  if (body.width() / width < 1.8) {
-    tag.addClass('is-mobile-wide');
-  }
+    if (body.width() / width < 1.8) {
+      tag.addClass('is-mobile-wide');
+    }
+  });
+};
+
+updateSidebarWidth();
+$(window).on('resize', () => {
+  updateSidebarWidth();
 });
+
 $('.sidebar').css('visibility', 'visible');
 
 // HELPERS
