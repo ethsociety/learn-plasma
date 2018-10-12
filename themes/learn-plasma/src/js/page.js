@@ -64,6 +64,9 @@ $('#post article h2').each((_, item) => {
 divToReplace.replaceWith(sidebarItems);
 
 $(document).on( 'click', '.nav-sidebar > .nav-item > .nav-link', function() {
+  $('.nav-sidebar > .nav-item > .nav-link').each((_, item) => {
+    $(item).removeClass('active');
+  });
   let link = $(this);
   link.toggleClass('active');
 });
@@ -88,8 +91,8 @@ $(window).on('resize', () => {
 $('.sidebar').css('visibility', 'visible');
 
 // HELPERS
-let smoothlyScrollTo = (pos) => {
-  $('html, body').animate({scrollTop: pos}, 600);
+let smoothlyScrollTo = (pos, cb) => {
+  $('html, body').animate({scrollTop: pos}, 600, 'swing', cb);
 };
 
 let toggleStickClass = (tag) => {
@@ -211,12 +214,14 @@ $(document).on( 'click', "a[href^='#']", function() {
     let targetTop = target.offset().top,
         windowTop = $(window).scrollTop();
 
-    if (targetTop > windowTop && $('.navbar[data-navbar="smart"]').length) {
-      smoothlyScrollTo(targetTop);
+    let offset = 0;
+    if (!(targetTop > windowTop && $('.navbar[data-navbar="smart"]').length)) {
+      offset = scrollOffsetTop;
     }
-    else {
-      smoothlyScrollTo(targetTop - scrollOffsetTop);
-    }
+    $('.nav-sidebar').removeClass('spy');
+    smoothlyScrollTo(targetTop - offset, () => {
+      $('.nav-sidebar').addClass('spy');
+    });
 
     if (body.hasClass('navbar-open')) {
       page.navbarClose();
@@ -229,8 +234,9 @@ $(document).on( 'click', "a[href^='#']", function() {
   }
 });
 
+$('.nav-sidebar').addClass('spy');
 // SCROLLSPY
 $('body').scrollspy({
-  target: '.nav-sidebar',
+  target: '.nav-sidebar.spy',
   offset: 100
 });
