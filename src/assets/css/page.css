@@ -383,6 +383,12 @@ mark,
   margin-bottom: 1rem;
   font-size: 1.17188rem; }
 
+.blockquote-se {
+  padding: 8px;
+  border-left: 2px solid #ffeb8e;
+  background: #FFF9E3;
+}
+
 .blockquote-footer {
   display: block;
   font-size: 80%;
