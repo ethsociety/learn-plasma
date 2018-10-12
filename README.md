@@ -20,10 +20,6 @@ git clone https://github.com/ethsociety/learn-plasma.git
 cd learn-plasma
 npm install
 
-# request blog and github data
-# (if you run this a lot github will bark at you for api rate limit)
-npm run data
-
 # watch during development, auto-refresh courtesy of browser-sync
 npm run dev
 open http://127.0.0.1:7781

@@ -60,16 +60,12 @@
   "scripts": {
     "clean": "rm -rf public source/build themes/learn-plasma/source db.json debug.log",
     "setup": "mkdir -p public/build source/build themes/learn-plasma/source",
-    "data-medium": "node src/feeds/medium.js",
-    "data-github": "node src/feeds/github.js",
-    "data-discourse": "node src/feeds/discourse.js",
-    "data": "run-s data-*",
     "dev-gulp": "gulp dev || true",
     "dev-hexo": "nodemon -L -w scripts -w themes/learn-plasma/_config.yml --ext yml,js --exec hexo serve --debug || true",
     "dev": "NODE_ENV=development run-p setup dev-* || true",
     "prd-gulp": "NODE_ENV=production gulp prd",
     "prd-hexo": "NODE_ENV=production hexo gen",
-    "prd": "run-s setup data-* prd-*",
+    "prd": "run-s setup prd-*",
     "test-server": "http-server public -p 4000 -a 127.0.0.1 -s -c-1 & echo $! > .test-server-id",
     "test-blc": "sleep 1 && blc --exclude-external -r -requests 32 http://127.0.0.1:4000 && kill `cat .test-server-id` && rm .test-server-id",
     "test": "npm run prd && run-p test-*"
