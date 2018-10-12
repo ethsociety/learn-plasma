@@ -1,6 +1,6 @@
 ---
 title: Plasma MVP
-lead: 
+lead: Learn more about Minimal Viable Plasma by exploring it in depth.
 date: 2018-08-21 16:26:02
 categories:
 tags:

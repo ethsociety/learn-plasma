@@ -1,6 +1,6 @@
 ---
 title: Plasma Debit
-lead: 
+lead: Discover how Plasma Debit combines Plasma Cash and payment channels.
 date: 2018-08-21 16:26:02
 categories:
 tags:

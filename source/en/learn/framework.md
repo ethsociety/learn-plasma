@@ -1,6 +1,6 @@
 ---
 title: The Plasma Framework
-lead: 
+lead: Get a high-level overview of the tools provided by the Plasma framework.
 date: 2018-08-21 16:26:02
 categories:
 tags:

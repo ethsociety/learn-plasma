@@ -1,6 +1,6 @@
 ---
 title: Compare
-lead: 
+lead: Learn about the differences between the most popular Plasma design applications.
 date: 2018-08-21 16:26:02
 categories:
 tags:

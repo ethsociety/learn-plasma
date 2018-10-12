@@ -1,6 +1,6 @@
 ---
 title: Plasma Cash
-lead: 
+lead: Understand how Plasma Cash works and when to use it.
 date: 2018-08-21 16:26:02
 categories:
 tags:
