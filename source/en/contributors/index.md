@@ -40,5 +40,11 @@ tags:
         <p class="card-text">Lucidity</p>
       </div>
     </div>
+    <div class="card col-sm-12 col-md-3">
+      <div class="card-body">
+        <div class="card-title"><a href="https://github.com/parthgargava">Parth Gargava</a></div>
+        <p class="card-text">Fidelity Investments</p>
+      </div>
+    </div>
   </div>
 </div>
