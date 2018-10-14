@@ -103,7 +103,7 @@ Plasma applications do a majority of their work outside of the "root chain" (e.g
 Root chains tend to be slow and costly because they need to be very secure.
 If an application can do any work outside of the root blockchain, it should.
 
-For example, in [Plasma MVP](./plasma-mvp.html), almost every transaction occurs outside of Ethereum.
+For example, in [Plasma MVP](/en/learn/mvp.html), almost every transaction occurs outside of Ethereum.
 Only deposits and withdrawals, the points of entry and exit, are ever handled on the smart contract.
 This is a standard workflow for Plasma applications.
 Anything that doesn't require assets/data moving in and out of your smart contract can probably be handled off-chain.
@@ -114,7 +114,7 @@ This is why we make use of something called a "state commitment."
 A [state commitment](https://en.wikipedia.org/wiki/Commitment_scheme) is a cryptographic way to store a compressed version of the state of your application.
 
 However, storing *everything* about your application would defeat the point of Plasma entirely.
-We typically make use of [Merkle trees](./plasma-mvp.html#merkle-trees) instead.
+We typically make use of [Merkle trees](/en/learn/mvp.html#merkle-trees) instead.
 These commitments become kind of like save points for your application.
 
 ##### Exits

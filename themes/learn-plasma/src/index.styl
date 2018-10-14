@@ -55,7 +55,6 @@ body
   margin 0
   line-height 1.9
 *, *::before, *::after
-  -webkit-box-sizing border-box
   box-sizing border-box
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section
   display block
@@ -82,7 +81,6 @@ default:focus
 // Links
 a
   color #50a1ff
-  -webkit-transition .2s linear
   transition .2s linear
 a:hover, a:focus
   color #50a1ff
@@ -96,7 +94,6 @@ a:hover, a:focus
   text-align center
   white-space nowrap
   vertical-align middle
-  -webkit-user-select none
   -moz-user-select none
   -ms-user-select none
   user-select none
@@ -107,10 +104,7 @@ a:hover, a:focus
   border-radius 2px
   letter-spacing 1.7px
   text-transform uppercase
-  -webkit-transition color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out
-  transition color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out
   transition color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
-  transition color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out
 .btn:not(:disabled):not(.disabled)
   cursor pointer
 .btn:hover, .btn:focus
@@ -142,7 +136,6 @@ a:hover, a:focus
 .btn-success:focus,
 .btn-success.focus
   color #fff
-  -webkit-box-shadow 0 0 0 0 rgba(60,212,88,0.5)
   box-shadow 0 0 0 0 rgba(60,212,88,0.5)
 .btn-info
   color #fff
@@ -151,7 +144,6 @@ a:hover, a:focus
 .btn-info:focus,
 .btn-info.focus
   color #fff
-  -webkit-box-shadow 0 0 0 0 rgba(146,109,222,0.5)
   box-shadow 0 0 0 0 rgba(146,109,222,0.5)
 .btn-primary
   color #fff
@@ -160,18 +152,14 @@ a:hover, a:focus
 .btn-primary:focus,
 .btn-primary.focus
   color #fff
-  -webkit-box-shadow 0 0 0 0 rgba(80,161,255,0.5)
   box-shadow 0 0 0 0 rgba(80,161,255,0.5)
 
 // Navbar
 .navbar
   position relative
-  display -webkit-box
   display flex
   flex-wrap wrap
-  -webkit-box-align center
   align-items center
-  -webkit-box-pack justify
   justify-content space-between
   padding .5rem 1rem
 .navbar
@@ -180,17 +168,12 @@ a:hover, a:focus
   left 0
   right 0
   z-index 1000
-  -webkit-transition background-color .3s ease-out, -webkit-transform .3s ease-out
-  transition background-color .3s ease-out, -webkit-transform .3s ease-out
   transition transform .3s ease-out, background-color .3s ease-out
-  transition transform .3s ease-out, background-color .3s ease-out, -webkit-transform .3s ease-out
   padding-top 0
   padding-bottom 0
   min-height 56px
 .navbar-mobile
-  display -webkit-box
   display flex
-  -webkit-box-align center
   align-items center
   width 100%
 .nav-navbar > .nav-item > .nav-link,
@@ -199,7 +182,7 @@ a:hover, a:focus
   padding-top 0
   padding-bottom 0
 .navbar-dark .navbar-divider,
-.navbar-stick-dark.stick .navbar-divider 
+.navbar-stick-dark.stick .navbar-divider
   background-color rgba(117,117,117,0.8)
 .navbar-divider
   display inline-block
@@ -231,29 +214,20 @@ a:hover, a:focus
   color rgba(117,117,117,0.8)
 .navbar > .container,
 .navbar > .container-fluid
-  display -webkit-box
   display flex
   flex-wrap wrap
-  -webkit-box-align center
   align-items center
-  -webkit-box-pack justify
   justify-content space-between
 @media (min-width: 992px)
   .navbar-expand-lg > .container,
   .navbar-expand-lg > .container-fluid
     flex-wrap nowrap
   .navbar-expand-lg
-    -webkit-box-orient horizontal
-    -webkit-box-direction normal
     flex-flow row nowrap
-    -webkit-box-pack start
     justify-content flex-start
 @media (max-width: 991.98px)
   .navbar-expand-lg .navbar-mobile
-    -webkit-box-orient vertical
-    -webkit-box-direction normal
     flex-direction column
-    -webkit-box-align start
     align-items flex-start
     width 300px
     height 100vh
@@ -265,10 +239,9 @@ a:hover, a:focus
     background-color #fff
     overflow-y auto
     overflow-x hidden
-    -webkit-transition left .3s ease
     transition left .3s ease
     z-index 1002
-  .navbar-expand-lg .d-mobile-none 
+  .navbar-expand-lg .d-mobile-none
     display none !important
   .navbar-expand-lg .nav-navbar:not(.nav-inline) > .nav-item > .nav-link,
   .navbar-expand-lg .nav-navbar:not(.nav-inline) > .nav-link
@@ -284,8 +257,6 @@ a:hover, a:focus
   .navbar-expand-lg .navbar-mobile .nav-link:hover
     color rgba(80,80,80,1)
   .navbar-expand-lg .nav-navbar:not(.nav-inline)
-    -webkit-box-orient vertical
-    -webkit-box-direction normal
     flex-direction column
     flex-wrap nowrap
     width 100%
@@ -298,7 +269,6 @@ a:hover, a:focus
 .navbar-dark .navbar-brand
   color #fff
 .navbar-brand
-  display -webkit-inline-box
   display inline-flex
   padding-top 0
   padding-bottom 0
@@ -306,14 +276,11 @@ a:hover, a:focus
   font-size 1.0625rem
   line-height inherit
   white-space nowrap
-  -webkit-box-align center
   align-items center
 .navbar-brand img
   vertical-align baseline
 .navbar-left
-  display -webkit-box
   display flex
-  -webkit-box-align center
   align-items center
 .navbar-dark .navbar-toggler,
 .navbar-dark .btn-menu,
@@ -321,7 +288,7 @@ a:hover, a:focus
 .navbar-stick-dark.stick .btn-menu
   color rgba(117,117,117,0.8)
 .navbar-toggler,
-.btn-menu 
+.btn-menu
   padding .25rem .75rem
   line-height 1
   background-color transparent
@@ -336,8 +303,7 @@ a:hover, a:focus
 .navbar-toggler:focus
   outline none
 .navbar-open .navbar-mobile
-  left 0 !important
-  -webkit-box-shadow 2px 0 9px rgba(0,0,0,0.05)
+  left 0 !important\
   box-shadow 2px 0 9px rgba(0,0,0,0.05)
 .backdrop
   position fixed
@@ -353,10 +319,8 @@ a:hover, a:focus
 .navbar-scrolled [data-navbar="sticky"]
   position fixed
   top 0
-  -webkit-transform translate(0,0)
   transform translate(0,0)
   background-color rgba(255,255,255,0.99)
-  -webkit-box-shadow 0 1px 9px rgba(0,0,0,0.05)
   box-shadow 0 1px 9px rgba(0,0,0,0.05)
 @media (max-width: 480px)
   #contribute-btn
@@ -366,20 +330,14 @@ a:hover, a:focus
 .sidebar
   position relative
   visibility hidden
-  display -webkit-box 
   display flex
-  -webkit-box-orient vertical 
-  -webkit-box-direction normal 
-  flex-direction column 
-  height 100% 
-  padding-top 5rem 
-  padding-bottom 5rem 
-  z-index 900 
-  -webkit-transition .3s ease-out 
+  flex-direction column
+  height 100%
+  padding-top 5rem
+  padding-bottom 5rem
+  z-index 900
   transition .3s ease-out
 .nav-sidebar
-  -webkit-box-orient vertical
-  -webkit-box-direction normal
   flex-direction column
   font-weight 400
 .sidebar .nav-sidebar
@@ -389,7 +347,7 @@ a:hover, a:focus
   padding-right 5px
   overflow hidden
   flex-shrink 0
-.nav-sidebar-hero > .nav-item 
+.nav-sidebar-hero > .nav-item
   border-bottom 1px dashed #eaeff4
   padding-top 2px
   padding-bottom 6px
@@ -408,10 +366,7 @@ a:hover, a:focus
   font-size 8px
   display inline-block
   line-height 24px
-  -webkit-transition -webkit-transform .5s
-  transition -webkit-transform .5s
   transition transform .5s
-  transition transform .5s, -webkit-transform .5s
   color #757575
   position relative
   left 5px
@@ -419,22 +374,17 @@ a:hover, a:focus
 .nav-sidebar .nav-angle::before
   content "\e649"
 .nav-sidebar .nav-link.active .nav-angle
-  -webkit-transform rotate(90deg)
   transform rotate(90deg)
 .nav-sidebar .nav-link
-  display -webkit-box 
-  display flex 
-  -webkit-box-pack justify 
-  justify-content space-between 
-  padding 3px 0 
-  line-height 1.5 
+  display flex
+  justify-content space-between
+  padding 3px 0
+  line-height 1.5
 .nav-sidebar-hero > .nav-item > .nav-link
-  font-size 1.125rem 
-  font-weight 400 
+  font-size 1.125rem
+  font-weight 400
   padding 8px 0
 .nav-sidebar .nav
-  -webkit-box-orient vertical
-  -webkit-box-direction normal
   flex-direction column
   font-size .875rem
   margin-left 1rem
@@ -477,7 +427,6 @@ a:hover, a:focus
 .header
   position relative
   background-position center
-  -webkit-background-size cover
   background-size cover
   background-repeat no-repeat
   padding-top 146px
@@ -508,7 +457,6 @@ a:hover, a:focus
   position relative
   border-bottom 0
   background-position center center
-  -webkit-background-size cover
   background-size cover
   background-repeat no-repeat
 .bg-gray
@@ -580,17 +528,14 @@ a:hover, a:focus
 // Shadow
 .shadow-6,
 .hover-shadow-6:hover
-  -webkit-box-shadow 0 0 36px rgba(0, 0, 0, 0.06)
   box-shadow 0 0 36px rgba(0, 0, 0, 0.06)
 .shadow-9,
 .hover-shadow-9:hover
-  -webkit-box-shadow 0 0 74px rgba(0, 0, 0, 0.06)
   box-shadow 0 0 74px rgba(0, 0, 0, 0.06)
 
 // Card
 .card
   border 0
-  -webkit-transition .5s
   transition .5s
 
 // RSS
@@ -631,7 +576,7 @@ table tbody + tbody
   border-top 1px solid #f1f2f3
 table tbody th
   font-weight bold
-table tbody tr:first-child th 
+table tbody tr:first-child th
   background-color #f1f6fa
 table tbody td ul
   padding 0 .75em

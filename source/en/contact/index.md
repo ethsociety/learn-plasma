@@ -12,10 +12,10 @@ tags:
   <div class="row">
     <div class="col-sm-12 col-md-8 align-self-center">
       <br><br>
-      <form name="contact" method="POST" _lpchecked="1"><input type="hidden" name="form-name" value="contact">
+      <form name="contact" method="POST"><input type="hidden" name="form-name" value="contact">
         <div class="form-group">
           <label for="name">Name</label>
-          <input id="contact-name" name="name" type="text" class="form-control" required="" autofocus="">
+          <input id="contact-name" name="name" type="text" class="form-control" required autofocus>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
