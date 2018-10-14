@@ -16,6 +16,7 @@ let entryPath = path.join(
   __dirname,
   'themes',
   'learn-plasma',
+  'src',
   'index.js'
 )
 let outputPath = path.join(__dirname, 'themes', 'learn-plasma', 'source')
