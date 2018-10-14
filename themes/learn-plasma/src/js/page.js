@@ -150,7 +150,7 @@ let windowScrollActions = () => {
       tag.attr('data-original-top', top);
     }
 
-    let stickStart = tag.dataAttr('original-top'),
+    let stickStart = tag.dataAttr('original-top');
 
     if (windowTop > stickStart) {
       tag.addClass('stick');
