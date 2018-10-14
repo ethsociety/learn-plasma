@@ -28,33 +28,34 @@ $(document).on('click', '.navbar-toggler', () => {
 $(document).on('click', '.backdrop-navbar', () => {
   navbarClose();
 });
-$(document).on('click', '.navbar-open .nav-navbar > .nav-item > .nav-link', function() {
-  $(this).closest('.nav-item').siblings('.nav-item').find('> .nav:visible').slideUp(333, 'linear');
-  $(this).next('.nav').slideToggle(333, 'linear');
-});
 
 // SIDEBAR
 let seen = {};
 let sidebarItems = '';
 let divToReplace = $('#to-replace');
-$('#post article h2').each((_, item) => {
+$('#post article h2').each((_, el) => {
+  let tag = $(el),
+      links = '';
 
-  let links = '';
-  $(item).nextUntil('h2', 'h3').each((_, subitem) => {
-    let href = $(subitem).find('a').attr('href');
+  tag.nextUntil('h2', 'h3').each((_, subel) => {
+    let subtag = $(subel),
+        href = subtag.find('a').attr('href');
+
     if (!seen[href]) {
       seen[href] = 1;
     } else {
-      $(subitem).find('a').attr('href', (_, attr) => (attr + '-' + seen[href]));
-      $(subitem).find('span').attr('id', (_, attr) => (attr + '-' + seen[href]));
+      subtag.find('a').attr('href', (_, attr) => (attr + '-' + seen[href]));
+      subtag.find('span').attr('id', (_, attr) => (attr + '-' + seen[href]));
       seen[href]++;
     }
-    links += `<a class="nav-link" href="${$(subitem).find('a').attr('href')}">${$(subitem).find('span').text()}</a>`
+
+    links += `<a class="nav-link" href="${subtag.find('a').attr('href')}">${subtag.find('span').text()}</a>`
   });
+
   let angle = links === '' ? '' : '<i class="nav-angle"></i>';
   sidebarItems += `
     <li class="nav-item">
-      <a class="nav-link" href="${$(item).find('a').attr('href')}">${$(item).find('span').text()} ${angle}</a>
+      <a class="nav-link" href="${tag.find('a').attr('href')}">${tag.find('span').text()} ${angle}</a>
       <div class="nav">
         ${links}
       </div>
@@ -63,18 +64,18 @@ $('#post article h2').each((_, item) => {
 });
 divToReplace.replaceWith(sidebarItems);
 
-$(document).on( 'click', '.nav-sidebar > .nav-item > .nav-link', function() {
-  $('.nav-sidebar > .nav-item > .nav-link').each((_, item) => {
-    $(item).removeClass('active');
+$(document).on('click', '.nav-sidebar > .nav-item > .nav-link', function() {
+  $('.nav-sidebar > .nav-item > .nav-link').each((_, el) => {
+    $(el).removeClass('active');
   });
   let link = $(this);
   link.toggleClass('active');
 });
 
 let updateSidebarWidth = () => {
-  $('.sidebar').each(function() {
-    let tag = $(this),
-        width = tag.closest('div').width();
+  $('.sidebar').each((_, el) => {
+    let tag = $(el);
+    let width = tag.closest('div').width();
     tag.css('width', width);
 
     if (body.width() / width < 1.8) {
@@ -111,86 +112,78 @@ let toggleStickClass = (tag) => {
 
 // SCROLL LISTENERS
 let windowScrollActions = () => {
-  let window_top = $(window).scrollTop();
+  let windowTop = $(window).scrollTop();
 
   // .body-scrolled
-  if (window_top > 1) {
+  if (windowTop > 1) {
     body.addClass('body-scrolled');
-  }
-  else {
+  } else {
     body.removeClass('body-scrolled');
   }
 
   // .navbar-scrolled
-  if (window_top > navbarHeight) {
+  if (windowTop > navbarHeight) {
     body.addClass('navbar-scrolled');
-  }
-  else {
+  } else {
     body.removeClass('navbar-scrolled');
   }
 
   // .header-scrolled
-  if (window_top > headerHeight) {
+  if (windowTop > headerHeight) {
     body.addClass('header-scrolled');
-  }
-  else {
+  } else {
     body.removeClass('header-scrolled');
   }
 
   // .main-scrolled
-  if (window_top > mainOffsetTop) {
+  if (windowTop > mainOffsetTop) {
     body.addClass('main-scrolled');
-  }
-  else {
+  } else {
     body.removeClass('main-scrolled');
   }
 
-  // 
-  $('[data-sticky="true"]').each(function() {
-    let tag = $(this),
-        top = tag.offset().top;
+  $('[data-sticky="true"]').each((_, el) => {
+    let tag = $(el);
+    let top = tag.offset().top;
 
-    if ( ! tag.hasDataAttr('original-top') ) {
+    if (!tag.hasDataAttr('original-top')) {
       tag.attr('data-original-top', top);
     }
 
-    let stick_start = tag.dataAttr('original-top'),
-        stick_end   = footer.offset().top - tag.outerHeight();
+    let stickStart = tag.dataAttr('original-top'),
 
-    if (window_top > stick_start) {
+    if (windowTop > stickStart) {
       tag.addClass('stick');
-    }
-    else {
+    } else {
       tag.removeClass('stick');
     }
   });
 
-  $('[data-navbar="sticky"]').each(function() {
-    let tag = $(this);
+  $('[data-navbar="sticky"]').each((_, el) => {
+    let tag = $(el);
     toggleStickClass(tag);
   });
 
-  $('[data-navbar="fixed"]').each(function() {
-    let tag = $(this);
+  $('[data-navbar="fixed"]').each((_, el) => {
+    let tag = $(el);
     if (body.hasClass('body-scrolled')) {
       tag.addClass('stick');
-    }
-    else {
+    } else {
       tag.removeClass('stick');
     }
   });
 
-  $('.sidebar-sticky').each(function() {
-    let tag = $(this);
+  $('.sidebar-sticky').each((_, el) => {
+    let tag = $(el);
     toggleStickClass(tag);
   });
 
-  $('.header.fadeout').css('opacity', (1-window_top-200 / window.innerHeight) );
+  $('.header.fadeout').css('opacity', (1 - windowTop - 200 / window.innerHeight));
 
-  prevOffsetTop = window_top;
+  prevOffsetTop = windowTop;
 };
 
-if ( $('[data-navbar="fixed"], [data-navbar="sticky"], [data-navbar="smart"]').length ) {
+if ($('[data-navbar="fixed"], [data-navbar="sticky"], [data-navbar="smart"]').length) {
   scrollOffsetTop = navbarHeight;
 }
 
@@ -200,7 +193,7 @@ $(window).on('scroll', function() {
 });
 
 // SMOOTH SCROLL
-$(document).on( 'click', "a[href^='#']", function() {
+$(document).on('click', "a[href^='#']", function() {
   if ($(this).attr('href').length < 2) {
     return;
   }
@@ -218,6 +211,7 @@ $(document).on( 'click', "a[href^='#']", function() {
     if (!(targetTop > windowTop && $('.navbar[data-navbar="smart"]').length)) {
       offset = scrollOffsetTop;
     }
+
     $('.nav-sidebar').removeClass('spy');
     smoothlyScrollTo(targetTop - offset, () => {
       $('.nav-sidebar').addClass('spy');
@@ -230,12 +224,13 @@ $(document).on( 'click', "a[href^='#']", function() {
     if (body.hasClass('sidebar-open')) {
       page.sidebarClose();
     }
+
     return false;
   }
 });
 
-$('.nav-sidebar').addClass('spy');
 // SCROLLSPY
+$('.nav-sidebar').addClass('spy');
 $('body').scrollspy({
   target: '.nav-sidebar.spy',
   offset: 100
