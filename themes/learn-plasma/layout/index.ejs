@@ -1,50 +1,14 @@
 <%
-let moment = require('moment')
-let shuffle = require('lodash/shuffle')
-let compact = require('lodash/compact')
-let {i18n, posts, data} = page
-let {medium, github, discourse} = data
-let now = moment()
-
-// top 3 recent posts
-let recentPosts = posts.sort('date', -1)
-  .limit(3)
-  .toArray()
-  .map(item => {
-    item.icon = 'fas fa-newspaper'
-    item.url = url_for(item.path)
-    item.external = false
-    return item
-  })
-
-// top 3 recent medium articles
-let recentMedium = [].concat(medium)
-recentMedium.length = 3
-
-let recentGithub = [].concat(github)
-recentGithub.length = 3
-
-// top 3 discourse posts
-let recentDiscourse = [].concat(discourse)
-recentDiscourse.length = 3
-
-let recent = []
-  .concat(recentPosts)
-  .concat(recentMedium)
-  .concat(recentGithub)
-  .concat(recentDiscourse)
-
-recent = compact(shuffle(recent))
-
+let {i18n} = page
 %>
 
 <header id="main-header" class="header">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6">
-        <h1><%=i18n('jumbotron.title')%></h1>
-        <p class="lead mt-5 mb-8"><%=i18n('jumbotron.message')%></p>
-        <p><a class="btn btn-lg btn-round btn-info" href="<%=i18n('jumbotron.get-started-url')%>"><%=i18n('jumbotron.get-started')%></a></p>
+        <h1><%=i18n('index.jumbotron.title')%></h1>
+        <p class="lead mt-5 mb-8"><%=i18n('index.jumbotron.message')%></p>
+        <p><a class="btn btn-lg btn-round btn-info" href="<%=i18n('index.jumbotron.get-started-url')%>"><%=i18n('index.jumbotron.get-started')%></a></p>
       </div>
       <div class="col-lg-5 ml-auto d-none d-lg-block">
         <img src="/img/index/hero.png" alt="img">
@@ -59,22 +23,22 @@ recent = compact(shuffle(recent))
       <div class="col-md-4">
         <a class="card px-6 py-8 shadow-11 hover-shadow-9 text-default border" href="https://plasma.io">
           <p><i class="fa fa-book-open lead-7 text-primary"></i></p>
-          <h5 class="fw-500 my-4"><%=i18n('index-cards.paper.title')%></h5>
-          <p class="mb-0"><%=i18n('index-cards.paper.text')%></p>
+          <h5 class="fw-500 my-4"><%=i18n('index.cards.paper.title')%></h5>
+          <p class="mb-0"><%=i18n('index.cards.paper.text')%></p>
         </a>
       </div>
       <div class="col-md-4">
         <a class="card px-6 py-8 shadow-11 hover-shadow-9 text-default border" href="<%=i18n('menu.FAQ')%>">
           <p><i class="fa fa-question lead-7 text-primary"></i></p>
-          <h5 class="fw-500 my-4"><%=i18n('index-cards.faqs.title')%></h5>
-          <p class="mb-0"><%=i18n('index-cards.faqs.text')%></p>
+          <h5 class="fw-500 my-4"><%=i18n('index.cards.faqs.title')%></h5>
+          <p class="mb-0"><%=i18n('index.cards.faqs.text')%></p>
         </a>
       </div>
       <div class="col-md-4">
         <a class="card px-6 py-8 shadow-11 hover-shadow-9 text-default border" href="<%=i18n('menu.learn')%>">
           <p><i class="fa fa-chalkboard-teacher lead-7 text-primary"></i></p>
-          <h5 class="fw-500 my-4"><%=i18n('index-cards.learn.title')%></h5>
-          <p class="mb-0"><%=i18n('index-cards.learn.text')%></p>
+          <h5 class="fw-500 my-4"><%=i18n('index.cards.learn.title')%></h5>
+          <p class="mb-0"><%=i18n('index.cards.learn.text')%></p>
         </a>
       </div>
     </div>
@@ -84,10 +48,10 @@ recent = compact(shuffle(recent))
 <section class="section bg-gray">
   <div class="container">
     <header class="section-header">
-      <small><%=i18n('index-resources.title')%></small>
-      <h2><%=i18n('index-resources.sub-title')%></h2>
+      <small><%=i18n('index.resources.title')%></small>
+      <h2><%=i18n('index.resources.sub-title')%></h2>
       <hr>
-      <p class="lead"><%=i18n('index-resources.text')%></p>
+      <p class="lead"><%=i18n('index.resources.text')%></p>
     </header>
     <div class="row gap-y">
       <div class="col-sm-3">
@@ -113,9 +77,9 @@ recent = compact(shuffle(recent))
 <section class="section">
   <div class="container">
     <header class="section-header">
-      <h2><%=i18n('index-help.title')%></h2>
+      <h2><%=i18n('index.help.title')%></h2>
       <hr>
-      <p class="lead"><%=i18n('index-help.text')%></p>
+      <p class="lead"><%=i18n('index.help.text')%></p>
     </header>
     <div class="row gap-y">
       <div class="col-md-4">
@@ -133,7 +97,7 @@ recent = compact(shuffle(recent))
       <div class="col-md-4">
         <a class="card card-body border hover-shadow-6 text-center py-6" href="https://github.com/ethsociety/plasma-website">
           <p><i class="fab fa-github lead-7 text-lighter"></i></p>
-          <h6 class="mb-0 mt-3"><%=i18n('index-help.report-issue')%></h6>
+          <h6 class="mb-0 mt-3"><%=i18n('index.help.report-issue')%></h6>
         </a>
       </div>
     </div>
@@ -143,14 +107,14 @@ recent = compact(shuffle(recent))
 <section class="section bg-gray">
   <div class="container">
     <header class="section-header">
-      <h2><%=i18n('index-rss.title')%></h2>
+      <h2><%=i18n('index.rss.title')%></h2>
       <hr>
       <p class="lead">
-        <%=i18n('index-rss.text')%>
+        <%=i18n('index.rss.text')%>
       </p>
       <br>
       <a id="subscribe-rss-btn" class="btn btn-lg btn-round btn-primary" href="https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2Ffeed.rssunify.com%2F5b97818863c8d%2Frss.xml">
-        <%=i18n('index-rss.subscribe')%> <i class="fa fa-rss-square"></i>
+        <%=i18n('index.rss.subscribe')%> <i class="fa fa-rss-square"></i>
       </a>
     </header>
     <div id="rss-container">

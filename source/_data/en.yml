@@ -13,53 +13,41 @@ menu:
   Contact: /en/contact
   Contributors: /en/contributors
 
-bottomMenu:
-  FAQ: /en/faq
-  Learn: /en/learn
-  Build: /en/build
-  Research: /en/research
-  Resources: /en/resources
-  Contact: /en/contact
-  Contributors: /en/contributors
-
 contribute: Contribute
 
 #
-# index jumbotron
+# index text
 #
 
-jumbotron:
-  title: Learn Plasma
-  message: Plasma is a framework for building scalable blockchain applications. Click here to start learning.
-  get-started: Get started
-  get-started-url: /en/learn
-  community-activity: Community activity
-
-index-cards:
-  paper:
-    title: Read the paper
-    text: Get started by reading the Plasma white paper.
-  faqs:
-    title: FAQs
-    text: Check out some frequently asked questions.
-  learn:
-    title: Learn
-    text: Start learning about Plasma and how it's used.
-
-index-resources:
-  title: Learn Plasma
-  sub-title: More Learning Resources
-  text: Can't get enough? These are some of the other Ethereum learning resources we love.
-
-index-help:
-  title: Get More Help
-  text: Join the discussion and get help from other people.
-  report-issue: Report an issue
-
-index-rss:
-  title: RSS
-  text: Never miss the most recent articles and discussions about Plasma with this RSS feed.
-  subscribe: Subscribe
+index:
+  jumbotron:
+    title: Learn Plasma
+    message: Plasma is a framework for building scalable blockchain applications. Click here to start learning.
+    get-started: Get started
+    get-started-url: /en/learn
+    community-activity: Community activity
+  cards:
+    paper:
+      title: Read the paper
+      text: Get started by reading the Plasma white paper.
+    faqs:
+      title: FAQs
+      text: Check out some frequently asked questions.
+    learn:
+      title: Learn
+      text: Start learning about Plasma and how it's used.
+  resources:
+    title: Learn Plasma
+    sub-title: More Learning Resources
+    text: Can't get enough? These are some of the other Ethereum learning resources we love.
+  help:
+    title: Get More Help
+    text: Join the discussion and get help from other people.
+    report-issue: Report an issue
+  rss:
+    title: RSS
+    text: Never miss the most recent articles and discussions about Plasma with this RSS feed.
+    subscribe: Subscribe
 
 #
 # posts, categories, tags
