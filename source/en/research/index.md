@@ -180,7 +180,7 @@ Users typically want to be able to access their funds within a short period of t
 
 There are lots of different ways to reduce this waiting period.
 The most basic way is to simply make the waiting period shorter.
-Unfortuntely, this also decreases the security of the Plasma chain.
+Unfortunately, this also decreases the security of the Plasma chain.
 
 One more complex way to reduce the waiting period is to allow users to "sell" their exits.
 The user receives funds immediately, and the buyer of the exit will wait out the period instead.

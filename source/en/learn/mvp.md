@@ -87,7 +87,7 @@ When users want to withdraw from the Plasma chain, they submit an "exit" transac
 #### Starting an Exit
 Because funds in MVP are represented as UTXOs, each exit must point to a specific output.
 We also want to make sure that only the person who actually owns that output can withdraw it.
-Therefore, in order to start a withdrawal, a user needs to submit a **merkle proof** along with the exit.
+Therefore, in order to start a withdrawal, a user needs to submit a **Merkle Proof** along with the exit.
 The smart contract checks this proof to make sure that the transaction that created the output was actually included in some block.
 The contract then also checks that the output is owned by the user who started the exit.
 

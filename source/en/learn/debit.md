@@ -25,10 +25,10 @@ Like Plasma Cash or Plasma MVP, Plasma Debit can make use of pretty much any con
 However, because of the way it makes use of payment channels, Plasma Debit is more suited for single operators than for lots of validators.
 
 ### Deposits
-Deposits in Plasma Debit are basically the same as [deposits in Plasma Cash](../docs/plasma-cash.html#deposits).
+Deposits in Plasma Debit are basically the same as [deposits in Plasma Cash](/en/learn/cash.html#deposits).
 Users send some asset to the Plasma chain's smart contract, and a unique token is created for those assets.
 Unlike Plasma Cash, this token is also a payment channel with the consensus mechanism!
-It's hard to have a payment channel with lots of people simulatneously, so this really lends itself to single operators.
+It's hard to have a payment channel with lots of people simultaneously, so this really lends itself to single operators.
 
 ![pd-channels](/img/learn/debit/pd-channels.png)
 
@@ -49,7 +49,7 @@ Let's say **A** has a payment channel and wants to send money (1 ETH) to **B**, 
 **B** can't just create this payment channel by themselves because they need a channel where the operator has at least 1 ETH.
 Instead, the operator needs to create the channel for **B**.
 It'd be inconvenient for the operator to have to create a new channel whenever a user joins the network, but they don't need to!
-The operator can just create a bunch of channels in advance (with themselves), and transfer them to users who are recieving a payment for the first time.
+The operator can just create a bunch of channels in advance (with themselves), and transfer them to users who are receiving a payment for the first time.
 
 ![pd-xfer](/img/learn/debit/pd-xfer.png)
 
@@ -59,7 +59,7 @@ These payments are super fast (almost instant!) and super simple.
 ![pd-payment](/img/learn/debit/pd-payment.png)
 
 ### Withdrawals
-Withdrawals in Plasma Debit are also basically the same as [withdrawals in Plasma Cash](../docs/plasma-cash.html#withdrawals).
+Withdrawals in Plasma Debit are also basically the same as [withdrawals in Plasma Cash](/en/learn/cash.html#withdrawals).
 However, remember that Plasma Debit payment channel transactions allow you to spend fractional parts of your tokens.
 So instead of having to withdraw entire tokens, users are allowed to withdraw fractions of tokens.
 If a user spent half of a 1 ETH token, then they're allowed to withdraw 0.5 ETH.
@@ -76,7 +76,7 @@ Best of all, you still only need to keep track of your own channels.
 
 However, the design does have its downsides.
 Users still need to transmit a proof whenever they want to transfer a channel to someone else, just like in Plasma Cash.
-This proof can be [pretty big](../docs/plasma-cash.html#pros-and-cons).
+This proof can be [pretty big](/en/learn/cash.html#pros-and-cons).
 
 As we mentioned before, users needs a payment channel with the operator in order to receive money.
 Operators will probably create lots of channels in advance that can be transferred to new users.

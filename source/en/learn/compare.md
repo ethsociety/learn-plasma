@@ -40,20 +40,20 @@ links:
         </th>
         <td>
           <ul>
-            <li>Binary merkle tree</li>
+            <li>Binary Merkle tree</li>
             <li>Block proposers create blocks(e.g Operator in PoA)</li>
           </ul>
         </td>
         <td>
           <ul>
-            <li>Spare merkle tree with 'slots' (representing each coin or user's unique deposit)</li>
+            <li>Spare Merkle tree with 'slots' (representing each coin or user's unique deposit)</li>
             <li>Each block has a 'slot' for each coin (unique deposit)</li>
             <li>When a coin is spent, transaction proof is recorded in that coin's respective slot in the block</li>
           </ul>
         </td>
         <td>
           <ul>
-            <li>Sparse merkle tree with 'slots' (representing each coin or user's unique deposit)</li>
+            <li>Sparse Merkle tree with 'slots' (representing each coin or user's unique deposit)</li>
             <li>Each block has a 'slot' for each coin (unique deposit)</li>
             <li>When coin is spent, transaction proof is recorded in that coin's respective slot in the block</li>
             <li>Unlike Plasma Cash, coin also acts a payment channel where the operator acts as a hub</li>
@@ -86,7 +86,7 @@ links:
         <td>
           <ul>
             <li><span class="font-weight-bold">Value Representation:</span> Unique coin IDs for each deposit (e.g., 1ETH deposit = (1ETH) NFT coin)</li>
-            <li>NFTs only (FTs unscalable as merging/splitting creates large merkle roots for small denominations)</li>
+            <li>NFTs only (FTs unscalable as merging/splitting creates large Merkle roots for small denominations)</li>
             <li>Pending coin defragmentation research to support FTs</li>
           </ul>
         </td>
@@ -257,7 +257,7 @@ links:
         <td>
           <ul>
             <li><span class="font-weight-bold">Cash:</span> Coins have automatic proof of exclusion if they are not included in block</li>
-            <li><span class="font-weight-bold">XT:</span> Addition of checkpointing to the rootchain to reduce size of merkle root per coin, thus limiting storage/computation requirements per chain</li>
+            <li><span class="font-weight-bold">XT:</span> Addition of checkpointing to the rootchain to reduce size of Merkle root per coin, thus limiting storage/computation requirements per chain</li>
           </ul>
         </td>
         <td>

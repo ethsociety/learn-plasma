@@ -33,7 +33,7 @@ There's always lots to be done.
 This entire website is open source and available at the [LearnPlasma GitHub](https://github.com/ethsociety/plasma-website) repository.
 Please open a GitHub issue if you're confused about something, want to ask a question, or have any general feedback!
 Want to see content about a specific topic? Open an issue!
-If you're unfamiliar with GitHub, we've created a [simple guide to opening your first issue](/en/misc#github-issues).
+If you're unfamiliar with GitHub, we've created a [simple guide to opening your first issue](/en/resources#contributing).
 We also appreciate any pull requests with bug reports, typos, or new content.
 
 If you want to contribute code to a Plasma project, we're maintaining [a list of actively developed Plasma implementations and ecosystem projects](/en/build).
