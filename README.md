@@ -11,7 +11,6 @@ Learn Plasma was conceived at the [2018 IC3 Boot Camp at Cornell](https://www.in
 + [Pages](#pages)
 + [Posts](#posts)
 + [Language files](#language-files) (i18n)
-+ [Data files](#data-files)
 + [Edit CSS & JS](#edit-css--js)
 + [Edit the theme templates](#edit-the-theme-templates)
 
@@ -19,10 +18,6 @@ Learn Plasma was conceived at the [2018 IC3 Boot Camp at Cornell](https://www.in
 git clone https://github.com/ethsociety/learn-plasma.git
 cd learn-plasma
 npm install
-
-# request blog and github data
-# (if you run this a lot github will bark at you for api rate limit)
-npm run data
 
 # watch during development, auto-refresh courtesy of browser-sync
 npm run dev
@@ -114,14 +109,6 @@ Or German:
 + `./source/de`
 
 If you want to translate some pages to your language you can copy an existing one you know then submit for PR.
-
-### Data files
-
-Everything in `./source/data` gets read and put into an object callde `data` in each page. That's how it gets the local languages, github data, and medium posts.
-
-Download fresh data:
-
-`npm run data`
 
 ### Edit CSS & JS
 
