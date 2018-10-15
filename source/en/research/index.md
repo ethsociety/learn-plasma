@@ -111,7 +111,7 @@ Feel free to add more suggestions if you have them!
 ### zk-SNARKs
 Zero knowledge succinct arguments of knowledge (or zk-SNARKs) are a relatively recent technological development.
 Basically, they allow us to create certain general purpose programs that can keep information secret.
-Vitalik's [blog post](https://medium.com/@VitalikButerin/zk-snarks-under-the-hood-b33151a013f6) on zk-SNARKs is a great place to start if you're unfamiliar with how they work.
+This [blog post](https://medium.com/@VitalikButerin/zk-snarks-under-the-hood-b33151a013f6) on zk-SNARKs is a great place to start if you're unfamiliar with how they work.
 
 Some work has been done exploring the utility of zk-SNARKs in Plasma.
 For example, it might be possible to create a SNARK circuit that allows the operator to prove they've only included valid transactions in a block.
@@ -366,3 +366,55 @@ There might be a way to create these checkpoints in a more decentralized manner 
 #### Resources
 + [Plasma XT](https://ethresear.ch/t/plasma-xt-plasma-cash-with-much-less-per-user-data-checking/1926)
 + [Plasma checkpoint cost](https://ethresear.ch/t/plasma-checkpoint-cost-and-block-time/2016)
+
+<br>
+
+### Defragmentation
+A concept was [recently proposed](https://ethresear.ch/t/plasma-cash-defragmentation/3410) to have Plasma Cash coins be represented as a single, very small denomination.
+For example, if you deposit 1 ETH, you might get a ton of 0.0000001 ETH coins back.
+Obviously it'd be way too expensive to keep track of all of these coins individually, so we use a few tricks to represent all of these coins as a single thing (that can be broken apart and joined back together).
+
+Generally, any two of these fragments can be joined back together as long as they're adjacent to one another.
+This reveals the problem - over time, things will start to become very fragmented and users will have to keep track of a bunch of fragments.
+
+Researchers are trying to come up with ways to "defragment" this system so users have to keep track of as little data as possible.
+In order to decrease the number of fragments, people need to move their money around into one big chunk.
+Only problem is, need to actually convince the people who own the fragments next to your fragments to swap places!
+So far there hasn't been any good way to "force" people to swap places.
+
+A good defragmentation method would make Plasma Cash much more viable in the long term!
+
+#### Research Questions
++ How can we efficiently defragment a Plasma Cash chain?
++ How many fragments can we expect the average user to have to maintain?
++ How can fragmentation be attacked by people actively trying to create more fragments?
++ Can we force users to clean up their fragments without introducing mass exit vulnerabilities?
++ Can we make use of constructions similar to Plasma XT to defragment?
+
+#### Resources
++ [Plasma Cash Defragmentation](https://ethresear.ch/t/plasma-cash-defragmentation/3410)
++ [Plasma Cash Defragmentation, take 2](https://ethresear.ch/t/plasma-cash-defragmentation-take-2/3515)
++ [Plasma Cash Defragmentation, take 3](https://ethresear.ch/t/plasma-cash-defragmentation-take-3/3737)
+
+<br>
+
+### Atomic Swaps
+Atomic swaps are useful in any system.
+We need to have good systems that allow users to trustlessly exchange goods.
+However, we haven't seen the development of simple atomic swap protocols for Plasma Cash.
+
+A few researchers have taken a stab at this problem and it doesn't seem too difficult.
+We can probably design some system where a transaction of a certain coin is only valid if there's a corresponding transaction of a different coin in the same block.
+Unfortunately, this starts to introduce some griefing vectors where a user might be forced to withdraw and lose an exit bond.
+Some people even think that this griefing vector is [unsolveable](https://ethresear.ch/t/plasma-cash-minimal-atomic-swap/3409/8?u=kfichter), so something that proves otherwise would be a great step forward.
+
+We're interested in finding better protocols that either don't include this griefing vector or are extremely simple to implement.
+If you want to write code, it'd be great to see an atomic swap implemented for real!
+[Loom's Plasma Cash](https://github.com/loomnetwork/plasma-cash) repository is a very approachable place to start.
+
+#### Research Questions
++ What's the most efficient atomic swap protocol?
++ Do atomic swaps introduce any security flaws or griefing vectors?
+
+#### Resources
++ [Plasma Cash Minimal Atomic Swap](https://ethresear.ch/t/plasma-cash-minimal-atomic-swap/3409)
