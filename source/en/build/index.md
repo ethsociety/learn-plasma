@@ -122,3 +122,20 @@ Lucidity maintains an implementation of Plasma Cash as part of their sidechain a
 **Stack:**
 + Solidity
 + Javascript
+
+---
+
+## Kyokan
+[<i class="fas fa-globe"></i>](https://plasma.kyokan.io/) [<i class="fab fa-github"></i>](https://github.com/kyokan)
+
+Kyokan is working on plug-and-play plasma libraries so developers can build plasma applications without worrying about the underlying primitives.
+
+### Plasma MVP
+[<i class="fab fa-github"></i>](https://github.com/kyokan/plasma)
+
+Kyokan maintains a Plasma MVP implementation and child chain in Golang.
+
+**Stack:**
++ Solidity
++ Javascript (Truffle)
++ Golang
