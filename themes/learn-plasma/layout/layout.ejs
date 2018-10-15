@@ -61,10 +61,12 @@ let layout = layouts[page.layout]
       <span class="navbar-divider d-mobile-none"></span>
       <ul class="nav nav-navbar">
         <% Object.keys(data.menu).forEach(key => { %>
-          <li class="nav-item">
+          <li class="nav-item default-item">
             <a class="nav-link" href="<%=data.menu[key]%>"><%=key%></a>
           </li>
         <% }) %>
+        <hr>
+        <div id="replace-top-nav"></div>
       </ul>
     </section>
 

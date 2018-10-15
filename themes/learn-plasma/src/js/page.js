@@ -32,7 +32,6 @@ $(document).on('click', '.backdrop-navbar', () => {
 // SIDEBAR
 let seen = {};
 let sidebarItems = '';
-let divToReplace = $('#to-replace');
 $('#post article h2').each((_, el) => {
   let tag = $(el),
       links = '';
@@ -62,7 +61,8 @@ $('#post article h2').each((_, el) => {
     </li>
   `;
 });
-divToReplace.replaceWith(sidebarItems);
+$('#to-replace').replaceWith(sidebarItems);
+$('#replace-top-nav').replaceWith($('.nav-sidebar').html());
 
 $(document).on('click', '.nav-sidebar > .nav-item > .nav-link', function() {
   $('.nav-sidebar > .nav-item > .nav-link').each((_, el) => {
@@ -218,11 +218,11 @@ $(document).on('click', "a[href^='#']", function() {
     });
 
     if (body.hasClass('navbar-open')) {
-      page.navbarClose();
+      navbarClose();
     }
 
     if (body.hasClass('sidebar-open')) {
-      page.sidebarClose();
+      sidebarClose();
     }
 
     return false;

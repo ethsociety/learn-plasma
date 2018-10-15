@@ -201,12 +201,13 @@ a:hover, a:focus
   position relative
 .nav-navbar .nav-link
   font-weight 600
-  text-transform uppercase
   letter-spacing 1px
   font-size .87em
   word-spacing 2px
   padding-left 1.125rem
   padding-right 1.125rem
+.nav-navbar .default-item .nav-link
+  text-transform uppercase
 .navbar-dark .nav-navbar > .nav-item > .nav-link,
 .navbar-dark .nav-navbar > .nav-link,
 .navbar-stick-dark.stick .nav-navbar > .nav-item > .nav-link,
@@ -325,6 +326,9 @@ a:hover, a:focus
 @media (max-width: 480px)
   #contribute-btn
     display none
+@media (min-width: 768px)
+  .nav-navbar .nav-item:not(.default-item)
+    display none !important
 
 // Sidebar
 .sidebar
@@ -347,6 +351,7 @@ a:hover, a:focus
   padding-right 5px
   overflow hidden
   flex-shrink 0
+.nav-navbar .nav-item:not(.default-item),
 .nav-sidebar-hero > .nav-item
   border-bottom 1px dashed #eaeff4
   padding-top 2px
@@ -360,6 +365,7 @@ a:hover, a:focus
 .sidebar-body
   position relative
   padding-right 20px
+.nav-navbar .nav-angle,
 .nav-sidebar .nav-angle
   font-family 'themify'
   font-style normal
