@@ -135,6 +135,33 @@ Lots of research questions still need to be explored!
 + [Zk-SNARKs for Plasma](https://ethresear.ch/t/plasma-is-plasma/2195)
 + [Plasma snapp](https://ethresear.ch/t/plasma-snapp-fully-verified-plasma-chain/3391)
 
+<br>
+
+### Generalized Plasma
+Current work on plasma is highly concentrated in two areas we know plasma does well - payments and exchange.
+Almost every project working on plasma is focused on one, or both, of these challenges.
+But just like with payment channels, we want to know if plasma can really do bigger (and better) things.
+We need the equivalent of state channels to payment channels - or Ethereum to Bitcoin - a generalized plasma design.
+
+Generalized plasma chains would let application developers build plasma apps without needing to understand how plasma works under the hood.
+This is exactly how DApp developers can build on top of Ethereum without needing to know how Ethereum really works.
+We've understood for some time now that [building generalized plasma chains is really hard](https://medium.com/@kelvinfichter/why-is-evm-on-plasma-hard-bf2d99c48df7).
+A few teams are currently working on exactly this problem, but they need help.
+
+You should start by catching up with the following resources before trying to dive into the questions.
+This will give you a much stronger understanding of the challenges we face in making generalized plasma a reality.
+
+#### Research Questions
++ What exatly makes generalized plasma chains so difficult?
++ What sort of applications fit into the plasma framework?
++ What sort of applications don't fit into the plasma framework?
++ Is a fully generalized (EVM-like) plasma chain even possible?
+
+#### Resources
++ [Why is EVM-on-Plasma hard?](https://medium.com/@kelvinfichter/why-is-evm-on-plasma-hard-bf2d99c48df7)
++ [Plasma EVM 2.0: state-enforceable construction](https://ethresear.ch/t/plasma-evm-2-0-state-enforceable-construction/3025)
++ [Plasma Leap - a State-Enabled Computing Model for Plasma](https://ethresear.ch/t/plasma-leap-a-state-enabled-computing-model-for-plasma/3539)
+
 ---
 
 ## Plasma MVP
@@ -231,7 +258,6 @@ This is a huge open area of research and there's a lot to be explored!
 <br>
 
 ### Confirmation Signatures
-
 Confirmation signatures are one of the most annoying mechanisms required by the Plasma MVP design.
 Basically, confirmation signatures require that a user sign one signature to create a transaction and then sign a second to "validate" it.
 This is a security consideration that prevents a Plasma consensus mechanism from placing invalid transactions "before" valid ones.
