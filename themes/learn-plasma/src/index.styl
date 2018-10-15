@@ -381,6 +381,7 @@ a:hover, a:focus
   content "\e649"
 .nav-sidebar .nav-link.active .nav-angle
   transform rotate(90deg)
+.nav-navbar .nav-item:not(.default-item) .nav-link,
 .nav-sidebar .nav-link
   display flex
   justify-content space-between
@@ -390,12 +391,14 @@ a:hover, a:focus
   font-size 1.125rem
   font-weight 400
   padding 8px 0
+.nav-navbar .nav,
 .nav-sidebar .nav
   flex-direction column
   font-size .875rem
   margin-left 1rem
-  margin-top .5rem
   flex-wrap nowrap
+.nav-sidebar .nav
+  margin-top .5rem
   display none
 .nav-sidebar-hero .nav
   font-size 1rem
