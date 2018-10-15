@@ -124,7 +124,7 @@ Lucidity is using Plasma Cash coupled with a stable coin for payments in AdTech 
 ### Plasma MVP
 [<i class="fab fa-github"></i>](https://github.com/luciditytech/lucidity-plasma)
 
-Lucidity maintains an implementation of Plasma MVP root chain contracts.i
+Lucidity maintains an implementation of Plasma MVP root chain contracts.
 
 **Stack:**
 + Solidity
