@@ -105,15 +105,6 @@ Wolk maintains an implementation of Plasma Cash root chain contracts.
 
 Lucidity is using Plasma Cash coupled with a stable coin for payments in AdTech supply chains.
 
-### Plasma MVP
-[<i class="fab fa-github"></i>](https://github.com/luciditytech/lucidity-plasma)
-
-Lucidity maintains an implementation of Plasma MVP root chain contracts.
-
-**Stack:**
-+ Solidity
-+ Javascript
-
 ### Plasma Cash
 [<i class="fab fa-github"></i>](https://github.com/luciditytech/lucidity-plasma-cash)
 
