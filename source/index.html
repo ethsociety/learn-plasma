@@ -1,0 +1,107 @@
+---
+layout: ''
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- in case the JS doesn't work just goto english -->
+  <meta http-equiv="refresh" content="1;url=/en">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126191267-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-126191267-1');
+  </script>
+</head>
+<body>
+
+<script>
+
+/*
+
+try to detect the user's language and redirect them to the right page
+
+*/
+
+(function() {
+
+var languageMap = {
+  // english
+  en: 'en',
+  'en-us': 'en',
+  'en-gb': 'en'
+}
+console.log('preload')
+var defaultLang = 'en'
+var lang
+
+function getLanguage() {
+  if (typeof navigator === 'object') {
+    //
+    // navigator.languages[0]
+    //
+    if (
+      navigator.languages !== undefined &&
+      Array.isArray(navigator.languages) === true &&
+      navigator.languages.length > 0 &&
+      typeof navigator.languages[0] === 'string'
+    ) {
+      return navigator.languages[0].toLowerCase()
+    }
+
+    //
+    // navigator.language
+    //
+    if (navigator.language !== undefined) {
+      return navigator.language.toLowerCase()
+    }
+
+    //
+    // navigator.userLanguage
+    //
+    if (navigator.userLanguage !== undefined) {
+      return navigator.userLanguage.toLowerCase()
+    }
+
+    //
+    // navigator.browserLanguage
+    //
+    if (navigator.browserLanguage !== undefined) {
+      return navigator.browserLanguage.toLowerCase()
+    }
+
+    //
+    // navigator.systemLanguage
+    //
+    if (navigator.systemLanguage !== undefined) {
+      return navigator.systemLanguage.toLowerCase()
+    }
+  }
+
+  return defaultLang
+}
+
+window.addEventListener('load', function() {
+  console.log('load')
+  lang = languageMap[getLanguage()]
+
+  console.log('lang', lang)
+
+  if (lang !== undefined) {
+    window.location.href = '/' + lang
+  }
+})
+
+})()
+
+</script>
+
+</body>
+</html>

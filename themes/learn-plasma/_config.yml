@@ -1,0 +1,15 @@
+#
+# global theme settings
+#
+
+languages:
+- lang: en
+  title: English
+
+# stylesheets loaded in the <head>
+stylesheets:
+- /index.css
+
+# scripts loaded in the end of the body
+scripts:
+- /index.js

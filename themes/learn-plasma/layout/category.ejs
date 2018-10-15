@@ -1,0 +1,19 @@
+<%
+let {pages, posts} = page
+%>
+
+<div id="category">
+  <h1><%=i18n.category%>: <%=page.title%></h1>
+
+  <h2><%i18n.pages%></h2>
+
+  <% pages.each(page => { %>
+    <a href="<%=url_for(page)%>"><%=page.title%></a>
+  <% }) %>
+
+  <h2><%i18n.posts%></h2>
+
+  <% posts.each(page => { %>
+    <a href="<%=url_for(page)%>"><%=page.title%></a>
+  <% }) %>
+</div>

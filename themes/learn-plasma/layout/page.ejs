@@ -1,0 +1,69 @@
+<%
+let has = require('lodash/has')
+let {i18n} = page
+%>
+
+<header class="header" style="background-color: #f1f6fa">
+  <div class="container">
+    <h1><%=page.title%></h1>
+    <p class="lead"><%=page.lead%></p>
+    <p><%=page.sublead%></p>
+  </div>
+</header>
+
+<div id="post" class="container">
+  <article>
+    <div class="row">
+      <div class="col-md-4 col-xl-3">
+        <aside class="sidebar sidebar-expand-md sidebar-sticky pr-md-4 br-1 stick">
+          <div class="sidebar-body ps">
+            <ul class="nav nav-sidebar nav-sidebar-hero nav-sidebar-pill">
+              <% if (has(page, 'links') === true && has(page.links, 'before') === true) { %>
+                <% Object.keys(page.links.before).forEach(key => { %>
+                  <li class="nav-item">
+                    <a class="nav-link" href="<%=page.links.before[key]%>"><%=key%></a>
+                  </li>
+                <% }) %>
+              <% } %>
+              <div id="to-replace"></div>
+              <% if (has(page, 'links') === true && has(page.links, 'after') === true) { %>
+                <% Object.keys(page.links.after).forEach(key => { %>
+                  <li class="nav-item">
+                    <a class="nav-link" href="<%=page.links.after[key]%>"><%=key%></a>
+                  </li>
+                <% }) %>
+              <% } %>
+            </ul>
+            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+              <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+            </div>
+            <div class="ps__rail-y" style="top: 0px; right: 0px;">
+              <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+      <div class="col-md-7 col-xl-8 ml-md-auto py-8">
+        <%-page.content%>
+      </div>
+    </div>
+  </article>
+
+  <% if (has(page, 'categories.count') === true && page.categories.count() > 0) { %>
+    <div id="page-categories">
+      <div id="page-categories-title"><%=i18n('categories')%></div>
+      <% page.categories.each(item => { %>
+        <a href="<%=item.uri%>" class="page-category"><%=item.name%></a>
+      <% }) %>
+    </div>
+  <% } %>
+
+  <% if (has(page, 'tags.count') === true && page.tags.count() > 0) { %>
+    <div id="page-tags">
+      <div id="page-categories-title"><%=i18n('tags')%></div>
+      <% page.tags.each(item => { %>
+        <a href="<%=item.uri%>" class="page-tag"><%=item.name%></a>
+      <% }) %>
+    </div>
+  <% } %>
+</div>

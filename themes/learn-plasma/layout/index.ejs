@@ -1,0 +1,124 @@
+<%
+let {i18n} = page
+%>
+
+<header id="main-header" class="header">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h1><%=i18n('index.jumbotron.title')%></h1>
+        <p class="lead mt-5 mb-8"><%=i18n('index.jumbotron.message')%></p>
+        <p><a class="btn btn-lg btn-round btn-info" href="<%=i18n('index.jumbotron.get-started-url')%>"><%=i18n('index.jumbotron.get-started')%></a></p>
+      </div>
+      <div class="col-lg-5 ml-auto d-none d-lg-block">
+        <img src="/img/index/hero.png" alt="img">
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section py-9">
+  <div class="container">
+    <div class="row gap-y text-center">
+      <div class="col-md-4">
+        <a class="card px-6 py-8 shadow-11 hover-shadow-9 text-default border" href="https://plasma.io">
+          <p><i class="fa fa-book-open lead-7 text-primary"></i></p>
+          <h5 class="fw-500 my-4"><%=i18n('index.cards.paper.title')%></h5>
+          <p class="mb-0"><%=i18n('index.cards.paper.text')%></p>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a class="card px-6 py-8 shadow-11 hover-shadow-9 text-default border" href="<%=i18n('menu.FAQ')%>">
+          <p><i class="fa fa-question lead-7 text-primary"></i></p>
+          <h5 class="fw-500 my-4"><%=i18n('index.cards.faqs.title')%></h5>
+          <p class="mb-0"><%=i18n('index.cards.faqs.text')%></p>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a class="card px-6 py-8 shadow-11 hover-shadow-9 text-default border" href="<%=i18n('menu.Learn')%>">
+          <p><i class="fa fa-chalkboard-teacher lead-7 text-primary"></i></p>
+          <h5 class="fw-500 my-4"><%=i18n('index.cards.learn.title')%></h5>
+          <p class="mb-0"><%=i18n('index.cards.learn.text')%></p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-gray">
+  <div class="container">
+    <header class="section-header">
+      <small><%=i18n('index.resources.title')%></small>
+      <h2><%=i18n('index.resources.sub-title')%></h2>
+      <hr>
+      <p class="lead"><%=i18n('index.resources.text')%></p>
+    </header>
+    <div class="row gap-y">
+      <div class="col-sm-3">
+        <a href="https://karl.tech"><img src="/img/index/karl-dot-tech.png" max-height="220"></a>
+      </div>
+      <br>
+      <div class="col-sm-3">
+        <a href="https://cryptoeconomics.study"><img src="/img/index/cryptoeconomics.png" max-height="220"></a>
+      </div>
+      <br>
+      <div class="col-sm-3">
+        <a href="https://github.com/omisego/plasma-mvp"><img src="/img/index/omisego.png" max-height="220"></a>
+      </div>
+      <br>
+      <div class="col-sm-3">
+        <a href="https://ethresear.ch/search?q=plasma"><img src="/img/index/ethresearch.png" max-height="220"></a>
+      </div>
+      <br>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <header class="section-header">
+      <h2><%=i18n('index.help.title')%></h2>
+      <hr>
+      <p class="lead"><%=i18n('index.help.text')%></p>
+    </header>
+    <div class="row gap-y">
+      <div class="col-md-4">
+        <a class="card card-body border hover-shadow-6 text-center py-6" href="https://www.reddit.com/r/learnplasma">
+          <p><i class="fab fa-reddit lead-7 text-lighter"></i></p>
+          <h6 class="mb-0 mt-3">r/learnplasma</h6>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a class="card card-body border hover-shadow-6 text-center py-6" href="https://twitter.com/learnplasma">
+          <p><i class="fab fa-twitter lead-7 text-lighter"></i></p>
+          <h6 class="mb-0 mt-3">@learnplasma</h6>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a class="card card-body border hover-shadow-6 text-center py-6" href="https://github.com/ethsociety/plasma-website">
+          <p><i class="fab fa-github lead-7 text-lighter"></i></p>
+          <h6 class="mb-0 mt-3"><%=i18n('index.help.report-issue')%></h6>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-gray">
+  <div class="container">
+    <header class="section-header">
+      <h2><%=i18n('index.rss.title')%></h2>
+      <hr>
+      <p class="lead">
+        <%=i18n('index.rss.text')%>
+      </p>
+      <br>
+      <a id="subscribe-rss-btn" class="btn btn-lg btn-round btn-primary" href="https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2Ffeed.rssunify.com%2F5b97818863c8d%2Frss.xml">
+        <%=i18n('index.rss.subscribe')%> <i class="fa fa-rss-square"></i>
+      </a>
+    </header>
+    <div id="rss-container">
+      <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="90685/"></script>
+    </div>
+  </div>
+</section>

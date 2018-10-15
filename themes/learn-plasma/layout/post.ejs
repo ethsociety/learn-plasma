@@ -1,0 +1,34 @@
+<%
+let {i18n, lang} = page
+%>
+
+<header class="header" style="background-color: #f1f6fa">
+  <div class="container">
+    <h1><%=page.title%></h1>
+    <p class="lead"><%=page.lead%></p>
+  </div>
+</header>
+
+<div id="post" class="container">
+  <article>
+    <%-page.content%>
+  </article>
+
+  <% if (page.categories.count() > 0) { %>
+    <div id="post-categories">
+      <div id="page-categories-title"><%=page.i18n('categories')%></div>
+      <% page.categories.each(item => { %>
+        <a href="<%=item.uri%>" class="page-category"><%=item.name%></a>
+      <% }) %>
+    </div>
+  <% } %>
+
+  <% if (page.tags.count() > 0) { %>
+    <div id="post-tags">
+      <div id="page-categories-title"><%=page.i18n('tags')%></div>
+      <% page.tags.each(item => { %>
+        <a href="<%=item.uri%>" class="page-tag"><%=item.name%></a>
+      <% }) %>
+    </div>
+  <% } %>
+</div>
