@@ -85,22 +85,6 @@ Loom is planning to use Plasma Cash to secure non-fungible assets on their DAppC
 
 ---
 
-## BANKEX
-[<i class="fas fa-globe"></i>](https://bankex.com) [<i class="fab fa-github"></i>](https://github.com/BANKEX)
-
-BANKEX is working on Plasma as part of their tokenization ecosystem.
-
-### PlasmaParentContract
-[<i class="fab fa-github"></i>](https://github.com/BANKEX/PlasmaParentContract)
-
-BANKEX currently maintains an experimental implementation of More Viable Plasma.
-
-**Stack:**
-+ Solidity
-+ JavaScript (Truffle)
-
----
-
 ## Wolk
 [<i class="fas fa-globe"></i>](https://wolk.com) [<i class="fab fa-github"></i>](https://github.com/wolkdb)
 
