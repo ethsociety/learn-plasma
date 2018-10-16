@@ -26,7 +26,7 @@ However, because of the way it makes use of payment channels, Plasma Debit is mo
 
 ### Deposits
 Deposits in Plasma Debit are basically the same as [deposits in Plasma Cash](/en/learn/cash.html#deposits).
-Users send some asset to the Plasma chain's smart contract, and a unique token is created for those assets.
+Users send some asset to the plasma chain's smart contract, and a unique token is created for those assets.
 Unlike Plasma Cash, this token is also a payment channel with the consensus mechanism!
 It's hard to have a payment channel with lots of people simultaneously, so this really lends itself to single operators.
 

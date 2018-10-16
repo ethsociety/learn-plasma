@@ -1,6 +1,6 @@
 ---
 title: Compare
-lead: Learn about the differences between the most popular Plasma design applications.
+lead: Learn about the differences between the most popular plasma design applications.
 date: 2018-08-21 16:26:02
 categories:
 tags:
@@ -124,12 +124,12 @@ links:
         <th>Fees</th>
         <td>
           <ul>
-            <li>Users pay Plasma transaction fees to validators and gas fees when exiting/withdrawing to rootchain or other chains</li>
+            <li>Users pay plasma transaction fees to validators and gas fees when exiting/withdrawing to rootchain or other chains</li>
           </ul>
         </td>
         <td>
           <ul>
-            <li>Users pay Plasma transaction fees to validators and gas fees when exiting/withdrawing to rootchain or other chains</li>
+            <li>Users pay plasma transaction fees to validators and gas fees when exiting/withdrawing to rootchain or other chains</li>
           </ul>
         </td>
         <td>
@@ -162,7 +162,7 @@ links:
         <td>
           <ul>
             <li>Proof of unspent UTXO required to exit, confirmation signatures required for MVP</li>
-            <li><span class="font-weight-bold">MVP:</span> Exit priority based on priority on Plasma, older UTXOs have priority</li>
+            <li><span class="font-weight-bold">MVP:</span> Exit priority based on priority, older UTXOs have priority</li>
             <li><span class="font-weight-bold">MoreVP:</span> Exit priority based on youngest input of exit txn, as long as input is from valid txn</li>
           </ul>
         </td>
@@ -262,7 +262,7 @@ links:
         </td>
         <td>
           <ul>
-            <li>Resembles a large 'Lightning Hub' on a Plasma chain</li>
+            <li>Resembles a large 'Lightning Hub' on a plasma chain</li>
             <li>Users hold payment channels with operator alone (not other users)</li>
             <li>Operators create many channels in advance to ensure new users can transact with existing users</li>
           </ul>

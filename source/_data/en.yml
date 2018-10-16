@@ -29,13 +29,13 @@ index:
   cards:
     paper:
       title: Read the paper
-      text: Get started by reading the Plasma white paper.
+      text: Get started by reading the plasma white paper.
     faqs:
       title: FAQs
       text: Check out some frequently asked questions.
     learn:
       title: Learn
-      text: Start learning about Plasma and how it's used.
+      text: Start learning about plasma and how it's used.
   resources:
     title: Learn Plasma
     sub-title: More Learning Resources
@@ -46,7 +46,7 @@ index:
     report-issue: Report an issue
   rss:
     title: RSS
-    text: Never miss the most recent articles and discussions about Plasma with this RSS feed.
+    text: Never miss the most recent articles and discussions about plasma with this RSS feed.
     subscribe: Subscribe
 
 #
