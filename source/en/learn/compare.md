@@ -46,7 +46,7 @@ links:
         </td>
         <td>
           <ul>
-            <li>Spare Merkle tree with 'slots' (representing each coin or user's unique deposit)</li>
+            <li>Sparse Merkle tree with 'slots' (representing each coin or user's unique deposit)</li>
             <li>Each block has a 'slot' for each coin (unique deposit)</li>
             <li>When a coin is spent, transaction proof is recorded in that coin's respective slot in the block</li>
           </ul>

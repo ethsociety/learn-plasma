@@ -85,22 +85,6 @@ Loom is planning to use Plasma Cash to secure non-fungible assets on their DAppC
 
 ---
 
-## BANKEX
-[<i class="fas fa-globe"></i>](https://bankex.com) [<i class="fab fa-github"></i>](https://github.com/BANKEX)
-
-BANKEX is working on Plasma as part of their tokenization ecosystem.
-
-### PlasmaParentContract
-[<i class="fab fa-github"></i>](https://github.com/BANKEX/PlasmaParentContract)
-
-BANKEX currently maintains an experimental implementation of More Viable Plasma.
-
-**Stack:**
-+ Solidity
-+ JavaScript (Truffle)
-
----
-
 ## Wolk
 [<i class="fas fa-globe"></i>](https://wolk.com) [<i class="fab fa-github"></i>](https://github.com/wolkdb)
 
@@ -121,15 +105,6 @@ Wolk maintains an implementation of Plasma Cash root chain contracts.
 
 Lucidity is using Plasma Cash coupled with a stable coin for payments in AdTech supply chains.
 
-### Plasma MVP
-[<i class="fab fa-github"></i>](https://github.com/luciditytech/lucidity-plasma)
-
-Lucidity maintains an implementation of Plasma MVP root chain contracts.
-
-**Stack:**
-+ Solidity
-+ Javascript
-
 ### Plasma Cash
 [<i class="fab fa-github"></i>](https://github.com/luciditytech/lucidity-plasma-cash)
 
@@ -138,3 +113,20 @@ Lucidity maintains an implementation of Plasma Cash as part of their sidechain a
 **Stack:**
 + Solidity
 + Javascript
+
+---
+
+## Kyokan
+[<i class="fas fa-globe"></i>](https://plasma.kyokan.io/) [<i class="fab fa-github"></i>](https://github.com/kyokan)
+
+Kyokan is working on plug-and-play plasma libraries so developers can build plasma applications without worrying about the underlying primitives.
+
+### Plasma MVP
+[<i class="fab fa-github"></i>](https://github.com/kyokan/plasma)
+
+Kyokan maintains a Plasma MVP implementation and child chain in Golang.
+
+**Stack:**
++ Solidity
++ Javascript (Truffle)
++ Golang
