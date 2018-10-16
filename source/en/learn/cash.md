@@ -15,7 +15,7 @@ links:
 ---
 
 ## Plasma Cash
-[Plasma Cash](https://ethresear.ch/t/plasma-cash-plasma-with-much-less-per-user-data-checking/1298) is a Plasma implementation primarily built for storing and transferring non-fungible tokens.
+[Plasma Cash](https://ethresear.ch/t/plasma-cash-plasma-with-much-less-per-user-data-checking/1298) is a plasma design primarily built for storing and transferring non-fungible tokens.
 Plasma Cash was originally designed to address the mass exit problem in Plasma MVP.
 
 ---

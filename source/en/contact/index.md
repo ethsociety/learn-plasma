@@ -2,7 +2,7 @@
 layout: generic
 lang: en
 title: Contact
-lead: Have a question about Plasma? Can't find something on the website? Shoot us a message and we'll get back to you as soon as possible.
+lead: Have a question about plasma? Can't find something on the website? Shoot us a message and we'll get back to you as soon as possible.
 date: 2018-08-21 16:26:02
 categories:
 tags:

@@ -1,6 +1,6 @@
 ---
 title: The Plasma Framework
-lead: Get a high-level overview of the tools provided by the Plasma framework.
+lead: Get a high-level overview of the tools provided by the plasma framework.
 date: 2018-08-21 16:26:02
 categories:
 tags:
@@ -15,24 +15,24 @@ links:
 ---
 
 ## The Plasma Framework
-Before we start, remember that Plasma is a *framework* for building scalable applications.
-There isn't any single project called "Plasma."
-Instead, there are lots of different projects that use the tools provided by the Plasma framework.
-This tends to be pretty confusing when you're first learning about Plasma (and that's fine!). 
+Before we start, remember that plasma is a *framework* for building scalable applications.
+There isn't any single project called "plasma."
+Instead, there are lots of different projects that use the tools provided by the plasma framework.
+This tends to be pretty confusing when you're first learning about plasma (and that's fine!). 
 
-This framework nature can make Plasma hard to explain.
-The original [paper](http://plasma.io/plasma.pdf) describing Plasma runs into this problem too.
-It's difficult to describe exactly what Plasma *is* without giving examples of how it can be used.
+This framework nature can make plasma hard to explain.
+The original [paper](http://plasma.io/plasma.pdf) describing plasma runs into this problem too.
+It's difficult to describe exactly what plasma *is* without giving examples of how it can be used.
 At the same time, it's important to remember that those examples are only a very small slice of what's possible. 
 
-As a result, it's necessary to introduce Plasma as a framework before describing examples of applications inside the framework.
-This section might sound pretty vague if you're used to thinking of Plasma as one specific project!
+As a result, it's necessary to introduce plasma as a framework before describing examples of applications inside the framework.
+This section might sound pretty vague if you're used to thinking of plasma as one specific project!
 Don't worry, we'll go into as much detail as possible about some of those applications later on.
 
 ---
 
-### Why do we need Plasma?
-Before we try to explain what Plasma *is*, we should first understand *why* Plasma exists.
+### Why Do We Need Plasma?
+Before we try to explain what plasma *is*, we should first understand *why* plasma exists.
 This is going to be a relatively high-level overview and will try to avoid going into a lot of detail, but it should set the stage for the rest of this website.
 Basically, it boils down to the fact that current blockchain systems are pretty slow by modern standards.
 To handle even simple payments in any widespread capacity, blockchains would need to process something on the order of a few thousand transactions per second.
@@ -82,19 +82,19 @@ If someone manages to create money "out of nowhere" that doesn't correspond to a
 
 Obviously this isn't ideal.
 As long as the sidechain is safe, your assets are safe.
-But if the sidechain ever breaks down, then your assets might be stolen! Here's where we introduce Plasma.
+But if the sidechain ever breaks down, then your assets might be stolen! Here's where we introduce plasma.
 Plasma was first developed as a way to get some of the benefits of sidechains while ensuring that the assets stored on the sidechain are always safe (as long as the root chain is safe).
 We don't get *all* of the utility of sidechains, but we preserve some of the most important things (like being able to make transactions cheaply) while also maintaining security.
-The fundamental principle of Plasma is that all user assets can always "fall back" to the root chain in the event of a security failure on the sidechain.
+The fundamental principle of plasma is that all user assets can always "fall back" to the root chain in the event of a security failure on the sidechain.
 
 ---
 
 ### Plasma Building Blocks
 Blockchains are slow and expensive.
 We want to make blockchains fast and cheap, but we don't want to sacrifice safety.
-That's why we need Plasma.
+That's why we need plasma.
 
-So what exactly *is* Plasma?
+So what exactly *is* plasma?
 Plasma is a way of building scalable decentralized applications that don't sacrifice security for speed.
 Let's explore the components that make this possible.
 
@@ -105,7 +105,7 @@ If an application can do any work outside of the root blockchain, it should.
 
 For example, in [Plasma MVP](/en/learn/mvp.html), almost every transaction occurs outside of Ethereum.
 Only deposits and withdrawals, the points of entry and exit, are ever handled on the smart contract.
-This is a standard workflow for Plasma applications.
+This is a standard workflow for plasma applications.
 Anything that doesn't require assets/data moving in and out of your smart contract can probably be handled off-chain.
 
 ##### State Commitments
@@ -113,12 +113,12 @@ When we're doing so much off-chain, we need some way to make sure that our chang
 This is why we make use of something called a "state commitment."
 A [state commitment](https://en.wikipedia.org/wiki/Commitment_scheme) is a cryptographic way to store a compressed version of the state of your application.
 
-However, storing *everything* about your application would defeat the point of Plasma entirely.
+However, storing *everything* about your application would defeat the point of plasma entirely.
 We typically make use of [Merkle trees](/en/learn/mvp.html#merkle-trees) instead.
 These commitments become kind of like save points for your application.
 
 ##### Exits
-Plasma applications make use of these commitments whenever a user wants to leave the Plasma chain.
+Plasma applications make use of these commitments whenever a user wants to leave the plasma chain.
 We usually refer to this as "exiting" the application.
 
 Let's illustrate this by imagining a payment network application!
@@ -128,6 +128,6 @@ To do this, the user can use something called a [Merkle proof](https://blog.ethe
 
 ---
 
-These are the basic building blocks of most Plasma applications.
-Next you'll be introduced to Plasma MVP, the first formal Plasma application to be specified.
-There we'll explore how these blocks can be applied to create a real Plasma payment network.
+These are the basic building blocks of most plasma applications.
+Next you'll be introduced to Plasma MVP, the first formal plasma application to be specified.
+There we'll explore how these blocks can be applied to create a real plasma payment network.

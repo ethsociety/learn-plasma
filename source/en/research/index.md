@@ -1,15 +1,15 @@
 ---
 title: Research
 lead: Plasma is pretty new. There's still lots of research to be done! This page maintains a list of active research areas, open questions, and background resources.
-sublead: Researching something cool and Plasma related? Open an issue on GitHub and we'll publish the relevant information to this page.
+sublead: Researching something cool and plasma related? Open an issue on GitHub and we'll publish the relevant information to this page.
 date: 2018-08-21 16:26:02
 categories:
 tags:
 ---
 
 ## General Research
-Lots of research goes into making Plasma better in general!
-This section contains broader research topics that impact most Plasma designs.
+Lots of research goes into making plasma better in general!
+This section contains broader research topics that impact most plasma designs.
 
 <br>
 
@@ -21,15 +21,15 @@ Most commitments are 32 byte hashes.
 Ethereum transactions currently cost a base fee of 21000 gas, plus an additional 20000 gas for storing the hash.
 That means we're already at **41000 gas for a simple commitment**, and that doesn't calculate any additional computation costs!
 
-If a Plasma chain is publishing a block every 15 seconds, then it's making **2102400** commitments per year.
-Current gas prices tend to hover at about 2-3 gwei, so that's about **100,000 USD annually** to run a Plasma chain!
+If a plasma chain is publishing a block every 15 seconds, then it's making **2102400** commitments per year.
+Current gas prices tend to hover at about 2-3 gwei, so that's about **100,000 USD annually** to run a plasma chain!
 
 Obviously that's a little unrealistic.
 We already have some tricks to save gas, like only publishing a block once every 6-12 Ethereum blocks (finality time).
 However, there's still plenty of room for improvement.
 
 Some research has gone into repeatedly reusing Ethereum memory space to make commitments more efficient.
-Check out this post on [Merkle Mountain Ranges](https://ethresear.ch/t/double-batched-merkle-log-accumulators-for-efficient-plasma-commitments/2313) in Plasma for an example.
+Check out this post on [Merkle Mountain Ranges](https://ethresear.ch/t/double-batched-merkle-log-accumulators-for-efficient-plasma-commitments/2313) in plasma for an example.
 This cuts down the commitment cost by about 50%, but that's still not perfect.
 
 #### Research Questions
@@ -45,7 +45,7 @@ This cuts down the commitment cost by about 50%, but that's still not perfect.
 <br>
 
 ### Fast Finality
-Although most current Plasma implementations significantly increase transaction throughput, they don't improve on finality time.
+Although most current plasma implementations significantly increase transaction throughput, they don't improve on finality time.
 In fact, without some additional constructions, we're typically still limited to the finality time of the root chain.
 Ethereum's "safe finality" time is about 6 minutes (25 confirmations or so). 
 
@@ -58,7 +58,7 @@ However, state channels have their own UX challenges and won't be the right solu
 
 Another way to reach some sense of finality is known as "cryptoeconomic" finality.
 Basically, cryptoeconomic finality guarantees that a transaction *will* be included in the chain within some period of time, or someone will cover the full amount.
-In the context of Plasma, this "counterparty" will probably be the operator.
+In the context of plasma, this "counterparty" will probably be the operator.
 
 A simple example of cryptoeconomic finality might involve a customer making a purchase. 
 We want this transaction to be guaranteed as quickly as possible.
@@ -83,8 +83,8 @@ Also, we don't want the counterparty to "overpromise," so we need to make sure e
 <br>
 
 ### Running the Numbers
-This is a great research topic for people who are relatively new to Plasma.
-We have lots of different Plasma designs, but not many people have done the important math!
+This is a great research topic for people who are relatively new to plasma.
+We have lots of different plasma designs, but not many people have done the important math!
 
 So what sort of math still needs to be done?
 Well, it'd be useful, for example, to get a general overview of how much data the average person might have to store in Plasma Cash.
@@ -111,21 +111,21 @@ Feel free to add more suggestions if you have them!
 ### zk-SNARKs
 Zero knowledge succinct arguments of knowledge (or zk-SNARKs) are a relatively recent technological development.
 Basically, they allow us to create certain general purpose programs that can keep information secret.
-Vitalik's [blog post](https://medium.com/@VitalikButerin/zk-snarks-under-the-hood-b33151a013f6) on zk-SNARKs is a great place to start if you're unfamiliar with how they work.
+This [blog post](https://medium.com/@VitalikButerin/zk-snarks-under-the-hood-b33151a013f6) on zk-SNARKs is a great place to start if you're unfamiliar with how they work.
 
-Some work has been done exploring the utility of zk-SNARKs in Plasma.
+Some work has been done exploring the utility of zk-SNARKs in plasma.
 For example, it might be possible to create a SNARK circuit that allows the operator to prove they've only included valid transactions in a block.
 This would largely mitigate the need for mass exits in Plasma MVP.
 
 Currently, the biggest barrier tends to be proof calculation time.
 Hashes circuits tend to take on the order of a few seconds to compute.
-As a result, it'll probably take on the order of hours to generate a proof that an entire Plasma block is valid.
+As a result, it'll probably take on the order of hours to generate a proof that an entire plasma block is valid.
 
 zk-SNARKs have plenty of applications, we just need to find them and figure out which are feasible.
 Lots of research questions still need to be explored!
 
 #### Research Questions
-+ How can we potentially make use of zk-SNARKs in Plasma?
++ How can we potentially make use of zk-SNARKs in plasma?
 + How long would a block validity proof take to generate?
 + Can we make use of STARKs?
 + Can we feasibly add private transactions with SNARKs?
@@ -134,6 +134,33 @@ Lots of research questions still need to be explored!
 + [Zk-SNARKs: Under the Hood](https://medium.com/@VitalikButerin/zk-snarks-under-the-hood-b33151a013f6)
 + [Zk-SNARKs for Plasma](https://ethresear.ch/t/plasma-is-plasma/2195)
 + [Plasma snapp](https://ethresear.ch/t/plasma-snapp-fully-verified-plasma-chain/3391)
+
+<br>
+
+### Generalized Plasma
+Current work on plasma is highly concentrated in two areas we know plasma does well - payments and exchange.
+Almost every project working on plasma is focused on one, or both, of these challenges.
+But just like with payment channels, we want to know if plasma can really do bigger (and better) things.
+We need the equivalent of state channels to payment channels - or Ethereum to Bitcoin - a generalized plasma design.
+
+Generalized plasma chains would let application developers build plasma apps without needing to understand how plasma works under the hood.
+This is exactly how DApp developers can build on top of Ethereum without needing to know how Ethereum really works.
+We've understood for some time now that [building generalized plasma chains is really hard](https://medium.com/@kelvinfichter/why-is-evm-on-plasma-hard-bf2d99c48df7).
+A few teams are currently working on exactly this problem, but they need help.
+
+You should start by catching up with the following resources before trying to dive into the questions.
+This will give you a much stronger understanding of the challenges we face in making generalized plasma a reality.
+
+#### Research Questions
++ What exatly makes generalized plasma chains so difficult?
++ What sort of applications fit into the plasma framework?
++ What sort of applications don't fit into the plasma framework?
++ Is a fully generalized (EVM-like) plasma chain even possible?
+
+#### Resources
++ [Why is EVM-on-Plasma hard?](https://medium.com/@kelvinfichter/why-is-evm-on-plasma-hard-bf2d99c48df7)
++ [Plasma EVM 2.0: state-enforceable construction](https://ethresear.ch/t/plasma-evm-2-0-state-enforceable-construction/3025)
++ [Plasma Leap - a State-Enabled Computing Model for Plasma](https://ethresear.ch/t/plasma-leap-a-state-enabled-computing-model-for-plasma/3539)
 
 ---
 
@@ -145,7 +172,7 @@ Some of this research will be useful to other designs, though!
 
 ### Mass Exits
 Unlike Plasma Cash, the design of Plasma MVP requires that users be able to quickly exit in the case of a safety failure.
-Basically, we need everyone to be able to "exit" the Plasma chain within some short period of time (e.g. one week).
+Basically, we need everyone to be able to "exit" the plasma chain within some short period of time (e.g. one week).
 
 However, we currently require that every user submit an exit for every single UTXO they own.
 This is not particularly efficient.
@@ -180,7 +207,7 @@ Users typically want to be able to access their funds within a short period of t
 
 There are lots of different ways to reduce this waiting period.
 The most basic way is to simply make the waiting period shorter.
-Unfortunately, this also decreases the security of the Plasma chain.
+Unfortunately, this also decreases the security of the plasma chain.
 
 One more complex way to reduce the waiting period is to allow users to "sell" their exits.
 The user receives funds immediately, and the buyer of the exit will wait out the period instead.
@@ -202,7 +229,7 @@ It would also be useful to look into user experience of "selling exits" to see i
 <br>
 
 ### Atomic Swaps
-A lot of projects are planning to use Plasma as part of a decentralized exchange.
+A lot of projects are planning to use plasma as part of a decentralized exchange.
 One fundamental component of most decentralized exchanges is the atomic swap.
 An atomic swap is basically a trade that either executes or fails.
 We never want a situation in which one party receives funds and the other party doesn't.
@@ -231,10 +258,9 @@ This is a huge open area of research and there's a lot to be explored!
 <br>
 
 ### Confirmation Signatures
-
 Confirmation signatures are one of the most annoying mechanisms required by the Plasma MVP design.
 Basically, confirmation signatures require that a user sign one signature to create a transaction and then sign a second to "validate" it.
-This is a security consideration that prevents a Plasma consensus mechanism from placing invalid transactions "before" valid ones.
+This is a security consideration that prevents a plasma consensus mechanism from placing invalid transactions "before" valid ones.
 
 Unfortunately, the user experience of confirmation signatures is pretty bad.
 Getting users to sign a single message is hard enough, getting them to sign two messages just to make a single transaction will be even harder.
@@ -312,7 +338,7 @@ We need to provide 10 siblings for a height 10 tree, so that's 320 bytes per pro
 We also have to add some additional information like the index and the leaf being proven, but we'll just ignore that for now.
 
 Let's say a user deposited a coin at the beginning of the year.
-If a Plasma block is created every 15 seconds, then the chain will produce 4\*60\*24\*365 = 2102400 Plasma blocks per year.
+If a plasma block is created every 15 seconds, then the chain will produce 4\*60\*24\*365 = 2102400 plasma blocks per year.
 If the user wants to send the coin, they need to provide a Merkle proof for each block.
 We said our proof was about 320 bytes, so that's a total of 320\*2102400 = 672768000 bytes = 0.67 gigabytes of proof data, just to transfer a single coin!
 
@@ -328,7 +354,8 @@ We can also make use of checkpointing mechanisms, like Plasma XT, which allow us
 
 #### Resources
 + [Plasma XT](https://ethresear.ch/t/plasma-xt-plasma-cash-with-much-less-per-user-data-checking/1926)
-+ [Plasma Cash Without Any Blockchain at All](https://ethresear.ch/t/plasma-cash-without-any-blockchain-at-all/1974/3)
++ [Plasma Cash Without Any Blockchain at All](https://ethresear.ch/t/plasma-cash-without-any-blockchain-at-all/1974)
++ [RSA Accumulators for Plasma Cash history reduction](https://ethresear.ch/t/rsa-accumulators-for-plasma-cash-history-reduction/3739)
 
 <br>
 
@@ -366,3 +393,55 @@ There might be a way to create these checkpoints in a more decentralized manner 
 #### Resources
 + [Plasma XT](https://ethresear.ch/t/plasma-xt-plasma-cash-with-much-less-per-user-data-checking/1926)
 + [Plasma checkpoint cost](https://ethresear.ch/t/plasma-checkpoint-cost-and-block-time/2016)
+
+<br>
+
+### Defragmentation
+A concept was [recently proposed](https://ethresear.ch/t/plasma-cash-defragmentation/3410) to have Plasma Cash coins be represented as a single, very small denomination.
+For example, if you deposit 1 ETH, you might get a ton of 0.0000001 ETH coins back.
+Obviously it'd be way too expensive to keep track of all of these coins individually, so we use a few tricks to represent all of these coins as a single thing (that can be broken apart and joined back together).
+
+Generally, any two of these fragments can be joined back together as long as they're adjacent to one another.
+This reveals the problem - over time, things will start to become very fragmented and users will have to keep track of a bunch of fragments.
+
+Researchers are trying to come up with ways to "defragment" this system so users have to keep track of as little data as possible.
+In order to decrease the number of fragments, people need to move their money around into one big chunk.
+Only problem is, need to actually convince the people who own the fragments next to your fragments to swap places!
+So far there hasn't been any good way to "force" people to swap places.
+
+A good defragmentation method would make Plasma Cash much more viable in the long term!
+
+#### Research Questions
++ How can we efficiently defragment a Plasma Cash chain?
++ How many fragments can we expect the average user to have to maintain?
++ How can fragmentation be attacked by people actively trying to create more fragments?
++ Can we force users to clean up their fragments without introducing mass exit vulnerabilities?
++ Can we make use of constructions similar to Plasma XT to defragment?
+
+#### Resources
++ [Plasma Cash Defragmentation](https://ethresear.ch/t/plasma-cash-defragmentation/3410)
++ [Plasma Cash Defragmentation, take 2](https://ethresear.ch/t/plasma-cash-defragmentation-take-2/3515)
++ [Plasma Cash Defragmentation, take 3](https://ethresear.ch/t/plasma-cash-defragmentation-take-3/3737)
+
+<br>
+
+### Atomic Swaps
+Atomic swaps are useful in any system.
+We need to have good systems that allow users to trustlessly exchange goods.
+However, we haven't seen the development of simple atomic swap protocols for Plasma Cash.
+
+A few researchers have taken a stab at this problem and it doesn't seem too difficult.
+We can probably design some system where a transaction of a certain coin is only valid if there's a corresponding transaction of a different coin in the same block.
+Unfortunately, this starts to introduce some griefing vectors where a user might be forced to withdraw and lose an exit bond.
+Some people even think that this griefing vector is [unsolveable](https://ethresear.ch/t/plasma-cash-minimal-atomic-swap/3409/8?u=kfichter), so something that proves otherwise would be a great step forward.
+
+We're interested in finding better protocols that either don't include this griefing vector or are extremely simple to implement.
+If you want to write code, it'd be great to see an atomic swap implemented for real!
+[Loom's Plasma Cash](https://github.com/loomnetwork/plasma-cash) repository is a very approachable place to start.
+
+#### Research Questions
++ What's the most efficient atomic swap protocol?
++ Do atomic swaps introduce any security flaws or griefing vectors?
+
+#### Resources
++ [Plasma Cash Minimal Atomic Swap](https://ethresear.ch/t/plasma-cash-minimal-atomic-swap/3409)

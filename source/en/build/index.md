@@ -1,7 +1,7 @@
 ---
 title: Build
-lead: The Plasma ecosystem needs you. Lots of projects are actively building things using the Plasma framework. This page maintains a list of actively developed projects you can contribute to.
-sublead: If you actively maintain a Plasma implementation and don't see it listed here, feel free to create an issue on GitHub! We'll get your project on this page. Similarly, please open an issue if something on this page is inaccurate or you'd like to change a description.
+lead: The plasma ecosystem needs you. Lots of projects are actively building things using the plasma framework. This page maintains a list of actively developed projects you can contribute to.
+sublead: If you actively maintain a plasma implementation and don't see it listed here, feel free to create an issue on GitHub! We'll get your project on this page. Similarly, please open an issue if something on this page is inaccurate or you'd like to change a description.
 date: 2018-08-21 16:26:02
 categories:
 tags:
@@ -10,7 +10,7 @@ tags:
 ## FourthState Labs
 [<i class="fab fa-github"></i>](https://github.com/fourthstate)
 
-FourthState Labs is Blockchain @ Berkeley's Plasma team.
+FourthState Labs is Blockchain @ Berkeley's plasma team.
 
 
 ### plasma-mvp-rootchain
@@ -35,12 +35,12 @@ FourthState labs is separately developing a Plasma MVP client that uses tendermi
 ## OmiseGO
 [<i class="fas fa-globe"></i>](https://omisego.network) [<i class="fab fa-github"></i>](https://github.com/omisego)
 
-OmiseGO is using Plasma to build a scalable decentralized exchange and payment network.
+OmiseGO is using plasma to build a scalable decentralized exchange and payment network.
 
 ### plasma-contracts
 [<i class="fab fa-github"></i>](https://github.com/omisego/plasma-contracts)
 
-OmiseGO's production Plasma contracts are maintained in this repository. The master branch currently tracks optimized Plasma MVP contracts.
+OmiseGO's production plasma contracts are maintained in this repository. The master branch currently tracks optimized Plasma MVP contracts.
 
 **Stack:**
 + Solidity
@@ -69,7 +69,7 @@ OmiseGO hosts a Plasma Cash contract and client implementation, although the pro
 ## Loom Network
 [<i class="fas fa-globe"></i>](https://loomx.io/) [<i class="fab fa-github"></i>](https://github.com/loomnetwork)
 
-Loom uses Plasma to augment their application-specific sidechains (DAppChains).
+Loom uses plasma to augment their application-specific sidechains (DAppChains).
 
 ### plasma-erc721
 [<i class="fab fa-github"></i>](https://github.com/loomnetwork/plasma-erc721)

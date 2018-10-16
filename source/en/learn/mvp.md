@@ -15,7 +15,7 @@ links:
 ---
 
 ## Plasma MVP
-[Plasma MVP](https://ethresear.ch/t/minimal-viable-plasma/426) is a design for an extremely simple [UTXO](https://www.investopedia.com/terms/u/utxo.asp)-based Plasma chain.
+[Plasma MVP](https://ethresear.ch/t/minimal-viable-plasma/426) is a design for an extremely simple [UTXO](https://www.investopedia.com/terms/u/utxo.asp)-based plasma chain.
 The basic Plasma MVP specification enables high-throughput payment transactions, but does not support more complicated constructions like scripts or smart contracts.
 On this page, we'll go through the design process behind Plasma MVP.
 You'll become familiar with exactly how Plasma MVP works, and why it's built the way it is. 
@@ -38,30 +38,30 @@ Independent blockchains simultaneously decrease the total security of the ecosys
 The introduction of [sidechains](https://blockstream.com/sidechains.pdf) provided an alternative that allows for the creation of "side" blockchains where assets pegged to a "parent" blockchain.
 Like most blockchain systems, these sidechains require their own consensus mechanism to determine the canonical set and ordering of blocks.
 If this consensus mechanism fails, or is overpowered, user funds on the sidechain could be at risk of theft.
-This is where we introduce Plasma.
+This is where we introduce plasma.
 
 ---
 
 ### Consensus
 Blockchains typically need consensus mechanisms.
-Plasma chains are special types of blockchains that can guarantee the safety of user funds even if the Plasma consensus mechanism fails.
+Plasma chains are special types of blockchains that can guarantee the safety of user funds even if the plasma consensus mechanism fails.
 As a result, the simplest version of MVP relies on something called an **operator**.
-An operator is a single entity that effectively runs the entire Plasma chain by creating blocks.
+An operator is a single entity that effectively runs the entire plasma chain by creating blocks.
 If you're more familiar with blockchain terminology, this is what we generally mean when we say that MVP relies on **Proof-of-Authority**.
 
 This might seem a little strange - we generally don't want to trust third parties when we're designing blockchain protocols.
-However, the unique design of Plasma ensures that user funds are safe even if the operator attempts to misbehave.
+However, the unique design of plasma ensures that user funds are safe even if the operator attempts to misbehave.
 This key feature also makes it possible to use Plasma MVP for private blockchains while making sure users always retain control over their assets! Now we'll explain more about why user funds are always secure.
 
 ### Deposits
-Users start using the Plasma chain by **depositing** funds into a smart contract on Ethereum.
+Users start using the plasma chain by **depositing** funds into a smart contract on Ethereum.
 The basic MVP specification only allows users to deposit ETH, but the spec can be easily extended to support ERC20s.
-When users deposit these funds, a block is created on the Plasma chain that only includes a single transaction.
+When users deposit these funds, a block is created on the plasma chain that only includes a single transaction.
 This transaction creates a new output for the depositor with a value equal to the value of the funds deposited.
-Once a user has deposited, they're ready to start making transactions on the Plasma chain!
+Once a user has deposited, they're ready to start making transactions on the plasma chain!
 
 ### Transactions
-Users can transact on the Plasma chain by spending an output they own and creating new outputs.
+Users can transact on the plasma chain by spending an output they own and creating new outputs.
 In practice, this means signing a signature that confirms the user is willing to make the transaction.
 This transaction (and the corresponding signature) is then sent off to the **operator**.
 
@@ -78,11 +78,11 @@ These commitments are a small, constant size, which makes them cheap to publish 
 We can extend this idea so that we can commit to a set of transactions.
 Then, we can later prove that a specific transaction is in that set of transactions.
 This is exactly what the operator does! Every block is composed of a set of transactions, which is turned into a Merkle tree.
-The root of this tree is the **commitment** that gets published to Ethereum along with each Plasma block.
+The root of this tree is the **commitment** that gets published to Ethereum along with each plasma block.
 
 ### Withdrawals
-Users need to be able to withdraw their funds from the Plasma chain (we sometimes also refer to this as "exiting" the chain).
-When users want to withdraw from the Plasma chain, they submit an "exit" transaction on Ethereum.
+Users need to be able to withdraw their funds from the plasma chain (we sometimes also refer to this as "exiting" the chain).
+When users want to withdraw from the plasma chain, they submit an "exit" transaction on Ethereum.
 
 #### Starting an Exit
 Because funds in MVP are represented as UTXOs, each exit must point to a specific output.
@@ -97,13 +97,13 @@ Basically, a challenge period is a period of time in which people can challenge 
 Users can prove a UTXO is spent by revealing another transaction that spends the UTXO signed by the user who started the exit.
 
 #### Exit Priority
-The exit protocol we just described allows people to withdraw their funds from the Plasma chain.
-Unfortunately, the Plasma operator is allowed to do evil things, like include double-spending transactions, and we can't really do anything to stop them.
+The exit protocol we just described allows people to withdraw their funds from the plasma chain.
+Unfortunately, the plasma operator is allowed to do evil things, like include double-spending transactions, and we can't really do anything to stop them.
 The operator can even start a withdrawal from an output created by an invalid transaction.
 
 How do we handle this? Well, we want users who made valid transactions to get funds before any user who makes an invalid transaction.
 Conveniently, we only need to add a few rules to make sure user funds are safe.
-The first of these rules is that UTXO have an "exit priority" based on when they were included in the Plasma chain.
+The first of these rules is that UTXO have an "exit priority" based on when they were included in the plasma chain.
 The exact priority is based on the "position" of the UTXO in the blockchain.
 This position is first determined by the block, then the index of the transaction in the block, then the index of the output in the transaction.
 This gives us a unique, static position for every single UTXO.
@@ -128,10 +128,10 @@ Every correctly behaving user can therefore get their funds back.
 
 ---
 
-### More Viable Plasma
+### More Viable plasma
 Confirmation signatures make for pretty bad user experience.
 Users need to sign a signature before making a transaction, wait to see the transaction included in a valid block, and then sign another signature.
-These second signatures must also be included within a Plasma block, reducing block space available for more transactions!
+These second signatures must also be included within a plasma block, reducing block space available for more transactions!
 [More Viable Plasma](https://ethresear.ch/t/more-viable-plasma/2160), also known as MoreVP, is an extension to Minimal Viable Plasma that removes the need for confirmation signatures.
 
 Plasma MVP relies on confirmation signatures because withdrawals are processed in order based on the position of the output being withdrawn.
