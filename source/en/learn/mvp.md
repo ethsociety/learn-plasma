@@ -18,7 +18,8 @@ links:
 [Plasma MVP](https://ethresear.ch/t/minimal-viable-plasma/426) is a design for an extremely simple [UTXO](https://www.investopedia.com/terms/u/utxo.asp)-based plasma chain.
 The basic Plasma MVP specification enables high-throughput payment transactions, but does not support more complicated constructions like scripts or smart contracts.
 On this page, we'll go through the design process behind Plasma MVP.
-You'll become familiar with exactly how Plasma MVP works, and why it's built the way it is. 
+You'll become familiar with exactly how Plasma MVP works, and why it's built the way it is.
+We've also provided a [detailed specification](/en/resources#plasma-mvp-specification) so you can build your own Plasma MVP implementation!
 
 ---
 
