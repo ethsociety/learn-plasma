@@ -127,6 +127,19 @@ Now, if the operator includes a user's transaction after their invalid transacti
 A transaction included after an invalid transaction won't have a confirmation signature, and therefore won't be valid.
 Every correctly behaving user can therefore get their funds back.
 
+### Watching the Plasma Chain
+In order to keep their funds completely safe, users need to watch the plasma chain every once in a while.
+This consists of running a piece of software that automatically syncs (downloads) the plasma chain and makes sure everything is running as expected.
+Users should run this software at least once every few days, although the exact time depends on parameters set by the Plasma MVP smart contract.
+
+If the plasma chain is running normally, then users don't need to do anything else.
+However, if something ever goes irreversibly wrong (hopefully an extremely rare occurrence), then the user's wallet will automatically start to withdraw their funds from the plasma chain.
+This automatic withdrawal is what keeps user funds safe, even in the very worst case when a malicious operator is trying to steal funds.
+
+Although this is critical for users to be 100% sure that their funds are safe, companies know that users just won't run this sort of software all the time.
+This is why it's really important to design systems that incentivize certain people to run this software on other user's behalf, sort of like watchtowers in the lightning network.
+Companies should also run the software that watches the plasma chain and alerts users in whatever way possible if something goes wrong.
+
 ---
 
 ### More Viable plasma
