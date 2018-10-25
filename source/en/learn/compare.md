@@ -378,13 +378,13 @@ links:
           <a href="https://www.learnplasma.org">learnplasma.org</a>
         </th>
         <td>
-          <a href="https://www.learnplasma.org/docs/plasma-mvp.html">Plasma MVP</a>
+          <a href="https://www.learnplasma.org/en/learn/mvp.html">Plasma MVP</a>
         </td>
         <td>
-          <a href="https://www.learnplasma.org/docs/plasma-cash.html">Plasma Cash</a>
+          <a href="https://www.learnplasma.org/en/learn/cash.html">Plasma Cash</a>
         </td>
         <td>
-          <a href="https://www.learnplasma.org/docs/plasma-debit.html">Plasma Debit</a>
+          <a href="https://www.learnplasma.org/en/learn/debit.html">Plasma Debit</a>
         </td>
       </tr>
       <tr>
