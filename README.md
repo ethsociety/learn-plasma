@@ -6,8 +6,8 @@ Learn Plasma was conceived at the [2018 IC3 Boot Camp at Cornell](https://www.in
 
 ## Development
 
-+ [Contributing](./CONTRIBUTING.md)
-+ [Code of Conduct](./CODE_OF_CONDUCT.md)
++ [Contributing](.github/CONTRIBUTING.md)
++ [Code of Conduct](.github/CODE_OF_CONDUCT.md)
 + [Pages](#pages)
 + [Posts](#posts)
 + [Language files](#language-files) (i18n)
