@@ -1,0 +1,64 @@
+i18n: true
+
+#
+# navigation
+#
+
+menu:
+  常见问题: /zh/faq
+  学习: /zh/learn
+  动手: /zh/build
+  科研: /zh/research
+  资源: /zh/resources
+  联系我们: /zh/contact
+  贡献者: /zh/contributors
+
+contribute: 参与进来
+
+#
+# index text
+#
+
+index:
+  jumbotron:
+    title: 学习离子网络（Plasma）
+    message: 离子网络（Plasma）是一套用来构建可扩容区块链应用的框架。点这里开始学习。
+    get-started: 开始学习
+    get-started-url: /zh/learn
+    community-activity: 社群动态
+  cards:
+    paper:
+      title: 读论文
+      text: 从离子网络（Plasma)的白皮书开始。
+    faqs:
+      title: 常见问题
+      text: 这里总结了常见问题的答案
+    learn:
+      title: 学习
+      text: 开始学习离子网络（Plasma）的相关内容和应用方案.
+  resources:
+    title: 学习离子网络（Plasma）
+    sub-title: 更多的学习资源
+    text: 没学够? 这里有更多超赞的以太坊学习资源。
+  help:
+    title: 更多帮助
+    text: 加入讨论并获得更多人的指点。
+    report-issue: 提交一个问题
+  rss:
+    title: RSS
+    text: 订阅RSS feed，不再错过最新的文章和有关离子网络（Plasma）的讨论。
+    subscribe: 订阅
+
+#
+# posts, categories, tags
+#
+
+category: 类别
+categories: 各种类别
+categoryUri: /zh/category
+tag: 标签
+tags: 各种标签
+tagUri: /zh/tag
+pages: 页面
+posts: 文章
+postUri: /zh/post
