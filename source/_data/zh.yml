@@ -7,7 +7,7 @@ i18n: true
 menu:
   常见问题: /zh/faq
   学习: /zh/learn
-  动手: /zh/build
+  动手搭建: /zh/build
   科研: /zh/research
   资源: /zh/resources
   联系我们: /zh/contact
@@ -31,7 +31,7 @@ index:
       title: 读论文
       text: 从离子网络（Plasma)的白皮书开始。
     faqs:
-      title: 常见问题
+      title: 常见疑问
       text: 这里总结了常见问题的答案
     learn:
       title: 学习

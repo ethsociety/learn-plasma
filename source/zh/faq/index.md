@@ -1,21 +1,21 @@
 ---
-title: Frequently Asked Questions
-lead: Can't find the answer to your question here? Make a post on /r/learnplasma!
-date: 2018-08-21 16:26:02
+title: 常见疑问
+lead: 找不到答案? 来 /r/learnplasma 发帖（reddit要梯子，嫌麻烦去stackoverflow 也好）!
+date: 2018-11-06 16:26:02
 categories:
 tags:
 ---
 
-## General
-### What is plasma?
-Plasma is a framework for creating scalable blockchain applications.
+## 常识
+### 什么是离子网络（Plasma）?
+离子网络（Plasma）是一套搭建可扩容区块链应用的框架。
 
-### How does plasma work?
-Plasma applications tend to make use of common building blocks.
-Most plasma apps require a smart contract deployed to another "root" blockchain (like Ethereum).
-Special rules about how the application can run make sure that user funds are always safe.
+### 离子网络（Plasma）的原理是啥?
+离子网络（Plasma）的应用通常是搭建在已有的应用模块的基础上的.
+大多的离子网络（Plasma）应用需要部署一个智能合约在一个主链或者“根”链上（比如在以太坊）。
+有关应用如何运行的特定的规则，会保证用的的资产是安全的。
 
-### How can I contribute to plasma?
-There are lots of ways to contribute!
-You can check out our [build](/en/build) or [research](/en/research) pages to find projects that need help.
-You can also get paid to contribute to LearnPlasma by [claiming bounties on Gitcoin!](https://gitcoin.co/profile/ethsociety)
+### 怎么为离子网络（Plasma）出份力?
+有很多种方法？
+你可以参考我们有关[动手搭建](/zh/build) 或者 [科研](/zh/research) 的相关页面找到需要人手的项目。
+你也可以通过[在Gitcoin获得赏金!](https://gitcoin.co/profile/ethsociety)，有偿的为LearnPlasma做贡献 。
