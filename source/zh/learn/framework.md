@@ -1,6 +1,6 @@
 ---
 title: 离子网络（Plasma）框架
-lead: Get a high-level overview of the tools provided by the plasma framework.
+lead: 框架总览。Get a high-level overview of the tools provided by the plasma framework.
 date: 2018-08-21 16:26:02
 categories:
 tags:
@@ -15,119 +15,111 @@ links:
 ---
 
 ## 离子网络（Plasma）框架
-Before we start, remember that plasma is a *framework* for building scalable applications.
-There isn't any single project called "plasma."
-Instead, there are lots of different projects that use the tools provided by the plasma framework.
-This tends to be pretty confusing when you're first learning about plasma (and that's fine!). 
+首先要记住，离子网络（Plasma）是一个可以遵循的，用来搭建可扩容的区块链应用的*框架*或者*范式*。
+所以并没有某一个具体的项目叫做离子网络（Plasma）。而是有很多不同的使用离子网络（Plasma）中提到的工具的项目。
+这个一开始可能很让人费解，需要一些耐心来理解：）
 
-This framework nature can make plasma hard to explain.
-The original [paper](http://plasma.io/plasma.pdf) describing plasma runs into this problem too.
-It's difficult to describe exactly what plasma *is* without giving examples of how it can be used.
-At the same time, it's important to remember that those examples are only a very small slice of what's possible. 
+离子网络（Plasma）作为框架的本质，让它不太容易解释。
+离子网络（Plasma）原著[论文](http://plasma.io/plasma.pdf) 中也提到了这个问题。
+如果不举具体的例子的话，很难描述离子网络（Plasma）到底*是啥*。
+但是，同时也要注意，这些具体的例子只是离子网络（Plasma）潜力的冰山一角。
 
-As a result, it's necessary to introduce plasma as a framework before describing examples of applications inside the framework.
-This section might sound pretty vague if you're used to thinking of plasma as one specific project!
-Don't worry, we'll go into as much detail as possible about some of those applications later on.
+因此，在介绍具体的例子之前，很难把离子网络（Plasma）作为一种框架来解释。
+如果你习惯把离子网络（Plasma）作为一个具体的项目（代码）来看，那么这个章节可能会感觉非常的模糊，不知所云，但别担心，我们会在之后的讲具体应用部分加入细节。
 
 ---
 
-### Why Do We Need Plasma?
-Before we try to explain what plasma *is*, we should first understand *why* plasma exists.
-This is going to be a relatively high-level overview and will try to avoid going into a lot of detail, but it should set the stage for the rest of this website.
-Basically, it boils down to the fact that current blockchain systems are pretty slow by modern standards.
-To handle even simple payments in any widespread capacity, blockchains would need to process something on the order of a few thousand transactions per second.
-Ethereum can currently only support 20-30 transactions per second at a max depending on network conditions. 
+### 我们为什么需要离子网络（Plasma）?
 
-This discrepancy between what already exists and what needs to exist is generally called the "**blockchain scalability**" problem, and it's not an easy problem to solve!
-We want to scale blockchain systems, but we also want to make sure we scale in a way that preserves security and decentralization.
-After all, that's why we started building blockchains in the first place. 
+在我们尝试解释什么*是*离子网络（Plasma）之前，我们应该先了解*为什么*离子网络（Plasma）存在。
+这将是一个相对概括的概述，并将尽量避免详细的介绍，但它应该为其余的部分奠定基础。
+基本上，它归结为当前区块链系统太*慢*了。
+想满足处理任何现实容量的应用场景，比如简单的支付，区块链大约需要处理每秒几千笔交易的订单。
+根据网络条件，以太坊目前每秒最多只能支持20-30次交易。
 
-Projects are tackling the scalability problem in lots of different ways.
-Some of these projects are attempting to make blockchains more scalable by upgrading the blockchains themselves.
-We often call this "layer 1" scaling because we're modifying the base layer.
-Other projects are trying to build things on *top* of existing systems.
-We usually refer to this as "layer 2" scaling because we're adding a new layer and not changing the underlying system. 
+这就是区块链应用目前面对的最大难题之一，扩容性问题 **blockchain scalability** problem。
+我们希望扩容区块链系统，但我们也希望确保以保持安全性和去中心化。毕竟，这是区块链的核心卖点。
 
-Plasma fits into this second category of "layer 2" scaling projects.
-It's important to understand how layer 2 projects tend to work and what they're trying to accomplish.
-Many layer 2 designs come from the observation that it's not necessary for everyone to know about every transaction that occurs on the network. 
+项目正在以许多不同的方式解决可扩展性问题。
+其中一些项目试图通过升级区块链本身来使区块链更具可扩展性。我们经常称之为“第1层”扩容，因为我们正在修改基础层。
+其他项目正试图在现有系统的上层扩容。我们通常将此称为“第2层”扩容，因为我们正在添加新图层而不更改底层系统。
 
-Let's think about this for a second.
-Imagine you buy a coffee from your local coffee shop every morning.
-Besides the fact that that's a lot of coffee and you should definitely cut down, you might eventually notice that it's easier to pay if you use the shop's prepaid mobile wallet.
-You load money into the wallet once and you don't have to pull out your wallet every time.
-It's also faster and cheaper for the merchant because they don't have to go through a payment processor every time.
-It's a win-win for everyone.
+离子网络（Plasma）属于第二类“第2层”扩容项目。
+了解第2层项目如何工作原理重要。许多第2层设计来自这个核心思想：即并不是每个人都需要了解网络上发生的每一笔交易。
+重要的事重复几遍：并不是每个人都需要了解网络上发生的每一笔交易。
+重要的事重复几遍：并不是每个人都需要了解网络上发生的每一笔交易。
+（这个思想和闪电网络的出发点是一样的）
 
-If we break this down, we can see that we're basically putting money into a local "ledger" that you maintain with the coffee shop, almost like a prepaid tab.
-We've made everything easier because there's no reason to let the rest of the world know that you've made a payment to the coffee shop.
-As long as you and the shop agree about your current balance, everything is easier. 
+让我们思考一下。
+假如你很喜欢和咖啡，每天早上都会从当地的咖啡店买一杯咖啡。如果你使用咖啡店的提前充值的手机钱包，支付会更方便。
+你只要充值一次，就不用每次都掏出钱包。
+对于商家来说，它也更快，更便宜，因为他们不必每次都通过第三方支付。
+双赢。
 
-So this is really at the core of most layer 2 projects.
-The above example is quite simple - it only involves two participants (you and the coffee shop).
-However, people wanted to see if we could extend that idea to entire blockchains.
-Would it be possible to transfer money from one blockchain to smaller (and cheaper) blockchain temporarily, move the money around on the second chain, and eventually transfer money back?
-Turns out, it is!
-Here's where we start to see the evolution of "sidechains." 
+如果我们细想这一点，就会意识到，这基本上将钱投入到您在咖啡店维护的本地“记账本”中，和提前充值的手机钱包一回事。
+世界上的其他人没有必要知道你和咖啡点之间的交易
+只要你和咖啡店同意对你当前的充值余额达成共识就好。
 
-The basic idea here is that we can take assets from one chain and transfer them to another (called the "sidechain") by locking the assets up on the primary chain (or "root chain") and "creating" them again on the sidechain.
-When you want to go back, you simply need to "destroy" the asset on the sidechain and unlock them on the root chain.
+这其实就是大多数“第2层”项目的核心。
+例子很简单 - 它只涉及两个参与者（你和咖啡店）。
+下面看我们是否可以将这个想法扩展到区块链。
+是否有可能暂时将资金从主区块链转移到更小（同属更便宜，更快）的区块链（侧链）。然后在第二条链上转移资金，交易，并最终结算，转回资金？
 
-This sounds pretty simple, but there's one big catch - someone has to agree to "create" those assets on the sidechain.
-So who gets to "create" the assets?
-Well, the consensus mechanism, basically.
-The idea here is that if the sidechain consensus mechanism is functioning properly, then your assets are safe.
-Unfortunately, the sidechain is usually much less safe than the root chain.
-If someone manages to create money "out of nowhere" that doesn't correspond to assets being locked up on the root chain, they can "destroy" these assets (that they fraudulently created) and steal lots of money. 
+在这里，我们开始看到“侧链”的演变。
+基本思想是，我们可以从一个链中获取资产并通过将资产锁定在主链（或“根链”）上，同时在侧链上再次“创建”它们。这等同于将它们从主链转移到了“侧链”。
+当您想要返回时，您只需要“销毁”侧链上的资产并在主链上解锁它们。
 
-Obviously this isn't ideal.
-As long as the sidechain is safe, your assets are safe.
-But if the sidechain ever breaks down, then your assets might be stolen! Here's where we introduce plasma.
-Plasma was first developed as a way to get some of the benefits of sidechains while ensuring that the assets stored on the sidechain are always safe (as long as the root chain is safe).
-We don't get *all* of the utility of sidechains, but we preserve some of the most important things (like being able to make transactions cheaply) while also maintaining security.
-The fundamental principle of plasma is that all user assets can always "fall back" to the root chain in the event of a security failure on the sidechain.
+这听起来很简单，但有一个很大的问题 - 有人必须同意在侧链上“创造”这些资产。
+那么谁可以“创造”资产？答案是：共识机制。
+具体说，如果侧链共识机制运作正常，那么您的资产是安全的。不幸的是，侧链通常远远不如根链安全。
+如果有人能凭空从侧链“造币”，而这些资金与锁定在根链上的资产不对应，那么他们就可以“销毁”这些资产（他们欺诈性地创建了这些资产）并窃取大量资金。
+
+显然这并不理想。
+只有侧链是安全的，你的资产才是安全的。
+但如果侧链发生故障，那么你的资产可能会被盗！这是我们需要离子网络（Plasma）的地方！
+离子网络（Plasma）是为了发挥侧链的优势（更快，更便宜），同时确保存储在侧链上的资产始终是安全的（只要根链是安全的）。
+当然我们没有得到*所有*侧链的好处，但我们保留了一些最重要的东西（比如能够便宜地进行交易），同时还保持安全性。
+离子网络（Plasma）的基本保障是，如果侧链发生安全故障，所有用户资产都可以“回退”到根链。
 
 ---
 
-### Plasma Building Blocks
-Blockchains are slow and expensive.
-We want to make blockchains fast and cheap, but we don't want to sacrifice safety.
-That's why we need plasma.
+### 离子网络（Plasma）核心概念和组件
+区块链又慢又贵。那我们希望让区块链变得更快更便宜，同时不牺牲安全性。
+这就是离子网络（Plasma）存在的意义。
 
-So what exactly *is* plasma?
-Plasma is a way of building scalable decentralized applications that don't sacrifice security for speed.
-Let's explore the components that make this possible.
+所以离子网络（Plasma）到底是啥？
+离子网络（Plasma）是一种搭建可扩容去中心话应用，同时不为速度牺牲安全性的*方法*。
+那下面让我们了解一下是这称为可能的离子网络核心组件。
 
-##### Off-chain Execution
-Plasma applications do a majority of their work outside of the "root chain" (e.g. Ethereum).
-Root chains tend to be slow and costly because they need to be very secure.
-If an application can do any work outside of the root blockchain, it should.
+##### 链下执行
+离子网络（Plasma）应用的大部分运算都是在主链（或根链）之外的（比如以太坊）。
+主链通常都比较慢，因为需要保证安全性。所以，如果可能的话，应用应该尽量在主链外执行运算。（你买咖啡，不需要让世界都知道）
 
-For example, in [Plasma MVP](/zh/learn/mvp.html), almost every transaction occurs outside of Ethereum.
-Only deposits and withdrawals, the points of entry and exit, are ever handled on the smart contract.
-This is a standard workflow for plasma applications.
-Anything that doesn't require assets/data moving in and out of your smart contract can probably be handled off-chain.
 
-##### State Commitments
-When we're doing so much off-chain, we need some way to make sure that our changes are final.
-This is why we make use of something called a "state commitment."
-A [state commitment](https://en.wikipedia.org/wiki/Commitment_scheme) is a cryptographic way to store a compressed version of the state of your application.
+比如说在[Plasma MVP](/zh/learn/mvp.html)中, 几乎所有的交易时间（tx）都是在以太坊之外进行的。
+只有充值（deposit）和提现（withdrawals），这样资产进入和退出的关键点是在智能合约上执行的。
+这个流程是离子网络（Plasma）的标准。所有不需要进出只能合约的数据和交易，八成都可以在链下执行。
 
-However, storing *everything* about your application would defeat the point of plasma entirely.
-We typically make use of [Merkle trees](/zh/learn/mvp.html#merkle-trees) instead.
-These commitments become kind of like save points for your application.
+##### 状态承诺
+当我们在链下执行大量交易的时候，我们需要一种方法来确保所有的改动都是最终的（不可继续篡改）。
+为此，我们引入了“状态承诺”的概念（state commitment）。
+一个[state commitment](https://en.wikipedia.org/wiki/Commitment_scheme) 是一种可以存储一个压缩的应用状态的加密学方法。
 
-##### Exits
-Plasma applications make use of these commitments whenever a user wants to leave the plasma chain.
-We usually refer to this as "exiting" the application.
+但是，如果把和应用相关的所有状态都存下来的话就违反了离子网络（Plasma）的本意。
+因此我们通常会用 [Merkle trees](/zh/learn/mvp.html#merkle-trees).
+这些“承诺”就变成了应用的存档点。（打过游戏对吧，打boss前要存档哈）
 
-Let's illustrate this by imagining a payment network application!
-The state commitments for this application will probably contain some information about how much money each user currently has.
-If a user wants to withdraw ("exit") their money from this application, they need to prove to the smart contract that they have money to withdraw.
-To do this, the user can use something called a [Merkle proof](https://blog.ethereum.org/2015/11/15/merkling-in-ethereum/).
+##### 退出
+离子网络（Plasma）应用会通过“状态承诺”来完成用户从侧链的退出。我们通常称之为“退出应用”（exiting application）。
+
+让我们来用一个支付网络的应用来说明这个应用场景。
+这个支付网络的“状态承诺”（state commitments)八成会包含每个用户的余额信息。
+如果一个用户想要他们的资产退出（exit）这个应用，他需要想主链的智能合约证明，他在侧链的确有相应的资产来提现。
+为完成这个证明，我们通常会使用[Merkle proof](https://blog.ethereum.org/2015/11/15/merkling-in-ethereum/).
 
 ---
 
-These are the basic building blocks of most plasma applications.
-Next you'll be introduced to Plasma MVP, the first formal plasma application to be specified.
-There we'll explore how these blocks can be applied to create a real plasma payment network.
+这些就是基本的离子网络（Plasma）的基本组件。
+结下来我们讲介绍Plasma MVP,第一个我们会详细介绍的离子网络（Plasma）的应用.
+在那个例子里，我们会探索如何用这些基本组件来搭建一个真实的基于离子网络（Plasma）的支付网络（payment network）。
+
