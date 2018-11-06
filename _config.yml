@@ -5,7 +5,9 @@
 # site
 title: Learn Plasma
 author: ethsociety
-language: en
+language: 
+- en
+- zh
 lang: en
 timezone: America/Boise
 
