@@ -1,19 +1,19 @@
 ---
-title: Introduction
-lead: Get familiar with plasma, a framework for building scalable blockchain applications.
+title: 引子
+lead: 熟悉离子网络，可扩容的区块链应用框架。Building scalable blockchain applications.
 date: 2018-08-21 16:26:02
 categories:
 tags:
 links:
   after:
-    The Plasma Framework: /en/learn/framework.html
-    Plasma MVP: /en/learn/mvp.html
-    Plasma Cash: /en/learn/cash.html
-    Plasma Debit: /en/learn/debit.html
-    Comparison: /en/learn/compare.html
+    离子网络（Plasma）框架: /zh/learn/framework.html
+    离子网络MVP（Plasma MVP）: /zh/learn/mvp.html
+    离子网络现金(Plasma Cash): /zh/learn/cash.html
+    离子网络借记（Plasma Debit）: /zh/learn/debit.html
+    对比: /zh/learn/compare.html
 ---
 
-## Introduction
+## 引子
 If you ended up here, you're probably interested in learning about plasma, a framework for building scalable decentralized applications.
 
 We started LearnPlasma because the existing information about plasma is spread all over the place.
@@ -33,11 +33,11 @@ There's always lots to be done.
 This entire website is open source and available at the [LearnPlasma GitHub](https://github.com/ethsociety/plasma-website) repository.
 Please open a GitHub issue if you're confused about something, want to ask a question, or have any general feedback!
 Want to see content about a specific topic? Open an issue!
-If you're unfamiliar with GitHub, we've created a [simple guide to opening your first issue](/en/resources#contributing).
+If you're unfamiliar with GitHub, we've created a [simple guide to opening your first issue](/zh/resources#contributing).
 We also appreciate any pull requests with bug reports, typos, or new content.
 
-If you want to contribute code to a plasma project, we're maintaining [a list of actively developed plasma implementations and ecosystem projects](/en/build).
-You can also learn about the current open research questions and see a list of ways you can contribute [here](/en/research).
+If you want to contribute code to a plasma project, we're maintaining [a list of actively developed plasma implementations and ecosystem projects](/zh/build).
+You can also learn about the current open research questions and see a list of ways you can contribute [here](/zh/research).
 
 ---
 

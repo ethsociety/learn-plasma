@@ -1,20 +1,20 @@
 ---
-title: The Plasma Framework
+title: 离子网络（Plasma）框架
 lead: Get a high-level overview of the tools provided by the plasma framework.
 date: 2018-08-21 16:26:02
 categories:
 tags:
 links:
   before:
-    Introduction: /en/learn
+    引子: /zh/learn
   after:
-    Plasma MVP: /en/learn/mvp.html
-    Plasma Cash: /en/learn/cash.html
-    Plasma Debit: /en/learn/debit.html
-    Comparison: /en/learn/compare.html
+    离子网络MVP（Plasma MVP）: /zh/learn/mvp.html
+    离子网络现金(Plasma Cash): /zh/learn/cash.html
+    离子网络借记（Plasma Debit）: /zh/learn/debit.html
+    对比: /zh/learn/compare.html
 ---
 
-## The Plasma Framework
+## 离子网络（Plasma）框架
 Before we start, remember that plasma is a *framework* for building scalable applications.
 There isn't any single project called "plasma."
 Instead, there are lots of different projects that use the tools provided by the plasma framework.
@@ -103,7 +103,7 @@ Plasma applications do a majority of their work outside of the "root chain" (e.g
 Root chains tend to be slow and costly because they need to be very secure.
 If an application can do any work outside of the root blockchain, it should.
 
-For example, in [Plasma MVP](/en/learn/mvp.html), almost every transaction occurs outside of Ethereum.
+For example, in [Plasma MVP](/zh/learn/mvp.html), almost every transaction occurs outside of Ethereum.
 Only deposits and withdrawals, the points of entry and exit, are ever handled on the smart contract.
 This is a standard workflow for plasma applications.
 Anything that doesn't require assets/data moving in and out of your smart contract can probably be handled off-chain.
@@ -114,7 +114,7 @@ This is why we make use of something called a "state commitment."
 A [state commitment](https://en.wikipedia.org/wiki/Commitment_scheme) is a cryptographic way to store a compressed version of the state of your application.
 
 However, storing *everything* about your application would defeat the point of plasma entirely.
-We typically make use of [Merkle trees](/en/learn/mvp.html#merkle-trees) instead.
+We typically make use of [Merkle trees](/zh/learn/mvp.html#merkle-trees) instead.
 These commitments become kind of like save points for your application.
 
 ##### Exits

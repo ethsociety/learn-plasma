@@ -1,19 +1,19 @@
 ---
-title: Compare
+title: 对比
 lead: Learn about the differences between the most popular plasma design applications.
 date: 2018-08-21 16:26:02
 categories:
 tags:
 links:
   before:
-    Introduction: /en/learn
-    The Plasma Framework: /en/learn/framework.html
-    Plasma MVP: /en/learn/mvp.html
-    Plasma Cash: /en/learn/cash.html
-    Plasma Debit: /en/learn/debit.html
+    引子: /zh/learn
+    离子网络（Plasma）框架: /zh/learn/framework.html
+    离子网络MVP（Plasma MVP）: /zh/learn/mvp.html
+    离子网络现金(Plasma Cash): /zh/learn/cash.html
+    离子网络借记（Plasma Debit）: /zh/learn/debit.html
 ---
 
-## Compare
+## 对比
 
 <div id="plasma-comparison-table" class="table-responsive">
   <table class="table table-bordered table-font-md">
@@ -378,13 +378,13 @@ links:
           <a href="https://www.learnplasma.org">learnplasma.org</a>
         </th>
         <td>
-          <a href="https://www.learnplasma.org/en/learn/mvp.html">Plasma MVP</a>
+          <a href="https://www.learnplasma.org/zh/learn/mvp.html">Plasma MVP</a>
         </td>
         <td>
-          <a href="https://www.learnplasma.org/en/learn/cash.html">Plasma Cash</a>
+          <a href="https://www.learnplasma.org/zh/learn/cash.html">Plasma Cash</a>
         </td>
         <td>
-          <a href="https://www.learnplasma.org/en/learn/debit.html">Plasma Debit</a>
+          <a href="https://www.learnplasma.org/zh/learn/debit.html">Plasma Debit</a>
         </td>
       </tr>
       <tr>

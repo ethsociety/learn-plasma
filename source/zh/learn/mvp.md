@@ -1,25 +1,25 @@
 ---
-title: Plasma MVP
+title: 离子网络MVP（Plasma MVP）
 lead: Learn more about Minimal Viable Plasma by exploring it in depth.
 date: 2018-08-21 16:26:02
 categories:
 tags:
 links:
   before:
-    Introduction: /en/learn
-    The Plasma Framework: /en/learn/framework.html
+    引子: /zh/learn
+    离子网络（Plasma）框架: /zh/learn/framework.html
   after:
-    Plasma Cash: /en/learn/cash.html
-    Plasma Debit: /en/learn/debit.html
-    Comparison: /en/learn/compare.html
+    离子网络现金(Plasma Cash): /zh/learn/cash.html
+    离子网络借记（Plasma Debit）: /zh/learn/debit.html
+    对比: /zh/learn/compare.html
 ---
 
-## Plasma MVP
+## 离子网络MVP（Plasma MVP）
 [Plasma MVP](https://ethresear.ch/t/minimal-viable-plasma/426) is a design for an extremely simple [UTXO](https://www.investopedia.com/terms/u/utxo.asp)-based plasma chain.
 The basic Plasma MVP specification enables high-throughput payment transactions, but does not support more complicated constructions like scripts or smart contracts.
 On this page, we'll go through the design process behind Plasma MVP.
 You'll become familiar with exactly how Plasma MVP works, and why it's built the way it is.
-We've also provided a [detailed specification](/en/resources#plasma-mvp-specification) so you can build your own Plasma MVP implementation!
+We've also provided a [detailed specification](/zh/resources#plasma-mvp-specification) so you can build your own Plasma MVP implementation!
 
 ---
 

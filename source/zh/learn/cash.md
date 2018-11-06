@@ -1,20 +1,20 @@
 ---
-title: Plasma Cash
+title: 离子网络现金(Plasma Cash)
 lead: Understand how Plasma Cash works and when to use it.
 date: 2018-08-21 16:26:02
 categories:
 tags:
 links:
   before:
-    Introduction: /en/learn
-    The Plasma Framework: /en/learn/framework.html
-    Plasma MVP: /en/learn/mvp.html
+    引子: /zh/learn
+    离子网络（Plasma）框架: /zh/learn/framework.html
+    离子网络MVP（Plasma MVP）: /zh/learn/mvp.html
   after:
-    Plasma Debit: /en/learn/debit.html
-    Comparison: /en/learn/compare.html
+    离子网络借记（Plasma Debit）: /zh/learn/debit.html
+    对比: /zh/learn/compare.html
 ---
 
-## Plasma Cash
+## 离子网络现金(Plasma Cash)
 [Plasma Cash](https://ethresear.ch/t/plasma-cash-plasma-with-much-less-per-user-data-checking/1298) is a plasma design primarily built for storing and transferring non-fungible tokens.
 Plasma Cash was originally designed to address the mass exit problem in Plasma MVP.
 
