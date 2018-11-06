@@ -8,7 +8,7 @@ links:
   before:
     引子: /zh/learn
     离子网络（Plasma）框架: /zh/learn/framework.html
-    离子网络MVP（Plasma MVP）: /zh/learn/mvp.html
+    最简可用离子网络（Plasma MVP）: /zh/learn/mvp.html
     离子网络现金(Plasma Cash): /zh/learn/cash.html
     离子网络借记（Plasma Debit）: /zh/learn/debit.html
 ---
