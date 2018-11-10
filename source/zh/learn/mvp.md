@@ -85,16 +85,16 @@ Merkle trees在区块链领域中是极为重要的数据结构(广义讲在计�
 当用户需要提现的时候，他们会向以太坊提出”退出“的trannsaction。
 
 #### 开始一次退出
-Because funds in MVP are represented as UTXOs, each exit must point to a specific output.
-We also want to make sure that only the person who actually owns that output can withdraw it.
-Therefore, in order to start a withdrawal, a user needs to submit a **Merkle Proof** along with the exit.
-The smart contract checks this proof to make sure that the transaction that created the output was actually included in some block.
-The contract then also checks that the output is owned by the user who started the exit.
+因为最简可用离子网络（Plasma MVP）中的资产是由累计资产余额（UTXOs）来表示的，每一次推出都必须指向一个具体的余额。
+同时，我们也想确保只有余额的拥有者才能提现。
+因此，想要提出一次提现，用户需要在推出的同时提交一个**Merle Proof**证明。
+智能合约会验证这个证明，并由此确保产生用户余额的的交易已经被包含在某一个区块中。合约然后会验证余额确实属于退出的发起者。
 
 #### 挑战一个退出
-However, if that's all that was needed in order to withdraw, then users would be able to withdraw outputs they'd already spent! We want to make sure that the output being referenced is actually unspent, so we introduce a **challenge period**.
-Basically, a challenge period is a period of time in which people can challenge the validity of the exit by proving that the UTXO is actually spent.
-Users can prove a UTXO is spent by revealing another transaction that spends the UTXO signed by the user who started the exit.
+但是，如果这就是所有退出的条件，那用户则可以用已经花掉的余额来提现！
+我们需要确认提现中所引用的余额确实是未花的，因此，我们引入了“挑战期”（**challenge period**）这一概念。
+简单的说，挑战期就是一段人们可以对退出提出挑战的时间（通过提供实际的未花交易余额）。
+其他用户可以用一个有退出者签名的相应的交易来证明一个余额已经被划掉了。
 
 #### 退出优先级
 The exit protocol we just described allows people to withdraw their funds from the plasma chain.
