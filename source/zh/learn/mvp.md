@@ -97,20 +97,18 @@ Merkle trees在区块链领域中是极为重要的数据结构(广义讲在计�
 其他用户可以用一个有退出者签名的相应的交易来证明一个余额已经被划掉了。
 
 #### 退出优先级
-The exit protocol we just described allows people to withdraw their funds from the plasma chain.
-Unfortunately, the plasma operator is allowed to do evil things, like include double-spending transactions, and we can't really do anything to stop them.
-The operator can even start a withdrawal from an output created by an invalid transaction.
+我们刚刚介绍过的退出协议让人们可以从离子链对他们的资产进行提现。
+但是不幸的是，离子链的运营员还是可以做恶的。比如要是运营员进行双花，我们并不能做什么来阻止。运营员甚至可以用一笔不合法的交易余额来提现。
 
-How do we handle this? Well, we want users who made valid transactions to get funds before any user who makes an invalid transaction.
-Conveniently, we only need to add a few rules to make sure user funds are safe.
-The first of these rules is that UTXO have an "exit priority" based on when they were included in the plasma chain.
-The exact priority is based on the "position" of the UTXO in the blockchain.
-This position is first determined by the block, then the index of the transaction in the block, then the index of the output in the transaction.
-This gives us a unique, static position for every single UTXO.
-
-Note then that "older" UTXOs withdraw before newer ones.
-That means that if an invalid transaction is ever included in the blockchain, then all transactions that occurred before the invalid transaction will be processed before that invalid one.
-We've solved half of our problem! 
+这个问题怎么解决呢？ 我们想要保证有合法余额的用户可以在任何虚假交易发生之前得到他们的资产。
+自然的，我们只需要多一些法则来保证用户资产的安全。
+第一条法则就是，我们规定未花余额要根据他们被加入到离子链的次序，有一个“退出优先级”。
+具体的优先级是根据未花余额字链中的具体位置决定的。
+优先级首先有块的次序决定，然后是在单个块中的交易次序，最后是交易中的余额指数。
+这样，每一笔未花余额都会有一个固定的位置次序。
+需要注意的是“老”的交易会优先于“新”的。
+这意味者如果有一笔不正确交易被加入到了区块中，那么，所有在错误交易之前的交易，都会比错误交易先处理。
+这样，问题就已经解决了一半！
 
 #### 签名确认
 Now what happens if a transaction gets included **after** the bad transaction? This can totally happen if a user makes a transaction, the transaction is sent to the operator, and the operator puts an invalid transaction before the user's valid transaction.
