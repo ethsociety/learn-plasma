@@ -71,7 +71,7 @@ links:
 
 #### Merkle Trees
 Merkle trees在区块链领域中是极为重要的数据结构(广义讲在计算机科学中也是如此)。
-简单讲，Merkle trees可以让我们能够在一组数据中写入一些新的数据，在不需要暴露具体数据的情况下，允许用户证明，自己新的数据的确已经被包含在这一组数据中了。
+简单讲，Merkletrees可以让我们能够在一组数据中写入一些新的数据，在不需要暴露具体数据的情况下，允许用户证明，自己新的数据的确已经被包含在这一组数据中了。
 
 比如，假设我有10个数字，那我可加入一个新的数字的写入（commitment）并且证明，我特定的新的数字已经被加入到了这组数字中。
 这样的写入，数据量很小，并且大小固定的，所以发布到以太坊很便宜。
@@ -91,9 +91,7 @@ Merkle trees在区块链领域中是极为重要的数据结构(广义讲在计�
 智能合约会验证这个证明，并由此确保产生用户余额的的交易已经被包含在某一个区块中。合约然后会验证余额确实属于退出的发起者。
 
 #### 挑战一个退出
-但是，如果这就是所有退出的条件，那用户则可以用已经花掉的余额来提现！
-我们需要确认提现中所引用的余额确实是未花的，因此，我们引入了“挑战期”（**challenge period**）这一概念。
-简单的说，挑战期就是一段人们可以对退出提出挑战的时间（通过提供实际的未花交易余额）。
+但是，如果这就是所有退出的条件，那用户则可以用已经花掉的余额来提现！我们需要确认提现中所引用的余额确实是未花的，因此，我们引入了“挑战期”（**challenge period**）这一概念。简单的说，挑战期就是一段人们可以对退出提出挑战的时间（通过提供实际的未花交易余额）。
 其他用户可以用一个有退出者签名的相应的交易来证明一个余额已经被划掉了。
 
 #### 退出优先级
@@ -101,53 +99,36 @@ Merkle trees在区块链领域中是极为重要的数据结构(广义讲在计�
 但是不幸的是，离子链的运营员还是可以做恶的。比如要是运营员进行双花，我们并不能做什么来阻止。运营员甚至可以用一笔不合法的交易余额来提现。
 
 这个问题怎么解决呢？ 我们想要保证有合法余额的用户可以在任何虚假交易发生之前得到他们的资产。
-自然的，我们只需要多一些法则来保证用户资产的安全。
-第一条法则就是，我们规定未花余额要根据他们被加入到离子链的次序，有一个“退出优先级”。
-具体的优先级是根据未花余额字链中的具体位置决定的。
-优先级首先有块的次序决定，然后是在单个块中的交易次序，最后是交易中的余额指数。
-这样，每一笔未花余额都会有一个固定的位置次序。
-需要注意的是“老”的交易会优先于“新”的。
-这意味者如果有一笔不正确交易被加入到了区块中，那么，所有在错误交易之前的交易，都会比错误交易先处理。
-这样，问题就已经解决了一半！
+自然的，我们只需要多一些法则来保证用户资产的安全。第一条法则就是，我们规定未花余额要根据他们被加入到离子链的次序，有一个“退出优先级”。具体的优先级是根据未花余额字链中的具体位置决定的。优先级首先有块的次序决定，然后是在单个块中的交易次序，最后是交易中的余额指数。
+这样，每一笔未花余额都会有一个固定的位置次序。需要注意的是“老”的交易会优先于“新”的。这意味者如果有一笔不正确交易被加入到了区块中，那么，所有在错误交易之前的交易，都会比错误交易先处理。这样，问题就已经解决了一半！
 
 #### 签名确认
-Now what happens if a transaction gets included **after** the bad transaction? This can totally happen if a user makes a transaction, the transaction is sent to the operator, and the operator puts an invalid transaction before the user's valid transaction.
-Users could try to exit from the inputs to the transaction, but that exit could be challenged by revealing the signed spend.
+但是如果一笔交易在一笔坏交易**之后**被写入区块怎么办呢？这是完全有可能的，比如用户操作了一笔交易，然后交易被发送到了运营员，但是运营员在写入正确的区块前，先写入了一笔非法的交易。
+用户可以尝试退出交易，但是退出的行为可能被其他用户通过对支出的签名进行挑战。
+为了处理这种情况，我们会要求交易必须完成两次签名，才会被认为合法。
+每当用户发起一笔交易，他们会先对交易签名，让交易被加入到一个区块里。
+然后，一旦交易被加入到区块，用户会再次进行一次签名，这被称为**确认签名**。
+如果用户正确的遵循这个法则的话，那他在确认交易已经被加入区块之前，绝不会发出确认签名。
 
-We deal with this scenario by requiring that transactions are invalid until they're signed twice.
-Whenever a user makes a transaction, they'll sign a first signature to have that transaction included in a block.
-Then, once the transaction is included in a valid block, the user will sign a second signature, called a **confirmation signature**.
-Users correctly following this rule will never sign a confirmation signature unless they know that their transaction was included in a valid block.
+然后，我们对退出挑战增加一个要求，那就是你必须要提供确认签名。
+这样以来，如果运营员在一笔非法交易之后，在区块中记录了用户的交易，那用户只需要**拒绝对交易确认签名**就好。这意味着，在一笔非法交易之后被加入到区块的交易都不会得到确认签名，也就是永远不被承认。这样以来，遵守法则的用户就可以拿回他们的资产。
 
-We add an extra rule that exit challenges also have to provide the confirmation signature.
-Now, if the operator includes a user's transaction after their invalid transaction, the user simply won't sign a confirmation signature.
-A transaction included after an invalid transaction won't have a confirmation signature, and therefore won't be valid.
-Every correctly behaving user can therefore get their funds back.
 
-### 监控离子网络侧链
-In order to keep their funds completely safe, users need to watch the plasma chain every once in a while.
-This consists of running a piece of software that automatically syncs (downloads) the plasma chain and makes sure everything is running as expected.
-Users should run this software at least once every few days, although the exact time depends on parameters set by the Plasma MVP smart contract.
+#### 监控离子网络侧链
+如果离子链在正常运转，那用户不需要做任何处理。但是万一发生了不可扭转的错误，那用户的钱包就会开始自动的对用户的离子链资产开始提现。这个自动提现机制可以保证用户的资产是安全的。即使在非常条件下，比如运营员做恶的情况。即使这对保证用户的资产100%的安全非常关键。这就是为什么说在系统设计的时候，就要对用户行为进行激励，让用户乐意去为别的用户运行验证离子链的程序，这与闪电网络的机制类似。
 
-If the plasma chain is running normally, then users don't need to do anything else.
-However, if something ever goes irreversibly wrong (hopefully an extremely rare occurrence), then the user's wallet will automatically start to withdraw their funds from the plasma chain.
-This automatic withdrawal is what keeps user funds safe, even in the very worst case when a malicious operator is trying to steal funds.
+#### 更可用的离子网络
+确认签名解决问题，但是会带来糟糕的用户体验。
+用户需发交易要签名，确认交易上链还要再签一次。而且第二次签名也要上链（离子链），占用更多本来可以记录交易的空间！
+[更可用离子网络More Viable Plasma](https://ethresear.ch/t/more-viable-plasma/2160)缩写为 
+MoreVP，是最简离子网络MVP（Minimal Viable Plasma)的扩展，并且不需要确认签名（第二次签名）。
+最简离子网络必须依赖确认签名，因为提现需要按照被提现的余额结果在链中的位置来处理。
+简单说，更可用离子网络（MoreVP）修正了这个用户可以对资产进行提现的过程。
+提现的次序变成了基于 创造被提现交易余额 **最近输入值**的位置
+新的次序要求对提现挑战进行非常多的更新，来保证只有诚信的用户可以对资产自行提现。
+一个[更新版本的](https://github.com/omisego/elixir-omg/blob/develop/docs/morevp.md) 更可用离子网络正在由OmiseGO开发和维护。
 
-Although this is critical for users to be 100% sure that their funds are safe, companies know that users just won't run this sort of software all the time.
-This is why it's really important to design systems that incentivize certain people to run this software on other user's behalf, sort of like watchtowers in the lightning network.
-Companies should also run the software that watches the plasma chain and alerts users in whatever way possible if something goes wrong.
 
----
 
-### 更可用的离子网络（More Viable Plasma）
-Confirmation signatures make for pretty bad user experience.
-Users need to sign a signature before making a transaction, wait to see the transaction included in a valid block, and then sign another signature.
-These second signatures must also be included within a plasma block, reducing block space available for more transactions!
-[More Viable Plasma](https://ethresear.ch/t/more-viable-plasma/2160), also known as MoreVP, is an extension to Minimal Viable Plasma that removes the need for confirmation signatures.
 
-Plasma MVP relies on confirmation signatures because withdrawals are processed in order based on the position of the output being withdrawn.
-In a nutshell, MoreVP modifies the process through which users can withdraw their funds.
-The ordering of each withdrawal becomes based on the position of the *youngest input* to the transaction that created an output.
 
-This new ordering requires lots of updates to the challenges that make sure only honest users can withdraw their funds.
-An [updated version](https://github.com/omisego/elixir-omg/blob/develop/docs/morevp.md) of the MoreVP specification is currently being maintained and expanded by OmiseGO.
