@@ -9,7 +9,7 @@ links:
     引子: /zh/learn
     离子网络（Plasma）框架: /zh/learn/framework.html
     最简可用离子网络（Plasma MVP）: /zh/learn/mvp.html
-    离子网络现金(Plasma Cash): /zh/learn/cash.html
+    Plasma Cash: /zh/learn/cash.html
   after:
     对比: /zh/learn/compare.html
 ---
@@ -20,11 +20,11 @@ It's sort of like a big Lightning hub, but the channels can be transferred just 
 
 ---
 
-### Consensus
+### 共识机制
 Like Plasma Cash or Plasma MVP, Plasma Debit can make use of pretty much any consensus mechanism.
 However, because of the way it makes use of payment channels, Plasma Debit is more suited for single operators than for lots of validators.
 
-### Deposits
+### 充值
 Deposits in Plasma Debit are basically the same as [deposits in Plasma Cash](/zh/learn/cash.html#deposits).
 Users send some asset to the plasma chain's smart contract, and a unique token is created for those assets.
 Unlike Plasma Cash, this token is also a payment channel with the consensus mechanism!
@@ -32,7 +32,7 @@ It's hard to have a payment channel with lots of people simultaneously, so this 
 
 ![pd-channels](/img/learn/debit/pd-channels.png)
 
-### Transactions
+### 交易事务
 Transactions are really where Plasma Debit differs from Plasma Cash.
 Instead of needing to transfer the entire token to someone whenever you'd like to make a payment, you can simply make use of the payment channel!
 When a user wants to pay another user, they simply pay the operator and have the operator pay the other user simultaneously.
@@ -58,7 +58,7 @@ These payments are super fast (almost instant!) and super simple.
 
 ![pd-payment](/img/learn/debit/pd-payment.png)
 
-### Withdrawals
+### 提现
 Withdrawals in Plasma Debit are also basically the same as [withdrawals in Plasma Cash](/zh/learn/cash.html#withdrawals).
 However, remember that Plasma Debit payment channel transactions allow you to spend fractional parts of your tokens.
 So instead of having to withdraw entire tokens, users are allowed to withdraw fractions of tokens.
@@ -69,7 +69,7 @@ These challenges ensure that the person withdrawing a token is actually that tok
 But what if a user tries to withdraw an entire token when they already spent half of it?
 Plasma Debit solves this by adding one more challenge that blocks the exit if someone reveals a later balance signed by the withdrawing user.
 
-### Pros and Cons
+### 方案的优缺点
 Plasma Debit is a big improvement over Plasma Cash.
 Because it acts like a big Lightning hub, transactions are cheap and super fast.
 Best of all, you still only need to keep track of your own channels. 

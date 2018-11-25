@@ -9,8 +9,8 @@ links:
     引子: /zh/learn
     离子网络（Plasma）框架: /zh/learn/framework.html
     最简可用离子网络（Plasma MVP）: /zh/learn/mvp.html
-    离子网络现金(Plasma Cash): /zh/learn/cash.html
-    离子网络借记（Plasma Debit）: /zh/learn/debit.html
+    Plasma Cash: /zh/learn/cash.html
+    Plasma Debit: /zh/learn/debit.html
 ---
 
 ## 对比
@@ -28,7 +28,7 @@ links:
     <tbody>
       <tr>
         <th>
-          Composition
+          构成
         </th>
         <th></th>
         <th></th>
@@ -36,7 +36,7 @@ links:
       </tr>
       <tr>
         <th>
-          Block Data Structure
+          区块数据结构
         </th>
         <td>
           <ul>
@@ -61,7 +61,7 @@ links:
         </td>
       </tr>
       <tr>
-        <th>Consensus</th>
+        <th>共识机制</th>
         <td>Any consensus (e.g., PoW, PoA, PoS)</td>
         <td>Any consensus (e.g., PoW, PoA, PoS)</td>
         <td>Single or few operators preferred over many because of payment channel structure</td>
@@ -69,13 +69,13 @@ links:
     </tbody>
     <tbody>
       <tr>
-        <th>Features</th>
+        <th>功能特性</th>
         <th></th>
         <th></th>
         <th></th>
       </tr>
       <tr>
-        <th>Deposits</th>
+        <th>充值</th>
         <td>
           <ul>
             <li><span class="font-weight-bold">Value Representation:</span> UTXOs</li>
@@ -98,7 +98,7 @@ links:
         </td>
       </tr>
       <tr>
-        <th>Transactions</th>
+        <th>交易事务</th>
         <td>
           <ul>
             <li>Users spend UTXOs to create new outputs</li>
@@ -121,7 +121,7 @@ links:
         </td>
       </tr>
       <tr>
-        <th>Fees</th>
+        <th>费用</th>
         <td>
           <ul>
             <li>Users pay plasma transaction fees to validators and gas fees when exiting/withdrawing to rootchain or other chains</li>
@@ -139,7 +139,7 @@ links:
         </td>
       </tr>
       <tr>
-        <th>Signatures</th>
+        <th>签名</th>
         <td>
           <ul>
             <li><span class="font-weight-bold">MVP:</span> Transaction signature before block inclusion, confirmation signature post-inclusion; signatures must be sent to operator (PoA)</li>
@@ -158,7 +158,7 @@ links:
         </td>
       </tr>
       <tr>
-        <th>Exits/Withdrawals</th>
+        <th>退出/提现</th>
         <td>
           <ul>
             <li>Proof of unspent UTXO required to exit, confirmation signatures required for MVP</li>
@@ -180,7 +180,7 @@ links:
         </td>
       </tr>
       <tr>
-        <th>Bonds</th>
+        <th>基金</th>
         <td>
           <ul>
             <li><span class="font-weight-bold">MVP:</span> Exit bond</li>
@@ -199,7 +199,7 @@ links:
         </td>
       </tr>
       <tr>
-        <th>Challenges</th>
+        <th>挑战</th>
         <td>
           <ul>
             <li>Challenge by submitting proofs of spent UTXO</li>
@@ -223,7 +223,7 @@ links:
         </td>
       </tr>
       <tr>
-        <th>Proofs Required</th>
+        <th>证明要求</th>
         <td>
           <ul>
             <li><span class="font-weight-bold">State Updates:</span> Proofs of UTXO ownership, state transitions and block inclusion</ul>
@@ -248,7 +248,7 @@ links:
         </td>
       </tr>
       <tr>
-        <th>Other Features</th>
+        <th>其他特性</th>
         <td>
           <ul>
             <li><span class="font-weight-bold">MoreVP:</span> Omitting confirmation signatures for user experience introduces increased complexity if chain is byzantine (e.g., block withholding) putting in-flight transactions at risk, solved by requiring an exit bond</li>
@@ -271,13 +271,13 @@ links:
     </tbody>
     <tbody>
       <tr>
-        <th>Utility</th>
+        <th>功能</th>
         <th></th>
         <th></th>
         <th></th>
       </tr>
       <tr>
-        <th>Pros</th>
+        <th>优点</th>
         <td>
           <ul>
             <li><span class="font-weight-bold">MVP:</span> Scalable, all signatures sent to operator in PoA</li>
@@ -299,7 +299,7 @@ links:
         </td>
       </tr>
       <tr>
-        <th>Cons</th>
+        <th>缺陷</th>
         <td>
           <ul>
             <li>Watchers or users themselves are required to watch and challenge invalid exits</li>
@@ -327,7 +327,7 @@ links:
         </td>
       </tr>
       <tr>
-        <th>Use Cases</th>
+        <th>应用场景</th>
         <td>
           <ul>
             <li>Transactions of NFTs or FTs</li>
@@ -358,7 +358,7 @@ links:
     </tbody>
     <tbody>
       <tr>
-        <th>Resources</th>
+        <th>资源</th>
         <th></th>
         <th></th>
         <th></th>

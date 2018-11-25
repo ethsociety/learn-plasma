@@ -9,8 +9,8 @@ links:
     引子: /zh/learn
     离子网络（Plasma）框架: /zh/learn/framework.html
   after:
-    离子网络现金(Plasma Cash): /zh/learn/cash.html
-    离子网络借记（Plasma Debit）: /zh/learn/debit.html
+    Plasma Cash: /zh/learn/cash.html
+    Plasma Debit: /zh/learn/debit.html
     对比: /zh/learn/compare.html
 ---
 

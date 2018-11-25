@@ -1,6 +1,6 @@
 ---
-title: 离子网络现金(Plasma Cash)
-lead: Understand how Plasma Cash works and when to use it.
+title: Plasma Cash
+lead: 学习Plasma Cash的工作原理和应用场景
 date: 2018-08-21 16:26:02
 categories:
 tags:
@@ -10,106 +10,105 @@ links:
     离子网络（Plasma）框架: /zh/learn/framework.html
     最简可用离子网络（Plasma MVP）: /zh/learn/mvp.html
   after:
-    离子网络借记（Plasma Debit）: /zh/learn/debit.html
+    Plasma Debit: /zh/learn/debit.html
     对比: /zh/learn/compare.html
 ---
 
-## 离子网络现金(Plasma Cash)
-[Plasma Cash](https://ethresear.ch/t/plasma-cash-plasma-with-much-less-per-user-data-checking/1298) is a plasma design primarily built for storing and transferring non-fungible tokens.
-Plasma Cash was originally designed to address the mass exit problem in Plasma MVP.
+## Plasma Cash
+[Plasma Cash](https://ethresear.ch/t/plasma-cash-plasma-with-much-less-per-user-data-checking/1298) 是一种主要用来储蓄和交易不可替代代币的离子网络设计。
+Plasma Cash 的设计初衷是用来解决Plasma MVP 中的大规模退出（mass exit）问题的。
 
 ---
 
-### Consensus
-Plasma Cash chains, like Plasma MVP chains, need a consensus mechanism.
-This mechanism can be anything from a single operator (Proof-of-Authority) to a large set of validators (Proof-of-Stake).
-The design of Plasma Cash ensures that user funds are always safe, even if the consensus mechanism misbehaves.
+### 共识机制
+Plasma Cash链,就像极简离子链（MVP）一样,需要一个共识机制。
+这个共识机制可以是单独的运营员模式 (Proof-of-Authority权威证明)，也可以是由一组验证员构成 (Proof-of-Stake利权证明).
+Plasma Cash 的设计保证用户资产始终是安全的，即使是在共识机制出问题的情况下。
 
-### Deposits
-Users can start using a Plasma Cash chain by depositing assets into the chain's smart contract.
-However, unlike Plasma MVP, each Plasma Cash asset is represented by a non-fungible token.
-For example, if a user deposits 10 ETH into the contract, that user will receive a token worth 10 ETH.
-Each token is given a unique identifier.
+### 充值
+要使用一个Plasma Cash链，用户要先在主链的智能合约充值。
+然后，与极简离子网络的区别是，每个Plasma Cash 的资产是由不可替代代币表示的。
+比如说，如果一个用户向合约充值了10个ETH，那么，用户就会收到一个新的价值10个ETH的代币。
+每一个代币都会被赋予一个独特的标签。
 
-### Blocks
-Plasma Cash blocks are very different from Plasma MVP blocks.
-Each Plasma Cash block has a slot for every token in existence.
-Whenever a token is spent, a record of that transaction is placed at the corresponding slot.
-Here's what that would look like for a Plasma Cash chain with four tokens.
+### 区块
+Plasma Cash 的区块和极简离子网络的区块非常不同。
+每个Plasma Cash的区块中，可以找到所有存在的代币的预留位置。
+每当有一个代币被花费，那一个交易的记录就会被放置在相应的预留位置中。
+这里是一个有4个代币的Plasma Cash 链的样子。
 
 ![pc-block](/img/learn/cash/pc-block.png)
 
-In this example, token **\#4** was sent from user **A** to user **B**.
-Notice that **\#1**, **#2**, and **#3** weren't spent, so we didn't put anything in those slots!
-This special structure gives us something really cool.
-In addition to being able to show that a token was spent in a specific block, we can also show that the token *didn't* change hands in that block.
+在这个例子中， 用户 **A** 将代币 **\#4** 转给了 用户 **B**。
 
-So whereas Plasma MVP blocks form standard [Merkle trees](https://en.wikipedia.org/wiki/Merkle_tree), Plasma Cash blocks form *sparse* Merkle trees.
-Standard Merkle trees don't give us a good way to prove that something *isn't* part of a specific block, but sparse Merkle trees do!
-You can read more about sparse Merkle trees [here](https://medium.com/@kelvinfichter/whats-a-sparse-merkle-tree-acda70aeb837).
+注意这里，代币 **\#1**, **#2**, and **#3** 并没有被花，所以他们相应的预留位置是空的！
+这种特别的结构为我们提供了一些非常酷的特性。
+除了可以证明某一个代币在某一个区块中被花费外，我们现在还可以证明一个代币 *没有* 在一个区块中倒手。
 
-What's cool about this is that users don't actually need to keep track of every single token!
-Transactions of one token can never be placed into the slot of another token.
-Users only need to keep track of their own tokens - it doesn't even matter what's in the other slots.
+所以说，相比极简离子链区块中形成的是标准的 [Merkle trees](https://en.wikipedia.org/wiki/Merkle_tree)， Plasma Cash区块则形成 *疏散* Merkle trees.
+标准Merkle trees无法证明某个区块中没有哪一笔交易, 而疏散 Merkle trees 可以做到这一点!
+想了解更多有关疏散 Merkle trees的内容，可以去[这里](https://medium.com/@kelvinfichter/whats-a-sparse-merkle-tree-acda70aeb837)。
 
-### Transactions
-Since users are only keeping track of their own tokens, they don't know who owns any of the other tokens.
-When a user wants to send their token to another user, they need to prove that they actually own that token!
-This proof consists of the full transaction history of the token - every transaction since the token was first created.
-If the history is correct, then it should show the list of owners ending with the sender.
+这个方案厉害的地方是用户不需要关注每一个代币的动态。
+一个代币的相关交易永远不会被放置在另一个代币的预留位置中。
+用户只需要关注自己的代币 - 别的预留位置与用户无关。
 
-To prove that history is actually correct, the user needs to provide additional proof that each transaction in the history was correctly included in a block.
-Additionally, to show that there aren't any missing transactions, the user also needs to provide a proof that the token <i>wasn't</i> spent in any other block.
-Let's demonstrate this by looking at a few Plasma Cash blocks.
+### 交易事务
+
+因为用户只需要关注自己的代币，那他们并不知道谁永远有任何其他代币的相关信息。
+这样一来，当一个用户想要转账给另一个用户代币的时候，他们首先要证明他确实拥有这些代币！
+这个证明会包含这些代币的全部完整交易历史，这包括这些代币自创建之后的每一笔交易。
+如果这些交易历史都是正确的，那么它最终应显示最终代币的拥有者是我们一开始提到的转账的发起者。
+
+要想证明交易历史确实是正确的，用户需要提供额外的证明，来保证交易历史中的每一笔交易都已经被正确的打包在相应的区块中。
+除此之外，要表明没有任何确实的交易，用户还要提供一个证明来确保代币<i>没有</i>在其他任何区块上被花费。
 
 ![pc-tx](/img/learn/cash/pc-tx.png)
 
-By the end of these four blocks, **G** owns token **#2**, and **C** owns token **#4**.
-So how does **G** prove that they actually own **#2**? Simple!
-**G** just needs to prove that **#2** wasn't spent in blocks #1 and #3, and that it was transferred from **E** to **F** in block #2 and from **F** to **G** in block #4.
-**G** can do this with a simple Merkle proof for each block (taking advantage of the special sparse Merkle tree construction).
+再这4个区块结束后， **G** 拥有代币 **#2**， 而 **C** 拥有代币 **#4**。
+那 **G** 如何证明他的确拥有 **#2**呢？ 很简单！
+**G** 只需要证明 **#2** 没有被打包在区块 #1 和 #3， 并且是在区块#2 由**E** 转给 **F**， 然后在区块#4 由 **F** 转给 **G**的。
+**G** 可以为每个区块提供一个Merkle proof （利用疏散Merkle Tree 的特性）。
 
-Similarly, **C** can prove that they own **#4** by showing that the token wasn't spent in blocks #2 and #4, and showing that it was sent from **A** to **B** and then **B** to **C**.
+类似的， **C** 可以通过证明代币**#4**没有在区块#2和#4中被花费，并且是由**A** 转账给 **B**， 然后再由 **B** 转账给 **C**， 来证明他拥有 **#4**。
 
-### Withdrawals
-Because the block structure of Plasma Cash differs so much from Plasma MVP, the process of withdrawing funds differs too.
+### 提现
+因为Plasma Cash的区块结构与极简离子网络的区别很大，资产提现的过程也很不一样。
 
-#### Starting an Exit
-When a user wants to withdraw a token, they need to submit the two latest transactions in the token's history.
-For example, if **C** wants to withdraw token **#4**, they need to provide the "child" (most recent) transaction from **B** to **C**, and the "parent" transaction from **A** to **B**.
-The user also needs to submit Merkle proofs that show both transactions were included in the blockchain.
+#### 启动退出
+但一个用户决定撤出一个代币，他需要提交代币交易历史中的最近两笔。
+比如说，如果，如果**C** 想要提现 **#4**，那么他需要提供‘子’交易（最新）：由**B** 转给 **C**，还有‘亲’交易：**A** 转给 **B**。
+用户还要提供两笔交易相关的Merkle Proofs来证明它们确实已经被区块链打包。
 
-#### Challenging an Exit
-We need to support three types of challenges to ensure that only the true owner of a token can withdraw that token.
-Withdrawals can be immediately blocked if someone proves that the withdrawing user actually spent the token later on.
-Withdrawals can also be immediately blocked if someone shows that there's transaction *between* the parent and the child transactions, meaning the withdrawing user provided an invalid parent.
+#### 挑战退出
+为了保证只有代币的主人可以提现，我们需要支持三种提现的挑战。
+如果有人证明用户在提供的交易之后确实又花费了代表，那么提现会被立刻终止。
+如果有人证明用户提供的‘子’交易和‘亲’交易*之间*还有其他交易，提现也会被立刻终止。因为这意味着用户提供了非法的‘亲’交易。
+也可以提供代币交易历史中的其他交易来进行挑战。但是这类的挑战不会立刻终止用的提现，而是提现用户会被强行要求提供挑战者提出的交易之后的交易。
 
-Someone can also challenge the withdrawal by providing some other transaction in the token's history.
-This type of challenge doesn't immediately block a withdrawal.
-Instead, the withdrawing user is forced to respond with the transaction that comes after the provided transaction.
+### 方案的优缺点
+Plasma Cash 有非常高的可扩容性，因为用户只需要关注自己的代币。
+但是，这里在可扩容性和系统的灵活性中做出了取舍。
+代币永远会有一个固定的面值 -（目前）暂时还没有一个可以只花掉代币一部分（比如10ETH中的5个ETH）的方法，除非借助如Plasma Debt的额外方案（这个我们会在下一章介绍）。
+这个缺陷使得我们无法在要求分数的应用场景中使用plasma cash，比如交易所。
 
-### Pros and Cons
-Plasma Cash is highly scalable because users only ever need to keep track of their own tokens.
-However, there's a trade-off being made between scalability and flexibility.
-Tokens always have a fixed denomination - there's (currently) no good way to spend a fraction of a token without going into something like Plasma Debit (which we'll discuss in the next section).
-This makes Plasma Cash unsuitable for use cases where fractions of tokens are necessary, like exchanges.
+除此之外，必须随每笔交易发送的证明很快就会变大而造成冗余。
+这些证明需要能够追溯到代币创造的时候。
+离子链运行过一阵子以后，这些证明就会变得无法处理的巨大。
 
-Additionally, the proofs that need to be sent along with each transaction can grow pretty quickly.
-These proofs need to go all the way back to the block in which the token was deposited.
-Once the Plasma Chain has been running for a while, these proofs might get prohibitively large.
+让我们来简单算一下：
 
-Let's do a quick calculation:
+想象一下我们有一条Plasma Cash链，仅仅有一个非常保守的数量的代币，就1000个。
+这回要求我们有一个10层高的疏散Merkle Tree，这也意味着，每个Merkle Proof 都会要求提供10个兄弟哈希值(sibling hashes)。
+每个sibling hash 有32 bytes，那么每个Merkle Proof 就有 32 \* 10 = 320 bytes!
 
-Imagine we have a Plasma Cash chain with a (very) conservative 1000 tokens.
-This results in a sparse Merkle tree with ten levels, which means each Merkle proof needs to provide ten sibling hashes.
-Every sibling hash is 32 bytes, so each Merkle proof is 32 \* 10 = 320 bytes!
+接下来我们想象一下，这条链每隔15秒出一个块（现在的以太坊出块时间）。
+那就是4 \* 60 \* 24 \* 365 = 2102400块每年。
 
-Now let's imagine this chain is producing one block every 15 seconds (the current Ethereum block time).
-That's 4 \* 60 \* 24 \* 365 = 2102400 blocks a year.
+而我们知道，需要发送的证明每个区块会增长320 bytes。
+那一年之后，proof 就会长到320 \* 2102400 = 672768000 bytes， 或者 **0.67** gigabytes!
+这个已经是一个家用网络无法在短时间内处理的数据量了。
 
-We know that the proof to send a single token grows by 320 bytes per block.
-After a year, that proof would grow to 320 \* 2102400 = 672768000 bytes, or **0.67** gigabytes!
-That's already way too much to be transmitted in a reasonable amount of time over even home networks. 
 
-Plasma Cash is still great for certain things.
-Support for non-fungible tokens makes Plasma Cash perfect for things like supply-chain logistics or even [card games](https://www.kickstarter.com/projects/328862817/zombie-battleground-the-new-generation-of-ccg-tcg)!
+但Plasma Cash 还是有用武之地的。
+对不可替换代币的支持，是的Plasma Cash 非常适合供应链，甚至[卡牌游戏](https://www.kickstarter.com/projects/328862817/zombie-battleground-the-new-generation-of-ccg-tcg)!
