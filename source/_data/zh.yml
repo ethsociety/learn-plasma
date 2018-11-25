@@ -43,7 +43,7 @@ index:
   help:
     title: 更多帮助
     text: 加入讨论并获得更多人的指点。
-    report-issue: 提交一个问题
+    report-issue: 反馈问题
   rss:
     title: RSS
     text: 订阅RSS feed，不再错过最新的文章和有关离子网络（Plasma）的讨论。
