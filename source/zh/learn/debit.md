@@ -1,5 +1,5 @@
 ---
-title: 离子网络借记（Plasma Debit）
+title: Plasma Debit（离子网络借记）
 lead: Discover how Plasma Debit combines Plasma Cash and payment channels.
 date: 2018-08-21 16:26:02
 categories:
@@ -14,21 +14,21 @@ links:
     对比: /zh/learn/compare.html
 ---
 
-## 离子网络借记（Plasma Debit）
-[Plasma Debit](https://ethresear.ch/t/plasma-debit-arbitrary-denomination-payments-in-plasma-cash/2198) is like Plasma Cash, except every token is a payment channel between the user and the chain operator.
-It's sort of like a big Lightning hub, but the channels can be transferred just like a Plasma Cash token!
+## Plasma Debit（离子网络借记）
+[Plasma Debit](https://ethresear.ch/t/plasma-debit-arbitrary-denomination-payments-in-plasma-cash/2198) 与Plasma Cash类似, 区别是每个代币都是一个用户和运营员之间的支付通道（payment channel）。
+这有点像一个大的闪电网络枢纽，但是正如Plasma Cash 代币，支付通道本身也可以被转账。
 
 ---
 
 ### 共识机制
-Like Plasma Cash or Plasma MVP, Plasma Debit can make use of pretty much any consensus mechanism.
-However, because of the way it makes use of payment channels, Plasma Debit is more suited for single operators than for lots of validators.
+就像 Plasma Cash 或 Plasma MVP一样, Plasma Debit 的离子链也可以选用任何共识机制。
+但是，由于支付通道的引入，相比于一群验证者，Plasma Debit 更适用于采用一个单独的运营员。
 
 ### 充值
-Deposits in Plasma Debit are basically the same as [deposits in Plasma Cash](/zh/learn/cash.html#deposits).
-Users send some asset to the plasma chain's smart contract, and a unique token is created for those assets.
-Unlike Plasma Cash, this token is also a payment channel with the consensus mechanism!
-It's hard to have a payment channel with lots of people simultaneously, so this really lends itself to single operators.
+Plasma Debit的充值与[Plasma Cash的充值](/zh/learn/cash.html#deposits)基本一样。
+用户向主链的智能合约发送资产，然后，在离子链上一个独特的代币会相应被创造。
+与Plasma Cash不同的是，这个代币同时也是一个使用共识机制的支付通道。
+有许多人同时共同参与的支付通道很难实现，所以这里更适用的是单独的运营员模式。
 
 ![pd-channels](/img/learn/debit/pd-channels.png)
 
