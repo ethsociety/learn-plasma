@@ -33,58 +33,60 @@ Plasma Debit的充值与[Plasma Cash的充值](/zh/learn/cash.html#deposits)基�
 ![pd-channels](/img/learn/debit/pd-channels.png)
 
 ### 交易事务
-Transactions are really where Plasma Debit differs from Plasma Cash.
-Instead of needing to transfer the entire token to someone whenever you'd like to make a payment, you can simply make use of the payment channel!
-When a user wants to pay another user, they simply pay the operator and have the operator pay the other user simultaneously.
+Plasma Debit与Plasma Cash的主要不同在于交易事务。
+相比于每次在需要的支付的时候，转账整个代币，你只需要使用支付通道就好了！
+当一个用户需要向另一个用户转账的时候，他只需要向离子链的运营员转账，然后让运营员同时向另一个用户转账。
 
-The problem here is that the recipient needs to have a payment channel with the operator too!
-More specifically, the recipient needs to have a channel *where the operator has funds*.
-This is a huge user experience issue if the recipient doesn't already have a payment channel with the operator.
-We can't expect everyone to be part of the network in advance, so what do we do?
+问题是这要求转账的收款者也需要和运营员之间有一个支付通道！
+更具体的说，收款者需要在一个*运营员有资产的*支付通道。
+如果收款者暂时与运营员还没有支付通道，那么这就会是个很大的用户体验问题。
+我们没法指望每人都提前加入到网络中，这可怎么办呢？
 
-Here's where we take advantage of the Plasma Cash-like features of Plasma Debit.
-The payment channels in Plasma Debit are tokens, just like in Plasma Cash - they can be transferred to other users!
-Let's say **A** has a payment channel and wants to send money (1 ETH) to **B**, who isn't part of the network yet.
+这就是我们可以利用Plasma Debit类似于Plasma Cash的一些特性的地方了。
+Plasma Debit中的支付通道本身是代币，就像Plasma Cash一样 - 它们也可以被转账给别的用户。
 
-**B** can't just create this payment channel by themselves because they need a channel where the operator has at least 1 ETH.
-Instead, the operator needs to create the channel for **B**.
-It'd be inconvenient for the operator to have to create a new channel whenever a user joins the network, but they don't need to!
-The operator can just create a bunch of channels in advance (with themselves), and transfer them to users who are receiving a payment for the first time.
+比如说**A**有一个支付通道并且打算发送 1 ETH 给 **B**，而**B**暂时还没有在网络中。
+
+**B** 没法直接自己创建一个支付通道，因为他需要一个运营员有至少1个ETH的支付通道。
+这意味，运营员需要为**B**创建一个支付通道。
+如果每有一个新的用户加入到网络中，运营员就要创建一个新的支付通道的话，那也太麻烦了，但幸好他们并不需要！
+运营员只需要提前与他自己创建一批支付通道就好，然后在之后必要的时候把他们转给第一次收款的用户。
 
 ![pd-xfer](/img/learn/debit/pd-xfer.png)
 
-Now that **A** and **B** both have the necessary channels, we can start making channel payments!
-These payments are super fast (almost instant!) and super simple.
+那现在 **A** 和 **B**都有了所需的支付通道了，我们就可以开始进行通道转账了！
+这类的支付是非常快的（几乎立刻到账）并且非常简单。
 
 ![pd-payment](/img/learn/debit/pd-payment.png)
 
 ### 提现
-Withdrawals in Plasma Debit are also basically the same as [withdrawals in Plasma Cash](/zh/learn/cash.html#withdrawals).
-However, remember that Plasma Debit payment channel transactions allow you to spend fractional parts of your tokens.
-So instead of having to withdraw entire tokens, users are allowed to withdraw fractions of tokens.
-If a user spent half of a 1 ETH token, then they're allowed to withdraw 0.5 ETH.
+提现对于Plasma Debit来说也进本和 [Plasma Cash中的提现一样](/zh/learn/cash.html#withdrawals)。
+但是，要记住的是Plasma Debit的支付通道允许你只花代币的一部分（fractional parts）。
+所以，相比于必须提现整个代币，用户现在可以只提现代币的一部分。
+如果用户花费了一个1ETH代币的一半，那他依然可以提现0.5个ETH。
 
-Generally the exit challenges stay the same as in Plasma Cash.
-These challenges ensure that the person withdrawing a token is actually that token's owner.
-But what if a user tries to withdraw an entire token when they already spent half of it?
-Plasma Debit solves this by adding one more challenge that blocks the exit if someone reveals a later balance signed by the withdrawing user.
+通常讲，Plasma Debit的退出挑战与Plasma Cash一样。
+这些挑战机制保证提现者确实是代币的拥有者。
+但如果用户已经花费了代币的一半，但却想提现一整个代币呢？ 
+Plasma Debit为此增加了一类挑战：如果有人证明有一笔更新的有提现用户签名的（不同的）账户余额，那么提现会被立刻阻止。
+
 
 ### 方案的优缺点
-Plasma Debit is a big improvement over Plasma Cash.
-Because it acts like a big Lightning hub, transactions are cheap and super fast.
-Best of all, you still only need to keep track of your own channels. 
+Plasma Debit相对Plasma Cash有很大提升。
+因为它类似雷电枢纽的机制，交易非常的廉价并且迅捷。
+最好的是，你只需要关注自己的交易通道。
 
-However, the design does have its downsides.
-Users still need to transmit a proof whenever they want to transfer a channel to someone else, just like in Plasma Cash.
-This proof can be [pretty big](/zh/learn/cash.html#pros-and-cons).
+但是，这个设计也有自己的缺点。
+与Plasma Cash类似，用户每次将一个通道转给另外一个用户，都需要提供证明。
+这样的证明可能会变的[非常大](/zh/learn/cash.html#pros-and-cons).
 
-As we mentioned before, users needs a payment channel with the operator in order to receive money.
-Operators will probably create lots of channels in advance that can be transferred to new users.
-Each of these channels requires the operator lock up some funds.
-Depending on how big the network gets, that might be a lot locked up funds!
+像我们之前提到过的，用户需要与运营员有交易通道，才可以收款。
+交易员很可能会需要预先创建很多交易通道来转给新用户。
+而每一个这样的通道，都需要运营员锁一些资产。
+根据网络的大小看，这可能需要锁很多的资产！
 
-Although we won't get too much into them, payment channels also have problems of their own.
-These mainly create UX headaches for end-users.
+虽然这里我们不打算深入的讨论，但是交易通道这种方案本身也有自己的问题。
+这些主要还是会造成终端用户的体验问题。
 
-Plasma Debit isn't much better than Plasma Cash for cross-currency payments.
-There currently aren't any great Plasma Debit DEX proposals.
+而对于跨币种支付Plasma Debit并不比Plasma Cash好很多。
+目前还没有很好的Plasma Debit去中心化交易所的提案。
