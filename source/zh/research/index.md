@@ -1,19 +1,19 @@
 ---
-title: Research
-lead: Plasma is pretty new. There's still lots of research to be done! This page maintains a list of active research areas, open questions, and background resources.
-sublead: Researching something cool and plasma related? Open an issue on GitHub and we'll publish the relevant information to this page.
+title: 科研
+lead: 离子网络（Plasma）还是非常的前沿。仍有很多探索要做！这个页面维护了一些目前非常活跃的研究领域，未解答的问题，还有相关的背景资源。
+sublead: 你在调研plasma相关的很酷的东西? 可以在GitHub开issue，然后我们就会把相关信息发布到这个页面上。
 date: 2018-08-21 16:26:02
 categories:
 tags:
 ---
 
-## General Research
-Lots of research goes into making plasma better in general!
-This section contains broader research topics that impact most plasma designs.
+## 综合科研
+有很科研可以让离子网络整体的提升！
+这个章节包括可以影响大部分的离子网络架构的主题更广的科研课题。
 
 <br>
 
-### Cheaper Commitments
+### 更轻量的承诺数据（Commitments）
 Plasma contracts make commitments to blocks instead of publishing the full blocks themselves.
 Although this is already much cheaper than using Ethereum directly, it can still get pretty expensive!
 
@@ -32,19 +32,19 @@ Some research has gone into repeatedly reusing Ethereum memory space to make com
 Check out this post on [Merkle Mountain Ranges](https://ethresear.ch/t/double-batched-merkle-log-accumulators-for-efficient-plasma-commitments/2313) in plasma for an example.
 This cuts down the commitment cost by about 50%, but that's still not perfect.
 
-#### Research Questions
+#### 科研问题
 + How can further reduce the gas cost to submit a commitment?
 + Can multiple chains coordinate to commit at the same time?
 + Can a chain make fewer commitments but retain the same level of security?
 
-#### Resources
+#### 资源
 + [Merkle Mountain Ranges](https://github.com/opentimestamps/opentimestamps-server/blob/master/doc/merkle-mountain-range.md)
 + [Double-batched Merkle log accumulator](https://ethresear.ch/t/double-batched-merkle-log-accumulator/571)
 + [Double Batched Merkle Log Accumulators for Efficient Plasma Commitments](https://ethresear.ch/t/double-batched-merkle-log-accumulators-for-efficient-plasma-commitments/2313)
 
 <br>
 
-### Fast Finality
+### 快速最终确定性（Finality）
 Although most current plasma implementations significantly increase transaction throughput, they don't improve on finality time.
 In fact, without some additional constructions, we're typically still limited to the finality time of the root chain.
 Ethereum's "safe finality" time is about 6 minutes (25 confirmations or so). 
@@ -71,18 +71,18 @@ For example, what happens when there isn't a single operator but multiple valida
 If the validators can't be sure they'll be able to include the transaction, they might not sign these contracts.
 Also, we don't want the counterparty to "overpromise," so we need to make sure each contract is properly backed.
 
-#### Research Questions
+#### 科研问题
 + Are there other methods for reaching finality?
 + Can we make "finality contracts" when we have multiple validators?
 + How do we prevent finality counterparties from overpromising?
 
-#### Resources
+#### 资源
 + [On Settlement Finality](https://blog.ethereum.org/2016/05/09/on-settlement-finality/)
 + [Cryptoeconomic finality](https://github.com/omisego/research/issues/29)
 
 <br>
 
-### Running the Numbers
+### 演算这些重要的指标数字
 This is a great research topic for people who are relatively new to plasma.
 We have lots of different plasma designs, but not many people have done the important math!
 
@@ -97,13 +97,13 @@ These things really just need to be researched and tested.
 Below is a non-exhaustive list of things that would be useful to model.
 Feel free to add more suggestions if you have them!
 
-#### Research Questions
+#### 科研问题
 + How much data will the average user have to store in Plasma Cash?
 + How long does it take to verify a signature under different schemes?
 + How large should a Plasma MVP exit bond be?
 + How many simultaneous Plasma chains can Ethereum handle?
 
-#### Resources
+#### 资源
 + [Math: Plasma MVP vs. Plasma Cash](https://github.com/omisego/research/issues/33)
 
 <br>
@@ -122,42 +122,43 @@ Hashes circuits tend to take on the order of a few seconds to compute.
 As a result, it'll probably take on the order of hours to generate a proof that an entire plasma block is valid.
 
 zk-SNARKs have plenty of applications, we just need to find them and figure out which are feasible.
-Lots of research questions still need to be explored!
+Lots of 科研问题 still need to be explored!
 
-#### Research Questions
+#### 科研问题
 + How can we potentially make use of zk-SNARKs in plasma?
 + How long would a block validity proof take to generate?
 + Can we make use of STARKs?
 + Can we feasibly add private transactions with SNARKs?
 
-#### Resources
+#### 资源
 + [Zk-SNARKs: Under the Hood](https://medium.com/@VitalikButerin/zk-snarks-under-the-hood-b33151a013f6)
 + [Zk-SNARKs for Plasma](https://ethresear.ch/t/plasma-is-plasma/2195)
 + [Plasma snapp](https://ethresear.ch/t/plasma-snapp-fully-verified-plasma-chain/3391)
 
 <br>
 
-### Generalized Plasma
-Current work on plasma is highly concentrated in two areas we know plasma does well - payments and exchange.
-Almost every project working on plasma is focused on one, or both, of these challenges.
-But just like with payment channels, we want to know if plasma can really do bigger (and better) things.
-We need the equivalent of state channels to payment channels - or Ethereum to Bitcoin - a generalized plasma design.
+### 广义离子网络（Generalized Plasma）
+当前的离子网络的相关工作高度集中在我们已知的离子网络可以胜任的领域 - 支付和交易。
+几乎每一个离子网路的项目都会专注在这两个挑战之一或者两个都涵盖。
+但是就像支付通道一样，我们也像知道离子网络能不能实现更大（也更好）的事情。
+我们需要相对支付通道的状态通道 - 或者相对比特币的以太坊 - 一个更加广义的离子链设计。
 
-Generalized plasma chains would let application developers build plasma apps without needing to understand how plasma works under the hood.
-This is exactly how DApp developers can build on top of Ethereum without needing to know how Ethereum really works.
-We've understood for some time now that [building generalized plasma chains is really hard](https://medium.com/@kelvinfichter/why-is-evm-on-plasma-hard-bf2d99c48df7).
-A few teams are currently working on exactly this problem, but they need help.
+广义离子链可以允许应用的开发者搭建离子网络应用，而不需要了解离子网络的底层原理。
+这完全就像去中心化应用的开发者可以在以太坊上开发应用，而不需要了解以太坊具体底层如何工作一样。
+我们对这一方面的了解已经有一段时间了，那就是[搭建广义的离子网络链很难](https://medium.com/@kelvinfichter/why-is-evm-on-plasma-hard-bf2d99c48df7).
+有几个团队目前就在努力解决这个问题，但他们也需要帮助。
 
-You should start by catching up with the following resources before trying to dive into the questions.
-This will give you a much stronger understanding of the challenges we face in making generalized plasma a reality.
 
-#### Research Questions
+在深扎这个挑战之前，你可以从学习下面这些资源开始入门。
+这会让你对实现广义离子链需要克服的困难有一个更深刻的理解。
+
+#### 科研问题
 + What exatly makes generalized plasma chains so difficult?
 + What sort of applications fit into the plasma framework?
 + What sort of applications don't fit into the plasma framework?
 + Is a fully generalized (EVM-like) plasma chain even possible?
 
-#### Resources
+#### 资源
 + [Why is EVM-on-Plasma hard?](https://medium.com/@kelvinfichter/why-is-evm-on-plasma-hard-bf2d99c48df7)
 + [Plasma EVM 2.0: state-enforceable construction](https://ethresear.ch/t/plasma-evm-2-0-state-enforceable-construction/3025)
 + [Plasma Leap - a State-Enabled Computing Model for Plasma](https://ethresear.ch/t/plasma-leap-a-state-enabled-computing-model-for-plasma/3539)
@@ -170,7 +171,7 @@ Some of this research will be useful to other designs, though!
 
 <br>
 
-### Mass Exits
+### 大量同时退出（Mass Exits）
 Unlike Plasma Cash, the design of Plasma MVP requires that users be able to quickly exit in the case of a safety failure.
 Basically, we need everyone to be able to "exit" the plasma chain within some short period of time (e.g. one week).
 
@@ -191,16 +192,16 @@ One proposed way to do this is to add metadata to each transaction and allow use
 This way, large sets of users can exit together.
 
 
-#### Research Questions
+#### 科研问题
 + What are the most efficient ways to aggregate UTXOs in mass exits?
 
-#### Resources
+#### 资源
 + [Proving UTXO sum validity for mass exits](https://ethresear.ch/t/proving-utxo-sum-validity-for-mass-exits/2023)
 + [Basic Mass Exits for Plasma MVP](https://ethresear.ch/t/basic-mass-exits-for-plasma-mvp/3316)
 
 <br>
 
-### Fast Withdrawals
+### 快速提现
 Plasma chains typically require that users wait for a challenge period to pass before they can withdraw funds.
 Although this is a security mechanism, it's also quite annoying.
 Users typically want to be able to access their funds within a short period of time.
@@ -217,18 +218,18 @@ However, there are probably other ways to reduce the exit period!
 For example, efficient mass exits will reduce the amount of time necessary to exit the entire chain.
 It would also be useful to look into user experience of "selling exits" to see if we can make the process as smooth as possible.
 
-#### Research Questions
+#### 科研问题
 + How do we determine optimal challenge period length?
 + How do we improve the user experience of "selling exits"?
 + How else can we reduce challenge period length without reducing security?
 
-#### Resources
+#### 资源
 + [Simple Fast Withdrawals](https://ethresear.ch/t/simple-fast-withdrawals/2128)
 + [Enabling Fast Withdrawals for Faulty Plasma Chains](https://ethresear.ch/t/enabling-fast-withdrawals-for-faulty-plasma-chains/2909)
 
 <br>
 
-### Atomic Swaps
+### 原子性交换
 A lot of projects are planning to use plasma as part of a decentralized exchange.
 One fundamental component of most decentralized exchanges is the atomic swap.
 An atomic swap is basically a trade that either executes or fails.
@@ -248,16 +249,16 @@ Unfortunately, this design still doesn't provide for repeated partial fills.
 A user would have to sign a new transaction for each partial fill, instead of signing a trade once and having the order filled multiple times.
 This is a huge open area of research and there's a lot to be explored!
 
-#### Research Questions
+#### 科研问题
 + How can we allow for partial order fills with atomic swaps?
 + What are the pros and cons of different atomic swap protocols?
 
-#### Resources
+#### 资源
 + [Using Relayers for Order Matching](https://github.com/omisego/research/issues/20)
 
 <br>
 
-### Confirmation Signatures
+### 确认签名
 Confirmation signatures are one of the most annoying mechanisms required by the Plasma MVP design.
 Basically, confirmation signatures require that a user sign one signature to create a transaction and then sign a second to "validate" it.
 This is a security consideration that prevents a plasma consensus mechanism from placing invalid transactions "before" valid ones.
@@ -272,13 +273,13 @@ However, More Viable Plasma is still confusing for most people and current imple
 
 Research into alternative exit games with better UX than confirmation signatures is always useful.
 The best way to get started working on this topic is to understand why confirmation signatures are necessary, why they're bad UX, and how people have attempted to remove them.
-Hopefully the resources provided prove helpful!
+Hopefully the 资源 provided prove helpful!
 
-#### Research Questions
+#### 科研问题
 + How can we safely remove confirmation signatures?
 + How do we make a gas-efficient implementation of More Viable Plasma?
 
-#### Resources
+#### 资源
 + [Why Do We Need Confirmation Signatures?](https://ethresear.ch/t/why-do-dont-we-need-two-phase-sends-plus-confirmation/1866/14?u=kfichter)
 + [Confirmation Signatures Must Be Included on the Plasma Chain](https://ethresear.ch/t/plasma-vulnerabiltity-sybil-txs-drained-contract/1654)
 + [Griefing Vectors in Confirmation Signatures](https://ethresear.ch/t/griefing-vectors-in-confirmation-signatures/2301)
@@ -291,7 +292,7 @@ Can we extend that so it works well for fungible ones too?
 
 <br>
 
-### Merging/Splitting
+### 资产的合并与分解
 Plasma Cash was built primarily for non-fungible assets.
 People have started to look into "merging" or "splitting" these assets as a way to enable a sort of fungibility.
 If we can find a simple way to represent these merges or splits, then we can basically simulate fungibility.
@@ -311,19 +312,19 @@ Existing proposals for splitting tend to require the user hold a new "coin" for 
 This vastly increases the already large amount of proof data a user is required to store.
 Improvements to Plasma Cash proof size would probably make this point less important.
 
-#### Research Questions
+#### 科研问题
 + How can we efficiently represent the components of a merged assets?
 + How can we reduce the proof data added by each split?
 + How else can we represent merges and splits?
 + How does merging and splitting impact Plasma XT?
 
-#### Resources
+#### 资源
 + [Proposal for Plasma Cash Splitting and Merging](https://ethresear.ch/t/one-proposal-for-plasma-cash-with-coin-splitting-and-merging/1447)
 + [Arbitrary Coin Merging in Plasma Cash](https://ethresear.ch/t/plasma-cash-plasma-with-much-less-per-user-data-checking/1298/53)
 
 <br>
 
-### Shorter Proofs
+### 更短的证明
 Plasma Cash requires that users generate a "proof of validity" when sending a token to another user.
 This proof is composed of Merkle proofs for each block since the token's inception.
 The size of this proof therefore grows linearly with the size of the Plasma Cash chain.  
@@ -348,18 +349,18 @@ For example, it might be possible to compress the proofs for blocks where the co
 We might also be able to use zk-SNARKs to decrease the proof size at the cost of extra computation for the prover.
 We can also make use of checkpointing mechanisms, like Plasma XT, which allow users to create checkpoints and put a cap on the proof size.
 
-#### Research Questions
+#### 科研问题
 + How can we use zk-SNARKs to reduce the Plasma XT proof size?
 + Can we compress the proofs for periods where the coin was unspent?
 
-#### Resources
+#### 资源
 + [Plasma XT](https://ethresear.ch/t/plasma-xt-plasma-cash-with-much-less-per-user-data-checking/1926)
 + [Plasma Cash Without Any Blockchain at All](https://ethresear.ch/t/plasma-cash-without-any-blockchain-at-all/1974)
 + [RSA Accumulators for Plasma Cash history reduction](https://ethresear.ch/t/rsa-accumulators-for-plasma-cash-history-reduction/3739)
 
 <br>
 
-### Checkpoints
+### 存档点（Checkpoints）
 This topic is generally related to decreasing the size of Plasma Cash transaction proofs.
 However, the topic is interesting enough that it deserves its own section.
 
@@ -385,18 +386,18 @@ A user needs to request to be checkpointed, receive the entire checkpoint tree, 
 We also place a lot of responsibility on the operator.
 There might be a way to create these checkpoints in a more decentralized manner or in a way that improves UX.
 
-#### Research Questions
+#### 科研问题
 + Are there better ways to checkpoint things in Plasma Cash?
 + How can we make Plasma XT cheaper?
 + How can we improve the user experience of Plasma XT?
 
-#### Resources
+#### 资源
 + [Plasma XT](https://ethresear.ch/t/plasma-xt-plasma-cash-with-much-less-per-user-data-checking/1926)
 + [Plasma checkpoint cost](https://ethresear.ch/t/plasma-checkpoint-cost-and-block-time/2016)
 
 <br>
 
-### Defragmentation
+### 去碎片化（Defragmentation）
 A concept was [recently proposed](https://ethresear.ch/t/plasma-cash-defragmentation/3410) to have Plasma Cash coins be represented as a single, very small denomination.
 For example, if you deposit 1 ETH, you might get a ton of 0.0000001 ETH coins back.
 Obviously it'd be way too expensive to keep track of all of these coins individually, so we use a few tricks to represent all of these coins as a single thing (that can be broken apart and joined back together).
@@ -411,21 +412,21 @@ So far there hasn't been any good way to "force" people to swap places.
 
 A good defragmentation method would make Plasma Cash much more viable in the long term!
 
-#### Research Questions
+#### 科研问题
 + How can we efficiently defragment a Plasma Cash chain?
 + How many fragments can we expect the average user to have to maintain?
 + How can fragmentation be attacked by people actively trying to create more fragments?
 + Can we force users to clean up their fragments without introducing mass exit vulnerabilities?
 + Can we make use of constructions similar to Plasma XT to defragment?
 
-#### Resources
+#### 资源
 + [Plasma Cash Defragmentation](https://ethresear.ch/t/plasma-cash-defragmentation/3410)
 + [Plasma Cash Defragmentation, take 2](https://ethresear.ch/t/plasma-cash-defragmentation-take-2/3515)
 + [Plasma Cash Defragmentation, take 3](https://ethresear.ch/t/plasma-cash-defragmentation-take-3/3737)
 
 <br>
 
-### Atomic Swaps
+### 原子性交换（Atomic Swaps）
 Atomic swaps are useful in any system.
 We need to have good systems that allow users to trustlessly exchange goods.
 However, we haven't seen the development of simple atomic swap protocols for Plasma Cash.
@@ -439,9 +440,9 @@ We're interested in finding better protocols that either don't include this grie
 If you want to write code, it'd be great to see an atomic swap implemented for real!
 [Loom's Plasma Cash](https://github.com/loomnetwork/plasma-cash) repository is a very approachable place to start.
 
-#### Research Questions
+#### 科研问题
 + What's the most efficient atomic swap protocol?
 + Do atomic swaps introduce any security flaws or griefing vectors?
 
-#### Resources
+#### 资源
 + [Plasma Cash Minimal Atomic Swap](https://ethresear.ch/t/plasma-cash-minimal-atomic-swap/3409)

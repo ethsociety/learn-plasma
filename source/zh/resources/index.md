@@ -1,13 +1,13 @@
 ---
-title: Resources
-lead: This page contains resources you might find useful.
+title: 资源
+lead: 这个页面包含一些可能对你有用的资源。
 date: 2018-08-21 16:26:02
 categories:
 tags:
 ---
 
-## Contributing
-### Making GitHub Issues
+## 参与进来
+### 在GitHub提Issues
 If you're not familiar with GitHub, this is the place for you.
 All of the resources on this website are available publicly on [GitHub](https://github.com/ethsociety/plasma-website).
 GitHub is basically a website that allows people to store code online.
@@ -56,8 +56,8 @@ Once you've filled in the relevant information, hit the "Submit new issue" butto
 You've just submitted your first GitHub issue.
 Hopefully this helped - if you're still stuck you can make a post on the [LearnPlasma subreddit](http://reddit.com/r/learnplasma), tweet at the [LearnPlasma Twitter account](https://twitter.com/learnplasma), or shoot us an email at [contact@learnplasma.org](mailto:contact@learnplasma.org?Subject=GitHub%20Help).
 
-## Plasma MVP Specification
-### Root Chain Contract 
+## Plasma MVP 的设计标准
+### 主链合约 
 #### Events
 ##### `DepositCreated`
 
@@ -288,7 +288,7 @@ Pays out any exits that have passed their challenge period.
 
 ---
 
-### Child Chain
+### 侧链
 #### Transaction Format
 ```
 [
