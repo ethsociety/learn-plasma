@@ -4,6 +4,16 @@ let trailingSlashPattern = /\/$/;
 
 require('bootstrap');
 
+// Load images on init.
+window.onload = () => {
+  let images = document.getElementsByTagName('img');
+  for (let i = 0; i < images.length; i++) {
+    if (images[i].getAttribute('data-src')) {
+      images[i].setAttribute('src', images[i].getAttribute('data-src'));
+    }
+  }
+}
+
 $(() => {
   let pathname = window.location.pathname.replace(trailingSlashPattern, '');
 
