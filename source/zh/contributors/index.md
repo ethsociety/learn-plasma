@@ -1,8 +1,8 @@
 ---
 layout: generic
 lang: en
-title: Contributors
-lead: This page is dedicated to our awesome contributors. Come help and get your name on this page!
+title: 贡献者
+lead: 这个页面是用来项目超棒的贡献者致敬的。来帮助我们，然后把你的名字留在这里吧！
 date: 2018-08-21 16:26:02
 categories:
 tags:
