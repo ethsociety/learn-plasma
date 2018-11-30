@@ -26,7 +26,7 @@ You'll want to make a GitHub account if you don't have one already ([click here]
 If you'd like to make your first issue, start by heading over to the [LearnPlasma GitHub page](https://github.com/ethsociety/plasma-website).
 You should see something like this:
 
-![github3](/img/misc/github/github3.png)
+![github1](/img/misc/github/github1.png)
 <br><br>
 
 Now, you'll want to click on the tab titled "Issues." If you can't find the tab, you can get to the issues page directly by heading to this link:
