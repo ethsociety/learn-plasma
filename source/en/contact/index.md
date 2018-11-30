@@ -12,7 +12,7 @@ tags:
   <div class="row">
     <div class="col-sm-12 col-md-8 align-self-center">
       <br><br>
-      <form name="contact" method="POST"><input type="hidden" name="form-name" value="contact">
+      <form name="contact" method="POST"><input type="hidden" name="form-name" value="contact" data-netlify-recaptcha>
         <div class="form-group">
           <label for="name">Name</label>
           <input id="contact-name" name="name" type="text" class="form-control" required autofocus>
@@ -25,6 +25,7 @@ tags:
           <label for="message">Message</label>
           <textarea id="contact-message" name="message" type="text" class="form-control" required=""></textarea>
         </div>
+        <div class="g-recaptcha" data-sitekey="6Le0H34UAAAAAKL7SXtoG1yAYiSz187YWbTIxeRa"></div>
         <input type="submit" value="Send" class="btn btn-primary">
       </form>
       <br><br>
