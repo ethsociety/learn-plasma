@@ -72,6 +72,15 @@ $(document).on('click', '.nav-sidebar > .nav-item > .nav-link', function() {
   link.toggleClass('active');
 });
 
+// For sub-menu items
+$(document).on('click', '.nav-sidebar > .nav-item > .nav > .nav-link', function() {
+  $('.nav-sidebar > .nav-item > .nav > .nav-link').each((_, el) => {
+    $(el).removeClass('active');
+  });
+  let link = $(this);
+  link.toggleClass('active');
+});
+
 let updateSidebarWidth = () => {
   $('.sidebar').each((_, el) => {
     let tag = $(el);
