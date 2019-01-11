@@ -233,8 +233,6 @@ $(document).on('click', "a[href^='#']", function() {
     if (body.hasClass('sidebar-open')) {
       sidebarClose();
     }
-
-    return false;
   }
 });
 
