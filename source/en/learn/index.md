@@ -10,6 +10,7 @@ links:
     Plasma MVP: /en/learn/mvp.html
     Plasma Cash: /en/learn/cash.html
     Plasma Debit: /en/learn/debit.html
+    Plasma Prime: /en/learn/prime.html
     Comparison: /en/learn/compare.html
 ---
 
