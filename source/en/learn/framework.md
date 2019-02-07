@@ -67,7 +67,7 @@ As long as you and the shop agree about your current balance, everything is easi
 So this is really at the core of most layer 2 projects.
 The above example is quite simple - it only involves two participants (you and the coffee shop).
 However, people wanted to see if we could extend that idea to entire blockchains.
-Would it be possible to transfer money from one blockchain to smaller (and cheaper) blockchain temporarily, move the money around on the second chain, and eventually transfer money back?
+Would it be possible to transfer money from one blockchain to another smaller (and cheaper) blockchain temporarily, move the money around on the second chain, and eventually transfer money back?
 Turns out, it is!
 Here's where we start to see the evolution of "sidechains." 
 
