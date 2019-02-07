@@ -64,7 +64,7 @@ Once a user has deposited, they're ready to start making transactions on the pla
 
 ### Transactions
 Users can transact on the plasma chain by spending an output they own and creating new outputs.
-In practice, this means signing a signature that confirms the user is willing to make the transaction.
+In practice, this means cryptographically signing a statement that confirms the user is willing to make the transaction.
 This transaction (and the corresponding signature) is then sent off to the **operator**.
 
 The operator will receive a bunch of transactions and then include them into an ordered list of transactions called a **block**.
