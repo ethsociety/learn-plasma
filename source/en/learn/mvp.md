@@ -154,4 +154,4 @@ In a nutshell, MoreVP modifies the process through which users can withdraw thei
 The ordering of each withdrawal becomes based on the position of the *youngest input* to the transaction that created an output.
 
 This new ordering requires lots of updates to the challenges that make sure only honest users can withdraw their funds.
-An [updated version](https://github.com/omisego/elixir-omg/blob/develop/docs/morevp.md) of the MoreVP specification is currently being maintained and expanded by OmiseGO.
+An [updated version](https://github.com/omisego/elixir-omg/blob/master/docs/morevp.md) of the MoreVP specification is currently being maintained and expanded by OmiseGO.
